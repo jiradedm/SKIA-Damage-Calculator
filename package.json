@@ -1,6 +1,7 @@
 {
-  "name": "seven",
+  "name": "skia-damage-calculator",
   "version": "0.1.0",
+  "homepage": "https://jiradedm.github.io/SKIA-Damage-Calculator/",
   "private": true,
   "scripts": {
     "dev": "next dev",

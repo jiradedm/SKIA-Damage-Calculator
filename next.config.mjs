@@ -7,6 +7,7 @@ const nextConfig = {
   async generateBuildId() {
     return execSync(lastCommitCommand).toString().trim() || "";
   },
+  output: "export",
 };
 
 export default nextConfig;
