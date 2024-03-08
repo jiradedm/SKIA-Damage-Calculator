@@ -8,7 +8,7 @@ const nextConfig = {
     return execSync(lastCommitCommand).toString().trim() || "";
   },
   output: "export",
-  assetPrefix: "SKIA-Damage-Calculator",
+  assetPrefix: "https://jiradedm.github.io/SKIA-Damage-Calculator",
 };
 
 export default nextConfig;
