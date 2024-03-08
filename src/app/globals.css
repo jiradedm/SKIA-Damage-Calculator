@@ -1,0 +1,58 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-stroke {
+  text-shadow:
+    -1px -1px 0 #000,
+    0 -1px 0 #000,
+    1px -1px 0 #000,
+    1px 0 0 #000,
+    1px 1px 0 #000,
+    0 1px 0 #000,
+    -1px 1px 0 #000,
+    -1px 0 0 #000;
+}
+
+button {
+  outline: none !important;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  @apply appearance-none;
+}
+
+/* 
+:root {
+  --mask-size: 80px;
+}
+
+.mask {
+  width: var(--mask-size);
+  height: var(--mask-size);
+  position: relative;
+}
+
+.mask > div {
+  content: "";
+  width: calc(var(--mask-size) - 6px);
+  height: calc(var(--mask-size) - 6px);
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  z-index: -1;
+  display: grid;
+  place-items: center;
+}
+
+.mask,
+.mask > div {
+  mask:
+    radial-gradient(circle 15px at top left, #0000 98%, #000) top left,
+    radial-gradient(circle 15px at top right, #0000 98%, #000) top right,
+    radial-gradient(circle 15px at bottom left, #0000 98%, #000) bottom left,
+    radial-gradient(circle 15px at bottom right, #0000 98%, #000) bottom right;
+  mask-size: 51% 51%;
+  mask-repeat: no-repeat;
+} */
