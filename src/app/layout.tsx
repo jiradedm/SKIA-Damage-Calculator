@@ -27,16 +27,17 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <div className="text-xs">
                 This is unofficial website and not affiliated in any way with Netmarble Corp.
               </div>
-              <div className="flex gap-2">
-                <div>Report Issue (undecided)</div>
-                <div>/</div>
+              {/* <div>Report Issues: </div> */}
+              <div className="flex gap-1">
+                <span>Thanks to</span>
                 <a
-                  className="hover:underline"
+                  className="underline"
                   href="https://docs.google.com/spreadsheets/d/1V4KSe15vo4o9m__LcVgfhjp9KyTiXjDzxhCtwLE3AyU"
                   target="_blank"
                 >
-                  Credit
+                  Antharok
                 </a>
+                <span>for providing game information.</span>
               </div>
             </div>
           </div>
