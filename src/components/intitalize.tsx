@@ -271,7 +271,7 @@ const getCharacterAttackDamage = (
     skillFinalDamageModifier *
     weaknessModifier;
 
-  const overTimeAttackModifier = !character.attack.DoT ? 0 : character.attack.DoT.modifier;
+  const overTimeAttackModifier = !character.attack.DoT ? 0 : character.attack.DoT.modifier / 100;
   const overTimeDamage = baseAttack * overTimeAttackModifier * critRate * weaknessModifier;
 
   return {
