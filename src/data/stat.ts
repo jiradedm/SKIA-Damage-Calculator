@@ -40,6 +40,7 @@ export type StatKey =
   | "EnemyBurned"
   | "EnemyPoisoned"
   | "EnemyBleeding"
+  | "EnemyCursed"
   | "NightmareStage"
   | "NightmareLevel"
   | "FoodBuff";
@@ -242,6 +243,11 @@ export const stat: StatData = {
   EnemyPoisoned: {
     key: "EnemyBurned",
     name: "Enemy is Burned",
+    isToggle: true,
+  },
+  EnemyCursed: {
+    key: "EnemyCursed",
+    name: "Enemy is Cursed",
     isToggle: true,
   },
   EnemyBleeding: {

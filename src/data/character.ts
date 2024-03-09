@@ -21,7 +21,7 @@ export type CharacterKey =
   | "Chancellor"
   | "Chloe"
   | "Clemyth"
-  | "DaQiao"
+  | "XiaoQiao"
   | "Daisy"
   | "Dellons"
   | "Diaochan"
@@ -158,7 +158,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Aleem.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
-    effects: [],
+    effects: [effect.CritDamage5],
     attack: {
       BasicAttack: { modifier: 175, speed: 119.9 },
       CritAttack: { modifier: 130, speed: 100 },
@@ -170,7 +170,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Alice.webp",
     rarity: rarity.Unique,
     type: characterType.Support,
-    effects: [{ ...effect.KeenAttack4, characterTypeRestricted: "Melee" }],
+    effects: [{ ...effect.KeenAttack4, characterTypeRestricted: "Ranged" }],
     attack: {
       BasicAttack: { modifier: 225, speed: 100 },
       CritAttack: { modifier: 250, speed: 85.69 },
@@ -317,7 +317,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Chloe.webp",
     rarity: rarity.Unique,
     type: characterType.Support,
-    effects: [{ ...effect.Strike4, characterTypeRestricted: "Melee" }],
+    effects: [effect.EvasionDecrease4, { ...effect.Strike4, characterTypeRestricted: "Melee" }],
     attack: {
       BasicAttack: { modifier: 250, speed: 85.69 },
       CritAttack: { modifier: 275, speed: 81.04 },
@@ -335,10 +335,10 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: { modifier: 200, speed: 66.67 },
     },
   },
-  DaQiao: {
-    key: "DaQiao",
-    name: "Da Qiao",
-    img: "/character/Da Qiao.webp",
+  XiaoQiao: {
+    key: "XiaoQiao",
+    name: "Xiao Qiao",
+    img: "/character/Xiao Qiao.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [effect.DefenseDecrease5, effect.CritRate5],
@@ -417,7 +417,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Espada.webp",
     rarity: rarity.Unique,
     type: characterType.Ranged,
-    effects: [],
+    effects: [effect.AttackSpeed4],
     attack: {
       BasicAttack: {
         modifier: 150,
@@ -441,7 +441,7 @@ export const character: Record<CharacterKey, Character> = {
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
       CritAttack: { modifier: 150, speed: 157.73 },
-      Skill: { modifier: 0, speed: 157.73 },
+      Skill: { modifier: 0, speed: 136.24 },
     },
   },
   FengYan: {
@@ -544,8 +544,8 @@ export const character: Record<CharacterKey, Character> = {
     effects: [effect.DefenseDecrease5],
     attack: {
       BasicAttack: { modifier: 175, speed: 119.9 },
-      CritAttack: { modifier: 300, speed: 76.9 },
-      Skill: { modifier: 700, speed: 76.9 },
+      CritAttack: { modifier: 300, speed: 76.92 },
+      Skill: { modifier: 700, speed: 76.92 },
       DoT: { modifier: 10, speed: 100 },
     },
   },
@@ -581,7 +581,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Jave.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
-    effects: [effect.Gale],
+    effects: [effect.Gale5],
     attack: {
       BasicAttack: { modifier: 150, speed: 157.73 },
       CritAttack: { modifier: 225, speed: 100 },
@@ -597,7 +597,11 @@ export const character: Record<CharacterKey, Character> = {
     effects: [effect.CritRate4],
     attack: {
       BasicAttack: { modifier: 175, speed: 119.9 },
-      CritAttack: { modifier: 300, speed: 71.43 },
+      CritAttack: {
+        modifier: 300,
+        speed: 71.43,
+        attackModifier: { FinalDamage: { value: 20, applyCondition: "EnemyTypeDefense" } },
+      },
       Skill: { modifier: 230, speed: 52.63 },
     },
   },
@@ -610,7 +614,7 @@ export const character: Record<CharacterKey, Character> = {
     effects: [],
     attack: {
       BasicAttack: { modifier: 100, speed: 200 },
-      CritAttack: { modifier: 224, speed: 100 },
+      CritAttack: { modifier: 225, speed: 100 },
       Skill: { modifier: 780, speed: 52.63 },
     },
   },
@@ -665,8 +669,8 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Defense,
     effects: [],
     attack: {
-      BasicAttack: { modifier: 149.93, speed: 0 },
-      CritAttack: { modifier: 61.2, speed: 0 },
+      BasicAttack: { modifier: 150, speed: 149.93 },
+      CritAttack: { modifier: 375, speed: 61.2 },
     },
   },
   Kris: {
@@ -754,9 +758,9 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Defense,
     effects: [effect.WarriorGodMajesty],
     attack: {
-      BasicAttack: { modifier: 250, speed: 187.3 },
-      CritAttack: { modifier: 250, speed: 187.3 },
-      Skill: { modifier: 400, speed: 78.9 },
+      BasicAttack: { modifier: 250, speed: 136.24 },
+      CritAttack: { modifier: 250, speed: 136.24 },
+      Skill: { modifier: 400, speed: 74.96 },
     },
   },
   Lucrezia: {
@@ -767,8 +771,8 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Defense,
     effects: [],
     attack: {
-      BasicAttack: { modifier: 0, speed: 90.91 },
-      CritAttack: { modifier: 0, speed: 90.91, cutCooldown: 2 },
+      BasicAttack: { modifier: 250, speed: 90.91 },
+      CritAttack: { modifier: 250, speed: 90.91, cutCooldown: 2 },
       Skill: { modifier: 0, speed: 100 },
     },
   },
@@ -882,7 +886,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Orly.webp",
     rarity: rarity.Legendary,
     type: characterType.Support,
-    effects: [{ ...effect.AttackSpeed5, characterTypeRestricted: "Melee" }],
+    effects: [{ ...effect.Gale5, characterTypeRestricted: "Melee" }],
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
       CritAttack: { modifier: 140, speed: 88.18 },
@@ -1026,7 +1030,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Unique,
     type: characterType.Melee,
     attack: {
-      BasicAttack: { modifier: 125, speed: 186.37 },
+      BasicAttack: { modifier: 125, speed: 176.37 },
       CritAttack: { modifier: 225, speed: 96.71, cutCooldown: 1 },
       Skill: {
         modifier: 650,
@@ -1160,13 +1164,13 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Tara.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
-    effects: [effect.Attack5],
+    effects: [{ ...effect.FierceSpirit5, characterTypeRestricted: "Ranged" }],
     attack: {
       BasicAttack: { modifier: 125, speed: 176.37 },
       CritAttack: {
         modifier: 225,
         speed: 100,
-        attackModifier: { FinalAttack: { applyCondition: "EnemyPoisoned", value: 50 } },
+        attackModifier: { FinalDamage: { applyCondition: "EnemyBurned", value: 50 } },
       },
       Skill: { modifier: 250, speed: 56.59 },
     },
@@ -1221,6 +1225,7 @@ export const character: Record<CharacterKey, Character> = {
     attack: {
       BasicAttack: { modifier: 150, speed: 149.93 },
       CritAttack: { modifier: 140, speed: 85.69 },
+      DoT: { modifier: 20, speed: 100 },
     },
   },
   XiangYu: {
@@ -1231,8 +1236,8 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     effects: [effect.EvasionDecrease5, effect.WeaknessRate5],
     attack: {
-      BasicAttack: { modifier: 0, speed: 149.93 },
-      CritAttack: { modifier: 0, speed: 119.9 },
+      BasicAttack: { modifier: 225, speed: 149.93 },
+      CritAttack: { modifier: 250, speed: 119.9 },
     },
   },
   Yui: {
@@ -1283,7 +1288,11 @@ export const character: Record<CharacterKey, Character> = {
     attack: {
       BasicAttack: { modifier: 200, speed: 176 },
       CritAttack: { modifier: 250, speed: 157.98 },
-      Skill: { modifier: 1250, speed: 93.72 },
+      Skill: {
+        modifier: 1250,
+        speed: 93.72,
+        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyTypeRanged" } },
+      },
     },
   },
   SangahYu: {
@@ -1292,7 +1301,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Sangah Yu.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
-    effects: [],
+    effects: [effect.AgileMovement],
     attack: {
       BasicAttack: { modifier: 200, speed: 115 },
       CritAttack: { modifier: 200, speed: 107.18 },
@@ -1323,8 +1332,7 @@ export const character: Record<CharacterKey, Character> = {
     attack: {
       BasicAttack: { modifier: 350, speed: 176 },
       CritAttack: { modifier: 350, speed: 176 },
-      Skill: { modifier: 1000, speed: 93.7 },
-      DoT: undefined,
+      Skill: { modifier: 1000, speed: 93.72, attackModifier: { CritRate: { value: 100 } } },
     },
   },
   ZhugeLiang: {
@@ -1447,8 +1455,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Cheongmyeong.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
-    // TODO: CHANGE THIS
-    effects: [effect.FierceSpirit5, effect.WhitePureStarEnergy, effect.Electrification],
+    effects: [effect.Strike5, effect.BlessedDragonOfMountHua, effect.MasterOfTheBlossomingBlade],
     attack: {
       BasicAttack: { modifier: 250, speed: 142.86 },
       CritAttack: { modifier: 300, speed: 125 },
@@ -1461,7 +1468,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Baekcheon.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
-    effects: [],
+    effects: [{ ...effect.PrecisionStrike5, characterTypeRestricted: "Melee" }],
     attack: {
       BasicAttack: { modifier: 100, speed: 187.27 },
       CritAttack: { modifier: 200, speed: 115.34 },
@@ -1475,7 +1482,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Iseol Yu.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
-    effects: [],
+    effects: [{ ...effect.Focus5, characterTypeRestricted: "Melee" }],
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
       CritAttack: { modifier: 250, speed: 115.34 },
@@ -1492,8 +1499,8 @@ export const character: Record<CharacterKey, Character> = {
     effects: [],
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
-      CritAttack: { modifier: 150, speed: 136.24 },
-      Skill: { modifier: 800, speed: 149.93 },
+      CritAttack: { modifier: 150, speed: 142.86 },
+      Skill: { modifier: 800, speed: 103.41 },
     },
   },
   Jogeol: {
@@ -1502,11 +1509,11 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Jogeol.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
-    effects: [],
+    effects: [{ ...effect.Gale5, characterTypeRestricted: "Melee" }],
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
-      CritAttack: { modifier: 150, speed: 142.86 },
-      Skill: { modifier: 800, speed: 103.41 },
+      CritAttack: { modifier: 150, speed: 136.24 },
+      Skill: { modifier: 800, speed: 149.93 },
     },
   },
   Noa: {
@@ -1515,10 +1522,14 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Noa.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
-    effects: [],
+    effects: [effect.CritRate5],
     attack: {
       BasicAttack: { modifier: 175, speed: 157.73 },
-      CritAttack: { modifier: 250, speed: 93.72 },
+      CritAttack: {
+        modifier: 250,
+        speed: 93.72,
+        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyCursed" } },
+      },
       Skill: { modifier: 1250, speed: 96.71 },
     },
   },

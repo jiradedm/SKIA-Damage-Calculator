@@ -20,8 +20,9 @@ type EffectKey =
   | "DefenseDecrease5"
   | "KeenAttack5"
   | "TimeOfJudgment"
-  | "Gale"
+  | "Gale5"
   | "CritRate4"
+  | "AttackSpeed4"
   | "AttackSpeed5"
   | "Attack5"
   | "FierceSpirit4"
@@ -47,7 +48,10 @@ type EffectKey =
   | "PowerOfTheRune"
   | "CurseOfDestruction"
   | "PowerOfDestruction"
-  | "RulerOfNightmares";
+  | "RulerOfNightmares"
+  | "BlessedDragonOfMountHua"
+  | "MasterOfTheBlossomingBlade"
+  | "AgileMovement";
 
 export interface EffectStat {
   stat: Stat;
@@ -90,17 +94,6 @@ export const effect: Record<EffectKey, Effect> = {
     target: "Team",
     stats: [{ stat: stat.CritRate, value: 16 }],
   },
-  // Exists?
-  // Exists?
-  // Exists?
-  // Exists?
-  // Exists?
-  // Exists?
-  // Exists?
-  // Exists?
-  // Exists?
-  // Exists?
-  // Exists?
   CritDamage5: {
     key: "CritDamage5",
     name: "Critical Hit Damage Increaase Lv. 5",
@@ -198,12 +191,19 @@ export const effect: Record<EffectKey, Effect> = {
       { stat: stat.CritRate, value: 20 },
     ],
   },
-  Gale: {
-    key: "Gale",
-    name: "Gale",
+  Gale5: {
+    key: "Gale5",
+    name: "Gale Lv. 5",
     img: "/effect/Attack Speed.webp",
     target: "Team",
     stats: [{ stat: stat.AttackSpeed, value: 20 }],
+  },
+  AttackSpeed4: {
+    key: "AttackSpeed4",
+    name: "Attack Speed Increase Lv. 4",
+    img: "/effect/Attack Speed.webp",
+    target: "Self",
+    stats: [{ stat: stat.AttackSpeed, value: 16 }],
   },
   AttackSpeed5: {
     key: "AttackSpeed5",
@@ -302,7 +302,7 @@ export const effect: Record<EffectKey, Effect> = {
     target: "Self",
     stats: [
       { stat: stat.FinalAttack, value: 25 },
-      { stat: stat.CritDamage, value: 20 },
+      { stat: stat.FinalCritDamage, value: 20 },
     ],
   },
   SkySplitter: {
@@ -358,8 +358,8 @@ export const effect: Record<EffectKey, Effect> = {
     key: "CrimsonScales",
     name: "Crimson Scales",
     img: "/effect/Crimson Scales.webp",
-    target: "Team",
-    stats: [{ stat: stat.CritDamage, value: 24 }],
+    target: "Self",
+    stats: [{ stat: stat.FinalCritDamage, value: 24 }],
   },
   PowerOfTheRune: {
     key: "PowerOfTheRune",
@@ -393,5 +393,29 @@ export const effect: Record<EffectKey, Effect> = {
     target: "Team",
     applyCondition: "NightmareStage",
     stats: [{ stat: stat.FinalDamage, value: 50 }],
+  },
+  BlessedDragonOfMountHua: {
+    key: "BlessedDragonOfMountHua",
+    name: "Blessed Dragon of Mount Hua",
+    img: "/effect/Blessed Dragon of Mount Hua.webp",
+    target: "Self",
+    stats: [{ stat: stat.AttackSpeed, value: 20 }],
+  },
+  MasterOfTheBlossomingBlade: {
+    key: "MasterOfTheBlossomingBlade",
+    name: "Master of the Blossoming Blade",
+    img: "/effect/Master of the Blossoming Blade.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 20 },
+      { stat: stat.FinalAccuracy, value: 50 },
+    ],
+  },
+  AgileMovement: {
+    key: "AgileMovement",
+    name: "Agile Movement",
+    img: "/effect/Agile Movement.webp",
+    target: "Self",
+    stats: [{ stat: stat.AttackSpeed, value: 20 }],
   },
 };

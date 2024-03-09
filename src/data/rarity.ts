@@ -62,4 +62,4 @@ export const rarity: Record<RarityKey, Rarity> = {
   },
 };
 
-export const rarities = Object.values(rarity);
+export const rarities = Object.values(rarity).reverse();
