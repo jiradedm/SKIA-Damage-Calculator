@@ -256,7 +256,7 @@ const getCharacterAttackDamage = (
 
   // SKILL EXTRA CRITICAL MODIFIER
   const skillCritModifierPercent = character.attack.Skill?.attackModifier
-    ? character.attack.Skill?.attackModifier.FinalDamage?.value || 0
+    ? character.attack.Skill?.attackModifier.CritRate?.value || 0
     : 0;
   const skillCritRate = critRate + skillCritModifierPercent / 100;
   const skillCritModifier = skillCritRate > 1 ? 1 : skillCritRate;
