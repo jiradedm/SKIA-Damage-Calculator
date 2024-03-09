@@ -373,7 +373,7 @@ export const effect: Record<EffectKey, Effect> = {
     name: "Curse of Destruction",
     img: "/effect/Curse of Destruction.webp",
     target: "Enemy",
-    applyCondition: "EnemyTypeNightmare",
+    applyCondition: "NightmareStage",
     stats: [{ stat: stat.FinalDefense, value: 30 }],
   },
   PowerOfDestruction: {
@@ -391,7 +391,7 @@ export const effect: Record<EffectKey, Effect> = {
     name: "Ruler of Nightmares",
     img: "/effect/Ruler of Nightmares.webp",
     target: "Team",
-    applyCondition: "EnemyTypeNightmare",
+    applyCondition: "NightmareStage",
     stats: [{ stat: stat.FinalDamage, value: 50 }],
   },
 };

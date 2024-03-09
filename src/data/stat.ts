@@ -40,7 +40,8 @@ export type StatKey =
   | "EnemyBurned"
   | "EnemyPoisoned"
   | "EnemyBleeding"
-  | "EnemyTypeNightmare"
+  | "NightmareStage"
+  | "NightmareLevel"
   | "FoodBuff";
 
 export interface Stat {
@@ -49,6 +50,7 @@ export interface Stat {
   isFlat?: boolean;
   noFormat?: boolean;
   isToggle?: boolean;
+  isNotAdd?: boolean;
 }
 
 export const foodBuff = {
@@ -227,9 +229,9 @@ export const stat: StatData = {
     name: "Enemy is Support Type",
     isToggle: true,
   },
-  EnemyTypeNightmare: {
-    key: "EnemyTypeNightmare",
-    name: "Enemy is Nightmare Type",
+  NightmareStage: {
+    key: "NightmareStage",
+    name: "Nightmare Stage",
     isToggle: true,
   },
   EnemyBurned: {
@@ -251,6 +253,12 @@ export const stat: StatData = {
     key: "FoodBuff",
     name: "Food Buff",
     isToggle: true,
+  },
+  NightmareLevel: {
+    key: "NightmareLevel",
+    name: "Nightmare Fragment Level",
+    isFlat: true,
+    isNotAdd: true,
   },
 };
 

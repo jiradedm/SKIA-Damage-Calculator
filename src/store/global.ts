@@ -41,8 +41,9 @@ export const baseGlobalStat = {
   EnemyBurned: 0,
   EnemyPoisoned: 0,
   EnemyBleeding: 0,
-  EnemyTypeNightmare: 0,
   FoodBuff: 0,
+  NightmareStage: 0,
+  NightmareLevel: 0,
 } as GlobalStat;
 
 export interface GlobalStatData extends Stat {
@@ -53,6 +54,15 @@ interface StatStore {
   globalStat: GlobalStat;
   setGlobalStatValue: (key: StatKey, value: number) => void;
 }
+
+const getGlobalStat = (globalStat: GlobalStat) => {
+  const base = {} as GlobalStat;
+  const keys = Object.keys(baseGlobalStat) as StatKey[];
+  keys.forEach((key) => {
+    base[key] = globalStat[key] || 0;
+  });
+  return base;
+};
 
 export const useStatStore = create<StatStore>()(
   persist(
@@ -69,7 +79,7 @@ export const useStatStore = create<StatStore>()(
     }),
     {
       name: "stat",
-      partialize: (state) => ({ globalStat: state.globalStat }) as StatStore,
+      partialize: (state) => ({ globalStat: getGlobalStat(state.globalStat) }) as StatStore,
     },
   ),
 );

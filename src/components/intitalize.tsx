@@ -115,6 +115,15 @@ const getModifier = (
     });
   }
 
+  if (globalStat.NightmareStage) {
+    const nightmareValue = globalStat.NightmareLevel * 2;
+
+    modifier.FinalAttack.push(nightmareValue);
+    modifier.Accuracy.push(nightmareValue);
+    modifier.AttackSpeed.push(nightmareValue > 50 ? 50 : nightmareValue);
+    modifier.CritRate.push(nightmareValue > 50 ? 50 : nightmareValue);
+  }
+
   addedCharacter.potentials.forEach((potential) => {
     modifier[potential.stat].push(potential.value);
   });
@@ -410,7 +419,7 @@ const Intitalize = () => {
   const { globalStat } = useStatStore();
 
   useEffect(() => {
-    if (!teamEffects || addedCharacters.length === 0) return;
+    if (!teamEffects) return;
     const characters = addedCharacters.map((addedCharacter) => {
       const effects = getEffect(addedCharacter, teamEffects, globalStat);
       const effectStats = getTotalEffectStats(effects);
