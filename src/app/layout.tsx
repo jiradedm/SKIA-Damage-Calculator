@@ -29,15 +29,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               </div>
               {/* <div>Report Issues: </div> */}
               <div className="flex gap-1">
-                <span>Thanks to</span>
+                <span>Many thanks to Antharok for providing</span>
                 <a
                   className="underline"
                   href="https://docs.google.com/spreadsheets/d/1V4KSe15vo4o9m__LcVgfhjp9KyTiXjDzxhCtwLE3AyU"
                   target="_blank"
                 >
-                  Antharok
+                  game information
                 </a>
-                <span>for providing game information.</span>
+                <span>.</span>
               </div>
             </div>
           </div>
