@@ -92,7 +92,7 @@ const StatItem: FC<StatProps> = ({ stat: statProps }) => {
           </div>
         ) : (
           <div className="flex text-[#eccd80]">
-            <div>+</div>
+            {!stat.isNotAdd && <div>+</div>}
             {editing ? (
               <Input intialValue={String(statProps.value)} setEditing={setEditing} handleInput={handleInput} />
             ) : (

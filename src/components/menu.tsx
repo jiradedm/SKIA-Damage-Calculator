@@ -26,7 +26,7 @@ const Menu = () => {
 
   return (
     <div className="fixed z-[3] w-full max-w-maxw px-2">
-      <div className="text-stroke pb-4 text-center text-xl font-[500] leading-5 text-[#F4D77E]">
+      <div className="text-stroke pb-4 text-center text-2xl font-[500] leading-5 text-[#F4d77e]">
         SKIA Damage Calculator
       </div>
       <div className="relative h-[36px] select-none rounded-full bg-[#53545b] px-2 py-1 leading-4 outline outline-2 outline-[#8d8788]">

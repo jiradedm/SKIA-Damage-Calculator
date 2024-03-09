@@ -1536,4 +1536,7 @@ export const character: Record<CharacterKey, Character> = {
   },
 };
 
-export const characters: Character[] = Object.values(character);
+export const characters: Character[] = Object.values(character).sort((char1, char2) => {
+  if (char1.rarity.key === char2.rarity.key) return char1.name > char2.name ? 1 : -1;
+  return char1.rarity.key > char2.rarity.key ? 1 : -1;
+});
