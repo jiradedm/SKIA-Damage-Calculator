@@ -8,10 +8,6 @@ const nextConfig = {
     return execSync(lastCommitCommand).toString().trim() || "";
   },
   output: "export",
-  publicRuntimeConfig: {
-    basePath: "/SKIA-Damage-Calculator",
-  },
-  assetPrefix: "https://jiradedm.github.io/SKIA-Damage-Calculator",
 };
 
 export default nextConfig;
