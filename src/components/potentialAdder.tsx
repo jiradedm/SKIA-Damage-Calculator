@@ -6,7 +6,7 @@ import { twMerge } from "tailwind-merge";
 
 import { potentialValues } from "@/data/potential";
 import type { Rarity } from "@/data/rarity";
-import { rarities } from "@/data/rarity";
+import { rarities, rarity } from "@/data/rarity";
 import type { Stat } from "@/data/stat";
 import { baseStats } from "@/data/stat";
 
@@ -61,7 +61,7 @@ const PotentialAdder: FC<ComponentPropsWithoutRef<"div"> & PotentialAdderProps> 
   ...props
 }) => {
   const [selectedStat, setSelectedStat] = useState(baseStats[0]);
-  const [selectedRarity, setSelectedRarity] = useState(rarities[0]);
+  const [selectedRarity, setSelectedRarity] = useState(rarity.Legendary);
 
   const values = useMemo(
     () =>
