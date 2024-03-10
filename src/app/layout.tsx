@@ -21,7 +21,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className={font.className} suppressHydrationWarning={true}>
         <div className="relative flex min-h-[calc(100vh)] w-full justify-center overflow-auto bg-[#f2f1e9]">
-          <div className="fixed z-[2] h-[68px] w-full bg-[#2f3745] outline outline-4 outline-[#585e68]" />
+          <div className="fixed z-[3] h-[68px] w-full bg-[#2f3745] outline outline-4 outline-[#585e68]" />
           <div className="relative w-full max-w-maxw bg-[#39465a] py-4">
             <Intitalize />
             <Menu />
