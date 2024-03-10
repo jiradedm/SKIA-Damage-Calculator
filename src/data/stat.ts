@@ -241,8 +241,8 @@ export const stat: StatData = {
     isToggle: true,
   },
   EnemyPoisoned: {
-    key: "EnemyBurned",
-    name: "Enemy is Burned",
+    key: "EnemyPoisoned",
+    name: "Enemy is Poisoned",
     isToggle: true,
   },
   EnemyCursed: {
