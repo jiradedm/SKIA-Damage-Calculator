@@ -9,13 +9,16 @@ import Menu from "@/components/menu";
 const font = Kanit({ weight: ["400", "500", "600", "700", "800", "900"], subsets: ["latin", "thai"] });
 
 export const metadata: Metadata = {
-  title: "Seven Knight Idle",
-  description: 'Seven Knight Idle "description."',
+  title: "SKIA Damage Calculator",
+  description: "Seven Knight Idle Adventure Damage Calculator",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/logo.ico" sizes="any" />
+      </head>
       <body className={font.className} suppressHydrationWarning={true}>
         <div className="relative flex min-h-[calc(100vh)] w-full justify-center overflow-auto bg-[#f2f1e9]">
           <div className="fixed z-[2] h-[68px] w-full bg-[#2f3745] outline outline-4 outline-[#585e68]" />
