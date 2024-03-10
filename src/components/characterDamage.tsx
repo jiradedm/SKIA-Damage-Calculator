@@ -97,7 +97,7 @@ const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
             </div>
             <div
               className={twMerge(
-                "cursor-pointer text-lg leading-5 text-[#fcf4d3]",
+                "cursor-pointer hover:underline text-lg leading-5 text-[#fcf4d3]",
                 character.active && readonly && "z-[2]",
               )}
               onClick={() => setIsOpen3(true)}

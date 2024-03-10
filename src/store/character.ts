@@ -37,6 +37,7 @@ export interface CharacterStatData extends Omit<Stat, "key"> {
 
 export interface CalulatedCharacter extends Omit<AddedCharacter, "character"> {
   character: Character;
+  chartPercentage?: number;
   damage: { totalDamage: number; stats: CharacterStatData[] };
   effects: Effect[];
 }
