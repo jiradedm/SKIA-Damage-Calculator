@@ -236,9 +236,9 @@ const getCharacterAttackDamage = (
   // *** CRITICAL HIT ATTACK DAMAGE ***
   const critAttackDamage =
     baseAttack *
+    (character.attack.CritAttack.modifier / 100) *
     modifier.CritDamage *
     modifier.FinalCritDamage *
-    (character.attack.CritAttack.modifier / 100) *
     critAttackFinalDamageModifier;
 
   const critRate = modifier.CritRate > 1 ? 1 : modifier.CritRate;
@@ -269,10 +269,20 @@ const getCharacterAttackDamage = (
     modifier.CritDamage *
     modifier.FinalCritDamage *
     skillFinalDamageModifier *
-    weaknessModifier;
+    weaknessModifier *
+    hitRate;
 
-  const overTimeAttackModifier = !character.attack.DoT ? 0 : character.attack.DoT.modifier / 100;
-  const overTimeDamage = baseAttack * overTimeAttackModifier * critRate * weaknessModifier;
+  const overTimeAttackModifier = character.attack.DoT?.modifier || 0;
+  // *** SKILL DAMAGE ***
+
+  const overTimeDamage =
+    baseAttack *
+    (overTimeAttackModifier / 100) *
+    critRate *
+    modifier.CritDamage *
+    modifier.FinalCritDamage *
+    weaknessModifier *
+    hitRate;
 
   return {
     baseAttackValue,
