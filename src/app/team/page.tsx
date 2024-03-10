@@ -9,7 +9,9 @@ import CharacterIcon from "@/components/characterIcon";
 import { getTeamEffects } from "@/components/intitalize";
 import Modal from "@/components/modal";
 import Progressbar from "@/components/progressbar";
+import SortButton from "@/components/sortButton";
 import Title from "@/components/title";
+import { sortCharacterByActiveTotalDamage, sortCharacterByTotalDamage } from "@/libs/sort";
 import type { CalulatedCharacter } from "@/store";
 import { characterMaxActive, useCharacterStore } from "@/store";
 
@@ -46,7 +48,7 @@ const TeamModal: FC<TeamModalProps> = ({ characters, isOpen, setIsOpen }) => {
   }, [characters]);
 
   return (
-    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Team Damage Chart">
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Team Damage Comparison">
       <div
         onClick={() => setShowPercentage((prev) => !prev)}
         className="flex cursor-pointer select-none flex-col gap-2"
@@ -70,6 +72,7 @@ export default function TeamPage() {
   const { characters, addedCharacters, setTeamEffects } = useCharacterStore();
 
   const [isOpen, setIsOpen] = useState(false);
+  const [sortActive, setSortActive] = useState(true);
 
   useEffect(() => {
     if (addedCharacters.length === 0) return;
@@ -79,6 +82,11 @@ export default function TeamPage() {
   const teamDamage = useMemo(() => {
     return characters.reduce((total, character) => total + (!character.active ? 0 : character.damage.totalDamage), 0);
   }, [characters]);
+
+  const sortedCharacters = useMemo(() => {
+    if (!sortActive) return characters;
+    return [...characters].sort(sortCharacterByActiveTotalDamage);
+  }, [characters, sortActive]);
 
   const activeCharacters = useMemo(() => characters.filter((character) => !!character.active), [characters]);
 
@@ -104,10 +112,11 @@ export default function TeamPage() {
       <div className="text-center text-xl font-[500] leading-5">
         Team Slot [ {characterActiveAmount}/{characterMaxActive} ]
       </div>
+      <SortButton active={sortActive} setActive={setSortActive} />
       {characters.length === 0 ? (
         <div className="py-[20%] text-center opacity-50">No characters have been summoned.</div>
       ) : (
-        characters.map((character, index) => <CharacterDamage key={index} character={character} readonly />)
+        sortedCharacters.map((character, index) => <CharacterDamage key={index} character={character} readonly />)
       )}
       <TeamModal characters={activeCharacters} isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
