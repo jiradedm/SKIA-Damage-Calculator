@@ -281,8 +281,7 @@ const getCharacterAttackDamage = (
     critRate *
     modifier.CritDamage *
     modifier.FinalCritDamage *
-    weaknessModifier *
-    hitRate;
+    weaknessModifier;
 
   return {
     baseAttackValue,
