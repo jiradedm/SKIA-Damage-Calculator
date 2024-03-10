@@ -273,8 +273,8 @@ const getCharacterAttackDamage = (
     hitRate;
 
   const overTimeAttackModifier = character.attack.DoT?.modifier || 0;
-  // *** SKILL DAMAGE ***
 
+  // *** DoT DAMAGE ***
   const overTimeDamage =
     baseAttack *
     (overTimeAttackModifier / 100) *
