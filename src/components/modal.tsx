@@ -6,9 +6,9 @@ import { twMerge } from "tailwind-merge";
 import Title from "./title";
 
 export interface ModalProps {
-  isOpen: boolean;
   className?: string;
   title?: string;
+  isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 }
 
