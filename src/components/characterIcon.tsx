@@ -20,7 +20,7 @@ const CharacterIcon: FC<ComponentPropsWithoutRef<"div"> & CharacterIconProps> = 
         <img
           src={character.img}
           alt={character.name}
-          className={twMerge("absolute pb-[100%]", showName ? "rounded-t" : "rounded")}
+          className={twMerge("absolute", showName ? "rounded-t" : "rounded")}
         />
       </div>
       <div className="pb-[100%]" />
