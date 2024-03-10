@@ -37,14 +37,15 @@ const Input: FC<InputProps> = ({ intialValue, setEditing, handleInput }) => {
       <input
         inputMode="decimal"
         type="number"
+        step="any"
         autoFocus
         value={value}
-        className="absolute left-0 top-0 h-4 w-full bg-transparent text-right outline-none"
+        className="absolute left-0 top-0 h-4 w-full bg-transparent text-center outline-none"
         onBlur={submit}
         onFocus={(e) => e.target.select()}
         onChange={(e) => setValue(e.target.value)}
       />
-      <div className="invisible">{value}</div>
+      <div className="invisible px-1">{value}</div>
     </form>
   );
 };
@@ -64,7 +65,8 @@ const StatItem: FC<StatProps> = ({ stat: statProps }) => {
 
   const handleInput = (value: number) => {
     const valid = Number.isFinite(value) && Number(value) >= 0;
-    if (valid) setGlobalStatValue(statProps.key, +value);
+    if (!valid) return setEditing(false);
+    setGlobalStatValue(statProps.key, +value);
   };
 
   return (
