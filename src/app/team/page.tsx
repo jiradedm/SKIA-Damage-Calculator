@@ -33,7 +33,7 @@ const TeamModal: FC<TeamModalProps> = ({ characters, isOpen, setIsOpen }) => {
   const [showPercentage, setShowPercentage] = useState(true);
 
   const sortedCharacters = useMemo(() => {
-    const sortedChar = characters.sort((c1, c2) => (c1.damage.totalDamage >= c2.damage.totalDamage ? -1 : 1));
+    const sortedChar = characters.sort(sortCharacterByTotalDamage);
 
     if (sortedChar.length === 0) return [];
 
