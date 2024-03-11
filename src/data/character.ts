@@ -1334,8 +1334,8 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     effects: [effect.FullMoon, effect.CrowVision],
     attack: {
-      BasicAttack: { modifier: 350, speed: 176 },
-      CritAttack: { modifier: 350, speed: 176 },
+      BasicAttack: { modifier: 350, speed: 176.37 },
+      CritAttack: { modifier: 350, speed: 176.37 },
       Skill: { modifier: 1000, speed: 93.72, attackModifier: { CritRate: { value: 100 } } },
     },
   },
@@ -1503,8 +1503,8 @@ export const character: Record<CharacterKey, Character> = {
     effects: [],
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
-      CritAttack: { modifier: 150, speed: 142.86 },
-      Skill: { modifier: 800, speed: 103.41 },
+      CritAttack: { modifier: 150, speed: 136.24 },
+      Skill: { modifier: 800, speed: 149.93 },
     },
   },
   Jogeol: {
@@ -1516,8 +1516,8 @@ export const character: Record<CharacterKey, Character> = {
     effects: [{ ...effect.Gale5, characterTypeRestricted: "Melee" }],
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
-      CritAttack: { modifier: 150, speed: 136.24 },
-      Skill: { modifier: 800, speed: 149.93 },
+      CritAttack: { modifier: 150, speed: 142.86 },
+      Skill: { modifier: 800, speed: 103.41 },
     },
   },
   Noa: {
