@@ -193,7 +193,6 @@ export const stat: StatData = {
   CooldownDecrease: {
     key: "CooldownDecrease",
     name: "Decrease Skill Cooldown",
-    isFlat: true,
   },
   // ENEMY
   EnemyDefense: {
