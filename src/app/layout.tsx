@@ -30,7 +30,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <div className="text-xs">
                 This is unofficial website and not affiliated in any way with Netmarble Corp.
               </div>
-              {/* <div>Report Issues: </div> */}
+              <div>
+                Report Issues:{" "}
+                <a
+                  href="mailto:kkatana.dev@gmail.com?subject=Report SKIA Damage Calculator issues"
+                  className="hover:underline"
+                >
+                  kkatana.dev@gmail.com
+                </a>
+              </div>
               <div className="flex gap-1">
                 <span>Many thanks to Antharok for providing</span>
                 <a
@@ -38,9 +46,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                   href="https://docs.google.com/spreadsheets/d/1V4KSe15vo4o9m__LcVgfhjp9KyTiXjDzxhCtwLE3AyU"
                   target="_blank"
                 >
-                  game information
+                  game information.
                 </a>
-                <span>.</span>
               </div>
             </div>
           </div>
