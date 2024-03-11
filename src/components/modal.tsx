@@ -48,7 +48,7 @@ const Modal: FC<PropsWithChildren & ModalProps> = ({ isOpen, setIsOpen, children
             >
               <Dialog.Panel
                 className={twMerge(
-                  "flex w-full relative max-w-lg flex-col gap-3 overflow-hidden rounded bg-[#39465a] p-3 align-middle shadow-xl outline outline-4 outline-[#44627e] transition-all",
+                  "flex w-full relative max-w-lg flex-col gap-3 rounded bg-[#39465a] p-3 align-middle shadow-xl outline outline-4 outline-[#44627e] transition-all",
                   className,
                 )}
               >

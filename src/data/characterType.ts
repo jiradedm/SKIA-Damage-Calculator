@@ -53,3 +53,4 @@ export const characterType: Record<CharacterTypeKey, CharacterType> = {
 };
 
 export const characterTypeKeys = Object.keys(characterType) as CharacterTypeKey[];
+export const characterTypes = Object.values(characterType);
