@@ -109,6 +109,12 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
   const [bonus, setBonus] = useState<number>(character?.statBonus || 0);
   const [name, setName] = useState(character?.name || "");
 
+  const levelOptions = useMemo(() => {
+    const options = characterLevelOptions.filter((option) => option.value <= selectedCharacter.rarity.maxLevel);
+    setSelectedLevel(options[0]);
+    return options;
+  }, [selectedCharacter.rarity.maxLevel]);
+
   useEffect(() => {
     setName(selectedCharacter.name);
   }, [selectedCharacter.name]);
@@ -184,7 +190,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
         setStar={setSelectedStar}
         selectedLevel={selectedLevel}
         setSelectedLevel={setSelectedLevel}
-        levelOptions={characterLevelOptions}
+        levelOptions={levelOptions}
         readonly={isEdit}
       />
       <div />
