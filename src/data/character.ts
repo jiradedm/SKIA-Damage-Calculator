@@ -1519,6 +1519,7 @@ export const character: Record<CharacterKey, Character> = {
       BasicAttack: { modifier: 125, speed: 166.67 },
       CritAttack: { modifier: 150, speed: 142.86 },
       Skill: { modifier: 800, speed: 103.41 },
+      DoT: { modifier: 40, speed: 500 },
     },
   },
   Noa: {
@@ -1559,7 +1560,7 @@ export const character: Record<CharacterKey, Character> = {
     effects: [],
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
-      CritAttack: { modifier: 150, speed: 119.9 },
+      CritAttack: { modifier: 150, speed: 119.9, cutCooldown: 2 },
       Skill: { modifier: 0, speed: 33.3 },
     },
   },
