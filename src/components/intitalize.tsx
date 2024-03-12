@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { accessory } from "@/data/accessory";
 import type { Character, CharacterApplyAilment } from "@/data/character";
 import { character as char } from "@/data/character";
+import type { CharacterLevelKey } from "@/data/characterStat";
 import { characterStat } from "@/data/characterStat";
 import type { Effect, EffectStat } from "@/data/effect";
 import type { StatKey } from "@/data/stat";
@@ -78,7 +79,8 @@ const getModifier = (
 ): StatKeyWithValue => {
   const character = char[addedCharacter.character];
 
-  const charStat = characterStat[`${character.rarity.key}${character.type.key}${60}`];
+  const charStat =
+    characterStat[`${character.rarity.key}${character.type.key}${String(addedCharacter.level) as CharacterLevelKey}`];
 
   const modifier = {
     Attack: [globalStat.Attack, globalStat[character.type.typeRestrictStat.Attack]],
@@ -183,15 +185,17 @@ const getEnemyModifer = (totalEffectStats: EffectStat[]): StatKeyWithValue => {
 
 const getCharacterAttackDamage = (
   character: Character,
-  star: number,
+  addedCharacter: AddedCharacter,
   globalStat: GlobalStat,
   modifier: StatKeyWithValue,
   enemyModifier: StatKeyWithValue,
   statusAilments?: CharacterApplyAilment[],
 ) => {
-  const charStat = characterStat[`${character.rarity.key}${character.type.key}${60}`];
+  const charStat =
+    characterStat[`${character.rarity.key}${character.type.key}${String(addedCharacter.level) as CharacterLevelKey}`];
 
-  const baseAttackValue = (charStat.Attack[star] * modifier.Attack + globalStat.AttackInfluence) * modifier.FinalAttack;
+  const baseAttackValue =
+    (charStat.Attack[addedCharacter.star] * modifier.Attack + globalStat.AttackInfluence) * modifier.FinalAttack;
 
   const enemyDefenseModifier = enemyModifier.FinalDefense < 0 ? 0 : enemyModifier.FinalDefense;
   const enemyDefense = globalStat.EnemyDefense * enemyDefenseModifier;
@@ -208,7 +212,7 @@ const getCharacterAttackDamage = (
   const enemyEvasionModifier = enemyModifier.FinalEvasion < 0 ? 0 : enemyModifier.FinalEvasion;
   const enemyEvasion = globalStat.EnemyEvasion * enemyEvasionModifier;
 
-  const baseAccuracy = charStat.Accuracy[star] * modifier.Accuracy * modifier.FinalAccuracy;
+  const baseAccuracy = charStat.Accuracy[addedCharacter.star] * modifier.Accuracy * modifier.FinalAccuracy;
 
   const hitRateRadio = baseAccuracy / enemyEvasion;
   const hitRate = hitRateRadio > 1 ? 1 : hitRateRadio;
@@ -347,7 +351,7 @@ const calculateDamage = (
     enemyDamageReductionRate,
     enemyDefenseModifier,
     enemyEvasionModifier,
-  } = getCharacterAttackDamage(character, addedCharacter.star, globalStat, modifier, enemyModifier, statusAilments);
+  } = getCharacterAttackDamage(character, addedCharacter, globalStat, modifier, enemyModifier, statusAilments);
 
   const totalAttackDamage = attackDamage * attack.atkAmount;
   const totalSkillDamage = skillDamage * attack.skillAmount;
