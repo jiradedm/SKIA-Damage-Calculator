@@ -53,15 +53,15 @@ const ChooseCharacter: FC<ComponentPropsWithoutRef<"div"> & ChooseCharacterProps
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Choose Character" className="relative">
         <div className="relative flex w-full gap-1">
           <Select
-            selected={selectedRarity}
-            setSelected={setSelectedRarity}
-            options={raritieOpions}
-            className="z-10 w-full"
-          />
-          <Select
             selected={selectedType}
             setSelected={setSelectedType}
             options={characterTypeOptions}
+            className="z-10 w-full"
+          />
+          <Select
+            selected={selectedRarity}
+            setSelected={setSelectedRarity}
+            options={raritieOpions}
             className="z-10 w-full"
           />
         </div>
