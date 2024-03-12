@@ -14,7 +14,7 @@ import { useCharacterStore } from "@/store";
 export default function HomePage() {
   const [sortActive, setSortActive] = useState(false);
 
-  const { characters, addedCharacters, moveCharacter, setTeamEffects } = useCharacterStore();
+  const { characters, addedCharacters, moveCharacter, setTeamEffects, setStatusAilments } = useCharacterStore();
 
   const sortedCharacters = useMemo(() => {
     if (!sortActive) return characters;
@@ -25,6 +25,11 @@ export default function HomePage() {
     if (addedCharacters.length === 0) return;
     setTeamEffects([]);
   }, [addedCharacters, setTeamEffects]);
+
+  useEffect(() => {
+    if (addedCharacters.length === 0) return;
+    setStatusAilments(undefined);
+  }, [addedCharacters, setStatusAilments]);
 
   const sensors = useSensors(useSensor(PointerSensor));
 

@@ -3,15 +3,15 @@ import { type ComponentPropsWithoutRef, type FC, Fragment, useState } from "reac
 import { isDesktop } from "react-device-detect";
 import { twMerge } from "tailwind-merge";
 
-import type { Effect } from "@/data/effect";
-
 interface StatusIconProps {
-  effect: Effect;
+  name: string;
+  img: string;
   active?: boolean;
 }
 
 const EffectIcon: FC<ComponentPropsWithoutRef<"div"> & StatusIconProps> = ({
-  effect,
+  name,
+  img,
   active = false,
   className,
   ...props
@@ -31,7 +31,7 @@ const EffectIcon: FC<ComponentPropsWithoutRef<"div"> & StatusIconProps> = ({
         )}
         {...props}
       >
-        <img className="size-4" src={effect.img} alt={effect.name} />
+        <img className="size-4" src={img} alt={name} />
       </div>
       <Transition
         show={open}
@@ -43,7 +43,7 @@ const EffectIcon: FC<ComponentPropsWithoutRef<"div"> & StatusIconProps> = ({
         leaveFrom="transform scale-100 opacity-100"
         leaveTo="transform scale-95 opacity-0"
       >
-        <div className="absolute z-[5] -translate-x-1/2 truncate rounded-sm bg-black p-1 text-xs">{effect.name}</div>
+        <div className="absolute z-[5] -translate-x-1/2 truncate rounded-sm bg-black p-1 text-xs">{name}</div>
       </Transition>
     </div>
   );

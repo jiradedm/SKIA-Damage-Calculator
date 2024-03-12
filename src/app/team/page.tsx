@@ -6,7 +6,8 @@ import { twMerge } from "tailwind-merge";
 
 import CharacterDamage from "@/components/characterDamage";
 import CharacterIcon from "@/components/characterIcon";
-import { getTeamEffects } from "@/components/intitalize";
+import EffectIcon from "@/components/effectIcon";
+import { getStatusAilments, getTeamEffects } from "@/components/intitalize";
 import Modal from "@/components/modal";
 import Progressbar from "@/components/progressbar";
 import SortButton from "@/components/sortButton";
@@ -69,7 +70,7 @@ const TeamModal: FC<TeamModalProps> = ({ characters, isOpen, setIsOpen }) => {
 };
 
 export default function TeamPage() {
-  const { characters, addedCharacters, setTeamEffects } = useCharacterStore();
+  const { characters, addedCharacters, setTeamEffects, statusAilments, setStatusAilments } = useCharacterStore();
 
   const [isOpen, setIsOpen] = useState(false);
   const [sortActive, setSortActive] = useState(true);
@@ -92,6 +93,19 @@ export default function TeamPage() {
 
   const characterActiveAmount = useMemo(() => activeCharacters.length, [activeCharacters]);
 
+  useEffect(() => {
+    if (addedCharacters.length === 0) return;
+    setStatusAilments(getStatusAilments(addedCharacters));
+  }, [addedCharacters, setStatusAilments]);
+
+  // const statusAilments = useMemo(() => {
+  //   const statusAilmentArray: CharacterApplyAilment[] = [];
+  //   characters.forEach((character) => {
+  //     if (character.active) statusAilmentArray.push(...(character.character.applyStatusAilments || []));
+  //   });
+  //   return statusAilmentArray;
+  // }, [characters]);
+
   return (
     <>
       <Title className="self-center text-3xl">Team Damage</Title>
@@ -112,6 +126,21 @@ export default function TeamPage() {
       <div className="text-center text-xl font-[500] leading-5">
         Team Slot [ {characterActiveAmount}/{characterMaxActive} ]
       </div>
+      {statusAilments && (
+        <div className="flex items-center gap-1">
+          <div>Enemy Status Ailment :</div>
+          {statusAilments.length === 0
+            ? "none"
+            : statusAilments.map((statusAilment) => (
+                <EffectIcon
+                  key={statusAilment.status.key}
+                  name={statusAilment.status.name}
+                  img={statusAilment.status.img}
+                  active
+                />
+              ))}
+        </div>
+      )}
       <SortButton active={sortActive} setActive={setSortActive} />
       {characters.length === 0 ? (
         <div className="py-[20%] text-center opacity-50">No characters have been summoned.</div>

@@ -108,7 +108,7 @@ const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
           <StatModal isOpen={isOpen3} setIsOpen={setIsOpen3} character={character} />
           <div className="flex gap-1">
             {character.effects.map((effect) => (
-              <EffectIcon key={effect.key} effect={effect} active />
+              <EffectIcon key={effect.key} name={effect.name} img={effect.img} active />
             ))}
           </div>
         </div>

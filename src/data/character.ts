@@ -4,6 +4,7 @@ import type { Effect } from "./effect";
 import { effect } from "./effect";
 import { type Rarity, rarity } from "./rarity";
 import type { StatKey } from "./stat";
+import { type StatusAilment, statusAilment } from "./statusAilment";
 
 export type CharacterKey =
   | "Ace"
@@ -128,6 +129,11 @@ export type CharacterAttack = {
   DoT?: Attack;
 };
 
+export interface CharacterApplyAilment {
+  status: StatusAilment;
+  uptime: number;
+}
+
 export interface Character {
   key: CharacterKey;
   name: string;
@@ -136,6 +142,7 @@ export interface Character {
   type: CharacterType;
   effects?: Effect[];
   maxHit?: number;
+  applyStatusAilments?: CharacterApplyAilment[];
   attack: CharacterAttack;
 }
 
@@ -246,6 +253,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Ballista.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
+    applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 1 }],
     effects: [],
     attack: {
       BasicAttack: {
@@ -292,6 +300,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 150, speed: 149.93 },
       CritAttack: {
@@ -533,6 +542,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.TimeOfJudgment],
+    applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 125, speed: 176.37 },
       CritAttack: { modifier: 100, speed: 136.24 },
@@ -547,6 +557,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.DefenseDecrease5],
+    // applyStatusAilments: [{ status: statusAilment.Frostbitten, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 175, speed: 119.9 },
       CritAttack: { modifier: 300, speed: 76.92 },
@@ -711,6 +722,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Support,
     effects: [],
+    // applyStatusAilments: [{ status: statusAilment.EnemyFrostbitten, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 200, speed: 111.11 },
       CritAttack: { modifier: 170, speed: 74.96 },
@@ -827,6 +839,10 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [],
+    applyStatusAilments: [
+      { status: statusAilment.EnemyPoisoned, uptime: 1 },
+      { status: statusAilment.EnemyCursed, uptime: 1 },
+    ],
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
       CritAttack: { modifier: 300, speed: 74.96 },
@@ -878,6 +894,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 150, speed: 136.24 },
       CritAttack: { modifier: 250, speed: 85.69 },
@@ -904,6 +921,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.KeenAttack5],
+    applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 0.5 }],
     attack: {
       BasicAttack: { modifier: 100, speed: 200 },
       CritAttack: { modifier: 150, speed: 136.24 },
@@ -1023,6 +1041,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Unique,
     type: characterType.Support,
     effects: [{ ...effect.KeenAttack4, characterTypeRestricted: "Melee" }],
+    applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 0.4 }],
     attack: {
       BasicAttack: { modifier: 200, speed: 103.41 },
       CritAttack: { modifier: 300, speed: 74.96 },
@@ -1064,6 +1083,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyPoisoned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 250, speed: 85.69 },
       CritAttack: { modifier: 275, speed: 83.33 },
@@ -1078,6 +1098,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Unique,
     type: characterType.Ranged,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 150, speed: 149.93 },
       CritAttack: { modifier: 225, speed: 96.71 },
@@ -1118,6 +1139,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.Focus5],
+    // applyStatusAilments: [{ status: statusAilment.Frostbitten, uptime: 0.5 }],
     attack: {
       BasicAttack: { modifier: 150, speed: 149.93 },
       CritAttack: { modifier: 250, speed: 85.69 },
@@ -1132,6 +1154,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Unique,
     type: characterType.Melee,
     effects: [effect.Attack4],
+    applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 0.8 }],
     attack: {
       BasicAttack: { modifier: 250, speed: 88.18 },
       CritAttack: { modifier: 350, speed: 66.67 },
@@ -1145,6 +1168,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.EnlightenedWarrior],
+    applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 200, speed: 176.37 },
       CritAttack: { modifier: 200, speed: 176.37 },
@@ -1200,6 +1224,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 0.5 }],
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
       CritAttack: { modifier: 275, speed: 78.93 },
@@ -1213,6 +1238,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Unique,
     type: characterType.Melee,
     effects: [effect.SupremeRuler],
+    applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 150, speed: 149.93 },
       CritAttack: { modifier: 275, speed: 83.33 },
@@ -1227,6 +1253,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Defense,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 150, speed: 149.93 },
       CritAttack: { modifier: 140, speed: 85.69 },
@@ -1320,6 +1347,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [{ ...effect.PrecisionStrike5, characterTypeRestricted: "Ranged" }],
+    applyStatusAilments: [{ status: statusAilment.EnemyPoisoned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 175, speed: 119 },
       CritAttack: { modifier: 300, speed: 75.02 },
@@ -1359,6 +1387,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 175, speed: 149 },
       CritAttack: {
@@ -1407,6 +1436,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyPoisoned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 150, speed: 136.24 },
       CritAttack: { modifier: 250, speed: 90.9 },
@@ -1447,6 +1477,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [{ ...effect.FierceSpirit5, characterTypeRestricted: "Melee" }],
+    applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 150, speed: 149.93 },
       CritAttack: { modifier: 250, speed: 90.91 },
@@ -1474,6 +1505,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [{ ...effect.PrecisionStrike5, characterTypeRestricted: "Melee" }],
+    applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 100, speed: 187.27 },
       CritAttack: { modifier: 200, speed: 115.34 },
@@ -1488,6 +1520,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [{ ...effect.Focus5, characterTypeRestricted: "Melee" }],
+    // applyStatusAilments: [{ status: statusAilment.Frostbitten, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
       CritAttack: { modifier: 250, speed: 115.34 },
@@ -1515,6 +1548,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [{ ...effect.Gale5, characterTypeRestricted: "Melee" }],
+    applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
       CritAttack: { modifier: 150, speed: 142.86 },

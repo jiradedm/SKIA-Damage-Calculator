@@ -4,7 +4,7 @@ import { arrayMove } from "@dnd-kit/sortable";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import type { Character, CharacterKey } from "@/data/character";
+import type { Character, CharacterApplyAilment, CharacterKey } from "@/data/character";
 import type { Effect } from "@/data/effect";
 import type { RarityKey } from "@/data/rarity";
 import type { Stat, StatKey } from "@/data/stat";
@@ -55,6 +55,9 @@ interface CharacterStore {
   // effect
   teamEffects?: Effect[];
   setTeamEffects: (teamEffects: Effect[]) => void;
+  // status
+  statusAilments?: CharacterApplyAilment[];
+  setStatusAilments: (statusAilments: CharacterApplyAilment[] | undefined) => void;
 }
 
 export const useCharacterStore = create<CharacterStore>()(
@@ -116,6 +119,11 @@ export const useCharacterStore = create<CharacterStore>()(
           if (state.teamEffects?.length === teamEffects.length) return {};
           return { teamEffects };
         });
+      },
+      // status
+      statusAilments: undefined,
+      setStatusAilments: (statusAilments) => {
+        set(() => ({ statusAilments }));
       },
     }),
     {

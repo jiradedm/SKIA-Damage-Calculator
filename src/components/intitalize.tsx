@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 import { accessory } from "@/data/accessory";
-import type { Character } from "@/data/character";
+import type { Character, CharacterApplyAilment } from "@/data/character";
 import { character as char } from "@/data/character";
 import { characterStat } from "@/data/characterStat";
 import type { Effect, EffectStat } from "@/data/effect";
@@ -187,6 +187,7 @@ const getCharacterAttackDamage = (
   globalStat: GlobalStat,
   modifier: StatKeyWithValue,
   enemyModifier: StatKeyWithValue,
+  statusAilments?: CharacterApplyAilment[],
 ) => {
   const charStat = characterStat[`${character.rarity.key}${character.type.key}${60}`];
 
@@ -212,14 +213,26 @@ const getCharacterAttackDamage = (
   const hitRateRadio = baseAccuracy / enemyEvasion;
   const hitRate = hitRateRadio > 1 ? 1 : hitRateRadio;
 
+  const getApplyConditionUptime = (condition?: StatKey) => {
+    if (!condition) return undefined;
+    if (!statusAilments) return globalStat[condition];
+    const statusAilment = statusAilments.find((alignment) => alignment.status.key === condition);
+    if (statusAilment) {
+      return statusAilment.uptime;
+    }
+    return 0;
+  };
+
   // BASIC ATTACK FINAL DAMAGE MODIFIER
   const basicAttackFinalDamageModifierPercent = character.attack.BasicAttack.attackModifier
     ? character.attack.BasicAttack.attackModifier.FinalDamage?.value || 0
     : 0;
-  const condition1 = character.attack.BasicAttack?.attackModifier?.FinalDamage?.applyCondition;
-  const conditionChecked1 = condition1 && globalStat[condition1];
+  const basicAttackConditionUptime = getApplyConditionUptime(
+    character.attack.CritAttack?.attackModifier?.FinalDamage?.applyCondition,
+  );
   const basicAttackFinalDamageModifier =
-    (100 + (!condition1 || conditionChecked1 ? basicAttackFinalDamageModifierPercent : 0)) / 100;
+    (100 + (!basicAttackConditionUptime ? 0 : basicAttackFinalDamageModifierPercent * basicAttackConditionUptime)) /
+    100;
 
   // *** BASIC ATTACK DAMAGE ***
   const basicAttackDamage = baseAttack * (character.attack.BasicAttack.modifier / 100) * basicAttackFinalDamageModifier;
@@ -228,10 +241,11 @@ const getCharacterAttackDamage = (
   const critAttackFinalDamageModifierPercent = character.attack.CritAttack.attackModifier
     ? character.attack.CritAttack.attackModifier.FinalDamage?.value || 0
     : 0;
-  const condition0 = character.attack.CritAttack?.attackModifier?.FinalDamage?.applyCondition;
-  const conditionChecked0 = condition0 && globalStat[condition0];
+  const critAttackConditionUptime = getApplyConditionUptime(
+    character.attack.CritAttack?.attackModifier?.FinalDamage?.applyCondition,
+  );
   const critAttackFinalDamageModifier =
-    (100 + (!condition0 || conditionChecked0 ? critAttackFinalDamageModifierPercent : 0)) / 100;
+    (100 + (!critAttackConditionUptime ? 0 : critAttackFinalDamageModifierPercent * critAttackConditionUptime)) / 100;
 
   // *** CRITICAL HIT ATTACK DAMAGE ***
   const critAttackDamage =
@@ -250,14 +264,19 @@ const getCharacterAttackDamage = (
   const SkillFinalDamageModifierPercent = character.attack.Skill?.attackModifier
     ? character.attack.Skill?.attackModifier.FinalDamage?.value || 0
     : 0;
-  const condition = character.attack.Skill?.attackModifier?.FinalDamage?.applyCondition;
-  const conditionChecked = condition && globalStat[condition];
-  const skillFinalDamageModifier = (100 + (!condition || conditionChecked ? SkillFinalDamageModifierPercent : 0)) / 100;
+
+  const skillConditionUptime = getApplyConditionUptime(
+    character.attack.Skill?.attackModifier?.FinalDamage?.applyCondition,
+  );
+
+  const skillFinalDamageModifier =
+    (100 + (!skillConditionUptime ? 0 : SkillFinalDamageModifierPercent * skillConditionUptime)) / 100;
 
   // SKILL EXTRA CRITICAL MODIFIER
   const skillCritModifierPercent = character.attack.Skill?.attackModifier
     ? character.attack.Skill?.attackModifier.CritRate?.value || 0
     : 0;
+
   const skillCritRate = critRate + skillCritModifierPercent / 100;
   const skillCritModifier = skillCritRate > 1 ? 1 : skillCritRate;
 
@@ -298,7 +317,12 @@ const getCharacterAttackDamage = (
   };
 };
 
-const calculateDamage = (addedCharacter: AddedCharacter, globalStat: GlobalStat, totalEffectStats: EffectStat[]) => {
+const calculateDamage = (
+  addedCharacter: AddedCharacter,
+  globalStat: GlobalStat,
+  totalEffectStats: EffectStat[],
+  statusAilments?: CharacterApplyAilment[],
+) => {
   const character = char[addedCharacter.character];
 
   const modifier = getModifier(addedCharacter, globalStat, totalEffectStats);
@@ -323,7 +347,7 @@ const calculateDamage = (addedCharacter: AddedCharacter, globalStat: GlobalStat,
     enemyDamageReductionRate,
     enemyDefenseModifier,
     enemyEvasionModifier,
-  } = getCharacterAttackDamage(character, addedCharacter.star, globalStat, modifier, enemyModifier);
+  } = getCharacterAttackDamage(character, addedCharacter.star, globalStat, modifier, enemyModifier, statusAilments);
 
   const totalAttackDamage = attackDamage * attack.atkAmount;
   const totalSkillDamage = skillDamage * attack.skillAmount;
@@ -422,22 +446,44 @@ const getTotalEffectStats = (effects: Effect[]) => {
   return effectStats;
 };
 
+export const getStatusAilments = (addedCharacters: AddedCharacter[]) => {
+  const statusAilmentArray: CharacterApplyAilment[] = [];
+  addedCharacters.forEach((addedCharacter) => {
+    if (!addedCharacter.active) return;
+
+    const character = char[addedCharacter.character];
+
+    (character.applyStatusAilments || []).forEach((statusAilment) => {
+      const index = statusAilmentArray.findIndex((alignment) => {
+        return alignment.status.key === statusAilment.status.key;
+      });
+      if (index === -1) {
+        statusAilmentArray.push(statusAilment);
+        return;
+      }
+      if (statusAilment.uptime > statusAilmentArray[index].uptime) statusAilmentArray[index] = statusAilment;
+    });
+  });
+  return statusAilmentArray;
+};
+
 // TODO: CHANGE CALCULATE TO COMPONENT LEVEL
 const Intitalize = () => {
-  const { teamEffects, addedCharacters, setCharacters } = useCharacterStore();
+  const { teamEffects, addedCharacters, setCharacters, statusAilments } = useCharacterStore();
   const { globalStat } = useStatStore();
 
   useEffect(() => {
     if (!teamEffects) return;
+
     const characters = addedCharacters.map((addedCharacter) => {
       const effects = getEffect(addedCharacter, teamEffects, globalStat);
       const effectStats = getTotalEffectStats(effects);
 
-      const damage = calculateDamage(addedCharacter, globalStat, effectStats);
+      const damage = calculateDamage(addedCharacter, globalStat, effectStats, statusAilments);
       return { ...addedCharacter, character: char[addedCharacter.character], effects, effectStats, damage };
     });
     setCharacters(characters);
-  }, [addedCharacters, teamEffects, setCharacters, globalStat]);
+  }, [addedCharacters, teamEffects, setCharacters, statusAilments, globalStat]);
 
   return <></>;
 };
