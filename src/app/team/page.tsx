@@ -98,14 +98,6 @@ export default function TeamPage() {
     setStatusAilments(getStatusAilments(addedCharacters));
   }, [addedCharacters, setStatusAilments]);
 
-  // const statusAilments = useMemo(() => {
-  //   const statusAilmentArray: CharacterApplyAilment[] = [];
-  //   characters.forEach((character) => {
-  //     if (character.active) statusAilmentArray.push(...(character.character.applyStatusAilments || []));
-  //   });
-  //   return statusAilmentArray;
-  // }, [characters]);
-
   return (
     <>
       <Title className="self-center text-3xl">Team Damage</Title>
