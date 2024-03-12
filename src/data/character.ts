@@ -110,7 +110,8 @@ export type CharacterKey =
   | "Yunjong"
   | "Jogeol"
   | "Noa"
-  | "Jake";
+  | "Jake"
+  | "GuardianPooki";
 
 interface Attack {
   modifier: number;
@@ -1547,6 +1548,19 @@ export const character: Record<CharacterKey, Character> = {
     attack: {
       BasicAttack: { modifier: 150, speed: 149.93 },
       CritAttack: { modifier: 150, speed: 136.24 },
+    },
+  },
+  GuardianPooki: {
+    key: "GuardianPooki",
+    name: "Guardian Pooki",
+    img: "/character/Guardian Pooki.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Defense,
+    effects: [],
+    attack: {
+      BasicAttack: { modifier: 125, speed: 166.67 },
+      CritAttack: { modifier: 150, speed: 119.9 },
+      Skill: { modifier: 0, speed: 33.3 },
     },
   },
 };
