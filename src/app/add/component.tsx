@@ -83,6 +83,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
 
   const editingCharacter = characters.find((char) => char.key === character?.character.key);
   const editLevel = characterLevelOptions.find((level) => level.value === character?.level);
+
   const initPotentials = Array.from<Potential>({ length: 5 }).map((_, index) => {
     if (!character?.potentials[index])
       return index + 1 >
@@ -111,13 +112,13 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
 
   const levelOptions = useMemo(() => {
     const options = characterLevelOptions.filter((option) => option.value <= selectedCharacter.rarity.maxLevel);
-    setSelectedLevel(options[0]);
+    setSelectedLevel(editLevel || options[0]);
     return options;
-  }, [selectedCharacter.rarity.maxLevel]);
+  }, [selectedCharacter.rarity.maxLevel, editLevel]);
 
   useEffect(() => {
-    setName(selectedCharacter.name);
-  }, [selectedCharacter.name]);
+    if (!isEdit) setName(selectedCharacter.name);
+  }, [selectedCharacter.name, isEdit]);
 
   useEffect(() => {
     const newPotent: Potential[] = Array.from<Potential>({ length: 5 }).map((_, index) =>
