@@ -73,7 +73,7 @@ export default function TeamPage() {
   const { characters, addedCharacters, setTeamEffects, statusAilments, setStatusAilments } = useCharacterStore();
 
   const [isOpen, setIsOpen] = useState(false);
-  const [sortActive, setSortActive] = useState(true);
+  const [sortActive, setSortActive] = useState(false);
 
   useEffect(() => {
     if (addedCharacters.length === 0) return;
