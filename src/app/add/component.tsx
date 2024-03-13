@@ -66,10 +66,6 @@ const CharacterComponent: FC<CharacterComponentProps> = ({
 const initCharIndex = 0;
 const initStar = 6;
 
-// const basePotentials = Array.from<Potential>({ length: 5 }).map((_, index) =>
-//   index + 1 > characters[initCharIndex].rarity.getPotentialLimit(initStar) ? "limited" : null,
-// );
-
 interface AddPageProps {
   isEdit?: boolean;
   character?: CalulatedCharacter;
