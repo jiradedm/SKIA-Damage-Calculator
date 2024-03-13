@@ -19,23 +19,6 @@ const ListBoxButton: FC<PropsWithChildren> = ({ children }) => {
   );
 };
 
-export function SimpleSelect({ options, selected, setSelected }: Props) {
-  return (
-    <div className="relative">
-      <Listbox value={selected} onChange={setSelected}>
-        <Listbox.Button>{selected.name}</Listbox.Button>
-        <Listbox.Options className="absolute -right-2 -top-1 flex cursor-pointer gap-2 bg-[#454445] px-2 py-1.5 leading-3 shadow outline outline-2 outline-[#565558]">
-          {options.map((option, index) => (
-            <Listbox.Option key={index} value={option}>
-              {option.name}
-            </Listbox.Option>
-          ))}
-        </Listbox.Options>
-      </Listbox>
-    </div>
-  );
-}
-
 export default function Select({ options, selected, setSelected, className }: Props) {
   return (
     <div className={twMerge("relative text-center text-white", className)}>
