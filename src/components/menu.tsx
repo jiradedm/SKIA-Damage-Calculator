@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { useMemo } from "react";
 import { twMerge } from "tailwind-merge";
 
+import { useGeneralStore } from "@/store";
+
 interface IMenu {
   title: string;
   route: string;
@@ -18,6 +20,7 @@ const menus: IMenu[] = [
 ];
 
 const Menu = () => {
+  const { language, setLanguage } = useGeneralStore();
   const pathname = usePathname();
 
   const selectedIndex = useMemo(() => {
@@ -26,8 +29,25 @@ const Menu = () => {
 
   return (
     <div className="fixed z-[3] w-full max-w-maxw px-2">
-      <div className="text-stroke pb-4 text-center text-2xl font-[500] leading-5 text-[#F4d77e]">
-        SKIA Damage Calculator
+      <div className="grid grid-cols-[50px_auto_50px] justify-between pb-4 ">
+        <div />
+        <div className="text-stroke text-center text-2xl font-[500] leading-5 text-[#F4d77e]">
+          SKIA Damage Calculator
+        </div>
+        <div className="flex gap-2 text-white">
+          <div
+            className={twMerge("cursor-pointer", language === "en" && "underline")}
+            onClick={() => setLanguage("en")}
+          >
+            EN
+          </div>
+          <div
+            className={twMerge("cursor-pointer", language === "th" && "underline")}
+            onClick={() => setLanguage("th")}
+          >
+            TH
+          </div>
+        </div>
       </div>
       <div className="relative h-[36px] select-none rounded-full bg-[#53545b] px-2 py-1 leading-4 outline outline-2 outline-[#8d8788]">
         {selectedIndex !== -1 && (

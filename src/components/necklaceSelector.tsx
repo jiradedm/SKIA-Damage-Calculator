@@ -1,5 +1,9 @@
+"use client";
+
 import type { ComponentPropsWithoutRef, Dispatch, FC, SetStateAction } from "react";
 import React from "react";
+import { useTranslation } from "react-i18next";
+// import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
 import { type Accessory } from "@/data/accessory";
@@ -52,6 +56,9 @@ const AccessoryLevelSelector: FC<ComponentPropsWithoutRef<"div"> & AccessoryLeve
   setNecklaceLevel = () => {},
   ...props
 }) => {
+  const { t } = useTranslation("accessory");
+  const { t: ts } = useTranslation("stat");
+
   const increaseLevel = () => {
     setNecklaceLevel((prev) => {
       if (prev >= maxLevel) return prev;
@@ -89,10 +96,10 @@ const AccessoryLevelSelector: FC<ComponentPropsWithoutRef<"div"> & AccessoryLeve
             <PlusIcon />
           </IconWrap>
         </div>
-        <div className="text-black">{accessory.name}</div>
+        <div className="text-black">{t(accessory.key)}</div>
       </div>
       <div className="flex justify-between rounded-b bg-[#344557] p-2 text-white">
-        <div>{accessory.stat.name}</div>
+        <div>{ts(accessory.stat.key)}</div>
         <div className="text-[#d2fd7d]">+{accessory.value[necklaceLevel]}%</div>
       </div>
     </div>

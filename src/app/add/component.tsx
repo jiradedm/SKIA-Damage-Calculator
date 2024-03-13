@@ -3,6 +3,7 @@
 import { useRouter } from "next/navigation";
 import type { Dispatch, FC, SetStateAction } from "react";
 import React, { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { v4 } from "uuid";
 
 import Button from "@/components/button";
@@ -46,6 +47,8 @@ const CharacterComponent: FC<CharacterComponentProps> = ({
   levelOptions,
   readonly,
 }) => {
+  const { t } = useTranslation("character");
+
   return (
     <div className="grid grid-cols-[68px_auto] grid-rows-2 gap-x-2 self-center">
       <ChooseCharacter
@@ -55,7 +58,7 @@ const CharacterComponent: FC<CharacterComponentProps> = ({
         readonly={readonly}
       />
       <div className="flex items-center gap-1">
-        <div className="text-xl font-bold leading-8">{character.name}</div>
+        <div className="ml-1.5 text-xl font-[500] leading-8">{t(character.key)}</div>
         <Select selected={selectedLevel} setSelected={setSelectedLevel} options={levelOptions} className="w-[80px]" />
       </div>
       <StarSelector selectedStar={star} setSelectedStar={setStar} className="items-center" />
@@ -73,6 +76,7 @@ interface AddPageProps {
 }
 
 export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited = () => {} }) => {
+  const { t } = useTranslation("character");
   const router = useRouter();
   const { addCharacter, editCharacter } = useCharacterStore();
   const [isOpen, setIsOpen] = useState(false);
@@ -113,8 +117,8 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
   }, [selectedCharacter.rarity.maxLevel, editLevel]);
 
   useEffect(() => {
-    if (!isEdit) setName(selectedCharacter.name);
-  }, [selectedCharacter.name, isEdit]);
+    if (!isEdit) setName(t(selectedCharacter.key));
+  }, [isEdit, selectedCharacter.key, t]);
 
   useEffect(() => {
     const newPotent: Potential[] = Array.from<Potential>({ length: 5 }).map((_, index) =>

@@ -2,6 +2,7 @@
 
 import type { ComponentPropsWithoutRef, FC } from "react";
 import React, { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
 import { potentialValues } from "@/data/potential";
@@ -60,6 +61,9 @@ const PotentialAdder: FC<ComponentPropsWithoutRef<"div"> & PotentialAdderProps> 
   setPotentials = () => {},
   ...props
 }) => {
+  const { t: tr } = useTranslation("rarity");
+  const { t: ts } = useTranslation("stat");
+
   const [selectedStat, setSelectedStat] = useState(baseStats[0]);
   const [selectedRarity, setSelectedRarity] = useState(rarity.Legendary);
 
@@ -103,8 +107,8 @@ const PotentialAdder: FC<ComponentPropsWithoutRef<"div"> & PotentialAdderProps> 
     <div className={twMerge("flex flex-col gap-2 text-sm text-white md:text-base", className)} {...props}>
       {!readonly && (
         <div className="grid w-full grid-cols-[33%_45%_22%] gap-y-1.5 md:grid-cols-[25%_35%_20%_20%]">
-          <Select selected={selectedRarity} setSelected={setSelectedRarity} options={rarities} />
-          <Select selected={selectedStat} setSelected={setSelectedStat} options={baseStats} />
+          <Select selected={selectedRarity} setSelected={setSelectedRarity} options={rarities} namespace="rarity" />
+          <Select selected={selectedStat} setSelected={setSelectedStat} options={baseStats} namespace="stat" />
           <Select selected={selectedValue} setSelected={setSelectedValue} options={values} />
           <div className="col-span-3 md:col-span-1 md:pl-1.5">
             <Button onClick={() => addPotential()}>Add</Button>
@@ -133,10 +137,10 @@ const PotentialAdder: FC<ComponentPropsWithoutRef<"div"> & PotentialAdderProps> 
                     potential.rarity.selectClass,
                   )}
                 >
-                  <div className="truncate">{potential.rarity.name}</div>
+                  <div className="truncate">{tr(potential.rarity.key)}</div>
                 </div>
                 <div>
-                  +{potential.value}% {potential.stat.name}
+                  +{potential.value}% {ts(potential.stat.key)}
                 </div>
                 <div className="flex justify-end">
                   <div

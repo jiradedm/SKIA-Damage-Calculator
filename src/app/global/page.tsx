@@ -2,6 +2,7 @@
 
 import type { Dispatch, FC, SetStateAction } from "react";
 import { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
 import Title from "@/components/title";
@@ -55,6 +56,8 @@ interface StatProps {
 }
 
 const StatItem: FC<StatProps> = ({ stat: statProps }) => {
+  const { t } = useTranslation("stat");
+
   const { setGlobalStatValue } = useStatStore();
 
   const [editing, setEditing] = useState(false);
@@ -81,7 +84,7 @@ const StatItem: FC<StatProps> = ({ stat: statProps }) => {
       }}
     >
       <div className="flex w-full items-center justify-between bg-[#454445] px-2 py-1 leading-4 outline outline-2 outline-[#565558]">
-        <div className="line-clamp-1">{stat.name}</div>
+        <div className="line-clamp-1">{t(stat.key)}</div>
         {stat.isToggle ? (
           <div
             onChange={(value) => handleInput(value ? 1 : 0)}

@@ -2,6 +2,7 @@ import { useSortable } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import type { FC } from "react";
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
 import { AddPage } from "@/app/add/component";
@@ -35,6 +36,8 @@ interface CharacterDamageProps {
 }
 
 const StatModal: FC<ModalProps & CharacterDamageProps> = ({ isOpen, setIsOpen, character }) => {
+  const { t } = useTranslation("stat");
+
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Character Stats">
       <div>
@@ -46,8 +49,8 @@ const StatModal: FC<ModalProps & CharacterDamageProps> = ({ isOpen, setIsOpen, c
           } else value = parseFloat((characterStat.value * 100).toFixed(2)).toLocaleString();
 
           return (
-            <div key={index} className={twMerge("flex justify-between py-1", index % 2 !== 0 && "bg-[#2f3745]")}>
-              <div>{characterStat.name}</div>
+            <div key={index} className={twMerge("flex justify-between p-1", index % 2 !== 0 && "bg-[#2f3745]")}>
+              <div>{t(characterStat.key)}</div>
               <div className="whitespace-nowrap text-[#fcf4d3]">
                 {value}
                 {characterStat.isFlat ? "" : "%"}
@@ -62,6 +65,8 @@ const StatModal: FC<ModalProps & CharacterDamageProps> = ({ isOpen, setIsOpen, c
 };
 
 const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
+  const { t } = useTranslation("character");
+
   const { deleteCharacter, toggleActiveCharacter } = useCharacterStore();
 
   const { listeners, setNodeRef, transform } = useSortable({ id: character.id });
@@ -121,7 +126,7 @@ const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
           </Button>
           <Modal isOpen={isOpen2} setIsOpen={setIsOpen2} className="w-fit">
             <div className="flex min-w-[200px] flex-col gap-2">
-              <div className="text-center">Delete {character.character.name} ?</div>
+              <div className="text-center">Delete {t(character.character.key)} ?</div>
               <div className="flex justify-around gap-2">
                 <Button
                   className="w-[80px]"

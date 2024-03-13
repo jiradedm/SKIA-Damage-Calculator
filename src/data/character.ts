@@ -136,7 +136,6 @@ export interface CharacterApplyAilment {
 
 export interface Character {
   key: CharacterKey;
-  name: string;
   img: string;
   rarity: Rarity;
   type: CharacterType;
@@ -149,7 +148,6 @@ export interface Character {
 export const character: Record<CharacterKey, Character> = {
   Ace: {
     key: "Ace",
-    name: "Ace",
     img: "/character/Ace.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -162,7 +160,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Aleem: {
     key: "Aleem",
-    name: "Aleem",
     img: "/character/Aleem.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -174,7 +171,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Alice: {
     key: "Alice",
-    name: "Alice",
     img: "/character/Alice.webp",
     rarity: rarity.Unique,
     type: characterType.Support,
@@ -186,7 +182,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Aragon: {
     key: "Aragon",
-    name: "Aragon",
     img: "/character/Aragon.webp",
     rarity: rarity.Unique,
     type: characterType.Melee,
@@ -199,7 +194,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Ariel: {
     key: "Ariel",
-    name: "Ariel",
     img: "/character/Ariel.webp",
     rarity: rarity.Unique,
     type: characterType.Ranged,
@@ -211,7 +205,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Aris: {
     key: "Aris",
-    name: "Aris",
     img: "/character/Aris.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -224,7 +217,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Asura: {
     key: "Asura",
-    name: "Asura",
     img: "/character/Asura.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -237,7 +229,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   BaiLong: {
     key: "BaiLong",
-    name: "Bai Long",
     img: "/character/Bai Long.webp",
     rarity: rarity.Unique,
     type: characterType.Melee,
@@ -249,7 +240,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Ballista: {
     key: "Ballista",
-    name: "Ballista",
     img: "/character/Ballista.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -270,7 +260,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Bane: {
     key: "Bane",
-    name: "Bane",
     img: "/character/Bane.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -283,7 +272,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Bathory: {
     key: "Bathory",
-    name: "Bathory",
     img: "/character/Bathory.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -295,7 +283,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   BlackRose: {
     key: "BlackRose",
-    name: "Black Rose",
     img: "/character/Black Rose.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -314,7 +301,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Chancellor: {
     key: "Chancellor",
-    name: "Chancellor",
     img: "/character/Chancellor.webp",
     rarity: rarity.Unique,
     type: characterType.Defense,
@@ -327,7 +313,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Chloe: {
     key: "Chloe",
-    name: "Chloe",
     img: "/character/Chloe.webp",
     rarity: rarity.Unique,
     type: characterType.Support,
@@ -339,7 +324,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Clemyth: {
     key: "Clemyth",
-    name: "Clemyth",
     img: "/character/Clemyth.webp",
     rarity: rarity.Legendary,
     type: characterType.Support,
@@ -351,7 +335,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   XiaoQiao: {
     key: "XiaoQiao",
-    name: "Xiao Qiao",
     img: "/character/Xiao Qiao.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -363,7 +346,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Daisy: {
     key: "Daisy",
-    name: "Daisy",
     img: "/character/Daisy.webp",
     rarity: rarity.Unique,
     type: characterType.Support,
@@ -375,7 +357,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Dellons: {
     key: "Dellons",
-    name: "Dellons",
     img: "/character/Dellons.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -388,7 +369,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Diaochan: {
     key: "Diaochan",
-    name: "Diaochan",
     img: "/character/Diaochan.webp",
     rarity: rarity.Legendary,
     type: characterType.Support,
@@ -401,7 +381,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   DokjaKim: {
     key: "DokjaKim",
-    name: "Dokja Kim",
     img: "/character/Dokja Kim.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -414,7 +393,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Eileene: {
     key: "Eileene",
-    name: "Eileene",
     img: "/character/Eileene.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -427,7 +405,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Espada: {
     key: "Espada",
-    name: "Espada",
     img: "/character/Espada.webp",
     rarity: rarity.Unique,
     type: characterType.Ranged,
@@ -447,7 +424,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Evan: {
     key: "Evan",
-    name: "Evan",
     img: "/character/Evan.webp",
     rarity: rarity.Unique,
     type: characterType.Defense,
@@ -460,7 +436,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   FengYan: {
     key: "FengYan",
-    name: "Feng Yan",
     img: "/character/Feng Yan.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -473,7 +448,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   GuanYu: {
     key: "GuanYu",
-    name: "Guan Yu",
     img: "/character/Guan Yu.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
@@ -485,7 +459,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Harmal: {
     key: "Harmal",
-    name: "Harmal",
     img: "/character/Harmal.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -498,7 +471,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Hayoung: {
     key: "Hayoung",
-    name: "Hayoung",
     img: "/character/Hayoung.webp",
     rarity: rarity.Unique,
     type: characterType.Support,
@@ -511,7 +483,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Heavenia: {
     key: "Heavenia",
-    name: "Heavenia",
     img: "/character/Heavenia.webp",
     rarity: rarity.Unique,
     type: characterType.Melee,
@@ -524,7 +495,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Hellenia: {
     key: "Hellenia",
-    name: "Hellenia",
     img: "/character/Hellenia.webp",
     rarity: rarity.Unique,
     type: characterType.Defense,
@@ -537,7 +507,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   HuiwonJeong: {
     key: "HuiwonJeong",
-    name: "Huiwon Jeong",
     img: "/character/Huiwon Jeong.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -552,7 +521,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Ingrid: {
     key: "Ingrid",
-    name: "Ingrid",
     img: "/character/Ingrid.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -567,7 +535,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Isabella: {
     key: "Isabella",
-    name: "Isabella",
     img: "/character/Isabella.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -580,7 +547,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Jane: {
     key: "Jane",
-    name: "Jane",
     img: "/character/Jane.webp",
     rarity: rarity.Unique,
     type: characterType.Melee,
@@ -593,7 +559,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Jave: {
     key: "Jave",
-    name: "Jave",
     img: "/character/Jave.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -606,7 +571,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Jin: {
     key: "Jin",
-    name: "Jin",
     img: "/character/Jin.webp",
     rarity: rarity.Unique,
     type: characterType.Melee,
@@ -623,7 +587,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Jupy: {
     key: "Jupy",
-    name: "Jupy",
     img: "/character/Jupy.webp",
     rarity: rarity.Unique,
     type: characterType.Ranged,
@@ -636,7 +599,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Kagura: {
     key: "Kagura",
-    name: "Kagura",
     img: "/character/Kagura.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -653,7 +615,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Karin: {
     key: "Karin",
-    name: "Karin",
     img: "/character/Karin.webp",
     rarity: rarity.Unique,
     type: characterType.Support,
@@ -666,7 +627,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   KarlHeron: {
     key: "KarlHeron",
-    name: "Karl Heron",
     img: "/character/Karl Heron.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -679,7 +639,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Knox: {
     key: "Knox",
-    name: "Knox",
     img: "/character/Knox.webp",
     rarity: rarity.Unique,
     type: characterType.Defense,
@@ -691,7 +650,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Kris: {
     key: "Kris",
-    name: "Kris",
     img: "/character/Kris.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -704,7 +662,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Kyrielle: {
     key: "Kyrielle",
-    name: "Kyrielle",
     img: "/character/Kyrielle.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -717,7 +674,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Lania: {
     key: "Lania",
-    name: "Lania",
     img: "/character/Lania.webp",
     rarity: rarity.Legendary,
     type: characterType.Support,
@@ -731,7 +687,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Li: {
     key: "Li",
-    name: "Li",
     img: "/character/Li.webp",
     rarity: rarity.Unique,
     type: characterType.Melee,
@@ -744,7 +699,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Lina: {
     key: "Lina",
-    name: "Lina",
     img: "/character/Lina.webp",
     rarity: rarity.Unique,
     type: characterType.Support,
@@ -757,7 +711,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   LingLing: {
     key: "LingLing",
-    name: "Ling Ling",
     img: "/character/Ling Ling.webp",
     rarity: rarity.Unique,
     type: characterType.Support,
@@ -769,7 +722,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   LuBu: {
     key: "LuBu",
-    name: "Lu Bu",
     img: "/character/Lu Bu.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
@@ -782,7 +734,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Lucrezia: {
     key: "Lucrezia",
-    name: "Lucrezia",
     img: "/character/Lucrezia.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
@@ -795,7 +746,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   MaoSong: {
     key: "MaoSong",
-    name: "Mao Song",
     img: "/character/Mao Song.webp",
     rarity: rarity.Unique,
     type: characterType.Melee,
@@ -808,7 +758,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Meg: {
     key: "Meg",
-    name: "Meg",
     img: "/character/Meg.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -821,7 +770,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Mirage: {
     key: "Mirage",
-    name: "Mirage",
     img: "/character/Mirage.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
@@ -834,7 +782,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Misha: {
     key: "Misha",
-    name: "Misha",
     img: "/character/Misha.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -852,7 +799,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Nezha: {
     key: "Nezha",
-    name: "Nezha",
     img: "/character/Nezha.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -864,7 +810,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Nia: {
     key: "Nia",
-    name: "Nia",
     img: "/character/Nia.webp",
     rarity: rarity.Unique,
     type: characterType.Melee,
@@ -877,7 +822,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Noho: {
     key: "Noho",
-    name: "Noho",
     img: "/character/Noho.webp",
     rarity: rarity.Unique,
     type: characterType.Support,
@@ -889,7 +833,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Orkah: {
     key: "Orkah",
-    name: "Orkah",
     img: "/character/Orkah.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -904,7 +847,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Orly: {
     key: "Orly",
-    name: "Orly",
     img: "/character/Orly.webp",
     rarity: rarity.Legendary,
     type: characterType.Support,
@@ -916,7 +858,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Rachel: {
     key: "Rachel",
-    name: "Rachel",
     img: "/character/Rachel.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -931,7 +872,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Rin: {
     key: "Rin",
-    name: "Rin",
     img: "/character/Rin.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -945,7 +885,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Roro: {
     key: "Roro",
-    name: "Roro",
     img: "/character/Roro.webp",
     rarity: rarity.Legendary,
     type: characterType.Support,
@@ -958,7 +897,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Rudy: {
     key: "Rudy",
-    name: "Rudy",
     img: "/character/Rudy.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
@@ -971,7 +909,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Ruri: {
     key: "Ruri",
-    name: "Ruri",
     img: "/character/Ruri.webp",
     rarity: rarity.Unique,
     type: characterType.Ranged,
@@ -984,7 +921,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Ryan: {
     key: "Ryan",
-    name: "Ryan",
     img: "/character/Ryan.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -997,7 +933,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Salem: {
     key: "Salem",
-    name: "Salem",
     img: "/character/Salem.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -1010,7 +945,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Seaton: {
     key: "Seaton",
-    name: "Seaton",
     img: "/character/Seaton.webp",
     rarity: rarity.Legendary,
     type: characterType.Support,
@@ -1023,7 +957,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Sebastian: {
     key: "Sebastian",
-    name: "Sebastian",
     img: "/character/Sebastian.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -1036,7 +969,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Sera: {
     key: "Sera",
-    name: "Sera",
     img: "/character/Sera.webp",
     rarity: rarity.Unique,
     type: characterType.Support,
@@ -1049,7 +981,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Shane: {
     key: "Shane",
-    name: "Shane",
     img: "/character/Shane.webp",
     rarity: rarity.Unique,
     type: characterType.Melee,
@@ -1065,7 +996,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Sieg: {
     key: "Sieg",
-    name: "Sieg",
     img: "/character/Sieg.webp",
     rarity: rarity.Unique,
     type: characterType.Melee,
@@ -1078,7 +1008,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Sizar: {
     key: "Sizar",
-    name: "Sizar",
     img: "/character/Sizar.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1093,7 +1022,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Snipper: {
     key: "Snipper",
-    name: "Snipper",
     img: "/character/Snipper.webp",
     rarity: rarity.Unique,
     type: characterType.Ranged,
@@ -1108,7 +1036,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Snolled: {
     key: "Snolled",
-    name: "Snolled",
     img: "/character/Snolled.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -1121,7 +1048,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Soi: {
     key: "Soi",
-    name: "Soi",
     img: "/character/Soi.webp",
     rarity: rarity.Legendary,
     type: characterType.Support,
@@ -1134,7 +1060,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Spike: {
     key: "Spike",
-    name: "Spike",
     img: "/character/Spike.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1149,7 +1074,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Spina: {
     key: "Spina",
-    name: "Spina",
     img: "/character/Spina.webp",
     rarity: rarity.Unique,
     type: characterType.Melee,
@@ -1163,7 +1087,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   SunWukong: {
     key: "SunWukong",
-    name: "Sun Wukong",
     img: "/character/Sun Wukong.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1177,7 +1100,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Sylvia: {
     key: "Sylvia",
-    name: "Sylvia",
     img: "/character/Sylvia.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -1189,7 +1111,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Tara: {
     key: "Tara",
-    name: "Tara",
     img: "/character/Tara.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -1206,7 +1127,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   TsingTao: {
     key: "TsingTao",
-    name: "Tsing Tao",
     img: "/character/Tsing Tao.webp",
     rarity: rarity.Unique,
     type: characterType.Defense,
@@ -1219,7 +1139,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Velika: {
     key: "Velika",
-    name: "Velika",
     img: "/character/Velika.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -1233,7 +1152,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Victoria: {
     key: "Victoria",
-    name: "Victoria",
     img: "/character/Victoria.webp",
     rarity: rarity.Unique,
     type: characterType.Melee,
@@ -1248,7 +1166,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Weiser: {
     key: "Weiser",
-    name: "Weiser",
     img: "/character/Weiser.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
@@ -1262,7 +1179,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   XiangYu: {
     key: "XiangYu",
-    name: "Xiang Yu",
     img: "/character/Xiang Yu.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1274,7 +1190,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Yui: {
     key: "Yui",
-    name: "Yui",
     img: "/character/Yui.webp",
     rarity: rarity.Unique,
     type: characterType.Support,
@@ -1287,7 +1202,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Yuri: {
     key: "Yuri",
-    name: "Yuri",
     img: "/character/Yuri.webp",
     rarity: rarity.Unique,
     type: characterType.Support,
@@ -1299,7 +1213,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   ZhaoYun: {
     key: "ZhaoYun",
-    name: "Zhao Yun",
     img: "/character/Zhao Yun.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1312,7 +1225,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   JunghyeokYu: {
     key: "JunghyeokYu",
-    name: "Junghyeok Yu",
     img: "/character/Junghyeok Yu.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1329,7 +1241,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   SangahYu: {
     key: "SangahYu",
-    name: "Sangah Yu",
     img: "/character/Sangah Yu.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -1342,7 +1253,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   BaiJiao: {
     key: "BaiJiao",
-    name: "Bai Jiao",
     img: "/character/Bai Jiao.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -1357,7 +1267,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Teo: {
     key: "Teo",
-    name: "Teo",
     img: "/character/Teo.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1370,7 +1279,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   ZhugeLiang: {
     key: "ZhugeLiang",
-    name: "Zhuge Liang",
     img: "/character/Zhuge Liang.webp",
     rarity: rarity.Legendary,
     type: characterType.Support,
@@ -1382,7 +1290,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Zahara: {
     key: "Zahara",
-    name: "Zahara",
     img: "/character/Zahara.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1401,7 +1308,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Rakshasa: {
     key: "Rakshasa",
-    name: "Rakshasa",
     img: "/character/Rakshasa.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -1418,7 +1324,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   LeeJung: {
     key: "LeeJung",
-    name: "Lee Jung",
     img: "/character/Lee Jung.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
@@ -1431,7 +1336,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Xiao: {
     key: "Xiao",
-    name: "Xiao",
     img: "/character/Xiao.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1446,7 +1350,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Medea: {
     key: "Medea",
-    name: "Medea",
     img: "/character/Medea.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -1459,7 +1362,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Yeonhee: {
     key: "Yeonhee",
-    name: "Yeonhee",
     img: "/character/Yeonhee.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -1472,7 +1374,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Kwonho: {
     key: "Kwonho",
-    name: "Kwonho",
     img: "/character/Kwonho.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1487,7 +1388,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Cheongmyeong: {
     key: "Cheongmyeong",
-    name: "Cheongmyeong",
     img: "/character/Cheongmyeong.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1500,7 +1400,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Baekcheon: {
     key: "Baekcheon",
-    name: "Baekcheon",
     img: "/character/Baekcheon.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1515,7 +1414,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   IseolYu: {
     key: "IseolYu",
-    name: "Iseol Yu",
     img: "/character/Iseol Yu.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1530,7 +1428,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Yunjong: {
     key: "Yunjong",
-    name: "Yunjong",
     img: "/character/Yunjong.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
@@ -1543,7 +1440,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Jogeol: {
     key: "Jogeol",
-    name: "Jogeol",
     img: "/character/Jogeol.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1558,7 +1454,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Noa: {
     key: "Noa",
-    name: "Noa",
     img: "/character/Noa.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1575,7 +1470,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Jake: {
     key: "Jake",
-    name: "Jake",
     img: "/character/Jake.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
@@ -1587,7 +1481,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   GuardianPooki: {
     key: "GuardianPooki",
-    name: "Guardian Pooki",
     img: "/character/Guardian Pooki.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
@@ -1601,6 +1494,6 @@ export const character: Record<CharacterKey, Character> = {
 };
 
 export const characters: Character[] = Object.values(character).sort((char1, char2) => {
-  if (char1.rarity.key === char2.rarity.key) return char1.name > char2.name ? 1 : -1;
+  if (char1.rarity.key === char2.rarity.key) return char1.key > char2.key ? 1 : -1;
   return char1.rarity.key > char2.rarity.key ? 1 : -1;
 });

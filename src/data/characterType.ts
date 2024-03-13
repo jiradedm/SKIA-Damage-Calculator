@@ -5,14 +5,12 @@ export type CharacterTypeKey = "Defense" | "Melee" | "Ranged" | "Support";
 
 export interface CharacterType {
   key: CharacterTypeKey;
-  name: string;
   typeRestrictStat: Record<StatKey, StatKey>;
 }
 
 export const characterType: Record<CharacterTypeKey, CharacterType> = {
   Defense: {
     key: "Defense",
-    name: "Defense",
     typeRestrictStat: {
       Attack: stat.DefenseTypeAttack.key,
       Accuracy: stat.DefenseTypeAccuracy.key,
@@ -22,7 +20,6 @@ export const characterType: Record<CharacterTypeKey, CharacterType> = {
   },
   Melee: {
     key: "Melee",
-    name: "Melee",
     typeRestrictStat: {
       Attack: stat.MeleeTypeAttack.key,
       Accuracy: stat.MeleeTypeAccuracy.key,
@@ -32,7 +29,6 @@ export const characterType: Record<CharacterTypeKey, CharacterType> = {
   },
   Ranged: {
     key: "Ranged",
-    name: "Ranged",
     typeRestrictStat: {
       Attack: stat.RangedTypeAttack.key,
       Accuracy: stat.RangedTypeAccuracy.key,
@@ -42,7 +38,6 @@ export const characterType: Record<CharacterTypeKey, CharacterType> = {
   },
   Support: {
     key: "Support",
-    name: "Support",
     typeRestrictStat: {
       Attack: stat.SupportTypeAttack.key,
       Accuracy: stat.SupportTypeAccuracy.key,

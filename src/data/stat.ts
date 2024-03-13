@@ -43,11 +43,26 @@ export type StatKey =
   | "EnemyCursed"
   | "NightmareStage"
   | "NightmareLevel"
-  | "FoodBuff";
+  | "FoodBuff"
+  | "HitRate"
+  | "EnemyFinalEvasion"
+  | "EnemyFinalDefense"
+  | "EnemyDamageReduction"
+  | "EnemyFinalDamageTaken"
+  | "BasicAttackDamage"
+  | "CriticalHitAttackDamage"
+  | "AverageAttackDamage"
+  | "AttackAmount"
+  | "TotalAttackDamage"
+  | "AverageSkillDamage"
+  | "SkillAmount"
+  | "TotalSkillDamage"
+  | "AverageDoTDamage"
+  | "DoTAmount"
+  | "TotalDoTDamage";
 
 export interface Stat {
   key: StatKey;
-  name: string;
   isFlat?: boolean;
   noFormat?: boolean;
   isToggle?: boolean;
@@ -65,206 +80,73 @@ export const foodBuff = {
 export type StatData = Record<StatKey, Stat>;
 
 const baseStat = {
-  Attack: {
-    key: "Attack",
-    name: "Attack",
-  },
-  Accuracy: {
-    key: "Accuracy",
-    name: "Accuracy",
-  },
-  CritRate: {
-    key: "CritRate",
-    name: "Critical Hit Rate",
-  },
-  CritDamage: {
-    key: "CritDamage",
-    name: "Critical Hit Damage",
-  },
+  Attack: { key: "Attack" },
+  Accuracy: { key: "Accuracy" },
+  CritRate: { key: "CritRate" },
+  CritDamage: { key: "CritDamage" },
 } as StatData;
 
 export const stat: StatData = {
   ...baseStat,
-  FinalAttack: {
-    key: "FinalAttack",
-    name: "Final Attack",
-  },
-  AttackSpeed: {
-    key: "AttackSpeed",
-    name: "Attack Speed",
-  },
-  FinalAccuracy: {
-    key: "FinalAccuracy",
-    name: "Final Accuracy",
-  },
-  FinalEvasion: {
-    key: "FinalEvasion",
-    name: "Final Evasion",
-  },
-  FinalDefense: {
-    key: "FinalDefense",
-    name: "Final Defense",
-  },
-  FinalWeaknessDamage: {
-    key: "FinalWeaknessDamage",
-    name: "Final Weakness Attack Damage",
-  },
-  WeaknessRate: {
-    key: "WeaknessRate",
-    name: "Weakness Attack Rate",
-  },
-  FinalCritDamage: {
-    key: "FinalCritDamage",
-    name: "Final Critical Hit Damage",
-  },
-  FinalDamage: {
-    key: "FinalDamage",
-    name: "Final Damage",
-  },
-  AttackInfluence: {
-    key: "AttackInfluence",
-    name: "Attack",
-    isFlat: true,
-  },
-  DefenseTypeAttack: {
-    key: "DefenseTypeAttack",
-    name: "Defense Type Hero Attack",
-  },
-  DefenseTypeAccuracy: {
-    key: "DefenseTypeAccuracy",
-    name: "Defense Type Hero Accuracy",
-  },
-  DefenseTypeCritRate: {
-    key: "DefenseTypeCritRate",
-    name: "Defense Type Critical Hit Rate",
-  },
-  DefenseTypeWeaknessRate: {
-    key: "DefenseTypeWeaknessRate",
-    name: "Defense Type Weakness Attack Rate",
-  },
-  MeleeTypeAttack: {
-    key: "MeleeTypeAttack",
-    name: "Melee Type Hero Attack",
-  },
-  MeleeTypeAccuracy: {
-    key: "MeleeTypeAccuracy",
-    name: "Melee Type Hero Accuracy",
-  },
-  MeleeTypeCritRate: {
-    key: "MeleeTypeCritRate",
-    name: "Melee Type Critical Hit Rate",
-  },
-  MeleeTypeWeaknessRate: {
-    key: "MeleeTypeWeaknessRate",
-    name: "Melee Type Weakness Attack Rate",
-  },
-  RangedTypeAttack: {
-    key: "RangedTypeAttack",
-    name: "Ranged Type Hero Attack",
-  },
-  RangedTypeAccuracy: {
-    key: "RangedTypeAccuracy",
-    name: "Ranged Type Hero Accuracy",
-  },
-  RangedTypeCritRate: {
-    key: "RangedTypeCritRate",
-    name: "Ranged Type Critical Hit Rate",
-  },
-  RangedTypeWeaknessRate: {
-    key: "RangedTypeWeaknessRate",
-    name: "Ranged Type Weakness Attack Rate",
-  },
-  SupportTypeAttack: {
-    key: "SupportTypeAttack",
-    name: "Support Type Hero Attack",
-  },
-  SupportTypeAccuracy: {
-    key: "SupportTypeAccuracy",
-    name: "Support Type Hero Accuracy",
-  },
-  SupportTypeCritRate: {
-    key: "SupportTypeCritRate",
-    name: "Support Type Critical Hit Rate",
-  },
-  SupportTypeWeaknessRate: {
-    key: "SupportTypeWeaknessRate",
-    name: "Support Type Weakness Attack Rate",
-  },
-  CooldownDecrease: {
-    key: "CooldownDecrease",
-    name: "Decrease Skill Cooldown",
-  },
+  FinalAttack: { key: "FinalAttack" },
+  AttackSpeed: { key: "AttackSpeed" },
+  FinalAccuracy: { key: "FinalAccuracy" },
+  FinalEvasion: { key: "FinalEvasion" },
+  FinalDefense: { key: "FinalDefense" },
+  FinalWeaknessDamage: { key: "FinalWeaknessDamage" },
+  WeaknessRate: { key: "WeaknessRate" },
+  FinalCritDamage: { key: "FinalCritDamage" },
+  FinalDamage: { key: "FinalDamage" },
+  AttackInfluence: { key: "AttackInfluence", isFlat: true },
+  DefenseTypeAttack: { key: "DefenseTypeAttack" },
+  DefenseTypeAccuracy: { key: "DefenseTypeAccuracy" },
+  DefenseTypeCritRate: { key: "DefenseTypeCritRate" },
+  DefenseTypeWeaknessRate: { key: "DefenseTypeWeaknessRate" },
+  MeleeTypeAttack: { key: "MeleeTypeAttack" },
+  MeleeTypeAccuracy: { key: "MeleeTypeAccuracy" },
+  MeleeTypeCritRate: { key: "MeleeTypeCritRate" },
+  MeleeTypeWeaknessRate: { key: "MeleeTypeWeaknessRate" },
+  RangedTypeAttack: { key: "RangedTypeAttack" },
+  RangedTypeAccuracy: { key: "RangedTypeAccuracy" },
+  RangedTypeCritRate: { key: "RangedTypeCritRate" },
+  RangedTypeWeaknessRate: { key: "RangedTypeWeaknessRate" },
+  SupportTypeAttack: { key: "SupportTypeAttack" },
+  SupportTypeAccuracy: { key: "SupportTypeAccuracy" },
+  SupportTypeCritRate: { key: "SupportTypeCritRate" },
+  SupportTypeWeaknessRate: { key: "SupportTypeWeaknessRate" },
+  CooldownDecrease: { key: "CooldownDecrease" },
   // ENEMY
-  EnemyDefense: {
-    key: "EnemyDefense",
-    name: "Defense",
-    isFlat: true,
-  },
-  EnemyEvasion: {
-    key: "EnemyEvasion",
-    name: "Evasion",
-    isFlat: true,
-  },
-  EnemyCritResist: {
-    key: "EnemyCritResist",
-    name: "Critical Hit Resist",
-  },
-  EnemyTypeDefense: {
-    key: "EnemyTypeDefense",
-    name: "Enemy is Defense Type",
-    isToggle: true,
-  },
-  EnemyTypeMelee: {
-    key: "EnemyTypeMelee",
-    name: "Enemy is Melee Type",
-    isToggle: true,
-  },
-  EnemyTypeRanged: {
-    key: "EnemyTypeRanged",
-    name: "Enemy is Ranged Type",
-    isToggle: true,
-  },
-  EnemyTypeSupport: {
-    key: "EnemyTypeSupport",
-    name: "Enemy is Support Type",
-    isToggle: true,
-  },
-  NightmareStage: {
-    key: "NightmareStage",
-    name: "Nightmare Stage",
-    isToggle: true,
-  },
-  EnemyBurned: {
-    key: "EnemyBurned",
-    name: "Enemy is Burned",
-    isToggle: true,
-  },
-  EnemyPoisoned: {
-    key: "EnemyPoisoned",
-    name: "Enemy is Poisoned",
-    isToggle: true,
-  },
-  EnemyCursed: {
-    key: "EnemyCursed",
-    name: "Enemy is Cursed",
-    isToggle: true,
-  },
-  EnemyBleeding: {
-    key: "EnemyBleeding",
-    name: "Enemy is Bleeding",
-    isToggle: true,
-  },
-  FoodBuff: {
-    key: "FoodBuff",
-    name: "Food Buff",
-    isToggle: true,
-  },
-  NightmareLevel: {
-    key: "NightmareLevel",
-    name: "Nightmare Fragment Level",
-    isFlat: true,
-    isNotAdd: true,
-  },
+  EnemyDefense: { key: "EnemyDefense", isFlat: true },
+  EnemyEvasion: { key: "EnemyEvasion", isFlat: true },
+  EnemyCritResist: { key: "EnemyCritResist" },
+  EnemyTypeDefense: { key: "EnemyTypeDefense", isToggle: true },
+  EnemyTypeMelee: { key: "EnemyTypeMelee", isToggle: true },
+  EnemyTypeRanged: { key: "EnemyTypeRanged", isToggle: true },
+  EnemyTypeSupport: { key: "EnemyTypeSupport", isToggle: true },
+  NightmareStage: { key: "NightmareStage", isToggle: true },
+  EnemyBurned: { key: "EnemyBurned", isToggle: true },
+  EnemyPoisoned: { key: "EnemyPoisoned", isToggle: true },
+  EnemyCursed: { key: "EnemyCursed", isToggle: true },
+  EnemyBleeding: { key: "EnemyBleeding", isToggle: true },
+  FoodBuff: { key: "FoodBuff", isToggle: true },
+  NightmareLevel: { key: "NightmareLevel", isFlat: true, isNotAdd: true },
+  // EXTRA
+  HitRate: { key: "HitRate" },
+  EnemyFinalEvasion: { key: "EnemyFinalEvasion" },
+  EnemyFinalDefense: { key: "EnemyFinalDefense" },
+  EnemyDamageReduction: { key: "EnemyDamageReduction" },
+  EnemyFinalDamageTaken: { key: "EnemyFinalDamageTaken" },
+  BasicAttackDamage: { key: "BasicAttackDamage", isFlat: true },
+  CriticalHitAttackDamage: { key: "CriticalHitAttackDamage", isFlat: true },
+  AverageAttackDamage: { key: "AverageAttackDamage", isFlat: true },
+  AttackAmount: { key: "AttackAmount", isFlat: true },
+  TotalAttackDamage: { key: "TotalAttackDamage", isFlat: true },
+  AverageSkillDamage: { key: "AverageSkillDamage", isFlat: true },
+  SkillAmount: { key: "SkillAmount", isFlat: true },
+  TotalSkillDamage: { key: "TotalSkillDamage", isFlat: true },
+  AverageDoTDamage: { key: "AverageDoTDamage", isFlat: true },
+  DoTAmount: { key: "DoTAmount", isFlat: true },
+  TotalDoTDamage: { key: "TotalDoTDamage", isFlat: true },
 };
 
 export const baseStats = Object.values(baseStat);

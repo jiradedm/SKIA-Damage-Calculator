@@ -56,19 +56,21 @@ const ChooseCharacter: FC<ComponentPropsWithoutRef<"div"> & ChooseCharacterProps
             selected={selectedType}
             setSelected={setSelectedType}
             options={characterTypeOptions}
+            namespace="characterType"
             className="z-10 w-full"
           />
           <Select
             selected={selectedRarity}
             setSelected={setSelectedRarity}
             options={raritieOpions}
+            namespace="rarity"
             className="z-10 w-full"
           />
         </div>
         <div className="grid grid-cols-5 justify-center gap-2 sm:grid-cols-6">
           {filteredCharacter.map((character) => (
             <CharacterIcon
-              key={character.name}
+              key={character.key}
               character={character}
               className="w-full cursor-pointer"
               onClick={() => {
@@ -77,6 +79,7 @@ const ChooseCharacter: FC<ComponentPropsWithoutRef<"div"> & ChooseCharacterProps
               }}
             />
           ))}
+          x
         </div>
       </Modal>
     </>

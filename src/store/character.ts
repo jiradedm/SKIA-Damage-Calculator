@@ -30,7 +30,7 @@ export interface AddedCharacter {
   active?: boolean;
 }
 
-export interface CharacterStatData extends Omit<Stat, "key"> {
+export interface CharacterStatData extends Stat {
   value: number;
   isMaxHitFlag?: boolean;
 }
