@@ -76,8 +76,11 @@ interface AddPageProps {
 }
 
 export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited = () => {} }) => {
-  const { t } = useTranslation("character");
   const router = useRouter();
+  const { t } = useTranslation("page/summon");
+  const { t: tch } = useTranslation("character");
+  const { t: tc } = useTranslation("common");
+
   const { addCharacter, editCharacter } = useCharacterStore();
   const [isOpen, setIsOpen] = useState(false);
 
@@ -117,15 +120,13 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
   }, [selectedCharacter.rarity.maxLevel, editLevel]);
 
   useEffect(() => {
-    if (!isEdit) setName(t(selectedCharacter.key));
-  }, [isEdit, selectedCharacter.key, t]);
+    if (!isEdit) setName(tch(selectedCharacter.key));
+  }, [isEdit, selectedCharacter.key, tch]);
 
   useEffect(() => {
     const newPotent: Potential[] = Array.from<Potential>({ length: 5 }).map((_, index) =>
       index + 1 > selectedCharacter.rarity.getPotentialLimit(selectedStar) ? "limited" : null,
     );
-
-    // console.log({ newPotent, new: [...potentials] });
 
     const newLimited = newPotent.filter((p) => p === "limited").length;
     const oldLimited = [...potentials].filter((p) => p === "limited").length;
@@ -183,7 +184,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
 
   return (
     <>
-      {!isEdit && <Title className="self-center text-3xl">Summon Character</Title>}
+      {!isEdit && <Title className="self-center text-3xl">{t("title")}</Title>}
       <CharacterComponent
         character={selectedCharacter}
         star={selectedStar}
@@ -219,16 +220,16 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       <StatBonusAdder bonus={bonus} setBonus={setBonus} />
       <div />
       <Button className="max-w-[540px] self-center" onClick={() => setIsOpen(true)}>
-        Confirm
+        {tc("confirm")}
       </Button>
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Change Summoned Character Name">
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={t("title-name")}>
         <input
           className="rounded border border-[#afafaf] bg-black p-1 text-center outline-none"
           value={name}
           onChange={(e) => setName(e.target.value)}
           maxLength={50}
         />
-        <Button onClick={() => (isEdit ? confirmEditCharacter : confirmAddCharacter)()}>Confirm</Button>
+        <Button onClick={() => (isEdit ? confirmEditCharacter : confirmAddCharacter)()}>{tc("confirm")}</Button>
       </Modal>
     </>
   );

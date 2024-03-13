@@ -4,6 +4,7 @@ import type { DragEndEvent } from "@dnd-kit/core";
 import { closestCenter, DndContext, PointerSensor, useSensor, useSensors } from "@dnd-kit/core";
 import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import React, { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 import CharacterDamage from "@/components/characterDamage";
 import SortButton from "@/components/sortButton";
@@ -12,6 +13,8 @@ import { sortCharacterByTotalDamage } from "@/libs/sort";
 import { useCharacterStore } from "@/store";
 
 export default function HomePage() {
+  const { t } = useTranslation("page/character");
+
   const [sortActive, setSortActive] = useState(false);
 
   const { characters, addedCharacters, moveCharacter, setTeamEffects, setStatusAilments } = useCharacterStore();
@@ -45,12 +48,12 @@ export default function HomePage() {
 
   return (
     <>
-      <Title className="self-center text-3xl">Characters</Title>
+      <Title className="self-center text-3xl">{t("title")}</Title>
       <SortButton active={sortActive} setActive={setSortActive} />
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <SortableContext items={addedCharacters} strategy={verticalListSortingStrategy}>
           {characters.length === 0 ? (
-            <div className="py-[20%] text-center opacity-50">No characters have been summoned.</div>
+            <div className="py-[20%] text-center opacity-50">{t("empty")}</div>
           ) : (
             sortedCharacters.map((character) => <CharacterDamage key={character.id} character={character} />)
           )}

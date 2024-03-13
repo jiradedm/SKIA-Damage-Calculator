@@ -1,4 +1,5 @@
 import type { Dispatch, FC, SetStateAction } from "react";
+import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
 const CheckIcon = () => {
@@ -15,6 +16,8 @@ interface SortButtonProps {
 }
 
 const SortButton: FC<SortButtonProps> = ({ active, setActive }) => {
+  const { t } = useTranslation("page/character");
+
   return (
     <div
       className="flex w-fit cursor-pointer select-none items-center gap-1 self-end pr-[5%]"
@@ -22,17 +25,13 @@ const SortButton: FC<SortButtonProps> = ({ active, setActive }) => {
     >
       <div
         className={twMerge(
-          "flex justify-center size-4 items-center rounded-sm border mt-1",
+          "flex justify-center size-4 items-center rounded-sm border mt-0.5",
           active ? "bg-[#53545b] border-[#8d8788] text-[#fdfdfb]" : "border-[#8d8788] bg-[#53545b]",
         )}
       >
-        {!!active && (
-          <div>
-            <CheckIcon />
-          </div>
-        )}
+        {!!active && <CheckIcon />}
       </div>
-      <div className="align-text-top">sort characters by total damage</div>
+      <div className="align-text-top">{t("sort")}</div>
     </div>
   );
 };

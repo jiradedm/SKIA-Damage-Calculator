@@ -2,6 +2,7 @@
 
 import type { Dispatch, FC, SetStateAction } from "react";
 import { useEffect, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
 import CharacterDamage from "@/components/characterDamage";
@@ -33,6 +34,8 @@ const InfoIcon = () => {
 };
 
 const TeamModal: FC<TeamModalProps> = ({ characters, isOpen, setIsOpen }) => {
+  const { t } = useTranslation("page/team");
+
   const [showPercentage, setShowPercentage] = useState(true);
 
   const sortedCharacters = useMemo(() => {
@@ -49,7 +52,7 @@ const TeamModal: FC<TeamModalProps> = ({ characters, isOpen, setIsOpen }) => {
   }, [characters]);
 
   return (
-    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Team Damage Comparison">
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={t("title-compare")}>
       <div
         onClick={() => setShowPercentage((prev) => !prev)}
         className="flex cursor-pointer select-none flex-col gap-2"
@@ -70,6 +73,9 @@ const TeamModal: FC<TeamModalProps> = ({ characters, isOpen, setIsOpen }) => {
 };
 
 export default function TeamPage() {
+  const { t } = useTranslation("page/team");
+  const { t: tc } = useTranslation("page/character");
+
   const { characters, addedCharacters, setTeamEffects, statusAilments, setStatusAilments } = useCharacterStore();
 
   const [isOpen, setIsOpen] = useState(false);
@@ -100,7 +106,7 @@ export default function TeamPage() {
 
   return (
     <>
-      <Title className="self-center text-3xl">Team Damage</Title>
+      <Title className="self-center text-3xl">{t("title")}</Title>
       <div className="flex h-fit w-full items-center justify-center gap-1 bg-gradient-to-r from-transparent via-[#243a4a] via-50% to-transparent p-1">
         <div
           className={twMerge(
@@ -116,13 +122,13 @@ export default function TeamPage() {
         </div>
       </div>
       <div className="text-center text-xl font-[500] leading-5">
-        Team Slot [ {characterActiveAmount}/{characterMaxActive} ]
+        {t("slot")} [ {characterActiveAmount}/{characterMaxActive} ]
       </div>
       {statusAilments && (
         <div className="flex items-center gap-1">
-          <div>Enemy Status Ailment :</div>
+          <div>{t("ailment")} :</div>
           {statusAilments.length === 0
-            ? "none"
+            ? t("none")
             : statusAilments.map((statusAilment) => (
                 <EffectIcon
                   key={statusAilment.status.key}
@@ -135,7 +141,7 @@ export default function TeamPage() {
       )}
       <SortButton active={sortActive} setActive={setSortActive} />
       {characters.length === 0 ? (
-        <div className="py-[20%] text-center opacity-50">No characters have been summoned.</div>
+        <div className="py-[20%] text-center opacity-50">{tc("empty")}</div>
       ) : (
         sortedCharacters.map((character, index) => <CharacterDamage key={index} character={character} readonly />)
       )}

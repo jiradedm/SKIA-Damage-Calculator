@@ -1,3 +1,17 @@
 {
-  "": ""
+  "title": "SKIA Damage Calculator",
+  "confirm": "Confirm",
+  "cancel": "Cancel",
+  "menu": {
+    "character": "Characters",
+    "team": "Formation",
+    "summon": "Summon Character",
+    "stat": "Global Stats"
+  },
+  "footer": {
+    "unofficial": "This is an unofficial website and not affiliated in any way with Netmarble Corp.",
+    "report": "Report Issues",
+    "thanks": "Many thanks to Antharok for providing",
+    "information": "game information."
+  }
 }

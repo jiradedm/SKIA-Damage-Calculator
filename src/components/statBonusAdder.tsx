@@ -1,4 +1,5 @@
 import type { Dispatch, FC, SetStateAction } from "react";
+import { useTranslation } from "react-i18next";
 
 import { IconWrap, MinusIcon, PlusIcon } from "./necklaceSelector";
 
@@ -12,6 +13,8 @@ interface StatBonusAdderProps {
 }
 
 const StatBonusAdder: FC<StatBonusAdderProps> = ({ readonly, bonus, setBonus = () => {} }) => {
+  const { t } = useTranslation("page/summon");
+
   const increaseLevel = (amount: number) => {
     setBonus((prev) => {
       const updated = prev + amount;
@@ -40,8 +43,12 @@ const StatBonusAdder: FC<StatBonusAdderProps> = ({ readonly, bonus, setBonus = (
           </IconWrap>
         </>
       )}
-      <div className="w-[100px] truncate text-center">Stat: +{bonus}</div>
-      <div className="w-[100px] truncate text-center text-[#d2fd7d]">Bonus +{bonus * 0.25}%</div>
+      <div className="truncate text-center">
+        {t("stat")}: +{bonus}
+      </div>
+      <div className="truncate text-center text-[#d2fd7d]">
+        {t("bonus")} +{bonus * 0.25}%
+      </div>
       {!readonly && (
         <>
           <IconWrap className="w-fit" onClick={() => increaseLevel(1)}>

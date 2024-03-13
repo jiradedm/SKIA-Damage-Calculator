@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef, Dispatch, FC, SetStateAction } from "react";
 import React, { Fragment, useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
 import { type Character, characters } from "@/data/character";
@@ -29,6 +30,8 @@ const ChooseCharacter: FC<ComponentPropsWithoutRef<"div"> & ChooseCharacterProps
   setSelectedCharacter,
   ...props
 }) => {
+  const { t } = useTranslation("page/summon");
+
   const [isOpen, setIsOpen] = useState(false);
   const [selectedRarity, setSelectedRarity] = useState(allOption);
   const [selectedType, setSelectedType] = useState(allOption);
@@ -50,7 +53,7 @@ const ChooseCharacter: FC<ComponentPropsWithoutRef<"div"> & ChooseCharacterProps
         onClick={() => !readonly && setIsOpen(true)}
         {...props}
       />
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Choose Character" className="relative">
+      <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={t("title-character")} className="relative">
         <div className="relative flex w-full gap-1">
           <Select
             selected={selectedType}
@@ -79,7 +82,6 @@ const ChooseCharacter: FC<ComponentPropsWithoutRef<"div"> & ChooseCharacterProps
               }}
             />
           ))}
-          x
         </div>
       </Modal>
     </>

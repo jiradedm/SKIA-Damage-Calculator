@@ -8,6 +8,10 @@ import type { StatKey } from "@/data/stat";
 
 const resource = {
   common: await import("@/libs/locales/en/common.json"),
+  "page/character": await import("@/libs/locales/en/page/character.json"),
+  "page/team": await import("@/libs/locales/en/page/team.json"),
+  "page/summon": await import("@/libs/locales/en/page/summon.json"),
+  "page/stat": await import("@/libs/locales/en/page/stat.json"),
 } as const;
 
 interface ResourceData {

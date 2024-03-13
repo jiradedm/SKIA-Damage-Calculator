@@ -10,7 +10,7 @@ interface SelectProps {
   setSelected: Dispatch<SetStateAction<any>>;
   options: any[];
   className?: string;
-  namespace?: "rarity" | "stat";
+  namespace?: "rarity" | "stat" | "characterType";
 }
 
 const ListBoxButton: FC<PropsWithChildren> = ({ children }) => {

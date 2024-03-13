@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useMemo } from "react";
+import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
 import { useGeneralStore } from "@/store";
@@ -12,40 +13,45 @@ interface IMenu {
   route: string;
 }
 
-const menus: IMenu[] = [
-  { title: "Characters", route: "/" },
-  { title: "Team", route: "/team" },
-  { title: "Summon Character", route: "/add" },
-  { title: "Global Stats", route: "/global" },
-];
-
 const Menu = () => {
+  const { t } = useTranslation("common");
   const { language, setLanguage } = useGeneralStore();
   const pathname = usePathname();
 
+  const menus = useMemo(
+    () =>
+      [
+        { title: t("menu.character"), route: "/" },
+        { title: t("menu.team"), route: "/team" },
+        { title: t("menu.summon"), route: "/add" },
+        { title: t("menu.stat"), route: "/global" },
+      ] as IMenu[],
+    [t],
+  );
+
   const selectedIndex = useMemo(() => {
     return menus.findIndex((menu) => menu.route === pathname);
-  }, [pathname]);
+  }, [menus, pathname]);
 
   return (
     <div className="fixed z-[3] w-full max-w-maxw px-2">
-      <div className="grid grid-cols-[50px_auto_50px] justify-between pb-4 ">
+      <div className="grid grid-cols-[62px_auto_62px] justify-between gap-1 pb-4">
         <div />
-        <div className="text-stroke text-center text-2xl font-[500] leading-5 text-[#F4d77e]">
-          SKIA Damage Calculator
+        <div className="text-stroke line-clamp-1 text-center text-2xl font-[500] leading-6 text-[#F4d77e]">
+          {t("title")}
         </div>
-        <div className="flex gap-2 text-white">
-          <div
-            className={twMerge("cursor-pointer", language === "en" && "underline")}
-            onClick={() => setLanguage("en")}
-          >
-            EN
-          </div>
+        <div className="flex items-center gap-1.5 text-sm text-white">
           <div
             className={twMerge("cursor-pointer", language === "th" && "underline")}
             onClick={() => setLanguage("th")}
           >
-            TH
+            ไทย
+          </div>
+          <div
+            className={twMerge("cursor-pointer", language === "en" && "underline")}
+            onClick={() => setLanguage("en")}
+          >
+            ENG
           </div>
         </div>
       </div>
@@ -59,7 +65,7 @@ const Menu = () => {
           </div>
         )}
         <div
-          className="absolute left-0 top-0 grid size-full h-full cursor-pointer text-[#b6cbcc]"
+          className="absolute left-0 top-0 grid size-full h-full cursor-pointer items-center text-[#b6cbcc]"
           style={{ gridTemplateColumns: `repeat(${menus.length}, minmax(0, 1fr))` }}
         >
           {menus.map((menu, index) => (
@@ -67,7 +73,7 @@ const Menu = () => {
               <Link href={menu.route} key={index}>
                 <div
                   className={twMerge(
-                    "h-full flex items-center justify-center text-center",
+                    "h-full flex items-center justify-center text-center line-clamp-1 leading-5",
                     selectedIndex === index && "text-[#fcf4d3]",
                   )}
                 >

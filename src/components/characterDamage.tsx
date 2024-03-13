@@ -36,10 +36,11 @@ interface CharacterDamageProps {
 }
 
 const StatModal: FC<ModalProps & CharacterDamageProps> = ({ isOpen, setIsOpen, character }) => {
-  const { t } = useTranslation("stat");
+  const { t: ts } = useTranslation("stat");
+  const { t } = useTranslation("page/character");
 
   return (
-    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Character Stats">
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={t("title-stat")}>
       <div>
         {character.damage.stats.map((characterStat, index) => {
           let value = String(characterStat.value);
@@ -50,7 +51,7 @@ const StatModal: FC<ModalProps & CharacterDamageProps> = ({ isOpen, setIsOpen, c
 
           return (
             <div key={index} className={twMerge("flex justify-between p-1", index % 2 !== 0 && "bg-[#2f3745]")}>
-              <div>{t(characterStat.key)}</div>
+              <div>{ts(characterStat.key)}</div>
               <div className="whitespace-nowrap text-[#fcf4d3]">
                 {value}
                 {characterStat.isFlat ? "" : "%"}
@@ -65,7 +66,9 @@ const StatModal: FC<ModalProps & CharacterDamageProps> = ({ isOpen, setIsOpen, c
 };
 
 const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
-  const { t } = useTranslation("character");
+  const { t } = useTranslation("page/character");
+  const { t: tch } = useTranslation("character");
+  const { t: tc } = useTranslation("common");
 
   const { deleteCharacter, toggleActiveCharacter } = useCharacterStore();
 
@@ -98,7 +101,8 @@ const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
           </div>
           <div className="flex h-fit w-full items-center gap-1 bg-gradient-to-r from-[#243a4a] from-40% to-transparent to-100% p-1 text-center font-[500] leading-4">
             <div>
-              Total <span className="truncate">Damage :</span>
+              {t("total")}
+              <span className="truncate">{t("damage")} :</span>
             </div>
             <div
               className={twMerge(
@@ -122,11 +126,13 @@ const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
         <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Edit Character">
           <AddPage isEdit character={character} onEdited={() => setIsOpen(false)} />
           <Button className="border-[#e4babd] bg-[#ba7d7a]" onClick={() => setIsOpen2(true)}>
-            Delete Character
+            {t("delete-character")}
           </Button>
           <Modal isOpen={isOpen2} setIsOpen={setIsOpen2} className="w-fit">
             <div className="flex min-w-[200px] flex-col gap-2">
-              <div className="text-center">Delete {t(character.character.key)} ?</div>
+              <div className="text-center">
+                {t("delete")} {tch(character.character.key)} ?
+              </div>
               <div className="flex justify-around gap-2">
                 <Button
                   className="w-[80px]"
@@ -135,10 +141,10 @@ const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
                     setIsOpen2(false);
                   }}
                 >
-                  Confirm
+                  {tc("confirm")}
                 </Button>
                 <Button className="w-[80px] border-[#e4babd] bg-[#ba7d7a]" onClick={() => setIsOpen2(false)}>
-                  Cancel
+                  {tc("cancel")}
                 </Button>
               </div>
             </div>

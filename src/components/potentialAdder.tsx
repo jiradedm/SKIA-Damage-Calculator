@@ -61,6 +61,7 @@ const PotentialAdder: FC<ComponentPropsWithoutRef<"div"> & PotentialAdderProps> 
   setPotentials = () => {},
   ...props
 }) => {
+  const { t } = useTranslation("page/summon");
   const { t: tr } = useTranslation("rarity");
   const { t: ts } = useTranslation("stat");
 
@@ -111,7 +112,7 @@ const PotentialAdder: FC<ComponentPropsWithoutRef<"div"> & PotentialAdderProps> 
           <Select selected={selectedStat} setSelected={setSelectedStat} options={baseStats} namespace="stat" />
           <Select selected={selectedValue} setSelected={setSelectedValue} options={values} />
           <div className="col-span-3 md:col-span-1 md:pl-1.5">
-            <Button onClick={() => addPotential()}>Add</Button>
+            <Button onClick={() => addPotential()}>{t("add")}</Button>
           </div>
         </div>
       )}
@@ -123,7 +124,7 @@ const PotentialAdder: FC<ComponentPropsWithoutRef<"div"> & PotentialAdderProps> 
             potential === "limited" && "brightness-[65%]",
           )}
         >
-          {!potential && <div className="w-full truncate text-center opacity-50">No potential granted.</div>}
+          {!potential && <div className="w-full truncate text-center opacity-50">{t("empty")}</div>}
           {!!potential &&
             (potential === "limited" ? (
               <div className="flex w-full justify-center opacity-50">

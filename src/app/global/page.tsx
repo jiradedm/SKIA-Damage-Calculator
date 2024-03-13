@@ -112,6 +112,8 @@ const StatItem: FC<StatProps> = ({ stat: statProps }) => {
 };
 
 export default function GlobalStatPage() {
+  const { t } = useTranslation("page/stat");
+
   const { globalStat } = useStatStore();
 
   const stats: GlobalStatData[] = useMemo(() => {
@@ -128,14 +130,14 @@ export default function GlobalStatPage() {
 
   return (
     <div className="flex w-full max-w-[400px] flex-col self-center">
-      <Title className="self-center text-3xl">Edit Global Stats</Title>
-      <Title>Character Stats</Title>
+      <Title className="self-center text-3xl">{t("title")}</Title>
+      <Title>{t("character")}</Title>
       <div className="flex flex-col gap-2">
         {stats.map((stat, index) => {
           return <StatItem key={index} stat={stat} />;
         })}
       </div>
-      <Title className="pt-5">Enemy Stats</Title>
+      <Title className="pt-5">{t("enemy")}</Title>
       <div className="flex flex-col gap-2">
         {enemyStats.map((stat, index) => (
           <StatItem key={index} stat={stat} />
