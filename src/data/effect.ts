@@ -217,7 +217,7 @@ export const effect: Record<EffectKey, Effect> = {
     name: "Attack Increase Lv. 5",
     img: "/effect/Final Attack.webp",
     target: "Self",
-    stats: [{ stat: stat.Attack, value: 25 }],
+    stats: [{ stat: stat.FinalAttack, value: 25 }],
   },
   FierceSpirit4: {
     key: "FierceSpirit4",
