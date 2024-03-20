@@ -1,6 +1,7 @@
 "use client";
 
-import type { Dispatch, FC, SetStateAction } from "react";
+import { Popover } from "@headlessui/react";
+import type { ComponentPropsWithoutRef, Dispatch, FC, SetStateAction } from "react";
 import { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
@@ -29,6 +30,34 @@ const InfoIcon = () => {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="size-[18px]">
       <path d="M10 18C5.58172 18 2 14.4183 2 10C2 5.58172 5.58172 2 10 2C14.4183 2 18 5.58172 18 10C18 14.4183 14.4183 18 10 18ZM10 6C9.44772 6 9 6.44772 9 7V11C9 11.5523 9.44772 12 10 12C10.5523 12 11 11.5523 11 11V7C11 6.44772 10.5523 6 10 6ZM10 15C10.5523 15 11 14.5523 11 14C11 13.4477 10.5523 13 10 13C9.44772 13 9 13.4477 9 14C9 14.5523 9.44772 15 10 15Z" />
+    </svg>
+  );
+};
+
+const LockIcon: FC<ComponentPropsWithoutRef<"svg">> = ({ className, ...prop }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className={twMerge("size-[22px]", className)}
+      {...prop}
+    >
+      <path d="M15 9h-1V6c0-2.2-1.8-4-4-4S6 3.8 6 6v3H5c-.5 0-1 .5-1 1v7c0 .5.5 1 1 1h10c.5 0 1-.5 1-1v-7c0-.5-.5-1-1-1zm-4 7H9l.4-2.2c-.5-.2-.9-.8-.9-1.3 0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5c0 .6-.3 1.1-.9 1.3L11 16zm1-7H8V6c0-1.1.9-2 2-2s2 .9 2 2v3z" />
+    </svg>
+  );
+};
+
+const UnlockIcon: FC<ComponentPropsWithoutRef<"svg">> = ({ className, ...prop }) => {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 20 20"
+      fill="currentColor"
+      className={twMerge("size-[22px]", className)}
+      {...prop}
+    >
+      <path d="M12 9V6c0-1.1-.9-2-2-2s-2 .9-2 2H6c0-2.21 1.79-4 4-4s4 1.79 4 4v3h1c.55 0 1 .45 1 1v7c0 .55-.45 1-1 1H5c-.55 0-1-.45-1-1v-7c0-.55.45-1 1-1h7zm-1 7l-.36-2.15c.51-.24.86-.75.86-1.35 0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5c0 .6.35 1.11.86 1.35L9 16h2z" />
     </svg>
   );
 };
@@ -72,11 +101,41 @@ const TeamModal: FC<TeamModalProps> = ({ characters, isOpen, setIsOpen }) => {
   );
 };
 
+interface DiffNumberProps {
+  lockedNumber?: number;
+  teamDamage: number;
+}
+
+const DiffNumberComponent: FC<DiffNumberProps> = ({ lockedNumber, teamDamage }) => {
+  const diffNumber = useMemo(() => {
+    if (lockedNumber === undefined) return undefined;
+    return teamDamage - lockedNumber;
+  }, [lockedNumber, teamDamage]);
+
+  return (
+    lockedNumber !== undefined &&
+    diffNumber !== undefined && (
+      <Popover className="relative w-full text-center">
+        <Popover.Button>
+          <div
+            className={twMerge("text-normal3 text-center hover:underline", diffNumber < 0 && "text-unique3")}
+          >{`${diffNumber >= 0 ? "+" : "-"}${formatNumber(Math.abs(diffNumber))}`}</div>
+        </Popover.Button>
+        <Popover.Panel className="absolute -bottom-1 left-1/2 z-[2] flex -translate-x-1/2 translate-y-full items-center gap-1 truncate rounded-md bg-[#39465a] px-2 py-1 outline outline-2 outline-[#44627e] transition-all">
+          <LockIcon className="size-[18px]" />
+          <div>{formatNumber(lockedNumber)}</div>
+        </Popover.Panel>
+      </Popover>
+    )
+  );
+};
+
 export default function TeamPage() {
   const { t } = useTranslation("page/team");
   const { t: tc } = useTranslation("page/character");
 
   const { characters, addedCharacters, setTeamEffects, statusAilments, setStatusAilments } = useCharacterStore();
+  const [lockedNumber, setLockedNumber] = useState<number | undefined>(undefined);
 
   const [isOpen, setIsOpen] = useState(false);
   const [sortActive, setSortActive] = useState(false);
@@ -107,19 +166,28 @@ export default function TeamPage() {
   return (
     <>
       <Title className="self-center text-3xl">{t("title")}</Title>
-      <div className="flex h-fit w-full items-center justify-center gap-1 bg-gradient-to-r from-transparent via-[#243a4a] via-50% to-transparent p-1">
-        <div
-          className={twMerge(
-            "text-2xl font-[600] leading-6 text-[#fcf4d3] flex gap-0.5 items-center hover:underline",
-            activeCharacters.length !== 0 && "cursor-pointer",
-          )}
-          onClick={() => {
-            if (activeCharacters.length !== 0) setIsOpen(true);
-          }}
-        >
-          <div>{formatNumber(teamDamage)}</div>
-          <InfoIcon />
+      <div>
+        <div className="relative flex h-fit w-full items-center justify-center gap-1 bg-gradient-to-r from-transparent via-[#243a4a] via-50% to-transparent p-1">
+          <div
+            className="cursor-pointer p-1 text-lg"
+            onClick={() => setLockedNumber((prev) => (prev === undefined ? teamDamage : undefined))}
+          >
+            {lockedNumber === undefined ? <UnlockIcon /> : <LockIcon />}
+          </div>
+          <div
+            className={twMerge(
+              "text-2xl font-[600] leading-6 text-[#fcf4d3] flex gap-0.5 items-center hover:underline",
+              activeCharacters.length !== 0 && "cursor-pointer",
+            )}
+            onClick={() => {
+              if (activeCharacters.length !== 0) setIsOpen(true);
+            }}
+          >
+            <div>{formatNumber(teamDamage)}</div>
+            <InfoIcon />
+          </div>
         </div>
+        <DiffNumberComponent lockedNumber={lockedNumber} teamDamage={teamDamage} />
       </div>
       <div className="text-center text-xl font-[500] leading-5">
         {t("slot")} [ {characterActiveAmount}/{characterMaxActive} ]
