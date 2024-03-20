@@ -105,7 +105,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
   });
 
   const [selectedCharacter, setSelectedCharacter] = useState<Character>(editingCharacter || characters[initCharIndex]);
-  const [selectedStar, setSelectedStar] = useState<number>(character?.star || initStar);
+  const [selectedStar, setSelectedStar] = useState<number>(character === undefined ? initStar : character.star);
   const [selectedLevel, setSelectedLevel] = useState<LevelOption>(editLevel || characterLevelOptions[0]);
   const [potentials, setPotentials] = useState<Potential[]>(initPotentials);
   const [earringsLevel, setEarringsLevel] = useState<number>(character?.earringsLevel || 0);
