@@ -6,113 +6,116 @@ import { type Rarity, rarity } from "./rarity";
 import type { StatKey } from "./stat";
 import { type StatusAilment, statusAilment } from "./statusAilment";
 
-export type CharacterKey =
-  | "Ace"
-  | "Aleem"
-  | "Alice"
-  | "Aragon"
-  | "Ariel"
-  | "Aris"
-  | "Asura"
-  | "BaiLong"
-  | "Ballista"
-  | "Bane"
-  | "Bathory"
-  | "BlackRose"
-  | "Chancellor"
-  | "Chloe"
-  | "Clemyth"
-  | "XiaoQiao"
-  | "Daisy"
-  | "Dellons"
-  | "Diaochan"
-  | "DokjaKim"
-  | "Eileene"
-  | "Espada"
-  | "Evan"
-  | "FengYan"
-  | "GuanYu"
-  | "Harmal"
-  | "Hayoung"
-  | "Heavenia"
-  | "Hellenia"
-  | "HuiwonJeong"
-  | "Ingrid"
-  | "Isabella"
-  | "Jane"
-  | "Jave"
-  | "Jin"
-  | "Jupy"
-  | "Kagura"
-  | "Karin"
-  | "KarlHeron"
-  | "Knox"
-  | "Kris"
-  | "Kyrielle"
-  | "Lania"
-  | "Li"
-  | "Lina"
-  | "LingLing"
-  | "LuBu"
-  | "Lucrezia"
-  | "MaoSong"
-  | "Meg"
-  | "Mirage"
-  | "Misha"
-  | "Nezha"
-  | "Nia"
-  | "Noho"
-  | "Orkah"
-  | "Orly"
-  | "Rachel"
-  | "Rin"
-  | "Roro"
-  | "Rudy"
-  | "Ruri"
-  | "Ryan"
-  | "Salem"
-  | "Seaton"
-  | "Sebastian"
-  | "Sera"
-  | "Shane"
-  | "Sieg"
-  | "Sizar"
-  | "Snipper"
-  | "Snolled"
-  | "Soi"
-  | "Spike"
-  | "Spina"
-  | "SunWukong"
-  | "Sylvia"
-  | "Tara"
-  | "TsingTao"
-  | "Velika"
-  | "Victoria"
-  | "Weiser"
-  | "XiangYu"
-  | "Yui"
-  | "Yuri"
-  | "ZhaoYun"
-  | "JunghyeokYu"
-  | "SangahYu"
-  | "BaiJiao"
-  | "Teo"
-  | "ZhugeLiang"
-  | "Zahara"
-  | "Rakshasa"
-  | "LeeJung"
-  | "Xiao"
-  | "Medea"
-  | "Yeonhee"
-  | "Kwonho"
-  | "Cheongmyeong"
-  | "Baekcheon"
-  | "IseolYu"
-  | "Yunjong"
-  | "Jogeol"
-  | "Noa"
-  | "Jake"
-  | "GuardianPooki";
+export const characterKeys = [
+  "Ace",
+  "Aleem",
+  "Alice",
+  "Aragon",
+  "Ariel",
+  "Aris",
+  "Asura",
+  "BaiLong",
+  "Ballista",
+  "Bane",
+  "Bathory",
+  "BlackRose",
+  "Chancellor",
+  "Chloe",
+  "Clemyth",
+  "XiaoQiao",
+  "Daisy",
+  "Dellons",
+  "Diaochan",
+  "DokjaKim",
+  "Eileene",
+  "Espada",
+  "Evan",
+  "FengYan",
+  "GuanYu",
+  "Harmal",
+  "Hayoung",
+  "Heavenia",
+  "Hellenia",
+  "HuiwonJeong",
+  "Ingrid",
+  "Isabella",
+  "Jane",
+  "Jave",
+  "Jin",
+  "Jupy",
+  "Kagura",
+  "Karin",
+  "KarlHeron",
+  "Knox",
+  "Kris",
+  "Kyrielle",
+  "Lania",
+  "Li",
+  "Lina",
+  "LingLing",
+  "LuBu",
+  "Lucrezia",
+  "MaoSong",
+  "Meg",
+  "Mirage",
+  "Misha",
+  "Nezha",
+  "Nia",
+  "Noho",
+  "Orkah",
+  "Orly",
+  "Rachel",
+  "Rin",
+  "Roro",
+  "Rudy",
+  "Ruri",
+  "Ryan",
+  "Salem",
+  "Seaton",
+  "Sebastian",
+  "Sera",
+  "Shane",
+  "Sieg",
+  "Sizar",
+  "Snipper",
+  "Snolled",
+  "Soi",
+  "Spike",
+  "Spina",
+  "SunWukong",
+  "Sylvia",
+  "Tara",
+  "TsingTao",
+  "Velika",
+  "Victoria",
+  "Weiser",
+  "XiangYu",
+  "Yui",
+  "Yuri",
+  "ZhaoYun",
+  "JunghyeokYu",
+  "SangahYu",
+  "BaiJiao",
+  "Teo",
+  "ZhugeLiang",
+  "Zahara",
+  "Rakshasa",
+  "LeeJung",
+  "Xiao",
+  "Medea",
+  "Yeonhee",
+  "Kwonho",
+  "Cheongmyeong",
+  "Baekcheon",
+  "IseolYu",
+  "Yunjong",
+  "Jogeol",
+  "Noa",
+  "Jake",
+  "GuardianPooki",
+] as const;
+
+export type CharacterKey = (typeof characterKeys)[number];
 
 interface Attack {
   modifier: number;

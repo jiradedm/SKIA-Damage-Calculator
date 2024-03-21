@@ -1,4 +1,5 @@
-export type RarityKey = "Legendary" | "Unique" | "Epic" | "Rare" | "Normal";
+export const rarityKeys = ["Legendary", "Unique", "Epic", "Rare", "Normal"] as const;
+export type RarityKey = (typeof rarityKeys)[number];
 
 export interface Rarity {
   key: RarityKey;

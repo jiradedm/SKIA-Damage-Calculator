@@ -1,65 +1,68 @@
-export type StatKey =
-  | "AttackInfluence"
-  | "Attack"
-  | "Accuracy"
-  | "AttackSpeed"
-  | "FinalAccuracy"
-  | "FinalEvasion"
-  | "CritRate"
-  | "CritDamage"
-  | "WeaknessRate"
-  | "DefenseTypeAttack"
-  | "DefenseTypeAccuracy"
-  | "DefenseTypeCritRate"
-  | "DefenseTypeWeaknessRate"
-  | "MeleeTypeAttack"
-  | "MeleeTypeCritRate"
-  | "MeleeTypeAccuracy"
-  | "MeleeTypeWeaknessRate"
-  | "RangedTypeAttack"
-  | "RangedTypeAccuracy"
-  | "RangedTypeCritRate"
-  | "RangedTypeWeaknessRate"
-  | "SupportTypeAttack"
-  | "SupportTypeAccuracy"
-  | "SupportTypeCritRate"
-  | "SupportTypeWeaknessRate"
-  | "FinalAttack"
-  | "FinalDefense"
-  | "FinalWeaknessDamage"
-  | "FinalCritDamage"
-  | "FinalDamage"
-  | "CooldownDecrease"
-  | "EnemyDefense"
-  | "EnemyEvasion"
-  | "EnemyTypeDefense"
-  | "EnemyTypeMelee"
-  | "EnemyTypeRanged"
-  | "EnemyTypeSupport"
-  | "EnemyCritResist"
-  | "EnemyBurned"
-  | "EnemyPoisoned"
-  | "EnemyBleeding"
-  | "EnemyCursed"
-  | "NightmareStage"
-  | "NightmareLevel"
-  | "FoodBuff"
-  | "HitRate"
-  | "EnemyFinalEvasion"
-  | "EnemyFinalDefense"
-  | "EnemyDamageReduction"
-  | "EnemyFinalDamageTaken"
-  | "BasicAttackDamage"
-  | "CriticalHitAttackDamage"
-  | "AverageAttackDamage"
-  | "AttackAmount"
-  | "TotalAttackDamage"
-  | "AverageSkillDamage"
-  | "SkillAmount"
-  | "TotalSkillDamage"
-  | "AverageDoTDamage"
-  | "DoTAmount"
-  | "TotalDoTDamage";
+export const statKeys = [
+  "AttackInfluence",
+  "Attack",
+  "Accuracy",
+  "AttackSpeed",
+  "FinalAccuracy",
+  "FinalEvasion",
+  "CritRate",
+  "CritDamage",
+  "WeaknessRate",
+  "DefenseTypeAttack",
+  "DefenseTypeAccuracy",
+  "DefenseTypeCritRate",
+  "DefenseTypeWeaknessRate",
+  "MeleeTypeAttack",
+  "MeleeTypeCritRate",
+  "MeleeTypeAccuracy",
+  "MeleeTypeWeaknessRate",
+  "RangedTypeAttack",
+  "RangedTypeAccuracy",
+  "RangedTypeCritRate",
+  "RangedTypeWeaknessRate",
+  "SupportTypeAttack",
+  "SupportTypeAccuracy",
+  "SupportTypeCritRate",
+  "SupportTypeWeaknessRate",
+  "FinalAttack",
+  "FinalDefense",
+  "FinalWeaknessDamage",
+  "FinalCritDamage",
+  "FinalDamage",
+  "CooldownDecrease",
+  "EnemyDefense",
+  "EnemyEvasion",
+  "EnemyTypeDefense",
+  "EnemyTypeMelee",
+  "EnemyTypeRanged",
+  "EnemyTypeSupport",
+  "EnemyCritResist",
+  "EnemyBurned",
+  "EnemyPoisoned",
+  "EnemyBleeding",
+  "EnemyCursed",
+  "NightmareStage",
+  "NightmareLevel",
+  "FoodBuff",
+  "HitRate",
+  "EnemyFinalEvasion",
+  "EnemyFinalDefense",
+  "EnemyDamageReduction",
+  "EnemyFinalDamageTaken",
+  "BasicAttackDamage",
+  "CriticalHitAttackDamage",
+  "AverageAttackDamage",
+  "AttackAmount",
+  "TotalAttackDamage",
+  "AverageSkillDamage",
+  "SkillAmount",
+  "TotalSkillDamage",
+  "AverageDoTDamage",
+  "DoTAmount",
+  "TotalDoTDamage",
+] as const;
+
+export type StatKey = (typeof statKeys)[number];
 
 export interface Stat {
   key: StatKey;

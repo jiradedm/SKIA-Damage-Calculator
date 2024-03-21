@@ -65,6 +65,21 @@ const StatModal: FC<ModalProps & CharacterDamageProps> = ({ isOpen, setIsOpen, c
   );
 };
 
+interface CharacterItemProps {
+  readonly?: boolean;
+  onClick?: () => void;
+  character: CalulatedCharacter;
+}
+
+export const CharacterItem: FC<CharacterItemProps> = ({ character, readonly, onClick = () => {} }) => {
+  return (
+    <div className={twMerge("relative w-fit", !readonly && "cursor-pointer")} onClick={onClick}>
+      <CharacterIcon character={character.character} showName={false} className="row-span-3 w-[72px]" />
+      <StarCompact selectedStar={character.star} readonly className="absolute inset-x-0 -top-2" />
+    </div>
+  );
+};
+
 const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
   const { t } = useTranslation("page/character");
   const { t: tch } = useTranslation("character");
@@ -90,10 +105,7 @@ const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
         ref={setNodeRef}
         style={style}
       >
-        <div className={twMerge("relative w-fit", !readonly && "cursor-pointer")} onClick={() => setIsOpen(true)}>
-          <CharacterIcon character={character.character} showName={false} className="row-span-3 w-[72px]" />
-          <StarCompact selectedStar={character.star} readonly className="absolute inset-x-0 -top-2" />
-        </div>
+        <CharacterItem character={character} readonly={readonly} onClick={() => setIsOpen(true)} />
         <div className="flex w-full flex-col gap-1">
           <div className="flex w-fit cursor-grab touch-none items-center" {...listeners}>
             <div className="text-stroke w-fit text-center text-lg font-[500] leading-5">{character.name}</div>

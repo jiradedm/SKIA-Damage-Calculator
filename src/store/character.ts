@@ -1,13 +1,14 @@
 "use client";
 
 import { arrayMove } from "@dnd-kit/sortable";
+import { z } from "zod";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import type { Character, CharacterApplyAilment, CharacterKey } from "@/data/character";
+import { type Character, type CharacterApplyAilment, characterKeys } from "@/data/character";
 import type { Effect } from "@/data/effect";
-import type { RarityKey } from "@/data/rarity";
-import type { Stat, StatKey } from "@/data/stat";
+import { type RarityKey, rarityKeys } from "@/data/rarity";
+import { type Stat, type StatKey, statKeys } from "@/data/stat";
 
 export const characterMaxActive = 12;
 
@@ -17,18 +18,20 @@ export interface CharacterPotential {
   value: number;
 }
 
-export interface AddedCharacter {
-  id: string;
-  name: string;
-  level: number;
-  character: CharacterKey;
-  star: number;
-  potentials: CharacterPotential[];
-  necklaceLevel: number;
-  earringsLevel: number;
-  statBonus: number;
-  active?: boolean;
-}
+export const addedCharacterObject = z.object({
+  id: z.string(),
+  name: z.string(),
+  level: z.number(),
+  character: z.enum(characterKeys),
+  star: z.number(),
+  potentials: z.array(z.object({ rarity: z.enum(rarityKeys), stat: z.enum(statKeys), value: z.number() })),
+  necklaceLevel: z.number(),
+  earringsLevel: z.number(),
+  statBonus: z.number(),
+  active: z.boolean().optional(),
+});
+
+export type AddedCharacter = z.infer<typeof addedCharacterObject>;
 
 export interface CharacterStatData extends Stat {
   value: number;
@@ -44,6 +47,7 @@ export interface CalulatedCharacter extends Omit<AddedCharacter, "character"> {
 
 interface CharacterStore {
   addedCharacters: AddedCharacter[];
+  setAddedCharacters: (addedCharacters: AddedCharacter[]) => void;
   addCharacter: (character: AddedCharacter) => void;
   moveCharacter: (oldIndex: number, newIndex: number) => void;
   editCharacter: (character: AddedCharacter) => void;
@@ -64,6 +68,9 @@ export const useCharacterStore = create<CharacterStore>()(
   persist(
     (set) => ({
       addedCharacters: [],
+      setAddedCharacters: (addedCharacters) => {
+        set({ addedCharacters });
+      },
       moveCharacter: (oldIndex, newIndex) => {
         set((state) => {
           const movedAddedCharacters = arrayMove(state.addedCharacters, oldIndex, newIndex);

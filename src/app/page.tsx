@@ -7,6 +7,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 
 import CharacterDamage from "@/components/characterDamage";
+import PortButton from "@/components/portButton";
 import SortButton from "@/components/sortButton";
 import Title from "@/components/title";
 import { sortCharacterByTotalDamage } from "@/libs/sort";
@@ -49,6 +50,7 @@ export default function HomePage() {
   return (
     <>
       <Title className="self-center text-3xl">{t("title")}</Title>
+      <PortButton data={JSON.stringify(addedCharacters)} exportDisabled={addedCharacters.length === 0} />
       <SortButton active={sortActive} setActive={setSortActive} />
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <SortableContext items={addedCharacters} strategy={verticalListSortingStrategy}>
