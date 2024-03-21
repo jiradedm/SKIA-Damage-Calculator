@@ -27,9 +27,14 @@ export const statusAilment = {
     img: "/status/EnemyBleeding.webp",
     name: "Bleeding",
   },
-  // EnemyFrostbitten: {
-  //   key: "EnemyFrostbitten",
-  // img: "/status/EnemyFrostbitten.webp",
-  //   name: "Frostbitten",
-  // },
+  EnemyFrostbitten: {
+    key: "EnemyFrostbitten",
+    img: "/status/EnemyFrostbitten.webp",
+    name: "Frostbitten",
+  },
+  EnemySilenced: {
+    key: "EnemySilenced",
+    img: "/status/EnemySilenced.webp",
+    name: "Silenced",
+  },
 } as Record<StatKey, StatusAilment>;

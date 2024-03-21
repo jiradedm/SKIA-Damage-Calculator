@@ -42,6 +42,8 @@ export const baseGlobalStat = {
   EnemyPoisoned: 0,
   EnemyBleeding: 0,
   EnemyCursed: 0,
+  EnemySilenced: 0,
+  EnemyFrostbitten: 0,
   FoodBuff: 0,
   NightmareStage: 0,
   NightmareLevel: 0,

@@ -61,9 +61,6 @@ interface PortButtonProps {
   exportDisabled?: boolean;
 }
 
-const DELETE_THIS =
-  "W3siaWQiOiI5MGQwMDI2YS1iYmUzLTRiMjYtYTFjNi1kZTBhNTdhZDJkNDYiLCJsZXZlbCI6NTAsIm5hbWUiOiLguYDguIvguLXguYjguKLguIfguK3guKfguLXguYgiLCJjaGFyYWN0ZXIiOiJYaWFuZ1l1IiwicG90ZW50aWFscyI6W10sIm5lY2tsYWNlTGV2ZWwiOjAsImVhcnJpbmdzTGV2ZWwiOjAsInN0YXIiOjAsInN0YXRCb251cyI6MCwiYWN0aXZlIjp0cnVlfSx7ImlkIjoiY2QyZGNmOTAtZDU5Ni00M2Q2LWEwODMtMjQ2OGY2MzZiY2ZlIiwibGV2ZWwiOjUwLCJuYW1lIjoi4LmA4Lit4LiLIiwiY2hhcmFjdGVyIjoiQWNlIiwicG90ZW50aWFscyI6W10sIm5lY2tsYWNlTGV2ZWwiOjAsImVhcnJpbmdzTGV2ZWwiOjAsInN0YXIiOjYsInN0YXRCb251cyI6MCwiYWN0aXZlIjp0cnVlfV0=";
-
 const PortButton: FC<PortButtonProps> = ({ data, exportDisabled }) => {
   const clipboard = useClipboard({ timeout: 1500 });
   const { setAddedCharacters } = useCharacterStore();
@@ -73,7 +70,7 @@ const PortButton: FC<PortButtonProps> = ({ data, exportDisabled }) => {
   const [open2, setOpen2] = useState(false);
   const [open3, setOpen3] = useState(false);
   const [code, setCode] = useState("");
-  const [code2, setCode2] = useState(DELETE_THIS);
+  const [code2, setCode2] = useState("");
   const [error, setError] = useState("");
   const [charTemp, setCharTemp] = useState<AddedCharacter[] | undefined>(undefined);
 
@@ -140,7 +137,7 @@ const PortButton: FC<PortButtonProps> = ({ data, exportDisabled }) => {
         {error && <div className="mx-2">*{error}</div>}
         <Modal isOpen={open3} setIsOpen={setOpen3} title="Confirm Imported Character">
           <div className="text-sm text-unique3">*override the current character list</div>
-          <div className="flex gap-1">
+          <div className="grid grid-cols-5 justify-center gap-2 sm:grid-cols-6">
             {formattedCharTemp?.map((char) => <CharacterItem key={char.character.key} character={char} readonly />)}
           </div>
           <Button onClick={() => confirmImported()}>Confirm</Button>

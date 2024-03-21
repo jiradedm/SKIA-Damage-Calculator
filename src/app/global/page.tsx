@@ -74,7 +74,7 @@ const StatItem: FC<StatProps> = ({ stat: statProps }) => {
 
   return (
     <div
-      className="flex w-full select-none gap-2 font-[500]"
+      className="flex w-full cursor-pointer select-none gap-2 font-[500]"
       onClick={() => {
         if (stat.isToggle) {
           handleInput(!statProps.value ? 1 : 0);

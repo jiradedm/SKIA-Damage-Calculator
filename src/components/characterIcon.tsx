@@ -18,7 +18,7 @@ const CharacterIcon: FC<ComponentPropsWithoutRef<"div"> & CharacterIconProps> = 
   const { t } = useTranslation("character");
 
   return (
-    <div className={twMerge("rounded w-fit p-0.5", character.rarity.characterClass, className)} {...props}>
+    <div className={twMerge("relative rounded w-fit p-0.5", character.rarity.characterClass, className)} {...props}>
       <div className="relative">
         <img
           src={character.img}
@@ -26,7 +26,13 @@ const CharacterIcon: FC<ComponentPropsWithoutRef<"div"> & CharacterIconProps> = 
           className={twMerge("absolute", showName ? "rounded-t" : "rounded")}
         />
       </div>
-      <div className="pb-[100%]" />
+      <div className="relative pb-[100%]">
+        {character.testing && (
+          <div className="absolute top-1/2 w-full -translate-y-1/2 bg-unique3 text-center text-xs font-[500] text-white">
+            TESTING
+          </div>
+        )}
+      </div>
       {showName && (
         <div className="text-stroke line-clamp-1 w-full p-[1px] text-center text-xs font-[400] leading-[14px]">
           {t(character.key)}

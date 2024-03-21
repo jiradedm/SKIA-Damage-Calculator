@@ -6,6 +6,7 @@ export const statKeys = [
   "FinalAccuracy",
   "FinalEvasion",
   "CritRate",
+  "CritResist",
   "CritDamage",
   "WeaknessRate",
   "DefenseTypeAttack",
@@ -41,6 +42,8 @@ export const statKeys = [
   "EnemyPoisoned",
   "EnemyBleeding",
   "EnemyCursed",
+  "EnemyFrostbitten",
+  "EnemySilenced",
   "NightmareStage",
   "NightmareLevel",
   "FoodBuff",
@@ -91,6 +94,7 @@ const baseStat = {
 
 export const stat: StatData = {
   ...baseStat,
+  CritResist: { key: "CritResist" },
   FinalAttack: { key: "FinalAttack" },
   AttackSpeed: { key: "AttackSpeed" },
   FinalAccuracy: { key: "FinalAccuracy" },
@@ -126,11 +130,14 @@ export const stat: StatData = {
   EnemyTypeMelee: { key: "EnemyTypeMelee", isToggle: true },
   EnemyTypeRanged: { key: "EnemyTypeRanged", isToggle: true },
   EnemyTypeSupport: { key: "EnemyTypeSupport", isToggle: true },
-  NightmareStage: { key: "NightmareStage", isToggle: true },
   EnemyBurned: { key: "EnemyBurned", isToggle: true },
   EnemyPoisoned: { key: "EnemyPoisoned", isToggle: true },
   EnemyCursed: { key: "EnemyCursed", isToggle: true },
   EnemyBleeding: { key: "EnemyBleeding", isToggle: true },
+  EnemyFrostbitten: { key: "EnemyFrostbitten", isToggle: true },
+  EnemySilenced: { key: "EnemySilenced", isToggle: true },
+  // STAGE
+  NightmareStage: { key: "NightmareStage", isToggle: true },
   FoodBuff: { key: "FoodBuff", isToggle: true },
   NightmareLevel: { key: "NightmareLevel", isFlat: true, isNotAdd: true },
   // EXTRA

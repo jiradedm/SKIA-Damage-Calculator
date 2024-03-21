@@ -51,7 +51,9 @@ type EffectKey =
   | "RulerOfNightmares"
   | "BlessedDragonOfMountHua"
   | "MasterOfTheBlossomingBlade"
-  | "AgileMovement";
+  | "AgileMovement"
+  | "ChainsOfVengeance"
+  | "NightStalker";
 
 export interface EffectStat {
   stat: Stat;
@@ -417,5 +419,22 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Agile Movement.webp",
     target: "Self",
     stats: [{ stat: stat.AttackSpeed, value: 20 }],
+  },
+  ChainsOfVengeance: {
+    key: "ChainsOfVengeance",
+    name: "Chains of Vengeance",
+    img: "/effect/Chains of Vengeance.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.CritResist, value: 24 }],
+  },
+  NightStalker: {
+    key: "NightStalker",
+    name: "Night Stalker",
+    img: "/effect/Night Stalker.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.AttackSpeed, value: 24 },
+    ],
   },
 };

@@ -27,7 +27,9 @@ const getSimulatedAttackAmount = (
   cooldownDecreaseModifier: number,
 ): AttackAmount => {
   const timeLimit = 30;
-  const baseCooldown = 10 * (1 - (cooldownDecreaseModifier > 1 ? 1 : cooldownDecreaseModifier));
+  // TODO: COOLDOWN BIND ON CHARACTER
+  const baseCooldown =
+    (character.key === "Kyle" ? 20 : 10) * (1 - (cooldownDecreaseModifier > 1 ? 1 : cooldownDecreaseModifier));
 
   const critRate = criticalRateModifier > 1 ? 1 : criticalRateModifier;
 
@@ -91,12 +93,7 @@ const getModifier = (
       globalStat[character.type.typeRestrictStat.Accuracy],
     ],
     AttackSpeed: [globalStat.AttackSpeed],
-    CritRate: [
-      charStat.CritRate,
-      globalStat.CritRate,
-      globalStat[character.type.typeRestrictStat.CritRate],
-      globalStat.EnemyCritResist * -1,
-    ],
+    CritRate: [charStat.CritRate, globalStat.CritRate, globalStat[character.type.typeRestrictStat.CritRate]],
     CritDamage: [
       accessory.NecklaceOfCriticalHitDamage.value[addedCharacter.necklaceLevel],
       charStat.CritDamage[addedCharacter.star],
@@ -165,11 +162,12 @@ const getModifier = (
   } as StatKeyWithValue;
 };
 
-const getEnemyModifer = (totalEffectStats: EffectStat[]): StatKeyWithValue => {
+const getEnemyModifer = (totalEffectStats: EffectStat[], globalStat: GlobalStat): StatKeyWithValue => {
   const enemyModifier = {
     FinalDefense: [0],
     FinalDamage: [0],
     FinalEvasion: [0],
+    CritResist: [globalStat.EnemyCritResist * -1],
   } as Record<StatKey, number[]>;
 
   totalEffectStats.forEach((effectStat) => {
@@ -180,8 +178,9 @@ const getEnemyModifer = (totalEffectStats: EffectStat[]): StatKeyWithValue => {
   const FinalDefense = enemyModifier.FinalDefense.reduce(minus, 100) / 100;
   const FinalEvasion = enemyModifier.FinalEvasion.reduce(minus, 100) / 100;
   const FinalDamage = enemyModifier.FinalDamage.reduce(sum, 100) / 100;
+  const CritResist = enemyModifier.CritResist.reduce(sum, 0) / 100;
 
-  return { FinalDefense, FinalEvasion, FinalDamage } as StatKeyWithValue;
+  return { FinalDefense, FinalEvasion, FinalDamage, CritResist } as StatKeyWithValue;
 };
 
 const getCharacterAttackDamage = (
@@ -200,6 +199,14 @@ const getCharacterAttackDamage = (
 
   const enemyDefenseModifier = enemyModifier.FinalDefense < 0 ? 0 : enemyModifier.FinalDefense;
   const enemyDefense = globalStat.EnemyDefense * enemyDefenseModifier;
+
+  const getCritRate = (rate: number): number => {
+    if (rate > 1) return 1;
+    if (rate < 0) return 0;
+    return rate;
+  };
+
+  const critRate = getCritRate(modifier.CritRate - enemyModifier.CritResist * -1);
 
   const enemyDamageReductionRate = 1 - enemyDefense / (enemyDefense + 2 * baseAttackValue);
   const enemyDamageReduction = enemyDamageReductionRate < 0.3 ? 0.3 : enemyDamageReductionRate;
@@ -260,8 +267,6 @@ const getCharacterAttackDamage = (
     modifier.FinalCritDamage *
     critAttackFinalDamageModifier;
 
-  const critRate = modifier.CritRate > 1 ? 1 : modifier.CritRate;
-
   // *** AVERAGE ATTACK DAMAGE ***
   const attackDamage = ((1 - critRate) * basicAttackDamage + critAttackDamage * critRate) * weaknessModifier * hitRate;
 
@@ -319,6 +324,7 @@ const getCharacterAttackDamage = (
     enemyDamageReductionRate,
     enemyDefenseModifier,
     enemyEvasionModifier,
+    enemyCritResistModifier: enemyModifier.CritResist * -1,
   };
 };
 
@@ -338,7 +344,7 @@ const calculateDamage = (
     modifier.CooldownDecrease,
   );
 
-  const enemyModifier = getEnemyModifer(totalEffectStats);
+  const enemyModifier = getEnemyModifer(totalEffectStats, globalStat);
 
   const {
     baseAttackValue,
@@ -352,6 +358,7 @@ const calculateDamage = (
     enemyDamageReductionRate,
     enemyDefenseModifier,
     enemyEvasionModifier,
+    enemyCritResistModifier,
   } = getCharacterAttackDamage(character, addedCharacter, globalStat, modifier, enemyModifier, statusAilments);
 
   const totalAttackDamage = attackDamage * attack.atkAmount;
@@ -370,6 +377,7 @@ const calculateDamage = (
       isMaxHitFlag: !!character.maxHit && key === stat.CritRate.key,
     })),
     { ...stat.HitRate, value: hitRate },
+    { ...stat.EnemyCritResist, value: enemyCritResistModifier },
     { ...stat.EnemyFinalEvasion, value: enemyEvasionModifier },
     { ...stat.EnemyFinalDefense, value: enemyDefenseModifier },
     { ...stat.EnemyDamageReduction, value: 1 - enemyDamageReductionRate },
@@ -387,10 +395,7 @@ const calculateDamage = (
     { ...stat.TotalDoTDamage, value: totalOverTimelDamage },
   ];
 
-  return {
-    stats,
-    totalDamage,
-  };
+  return { stats, totalDamage };
 };
 
 export const getTeamEffects = (addedCharacters: AddedCharacter[]) => {
