@@ -1,6 +1,7 @@
 import { useClipboard } from "@mantine/hooks";
 import type { ComponentPropsWithoutRef, FC } from "react";
 import React, { useMemo, useState } from "react";
+import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 import { z } from "zod";
 
@@ -62,6 +63,9 @@ interface PortButtonProps {
 }
 
 const PortButton: FC<PortButtonProps> = ({ data, exportDisabled }) => {
+  const { t } = useTranslation("page/character");
+  const { t: tc } = useTranslation("common");
+
   const clipboard = useClipboard({ timeout: 1500 });
   const { setAddedCharacters } = useCharacterStore();
 
@@ -109,17 +113,17 @@ const PortButton: FC<PortButtonProps> = ({ data, exportDisabled }) => {
         <SmallButton onClick={() => setOpen2(true)}>
           <div className="flex items-center gap-1">
             <ImportIcon />
-            <div>Import</div>
+            <div>{t("import")}</div>
           </div>
         </SmallButton>
         <SmallButton onClick={handleExport} disabled={exportDisabled}>
           <div className="flex items-center gap-1">
             <ImportIcon className="rotate-180" />
-            <div>Export</div>
+            <div>{t("export")}</div>
           </div>
         </SmallButton>
       </div>
-      <Modal isOpen={open2} setIsOpen={setOpen2} title="Import Code">
+      <Modal isOpen={open2} setIsOpen={setOpen2} title={t("import-code")}>
         <div className="mx-2 grid grid-cols-[auto_80px] items-center gap-2">
           {/* DUPS */}
           <input
@@ -131,19 +135,19 @@ const PortButton: FC<PortButtonProps> = ({ data, exportDisabled }) => {
             }}
           />
           <SmallButton onClick={handleImport} className="text-base">
-            Import
+            {t("import")}
           </SmallButton>
         </div>
         {error && <div className="mx-2">*{error}</div>}
-        <Modal isOpen={open3} setIsOpen={setOpen3} title="Confirm Imported Character">
-          <div className="text-sm text-unique3">*override the current character list</div>
+        <Modal isOpen={open3} setIsOpen={setOpen3} title={t("confirm")}>
+          <div className="text-sm text-unique3">*{t("warning")}</div>
           <div className="grid grid-cols-5 justify-center gap-2 sm:grid-cols-6">
             {formattedCharTemp?.map((char) => <CharacterItem key={char.character.key} character={char} readonly />)}
           </div>
-          <Button onClick={() => confirmImported()}>Confirm</Button>
+          <Button onClick={() => confirmImported()}>{tc("confirm")}</Button>
         </Modal>
       </Modal>
-      <Modal isOpen={open} setIsOpen={setOpen} title="Export Code">
+      <Modal isOpen={open} setIsOpen={setOpen} title={t("export-code")}>
         <div className="mx-6 grid grid-cols-[auto_20px] items-center gap-3">
           <div className="overflow-x-auto">{code}</div>
           {clipboard.copied ? (
