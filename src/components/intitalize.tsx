@@ -10,7 +10,7 @@ import { characterStat } from "@/data/characterStat";
 import type { Effect, EffectStat } from "@/data/effect";
 import type { StatKey } from "@/data/stat";
 import { foodBuff, stat } from "@/data/stat";
-import type { AddedCharacter, CharacterStatData, GlobalStat } from "@/store";
+import type { AddedCharacter, CharacterStatDataGroup, GlobalStat } from "@/store";
 import { useCharacterStore, useStatStore } from "@/store";
 
 const sum = (total: number, current: number) => total + current;
@@ -27,9 +27,7 @@ const getSimulatedAttackAmount = (
   cooldownDecreaseModifier: number,
 ): AttackAmount => {
   const timeLimit = 30;
-  // TODO: COOLDOWN BIND ON CHARACTER
-  const baseCooldown =
-    (character.key === "Kyle" ? 20 : 10) * (1 - (cooldownDecreaseModifier > 1 ? 1 : cooldownDecreaseModifier));
+  const baseCooldown = (character.cooldown || 10) * (1 - (cooldownDecreaseModifier > 1 ? 1 : cooldownDecreaseModifier));
 
   const critRate = criticalRateModifier > 1 ? 1 : criticalRateModifier;
 
@@ -367,35 +365,66 @@ const calculateDamage = (
 
   const totalDamage = totalAttackDamage + totalSkillDamage + totalOverTimelDamage;
 
-  const stats: CharacterStatData[] = [
-    { ...stat.Attack, value: baseAttackValue, isFlat: true },
-    { ...stat.Accuracy, value: baseAccuracy, isFlat: true, noFormat: true },
-    ...(Object.keys(modifier) as StatKey[]).map((key) => ({
-      key: stat[key].key,
-      value: modifier[key],
-      isFlat: stat[key].isFlat,
-      isMaxHitFlag: !!character.maxHit && key === stat.CritRate.key,
-    })),
-    { ...stat.HitRate, value: hitRate },
-    { ...stat.EnemyCritResist, value: enemyCritResistModifier },
-    { ...stat.EnemyFinalEvasion, value: enemyEvasionModifier },
-    { ...stat.EnemyFinalDefense, value: enemyDefenseModifier },
-    { ...stat.EnemyDamageReduction, value: 1 - enemyDamageReductionRate },
-    { ...stat.EnemyFinalDamageTaken, value: enemyModifier.FinalDamage },
-    { ...stat.BasicAttackDamage, value: basicAttackDamage },
-    { ...stat.CriticalHitAttackDamage, value: critAttackDamage },
-    { ...stat.AverageAttackDamage, value: attackDamage },
-    { ...stat.AttackAmount, value: attack.atkAmount, isMaxHitFlag: !!character.maxHit },
-    { ...stat.TotalAttackDamage, value: totalAttackDamage },
-    { ...stat.AverageSkillDamage, value: skillDamage },
-    { ...stat.SkillAmount, value: attack.skillAmount },
-    { ...stat.TotalSkillDamage, value: totalSkillDamage },
-    { ...stat.AverageDoTDamage, value: overTimeDamage },
-    { ...stat.DoTAmount, value: attack.DotAmount },
-    { ...stat.TotalDoTDamage, value: totalOverTimelDamage },
+  const statGroups: CharacterStatDataGroup[] = [
+    {
+      key: "characterStat",
+      stats: [
+        { ...stat.Attack, value: baseAttackValue, isFlat: true },
+        { ...stat.Attack, value: modifier.Attack },
+        { ...stat.FinalAttack, value: modifier.FinalAttack },
+        { ...stat.Accuracy, value: baseAccuracy, isFlat: true, noFormat: true },
+        { ...stat.Accuracy, value: modifier.Accuracy },
+        { ...stat.FinalAccuracy, value: modifier.FinalAccuracy },
+        { ...stat.HitRate, value: hitRate },
+        { ...stat.AttackSpeed, value: modifier.AttackSpeed },
+        { ...stat.CritRate, value: modifier.CritRate, isMaxHitFlag: !!character.maxHit },
+        { ...stat.CritDamage, value: modifier.CritDamage },
+        { ...stat.FinalCritDamage, value: modifier.FinalCritDamage },
+        { ...stat.WeaknessRate, value: modifier.WeaknessRate },
+        { ...stat.FinalWeaknessDamage, value: modifier.FinalWeaknessDamage },
+        { ...stat.FinalDamage, value: modifier.FinalDamage },
+        { ...stat.CooldownDecrease, value: modifier.CooldownDecrease },
+      ],
+    },
+    {
+      key: "enemyStat",
+      stats: [
+        { ...stat.EnemyCritResist, value: enemyCritResistModifier },
+        { ...stat.EnemyFinalEvasion, value: enemyEvasionModifier },
+        { ...stat.EnemyFinalDefense, value: enemyDefenseModifier },
+        { ...stat.EnemyDamageReduction, value: 1 - enemyDamageReductionRate },
+        { ...stat.EnemyFinalDamageTaken, value: enemyModifier.FinalDamage },
+      ],
+    },
+    {
+      key: "attackStat",
+      stats: [
+        { ...stat.BasicAttackDamage, value: basicAttackDamage },
+        { ...stat.CriticalHitAttackDamage, value: critAttackDamage },
+        { ...stat.AverageAttackDamage, value: attackDamage },
+        { ...stat.AttackAmount, value: attack.atkAmount, isMaxHitFlag: !!character.maxHit },
+        { ...stat.TotalAttackDamage, value: totalAttackDamage },
+      ],
+    },
+    {
+      key: "skillStat",
+      stats: [
+        { ...stat.AverageSkillDamage, value: skillDamage },
+        { ...stat.SkillAmount, value: attack.skillAmount },
+        { ...stat.TotalSkillDamage, value: totalSkillDamage },
+      ],
+    },
+    {
+      key: "dotStat",
+      stats: [
+        { ...stat.AverageDoTDamage, value: overTimeDamage },
+        { ...stat.DoTAmount, value: attack.DotAmount },
+        { ...stat.TotalDoTDamage, value: totalOverTimelDamage },
+      ],
+    },
   ];
 
-  return { stats, totalDamage };
+  return { statGroups, totalDamage };
 };
 
 export const getTeamEffects = (addedCharacters: AddedCharacter[]) => {

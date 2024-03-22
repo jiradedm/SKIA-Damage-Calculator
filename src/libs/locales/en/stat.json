@@ -61,5 +61,10 @@
   "TotalSkillDamage": "Total Skill Damage",
   "AverageDoTDamage": "Average DoT Damage",
   "DoTAmount": "DoT Amount",
-  "TotalDoTDamage":"Total DoT Damage"
+  "TotalDoTDamage":"Total DoT Damage",
+  "characterStat": "Character Stats",
+  "enemyStat": "Enemy Stats",
+  "attackStat": "Attack Stats",
+  "skillStat": "SKill Stats",
+  "dotStat": "DoT Stats"
 }

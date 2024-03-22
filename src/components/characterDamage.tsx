@@ -41,25 +41,35 @@ const StatModal: FC<ModalProps & CharacterDamageProps> = ({ isOpen, setIsOpen, c
 
   return (
     <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={t("title-stat")}>
-      <div>
-        {character.damage.stats.map((characterStat, index) => {
-          let value = String(characterStat.value);
-          if (characterStat.isFlat) {
-            if (!characterStat.noFormat) value = formatNumber(characterStat.value);
-            else value = Math.floor(parseFloat(characterStat.value.toFixed(1))).toLocaleString();
-          } else value = parseFloat((characterStat.value * 100).toFixed(2)).toLocaleString();
+      <div className="flex flex-col gap-2">
+        {character.damage.statGroups.map((statGroup) => (
+          <div key={statGroup.key} className="flex flex-col gap-2">
+            <div className="text-center text-lg font-[500]">{ts(statGroup.key)}</div>
+            <div>
+              {statGroup.stats.map((characterStat, index) => {
+                let value = String(characterStat.value);
+                if (characterStat.isFlat) {
+                  if (!characterStat.noFormat) value = formatNumber(characterStat.value);
+                  else value = Math.floor(parseFloat(characterStat.value.toFixed(1))).toLocaleString();
+                } else value = parseFloat((characterStat.value * 100).toFixed(2)).toLocaleString();
 
-          return (
-            <div key={index} className={twMerge("flex justify-between p-1", index % 2 !== 0 && "bg-[#2f3745]")}>
-              <div>{ts(characterStat.key)}</div>
-              <div className="whitespace-nowrap text-[#fcf4d3]">
-                {value}
-                {characterStat.isFlat ? "" : "%"}
-                {characterStat.isMaxHitFlag ? "*" : ""}
-              </div>
+                return (
+                  <div
+                    key={index}
+                    className={twMerge("flex justify-between py-1 px-2 bg-[#2f3745]", index % 2 !== 0 && "bg-inherit")}
+                  >
+                    <div>{ts(characterStat.key)}</div>
+                    <div className="whitespace-nowrap text-[#fcf4d3]">
+                      {value}
+                      {characterStat.isFlat ? "" : "%"}
+                      {characterStat.isMaxHitFlag ? "*" : ""}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
+          </div>
+        ))}
       </div>
     </Modal>
   );

@@ -38,10 +38,15 @@ export interface CharacterStatData extends Stat {
   isMaxHitFlag?: boolean;
 }
 
+export type CharacterStatDataGroup = {
+  key: StatKey;
+  stats: CharacterStatData[];
+};
+
 export interface CalulatedCharacter extends Omit<AddedCharacter, "character"> {
   character: Character;
   chartPercentage?: number;
-  damage: { totalDamage: number; stats: CharacterStatData[] };
+  damage: { totalDamage: number; statGroups: CharacterStatDataGroup[] };
   effects: Effect[];
 }
 

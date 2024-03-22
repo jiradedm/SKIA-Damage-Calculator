@@ -147,11 +147,10 @@ export interface Character {
   effects?: Effect[];
   maxHit?: number;
   testing?: boolean;
+  cooldown?: number;
   applyStatusAilments?: CharacterApplyAilment[];
   attack: CharacterAttack;
 }
-
-// TODO: Check Uptime EnemySilenced
 
 export const character: Record<CharacterKey, Character> = {
   Ace: {
@@ -1524,7 +1523,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Kyle.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
-    testing: true,
+    cooldown: 20,
     effects: [effect.ChainsOfVengeance, effect.NightStalker],
     attack: {
       BasicAttack: { modifier: 275, speed: 200 },

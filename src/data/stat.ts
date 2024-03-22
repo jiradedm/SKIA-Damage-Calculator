@@ -63,6 +63,11 @@ export const statKeys = [
   "AverageDoTDamage",
   "DoTAmount",
   "TotalDoTDamage",
+  "characterStat",
+  "enemyStat",
+  "attackStat",
+  "skillStat",
+  "dotStat",
 ] as const;
 
 export type StatKey = (typeof statKeys)[number];
@@ -157,6 +162,12 @@ export const stat: StatData = {
   AverageDoTDamage: { key: "AverageDoTDamage", isFlat: true },
   DoTAmount: { key: "DoTAmount", isFlat: true },
   TotalDoTDamage: { key: "TotalDoTDamage", isFlat: true },
+  // GROUP
+  characterStat: { key: "characterStat" },
+  enemyStat: { key: "enemyStat" },
+  attackStat: { key: "attackStat" },
+  skillStat: { key: "skillStat" },
+  dotStat: { key: "dotStat" },
 };
 
 export const baseStats = Object.values(baseStat);
