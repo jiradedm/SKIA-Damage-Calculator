@@ -226,10 +226,10 @@ const getCharacterAttackDamage = (
   const getApplyConditionUptime = (condition?: StatKey) => {
     if (!condition) return undefined;
     if (!statusAilments) return globalStat[condition];
+    // TODO: [TEMP FIX] ADD ENEMY TYPE TO FORMATION
+    if (condition.startsWith("EnemyType")) return globalStat[condition];
     const statusAilment = statusAilments.find((alignment) => alignment.status.key === condition);
-    if (statusAilment) {
-      return statusAilment.uptime;
-    }
+    if (statusAilment) return statusAilment.uptime;
     return 0;
   };
 
