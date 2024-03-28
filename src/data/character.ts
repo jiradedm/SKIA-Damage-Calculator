@@ -1500,7 +1500,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Jake.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
-    effects: [],
+    effects: [{ ...effect.CooldownDecrease, characterTypeRestricted: "Ranged" }],
     attack: {
       BasicAttack: { modifier: 150, speed: 149.93 },
       CritAttack: { modifier: 150, speed: 136.24 },
