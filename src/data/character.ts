@@ -453,9 +453,13 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     effects: [{ ...effect.KeenAttack5, characterTypeRestricted: "Melee" }],
     attack: {
-      BasicAttack: { modifier: 200, speed: 107.07 },
-      CritAttack: { modifier: 250, speed: 85.69 },
-      Skill: { modifier: 700, speed: 59.99 },
+      BasicAttack: { modifier: 250, speed: 107.07 },
+      CritAttack: {
+        modifier: 300,
+        speed: 85.69,
+        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyBurned" } },
+      },
+      Skill: { modifier: 1250, speed: 59.99 },
     },
   },
   GuanYu: {
