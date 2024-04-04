@@ -53,7 +53,8 @@ type EffectKey =
   | "MasterOfTheBlossomingBlade"
   | "AgileMovement"
   | "ChainsOfVengeance"
-  | "NightStalker";
+  | "NightStalker"
+  | "Ambush5";
 
 export interface EffectStat {
   stat: Stat;
@@ -436,5 +437,12 @@ export const effect: Record<EffectKey, Effect> = {
       { stat: stat.CritRate, value: 24 },
       { stat: stat.AttackSpeed, value: 24 },
     ],
+  },
+  Ambush5: {
+    key: "Ambush5",
+    name: "Ambush Lv. 5",
+    img: "/effect/Weakness Attack Damage.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalWeaknessDamage, value: 20 }],
   },
 };

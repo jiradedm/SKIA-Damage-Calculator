@@ -115,6 +115,9 @@ export const characterKeys = [
   "GuardianPooki",
   "Kyle",
   "Mulan",
+  "Klahan",
+  "Lene",
+  "Shey",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -1549,6 +1552,48 @@ export const character: Record<CharacterKey, Character> = {
         speed: 100,
         attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyTypeMelee" } },
       },
+    },
+  },
+  Klahan: {
+    key: "Klahan",
+    img: "/character/Klahan.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.Attack5, { ...effect.Ambush5, characterTypeRestricted: "Melee" }],
+    attack: {
+      BasicAttack: { modifier: 100, speed: 187.27 },
+      CritAttack: {
+        modifier: 175,
+        speed: 130.38,
+        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyBleeding" } },
+      },
+      Skill: { modifier: 900, speed: 88.18 },
+    },
+  },
+  Lene: {
+    key: "Lene",
+    img: "/character/Lene.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.DefenseDecrease5],
+    applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
+    attack: {
+      BasicAttack: { modifier: 250, speed: 107.07 },
+      CritAttack: { modifier: 275, speed: 149.93 },
+      Skill: { modifier: 900, speed: 96.71 },
+      DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  Shey: {
+    key: "Shey",
+    img: "/character/Shey.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Support,
+    effects: [{ ...effect.KeenAttack5, characterTypeRestricted: "Ranged" }],
+    attack: {
+      BasicAttack: { modifier: 300, speed: 157.73 },
+      CritAttack: { modifier: 450, speed: 88.18 },
+      Skill: { modifier: 0, speed: 71.43 },
     },
   },
 };
