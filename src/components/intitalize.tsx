@@ -335,14 +335,21 @@ const calculateDamage = (
   const character = char[addedCharacter.character];
 
   const modifier = getModifier(addedCharacter, globalStat, totalEffectStats);
+  const enemyModifier = getEnemyModifer(totalEffectStats, globalStat);
+
+  // TODO REMOVE DUPS
+  const getCritRate = (rate: number): number => {
+    if (rate > 1) return 1;
+    if (rate < 0) return 0;
+    return rate;
+  };
+
   const attack = getSimulatedAttackAmount(
     character,
     modifier.AttackSpeed,
-    modifier.CritRate,
+    getCritRate(modifier.CritRate - enemyModifier.CritResist * -1),
     modifier.CooldownDecrease,
   );
-
-  const enemyModifier = getEnemyModifer(totalEffectStats, globalStat);
 
   const {
     baseAttackValue,
