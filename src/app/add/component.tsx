@@ -87,10 +87,10 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
   const editingCharacter = characters.find((char) => char.key === character?.character.key);
   const editLevel = characterLevelOptions.find((level) => level.value === character?.level);
 
-  const initPotentials = Array.from<Potential>({ length: 5 }).map((_, index) => {
+  const initPotentials = Array.from<Potential>({ length: 7 }).map((_, index) => {
     if (!character?.potentials[index])
       return index + 1 >
-        (editingCharacter || characters[initCharIndex]).rarity.getPotentialLimit(character?.star || initStar)
+        (editingCharacter || characters[initCharIndex]).rarity.potentialLimit[character?.star || initStar]
         ? "limited"
         : null;
 
@@ -124,8 +124,8 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
   }, [isEdit, selectedCharacter.key, tch]);
 
   useEffect(() => {
-    const newPotent: Potential[] = Array.from<Potential>({ length: 5 }).map((_, index) =>
-      index + 1 > selectedCharacter.rarity.getPotentialLimit(selectedStar) ? "limited" : null,
+    const newPotent: Potential[] = Array.from<Potential>({ length: 7 }).map((_, index) =>
+      index + 1 > selectedCharacter.rarity.potentialLimit[selectedStar] ? "limited" : null,
     );
 
     const newLimited = newPotent.filter((p) => p === "limited").length;

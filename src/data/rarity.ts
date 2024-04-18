@@ -6,7 +6,7 @@ export interface Rarity {
   selectClass: string;
   characterClass: string;
   maxLevel: number;
-  getPotentialLimit: (star: number) => number;
+  potentialLimit: number[];
   unlockNecklaceStarRequirement: number;
   unlockEarringsStarRequirement: number;
 }
@@ -17,11 +17,7 @@ export const rarity: Record<RarityKey, Rarity> = {
     selectClass: `bg-legendary1 border-legendary2`,
     characterClass: `bg-legendary3`,
     maxLevel: 70,
-    getPotentialLimit: (star) => {
-      if (star >= 5) return 5;
-      if (star >= 1) return 3;
-      return 0;
-    },
+    potentialLimit: [0, 3, 3, 3, 3, 5, 5, 7, 7, 7, 7],
     unlockNecklaceStarRequirement: 3,
     unlockEarringsStarRequirement: 0,
   },
@@ -30,7 +26,7 @@ export const rarity: Record<RarityKey, Rarity> = {
     selectClass: `bg-unique1 border-unique2`,
     characterClass: `bg-unique3`,
     maxLevel: 60,
-    getPotentialLimit: () => 3,
+    potentialLimit: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3],
     unlockNecklaceStarRequirement: 100,
     unlockEarringsStarRequirement: 0,
   },
@@ -39,7 +35,7 @@ export const rarity: Record<RarityKey, Rarity> = {
     selectClass: `bg-epic1 border-epic2`,
     characterClass: `bg-epic3`,
     maxLevel: 0,
-    getPotentialLimit: () => 2,
+    potentialLimit: [2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2],
     unlockNecklaceStarRequirement: 100,
     unlockEarringsStarRequirement: 100,
   },
@@ -48,7 +44,7 @@ export const rarity: Record<RarityKey, Rarity> = {
     selectClass: `bg-rare1 border-rare2`,
     characterClass: `bg-rare3`,
     maxLevel: 0,
-    getPotentialLimit: () => 0,
+    potentialLimit: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     unlockNecklaceStarRequirement: 100,
     unlockEarringsStarRequirement: 100,
   },
@@ -57,7 +53,7 @@ export const rarity: Record<RarityKey, Rarity> = {
     selectClass: `bg-normal1 border-normal2`,
     characterClass: `bg-normal3`,
     maxLevel: 0,
-    getPotentialLimit: () => 0,
+    potentialLimit: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     unlockNecklaceStarRequirement: 100,
     unlockEarringsStarRequirement: 100,
   },
