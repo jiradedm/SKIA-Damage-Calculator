@@ -54,7 +54,10 @@ type EffectKey =
   | "AgileMovement"
   | "ChainsOfVengeance"
   | "NightStalker"
-  | "Ambush5";
+  | "Ambush5"
+  | "SageofDespair"
+  // | "Karma"
+  | "AdvancedNanosuit";
 
 export interface EffectStat {
   stat: Stat;
@@ -444,5 +447,29 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Weakness Attack Damage.webp",
     target: "Team",
     stats: [{ stat: stat.FinalWeaknessDamage, value: 20 }],
+  },
+  SageofDespair: {
+    key: "SageofDespair",
+    name: "Sage of Despair",
+    img: "/effect/Sage of Despair.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalDamage, value: 30 }],
+  },
+  // Karma: {
+  //   key: "Karma",
+  //   name: "Karma",
+  //   img: "/effect/Karma.webp",
+  //   target: "Enemy",
+  //   stats: [{ stat: stat.FinalWeaknessDamage, value: 20 }],
+  // },
+  AdvancedNanosuit: {
+    key: "AdvancedNanosuit",
+    name: "Advanced Nanosuit",
+    img: "/effect/Advanced Nanosuit.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 20 },
+      { stat: stat.WeaknessRate, value: 20 },
+    ],
   },
 };

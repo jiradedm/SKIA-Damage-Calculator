@@ -118,6 +118,8 @@ export const characterKeys = [
   "Klahan",
   "Lene",
   "Shey",
+  "Karma",
+  "Amelia",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -1598,6 +1600,31 @@ export const character: Record<CharacterKey, Character> = {
       BasicAttack: { modifier: 300, speed: 157.73 },
       CritAttack: { modifier: 450, speed: 88.18 },
       Skill: { modifier: 0, speed: 71.43 },
+    },
+  },
+  Karma: {
+    key: "Karma",
+    img: "/character/Karma.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Defense,
+    effects: [effect.SageofDespair /* effect.Karma */],
+    testing: true,
+    attack: {
+      BasicAttack: { modifier: 300, speed: 176.37 },
+      CritAttack: { modifier: 350, speed: 176.37 },
+      Skill: { modifier: 700, speed: 119.9 },
+    },
+  },
+  Amelia: {
+    key: "Amelia",
+    img: "/character/Amelia.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.AdvancedNanosuit],
+    attack: {
+      BasicAttack: { modifier: 300, speed: 136.24 },
+      CritAttack: { modifier: 250, speed: 103.41 },
+      Skill: { modifier: 0, speed: 93.72 },
     },
   },
 };
