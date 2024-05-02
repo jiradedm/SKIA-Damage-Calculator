@@ -1652,6 +1652,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.EvasionDecrease4, effect.CritRate5],
+    applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 375, speed: 125 },
       CritAttack: { modifier: 375, speed: 100 },
@@ -1664,7 +1665,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Iris.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
-    effects: [effect.Attack5],
+    effects: [effect.Attack5, { ...effect.Ambush5, characterTypeRestricted: "Ranged" }],
     attack: {
       BasicAttack: { modifier: 225, speed: 107.07 },
       CritAttack: {
@@ -1680,11 +1681,16 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Bi Dam.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
-    effects: [{ ...effect.Ambush5, characterTypeRestricted: "Ranged" }],
+    effects: [{ ...effect.Gale5, characterTypeRestricted: "Ranged" }],
+    applyStatusAilments: [
+      { status: statusAilment.EnemyBurned, uptime: 1 },
+      { status: statusAilment.EnemySilenced, uptime: 1 },
+    ],
     attack: {
-      BasicAttack: { modifier: 100, speed: 142.86 },
-      CritAttack: { modifier: 100, speed: 96.71 },
-      Skill: { modifier: 100, speed: 142.86 },
+      BasicAttack: { modifier: 300, speed: 142.86 },
+      CritAttack: { modifier: 400, speed: 96.71 },
+      Skill: { modifier: 800, speed: 142.86, attackModifier: { CritRate: { value: 100 } } },
+      DoT: { modifier: 20, speed: 100 },
     },
   },
 };
