@@ -103,6 +103,7 @@ const getModifier = (
     FinalAccuracy: [0],
     CooldownDecrease: [0],
     FinalDamage: [0],
+    FinalDamage2: [0],
   } as Record<StatKey, number[]>;
 
   if (globalStat.FoodBuff) {
@@ -141,6 +142,7 @@ const getModifier = (
   const FinalWeaknessDamage = (150 + (150 * weaknessDamageMultiplier) / 100) / 100;
   const CooldownDecrease = modifier.CooldownDecrease.reduce(sum, 0) / 100;
   const FinalDamage = modifier.FinalDamage.reduce(sum, 100) / 100;
+  const FinalDamage2 = modifier.FinalDamage2.reduce(sum, 100) / 100;
   const Accuracy = modifier.Accuracy.reduce(sum, 100) / 100;
   const FinalAccuracy = modifier.FinalAccuracy.reduce(sum, 100) / 100;
 
@@ -157,6 +159,7 @@ const getModifier = (
     FinalWeaknessDamage,
     CooldownDecrease,
     FinalDamage,
+    FinalDamage2,
   } as StatKeyWithValue;
 };
 
@@ -213,7 +216,8 @@ const getCharacterAttackDamage = (
 
   const weaknessModifier = 1 + (modifier.FinalWeaknessDamage - 1) * weaknessRate;
 
-  const baseAttack = baseAttackValue * enemyDamageReduction * enemyModifier.FinalDamage * modifier.FinalDamage;
+  const baseAttack =
+    baseAttackValue * enemyDamageReduction * enemyModifier.FinalDamage * modifier.FinalDamage * modifier.FinalDamage2;
 
   const enemyEvasionModifier = enemyModifier.FinalEvasion < 0 ? 0 : enemyModifier.FinalEvasion;
   const enemyEvasion = globalStat.EnemyEvasion * enemyEvasionModifier;
@@ -390,6 +394,7 @@ const calculateDamage = (
         { ...stat.WeaknessRate, value: modifier.WeaknessRate },
         { ...stat.FinalWeaknessDamage, value: modifier.FinalWeaknessDamage },
         { ...stat.FinalDamage, value: modifier.FinalDamage },
+        { ...stat.FinalDamage2, value: modifier.FinalDamage2 },
         { ...stat.CooldownDecrease, value: modifier.CooldownDecrease },
       ],
     },

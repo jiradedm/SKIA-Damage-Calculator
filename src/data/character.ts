@@ -1608,7 +1608,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Defense,
     effects: [effect.SageofDespair /* effect.Karma */],
-    testing: true,
     attack: {
       BasicAttack: { modifier: 300, speed: 176.37 },
       CritAttack: { modifier: 350, speed: 176.37 },
