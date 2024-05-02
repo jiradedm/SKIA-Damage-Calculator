@@ -453,7 +453,7 @@ export const effect: Record<EffectKey, Effect> = {
     name: "Sage of Despair",
     img: "/effect/Sage of Despair.webp",
     target: "Team",
-    stats: [{ stat: stat.FinalDamage, value: 30 }],
+    stats: [{ stat: stat.FinalDamage2, value: 30 }],
   },
   // Karma: {
   //   key: "Karma",

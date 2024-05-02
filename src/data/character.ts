@@ -120,6 +120,10 @@ export const characterKeys = [
   "Shey",
   "Karma",
   "Amelia",
+  "KYOKUSANAGI",
+  "MAISHIRANUI",
+  "Iris",
+  "BiDam",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -1624,6 +1628,63 @@ export const character: Record<CharacterKey, Character> = {
       BasicAttack: { modifier: 300, speed: 136.24 },
       CritAttack: { modifier: 250, speed: 103.41 },
       Skill: { modifier: 0, speed: 93.72 },
+    },
+  },
+  KYOKUSANAGI: {
+    key: "KYOKUSANAGI",
+    img: "/character/KYO KUSANAGI.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.FierceSpirit5, effect.CritRate5],
+    attack: {
+      BasicAttack: { modifier: 255, speed: 125 },
+      CritAttack: {
+        modifier: 255,
+        speed: 130.38,
+        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyBurned" } },
+      },
+      Skill: { modifier: 800, speed: 88.18 },
+    },
+  },
+  MAISHIRANUI: {
+    key: "MAISHIRANUI",
+    img: "/character/MAI SHIRANUI.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.EvasionDecrease4, effect.CritRate5],
+    attack: {
+      BasicAttack: { modifier: 375, speed: 125 },
+      CritAttack: { modifier: 375, speed: 100 },
+      Skill: { modifier: 1250, speed: 74.96 },
+      DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  Iris: {
+    key: "Iris",
+    img: "/character/Iris.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.Attack5],
+    attack: {
+      BasicAttack: { modifier: 225, speed: 107.07 },
+      CritAttack: {
+        modifier: 225,
+        speed: 107.07,
+        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyTypeMelee" } },
+      },
+      Skill: { modifier: 600, speed: 96.71 },
+    },
+  },
+  BiDam: {
+    key: "BiDam",
+    img: "/character/Bi Dam.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [{ ...effect.Ambush5, characterTypeRestricted: "Ranged" }],
+    attack: {
+      BasicAttack: { modifier: 100, speed: 142.86 },
+      CritAttack: { modifier: 100, speed: 96.71 },
+      Skill: { modifier: 100, speed: 142.86 },
     },
   },
 };
