@@ -117,7 +117,8 @@ const getModifier = (
     const nightmareValue = globalStat.NightmareLevel * 2;
 
     modifier.FinalAttack.push(nightmareValue);
-    modifier.Accuracy.push(nightmareValue);
+    modifier.FinalAccuracy.push(nightmareValue);
+    modifier.FinalCritDamage.push(nightmareValue);
     modifier.AttackSpeed.push(nightmareValue > 50 ? 50 : nightmareValue);
     modifier.CritRate.push(nightmareValue > 50 ? 50 : nightmareValue);
   }
