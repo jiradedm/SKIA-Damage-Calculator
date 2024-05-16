@@ -124,6 +124,8 @@ export const characterKeys = [
   "MAISHIRANUI",
   "Iris",
   "BiDam",
+  "Vanessa",
+  "Giparang",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -202,6 +204,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Unique,
     type: characterType.Melee,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyStunned, uptime: 0.1 }],
     attack: {
       BasicAttack: { modifier: 275, speed: 81.04 },
       CritAttack: { modifier: 275, speed: 81.04 },
@@ -225,6 +228,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyStunned, uptime: 0.15 }],
     attack: {
       BasicAttack: { modifier: 225, speed: 100 },
       CritAttack: { modifier: 250, speed: 85.69 },
@@ -485,6 +489,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyStunned, uptime: 0.3 }],
     attack: {
       BasicAttack: { modifier: 225, speed: 100 },
       CritAttack: { modifier: 275, speed: 78.93 },
@@ -573,6 +578,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Unique,
     type: characterType.Melee,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyStunned, uptime: 0.24 }],
     attack: {
       BasicAttack: { modifier: 150, speed: 157.73 },
       CritAttack: { modifier: 300, speed: 74.96 },
@@ -717,6 +723,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Unique,
     type: characterType.Melee,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyStunned, uptime: 0.24 }],
     attack: {
       BasicAttack: { modifier: 200, speed: 115.34 },
       CritAttack: { modifier: 275, speed: 78.93 },
@@ -776,6 +783,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Unique,
     type: characterType.Melee,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyStunned, uptime: 0.12 }],
     attack: {
       BasicAttack: { modifier: 175, speed: 119.9 },
       CritAttack: { modifier: 200, speed: 107.07 },
@@ -788,6 +796,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [],
+    applyStatusAilments: [{ status: statusAilment.EnemyStunned, uptime: 0.15 }],
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
       CritAttack: { modifier: 160, speed: 83.33 },
@@ -1265,6 +1274,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.SkySplitter],
+    applyStatusAilments: [{ status: statusAilment.EnemyStunned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 200, speed: 176 },
       CritAttack: { modifier: 250, speed: 157.98 },
@@ -1538,6 +1548,7 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     cooldown: 20,
     effects: [effect.ChainsOfVengeance, effect.NightStalker],
+    applyStatusAilments: [{ status: statusAilment.EnemyStunned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 275, speed: 200 },
       CritAttack: { modifier: 325, speed: 193.42 },
@@ -1624,6 +1635,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.AdvancedNanosuit],
+    applyStatusAilments: [{ status: statusAilment.EnemyStunned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 300, speed: 136.24 },
       CritAttack: { modifier: 250, speed: 103.41 },
@@ -1691,6 +1703,35 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: { modifier: 400, speed: 96.71 },
       Skill: { modifier: 800, speed: 142.86, attackModifier: { CritRate: { value: 100 } } },
       DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  Vanessa: {
+    key: "Vanessa",
+    img: "/character/Vanessa.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.DesertMage, effect.MasteroftheHourglass],
+    attack: {
+      BasicAttack: { modifier: 300, speed: 149.93 },
+      CritAttack: { modifier: 300, speed: 136.43, cutCooldown: 2 },
+      Skill: { modifier: 1000, speed: 100 },
+    },
+  },
+  Giparang: {
+    key: "Giparang",
+    img: "/character/Giparang.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.WeaknessRate5],
+    applyStatusAilments: [{ status: statusAilment.EnemyStunned, uptime: 1 }],
+    attack: {
+      BasicAttack: { modifier: 200, speed: 136.43 },
+      CritAttack: {
+        modifier: 150,
+        speed: 130.38,
+        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyStunned" } },
+      },
+      Skill: { modifier: 1250, speed: 83.33 },
     },
   },
 };

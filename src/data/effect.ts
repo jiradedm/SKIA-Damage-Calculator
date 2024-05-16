@@ -57,7 +57,9 @@ type EffectKey =
   | "Ambush5"
   | "SageofDespair"
   // | "Karma"
-  | "AdvancedNanosuit";
+  | "AdvancedNanosuit"
+  | "DesertMage"
+  | "MasteroftheHourglass";
 
 export interface EffectStat {
   stat: Stat;
@@ -471,5 +473,19 @@ export const effect: Record<EffectKey, Effect> = {
       { stat: stat.CritRate, value: 20 },
       { stat: stat.WeaknessRate, value: 20 },
     ],
+  },
+  DesertMage: {
+    key: "DesertMage",
+    name: "Desert Mage",
+    img: "/effect/Desert Mage.webp",
+    target: "Team",
+    stats: [{ stat: stat.CritRate, value: 24 }],
+  },
+  MasteroftheHourglass: {
+    key: "MasteroftheHourglass",
+    name: "Master of the Hourglass",
+    img: "/effect/Master of the Hourglass.webp",
+    target: "Self",
+    stats: [{ stat: stat.AttackSpeed, value: 24 }],
   },
 };
