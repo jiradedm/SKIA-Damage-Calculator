@@ -145,7 +145,7 @@ const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
         </div>
       </div>
       {!readonly && (
-        <Modal isOpen={isOpen} setIsOpen={setIsOpen} title="Edit Character">
+        <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={ts("title-edit")}>
           <AddPage isEdit character={character} onEdited={() => setIsOpen(false)} />
           <Button className="border-[#e4babd] bg-[#ba7d7a]" onClick={() => setIsOpen2(true)}>
             {t("delete-character")}
