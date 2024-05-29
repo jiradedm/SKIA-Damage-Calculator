@@ -28,6 +28,7 @@ export const addedCharacterObject = z.object({
   necklaceLevel: z.number(),
   earringsLevel: z.number(),
   statBonus: z.number(),
+  equipmentLevel: z.number(),
   active: z.boolean().optional(),
 });
 

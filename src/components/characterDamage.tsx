@@ -92,6 +92,7 @@ export const CharacterItem: FC<CharacterItemProps> = ({ character, readonly, onC
 
 const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
   const { t } = useTranslation("page/character");
+  const { t: ts } = useTranslation("page/summon");
   const { t: tch } = useTranslation("character");
   const { t: tc } = useTranslation("common");
 

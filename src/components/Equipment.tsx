@@ -11,22 +11,25 @@ const maxLevel = 100;
 
 interface StatBonusAdderProps {
   readonly?: boolean;
-  bonus: number;
-  setBonus?: Dispatch<SetStateAction<number>>;
+  equipmentLevel: number;
+  setEquipmentLevel?: Dispatch<SetStateAction<number>>;
 }
 
 const bonusStat = {
-  FinalAttack: 0.25,
-  FinalAccuracy: 0.25,
+  FinalAttack: 0.2,
+  CritRate: 0.1,
+  BonusDamageRate: 0.6,
 } as Record<StatKey, number>;
+
+// TODO: DUPS
 
 const bonusStats = Object.keys(bonusStat).map((key) => ({ key: key as StatKey, value: bonusStat[key as StatKey] }));
 
-const StatBonusAdder: FC<StatBonusAdderProps> = ({ readonly, bonus, setBonus = () => {} }) => {
+const Equipment: FC<StatBonusAdderProps> = ({ readonly, equipmentLevel, setEquipmentLevel = () => {} }) => {
   const { t } = useTranslation("page/summon");
 
   const increaseLevel = (amount: number) => {
-    setBonus((prev) => {
+    setEquipmentLevel((prev) => {
       const updated = prev + amount;
       if (updated > maxLevel) return maxLevel;
       return updated;
@@ -34,7 +37,7 @@ const StatBonusAdder: FC<StatBonusAdderProps> = ({ readonly, bonus, setBonus = (
   };
 
   const decreaseLevel = (amount: number) => {
-    setBonus((prev) => {
+    setEquipmentLevel((prev) => {
       const updated = prev - amount;
       if (updated < minLevel) return minLevel;
       return updated;
@@ -55,7 +58,7 @@ const StatBonusAdder: FC<StatBonusAdderProps> = ({ readonly, bonus, setBonus = (
           </>
         )}
         <div className="truncate text-center">
-          {t("stat")}: +{bonus}
+          {t("equipment")}: +{equipmentLevel}
         </div>
         {!readonly && (
           <>
@@ -70,7 +73,7 @@ const StatBonusAdder: FC<StatBonusAdderProps> = ({ readonly, bonus, setBonus = (
       </div>
       <div className="flex flex-col gap-2">
         {bonusStats.map((stat, index) => {
-          const value = stat.value * bonus;
+          const value = stat.value * equipmentLevel;
           return <StatItem key={index} stat={{ ...stat, value }} noEdit />;
         })}
       </div>
@@ -78,4 +81,4 @@ const StatBonusAdder: FC<StatBonusAdderProps> = ({ readonly, bonus, setBonus = (
   );
 };
 
-export default StatBonusAdder;
+export default Equipment;

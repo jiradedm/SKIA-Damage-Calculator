@@ -8,6 +8,7 @@ import { v4 } from "uuid";
 
 import Button from "@/components/button";
 import ChooseCharacter from "@/components/chooseCharacter";
+import Equipment from "@/components/Equipment";
 import Modal from "@/components/modal";
 import AccessoryLevelSelector from "@/components/necklaceSelector";
 import type { IPotential, Potential } from "@/components/potentialAdder";
@@ -111,6 +112,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
   const [earringsLevel, setEarringsLevel] = useState<number>(character?.earringsLevel || 0);
   const [necklaceLevel, setNecklaceLevel] = useState<number>(character?.necklaceLevel || 0);
   const [bonus, setBonus] = useState<number>(character?.statBonus || 0);
+  const [equipmentLevel, setEquipmentLevel] = useState<number>(character?.equipmentLevel || 0);
   const [name, setName] = useState(character?.name || "");
 
   const levelOptions = useMemo(() => {
@@ -158,6 +160,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       earringsLevel,
       star: selectedStar,
       statBonus: bonus,
+      equipmentLevel,
     });
     setIsOpen(false);
     router.push("/");
@@ -178,6 +181,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       earringsLevel,
       star: selectedStar,
       statBonus: bonus,
+      equipmentLevel,
     });
     onEdited();
   };
@@ -218,6 +222,8 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       />
       <div />
       <StatBonusAdder bonus={bonus} setBonus={setBonus} />
+      <div />
+      <Equipment equipmentLevel={equipmentLevel} setEquipmentLevel={setEquipmentLevel} />
       <div />
       <Button className="max-w-[540px] self-center" onClick={() => setIsOpen(true)}>
         {tc("confirm")}
