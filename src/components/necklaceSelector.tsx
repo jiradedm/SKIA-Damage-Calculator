@@ -3,7 +3,6 @@
 import type { ComponentPropsWithoutRef, Dispatch, FC, SetStateAction } from "react";
 import React from "react";
 import { useTranslation } from "react-i18next";
-// import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
 import { type Accessory } from "@/data/accessory";
