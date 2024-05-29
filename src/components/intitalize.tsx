@@ -97,7 +97,7 @@ const getModifier = (
       charStat.CritRate,
       globalStat.CritRate,
       globalStat[character.type.typeRestrictStat.CritRate],
-      equipmentLevel * 0.1,
+      (addedCharacter.star < 4 ? 0 : equipmentLevel) * 0.1,
     ],
     CritDamage: [
       accessory.NecklaceOfCriticalHitDamage.value[addedCharacter.necklaceLevel],
@@ -107,7 +107,7 @@ const getModifier = (
     FinalCritDamage: [0],
     WeaknessRate: [globalStat.WeaknessRate, globalStat[character.type.typeRestrictStat.WeaknessRate]],
     FinalWeaknessDamage: [0],
-    BonusDamageRate: [equipmentLevel * 0.6],
+    BonusDamageRate: [(addedCharacter.star < 6 ? 0 : equipmentLevel) * 0.6],
     FinalBonusDamage: [0],
     FinalAccuracy: [0],
     CooldownDecrease: [0],

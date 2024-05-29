@@ -50,9 +50,10 @@ const CheckIcon = () => {
 export interface StatProps {
   stat: GlobalStatData;
   noEdit?: boolean;
+  disabled?: boolean;
 }
 
-export const StatItem: FC<StatProps> = ({ stat: statProps, noEdit = false }) => {
+export const StatItem: FC<StatProps> = ({ stat: statProps, noEdit = false, disabled = false }) => {
   const { t } = useTranslation("stat");
 
   const { setGlobalStatValue } = useStatStore();
@@ -80,7 +81,12 @@ export const StatItem: FC<StatProps> = ({ stat: statProps, noEdit = false }) => 
         }
       }}
     >
-      <div className="flex w-full items-center justify-between bg-[#454445] px-2 py-1 leading-4 outline outline-2 outline-[#565558]">
+      <div
+        className={twMerge(
+          "flex w-full items-center justify-between bg-[#454445] px-2 py-1 leading-4 outline outline-2 outline-[#565558]",
+          disabled && "grayscale brightness-50",
+        )}
+      >
         <div className="line-clamp-1">{t(stat.key)}</div>
         {stat.isToggle ? (
           <div

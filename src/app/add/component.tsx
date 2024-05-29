@@ -223,7 +223,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       <div />
       <StatBonusAdder bonus={bonus} setBonus={setBonus} />
       <div />
-      <Equipment equipmentLevel={equipmentLevel} setEquipmentLevel={setEquipmentLevel} />
+      <Equipment equipmentLevel={equipmentLevel} setEquipmentLevel={setEquipmentLevel} selectedStar={selectedStar} />
       <div />
       <Button className="max-w-[540px] self-center" onClick={() => setIsOpen(true)}>
         {tc("confirm")}
