@@ -7,7 +7,7 @@ import type { StatKey } from "@/data/stat";
 import { IconWrap, MinusIcon, PlusIcon } from "./necklaceSelector";
 
 const minLevel = 0;
-const maxLevel = 100;
+const maxLevel = 50;
 
 interface StatBonusAdderProps {
   readonly?: boolean;
