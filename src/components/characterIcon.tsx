@@ -40,7 +40,7 @@ const CharacterIcon: FC<ComponentPropsWithoutRef<"div"> & CharacterIconProps> = 
         )}
       </div>
       {showName && (
-        <div className="text-stroke line-clamp-1 w-full p-[1px] text-center text-xs font-[400] leading-[14px]">
+        <div className="text-stroke line-clamp-1 h-[18px] w-full p-[1px] text-center text-xs font-[400] leading-[18px]">
           {t(character.key)}
         </div>
       )}
