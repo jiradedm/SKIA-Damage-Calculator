@@ -34,6 +34,7 @@ export const baseGlobalStat = {
   EnemyDefense: 0,
   EnemyEvasion: 0,
   EnemyCritResist: 0,
+  EnemyReductionRate: 0,
   EnemyTypeDefense: 0,
   EnemyTypeMelee: 0,
   EnemyTypeRanged: 0,

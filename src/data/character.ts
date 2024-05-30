@@ -126,6 +126,10 @@ export const characterKeys = [
   "BiDam",
   "Vanessa",
   "Giparang",
+  "Biya",
+  "ShaneSwimsuit",
+  "KarinSwimsuit",
+  "MaySwimsuit",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -158,6 +162,7 @@ export interface Character {
   effects?: Effect[];
   maxHit?: number;
   testing?: boolean;
+  new?: boolean;
   cooldown?: number;
   applyStatusAilments?: CharacterApplyAilment[];
   attack: CharacterAttack;
@@ -1732,6 +1737,60 @@ export const character: Record<CharacterKey, Character> = {
         attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyStunned" } },
       },
       Skill: { modifier: 1250, speed: 83.33 },
+    },
+  },
+  Biya: {
+    key: "Biya",
+    img: "/character/Biya.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.CritRate5, effect.KeenAttack5],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 275, speed: 149.93 },
+      CritAttack: { modifier: 425, speed: 93.72 },
+      Skill: { modifier: 1250, speed: 119.9 },
+    },
+  },
+  ShaneSwimsuit: {
+    key: "ShaneSwimsuit",
+    img: "/character/Shane Swimsuit.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.AshenBladeDancer, effect.PoweroftheDemon],
+    applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 250, speed: 200 },
+      CritAttack: { modifier: 900, speed: 63.82 },
+      Skill: { modifier: 1500, speed: 74.96 },
+      DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  KarinSwimsuit: {
+    key: "KarinSwimsuit",
+    img: "/character/Karin Swimsuit.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Support,
+    effects: [],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 250, speed: 149.93 },
+      CritAttack: { modifier: 350, speed: 107.07 },
+      Skill: { modifier: 0, speed: 66.67 },
+    },
+  },
+  MaySwimsuit: {
+    key: "MaySwimsuit",
+    img: "/character/May Swimsuit.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.ReductionRateDecrease5, effect.BubbleShock],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 350, speed: 107.07 },
+      CritAttack: { modifier: 450, speed: 96.71 },
+      Skill: { modifier: 700, speed: 66.67 },
     },
   },
 };

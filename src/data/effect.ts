@@ -59,7 +59,11 @@ type EffectKey =
   // | "Karma"
   | "AdvancedNanosuit"
   | "DesertMage"
-  | "MasteroftheHourglass";
+  | "MasteroftheHourglass"
+  | "AshenBladeDancer"
+  | "PoweroftheDemon"
+  | "ReductionRateDecrease5"
+  | "BubbleShock";
 
 export interface EffectStat {
   stat: Stat;
@@ -487,5 +491,33 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Master of the Hourglass.webp",
     target: "Self",
     stats: [{ stat: stat.AttackSpeed, value: 24 }],
+  },
+  AshenBladeDancer: {
+    key: "AshenBladeDancer",
+    name: "Ashen Blade Dancer",
+    img: "/effect/Ashen Blade Dancer.webp",
+    target: "Team",
+    stats: [{ stat: stat.BonusDamageRate, value: 24 }],
+  },
+  PoweroftheDemon: {
+    key: "PoweroftheDemon",
+    name: "Power of the Demon",
+    img: "/effect/Power of the Demon.webp",
+    target: "Self",
+    stats: [{ stat: stat.BonusDamageRate, value: 24 }],
+  },
+  ReductionRateDecrease5: {
+    key: "ReductionRateDecrease5",
+    name: "Reduction Rate Decrease Lv.5",
+    img: "/effect/Reduction Rate Decrease.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.ReductionRate, value: 20 }],
+  },
+  BubbleShock: {
+    key: "BubbleShock",
+    name: "Bubble Shock",
+    img: "/effect/Bubble Shock.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.CritResist, value: 20 }],
   },
 };

@@ -184,6 +184,7 @@ const getEnemyModifer = (totalEffectStats: EffectStat[], globalStat: GlobalStat)
     FinalDamage: [0],
     FinalEvasion: [0],
     CritResist: [globalStat.EnemyCritResist * -1],
+    ReductionRate: [globalStat.EnemyReductionRate],
   } as Record<StatKey, number[]>;
 
   totalEffectStats.forEach((effectStat) => {
@@ -195,8 +196,9 @@ const getEnemyModifer = (totalEffectStats: EffectStat[], globalStat: GlobalStat)
   const FinalEvasion = enemyModifier.FinalEvasion.reduce(minus, 100) / 100;
   const FinalDamage = enemyModifier.FinalDamage.reduce(sum, 100) / 100;
   const CritResist = enemyModifier.CritResist.reduce(sum, 0) / 100;
+  const ReductionRate = enemyModifier.ReductionRate.reduce(sum, 0) / 100;
 
-  return { FinalDefense, FinalEvasion, FinalDamage, CritResist } as StatKeyWithValue;
+  return { FinalDefense, FinalEvasion, FinalDamage, CritResist, ReductionRate } as StatKeyWithValue;
 };
 
 const getCharacterAttackDamage = (
@@ -233,8 +235,15 @@ const getCharacterAttackDamage = (
   const weaknessRate = modifier.WeaknessRate > 1 ? 1 : modifier.WeaknessRate;
   const weaknessModifier = 1 + (modifier.FinalWeaknessDamage - 1) * weaknessRate;
 
+  const enemyReduction = 1 - enemyModifier.ReductionRate * 0.3;
+
   const baseAttack =
-    baseAttackValue * enemyDamageReduction * enemyModifier.FinalDamage * modifier.FinalDamage * modifier.FinalDamage2;
+    baseAttackValue *
+    enemyDamageReduction *
+    enemyReduction *
+    enemyModifier.FinalDamage *
+    modifier.FinalDamage *
+    modifier.FinalDamage2;
 
   const enemyEvasionModifier = enemyModifier.FinalEvasion < 0 ? 0 : enemyModifier.FinalEvasion;
   const enemyEvasion = globalStat.EnemyEvasion * enemyEvasionModifier;
@@ -349,6 +358,7 @@ const getCharacterAttackDamage = (
     enemyDamageReductionRate,
     enemyDefenseModifier,
     enemyEvasionModifier,
+    enemyReduction: 1 - enemyReduction,
     enemyCritResistModifier: enemyModifier.CritResist * -1,
   };
 };
@@ -387,6 +397,7 @@ const calculateDamage = (
     skillDamage,
     overTimeDamage,
     hitRate,
+    enemyReduction,
     enemyDamageReductionRate,
     enemyDefenseModifier,
     enemyEvasionModifier,
@@ -430,6 +441,8 @@ const calculateDamage = (
         { ...stat.EnemyFinalEvasion, value: enemyEvasionModifier },
         { ...stat.EnemyFinalDefense, value: enemyDefenseModifier },
         { ...stat.EnemyDamageReduction, value: 1 - enemyDamageReductionRate },
+        { ...stat.EnemyReductionRate, value: enemyModifier.ReductionRate },
+        { ...stat.EnemyReduction, value: enemyReduction },
         { ...stat.EnemyFinalDamageTaken, value: enemyModifier.FinalDamage },
       ],
     },
