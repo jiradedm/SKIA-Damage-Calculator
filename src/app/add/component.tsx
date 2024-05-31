@@ -137,6 +137,10 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCharacter, selectedStar]);
 
+  useEffect(() => {
+    if (selectedCharacter.rarity.key !== "Legendary") setEquipmentLevel(0);
+  }, [selectedCharacter.rarity.key]);
+
   const accessoryDisabled = useMemo(() => {
     const necklaceDisabled = selectedStar < selectedCharacter.rarity.unlockNecklaceStarRequirement;
     if (necklaceDisabled) setNecklaceLevel(0);
@@ -223,8 +227,16 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       <div />
       <StatBonusAdder bonus={bonus} setBonus={setBonus} />
       <div />
-      <Equipment equipmentLevel={equipmentLevel} setEquipmentLevel={setEquipmentLevel} selectedStar={selectedStar} />
-      <div />
+      {selectedCharacter.rarity.key === "Legendary" && (
+        <>
+          <Equipment
+            equipmentLevel={equipmentLevel}
+            setEquipmentLevel={setEquipmentLevel}
+            selectedStar={selectedStar}
+          />
+          <div />
+        </>
+      )}
       <Button className="max-w-[540px] self-center" onClick={() => setIsOpen(true)}>
         {tc("confirm")}
       </Button>
