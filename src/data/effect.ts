@@ -63,7 +63,10 @@ type EffectKey =
   | "AshenBladeDancer"
   | "PoweroftheDemon"
   | "ReductionRateDecrease5"
-  | "BubbleShock";
+  | "BubbleShock"
+  | "MessengeroftheGoddess"
+  | "RescueofDestruction"
+  | "NestrasBlessing";
 
 export interface EffectStat {
   stat: Stat;
@@ -519,5 +522,26 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Bubble Shock.webp",
     target: "Enemy",
     stats: [{ stat: stat.CritResist, value: 20 }],
+  },
+  MessengeroftheGoddess: {
+    key: "MessengeroftheGoddess",
+    name: "Messenger of the Goddess",
+    img: "/effect/Messenger of the Goddess.webp",
+    target: "Self",
+    stats: [{ stat: stat.BonusDamageRate, value: 24 }],
+  },
+  RescueofDestruction: {
+    key: "RescueofDestruction",
+    name: "Rescue of Destruction",
+    img: "/effect/Rescue of Destruction.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.FinalEvasion, value: 60 }],
+  },
+  NestrasBlessing: {
+    key: "NestrasBlessing",
+    name: "Nestra's Blessing",
+    img: "/effect/Nestra's Blessing.webp",
+    target: "Self",
+    stats: [{ stat: stat.FinalBonusDamage, value: 24 }],
   },
 };

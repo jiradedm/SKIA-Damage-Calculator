@@ -130,6 +130,8 @@ export const characterKeys = [
   "ShaneSwimsuit",
   "KarinSwimsuit",
   "MaySwimsuit",
+  "Platin",
+  "YuShin",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -572,9 +574,9 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Ranged,
     effects: [],
     attack: {
-      BasicAttack: { modifier: 200, speed: 107.07 },
-      CritAttack: { modifier: 300, speed: 74.96 },
-      Skill: { modifier: 250, speed: 93.72 },
+      BasicAttack: { modifier: 300, speed: 107.07 },
+      CritAttack: { modifier: 450, speed: 74.96 },
+      Skill: { modifier: 600, speed: 93.72 },
     },
   },
   Jane: {
@@ -1745,7 +1747,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [effect.CritRate5, effect.KeenAttack5],
-    new: true,
     attack: {
       BasicAttack: { modifier: 275, speed: 149.93 },
       CritAttack: { modifier: 425, speed: 93.72 },
@@ -1759,7 +1760,6 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     effects: [effect.AshenBladeDancer, effect.PoweroftheDemon],
     applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 250, speed: 200 },
       CritAttack: { modifier: 900, speed: 63.82 },
@@ -1773,7 +1773,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Support,
     effects: [],
-    new: true,
     attack: {
       BasicAttack: { modifier: 250, speed: 149.93 },
       CritAttack: { modifier: 350, speed: 107.07 },
@@ -1786,11 +1785,41 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [effect.ReductionRateDecrease5, effect.BubbleShock],
-    new: true,
     attack: {
       BasicAttack: { modifier: 350, speed: 107.07 },
       CritAttack: { modifier: 450, speed: 96.71 },
       Skill: { modifier: 700, speed: 66.67 },
+    },
+  },
+  Platin: {
+    key: "Platin",
+    img: "/character/Platin.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.MessengeroftheGoddess, effect.RescueofDestruction, effect.NestrasBlessing],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 450, speed: 130.38 },
+      CritAttack: { modifier: 600, speed: 100 },
+      Skill: { modifier: 2000, speed: 81.04 },
+    },
+  },
+  YuShin: {
+    key: "YuShin",
+    img: "/character/Yu Shin.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.Focus5],
+    applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 1 }],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 200, speed: 142.86 },
+      CritAttack: {
+        modifier: 300,
+        speed: 111.11,
+        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyCursed" } },
+      },
+      Skill: { modifier: 700, speed: 100 },
     },
   },
 };
