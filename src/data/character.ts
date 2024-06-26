@@ -178,9 +178,9 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     effects: [effect.BloodMoon, effect.YachaStrength],
     attack: {
-      BasicAttack: { modifier: 280, speed: 96.71 },
-      CritAttack: { modifier: 320, cutCooldown: 3, speed: 90.91 },
-      Skill: { modifier: 900, speed: 51.71 },
+      BasicAttack: { modifier: 350, speed: 96.71 },
+      CritAttack: { modifier: 400, cutCooldown: 3, speed: 90.91 },
+      Skill: { modifier: 1250, speed: 51.71 },
     },
   },
   Aleem: {
@@ -765,7 +765,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Lu Bu.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
-    effects: [effect.WarriorGodMajesty],
+    effects: [effect.WarriorGodMajesty, effect.LubuIncreaseAccuracy],
     attack: {
       BasicAttack: { modifier: 250, speed: 136.24 },
       CritAttack: { modifier: 250, speed: 136.24 },
@@ -924,10 +924,9 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Ranged,
     effects: [effect.CrimsonScales],
     attack: {
-      BasicAttack: { modifier: 240, speed: 142.86 },
-      CritAttack: { modifier: 360, speed: 100 },
-      Skill: { modifier: 1120, speed: 59.99, attackModifier: { FinalDamage: { value: 30 }, CritRate: { value: 100 } } },
-      DoT: undefined,
+      BasicAttack: { modifier: 275, speed: 142.86 },
+      CritAttack: { modifier: 425, speed: 100 },
+      Skill: { modifier: 1500, speed: 59.99, attackModifier: { FinalDamage: { value: 30 }, CritRate: { value: 100 } } },
     },
   },
   Roro: {
@@ -1144,9 +1143,9 @@ export const character: Record<CharacterKey, Character> = {
     effects: [effect.EnlightenedWarrior],
     applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 1 }],
     attack: {
-      BasicAttack: { modifier: 200, speed: 176.37 },
-      CritAttack: { modifier: 200, speed: 176.37 },
-      Skill: { modifier: 3500, speed: 93.72 },
+      BasicAttack: { modifier: 250, speed: 176.37 },
+      CritAttack: { modifier: 250, speed: 176.37 },
+      Skill: { modifier: 4200, speed: 93.72 },
     },
   },
   Sylvia: {

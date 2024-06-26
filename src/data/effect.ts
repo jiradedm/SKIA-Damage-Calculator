@@ -66,7 +66,8 @@ type EffectKey =
   | "BubbleShock"
   | "MessengeroftheGoddess"
   | "RescueofDestruction"
-  | "NestrasBlessing";
+  | "NestrasBlessing"
+  | "LubuIncreaseAccuracy";
 
 export interface EffectStat {
   stat: Stat;
@@ -90,7 +91,10 @@ export const effect: Record<EffectKey, Effect> = {
     name: "Blood Moon",
     img: "/effect/Blood Moon.webp",
     target: "Self",
-    stats: [{ stat: stat.FinalAttack, value: 30 }],
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.FinalAccuracy, value: 60 },
+    ],
   },
   YachaStrength: {
     key: "YachaStrength",
@@ -111,7 +115,7 @@ export const effect: Record<EffectKey, Effect> = {
   },
   CritDamage5: {
     key: "CritDamage5",
-    name: "Critical Hit Damage Increaase Lv. 5",
+    name: "Critical Hit Damage Increase Lv. 5",
     img: "/effect/Final Critical Hit Damage.webp",
     target: "Self",
     stats: [{ stat: stat.FinalCritDamage, value: 20 }],
@@ -374,7 +378,10 @@ export const effect: Record<EffectKey, Effect> = {
     name: "Crimson Scales",
     img: "/effect/Crimson Scales.webp",
     target: "Self",
-    stats: [{ stat: stat.FinalCritDamage, value: 24 }],
+    stats: [
+      { stat: stat.FinalCritDamage, value: 24 },
+      { stat: stat.CritRate, value: 24 },
+    ],
   },
   PowerOfTheRune: {
     key: "PowerOfTheRune",
@@ -543,5 +550,12 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Nestra's Blessing.webp",
     target: "Self",
     stats: [{ stat: stat.FinalBonusDamage, value: 24 }],
+  },
+  LubuIncreaseAccuracy: {
+    key: "LubuIncreaseAccuracy",
+    name: "Lu bu's Increase Accuracy",
+    img: "/effect/Final Accuracy.webp",
+    target: "Self",
+    stats: [{ stat: stat.FinalAccuracy, value: 20 }],
   },
 };
