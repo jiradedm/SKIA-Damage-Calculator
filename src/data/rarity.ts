@@ -16,7 +16,7 @@ export const rarity: Record<RarityKey, Rarity> = {
     key: "Legendary",
     selectClass: `bg-legendary1 border-legendary2`,
     characterClass: `bg-legendary3`,
-    maxLevel: 70,
+    maxLevel: 80,
     potentialLimit: [0, 3, 3, 3, 3, 5, 5, 7, 7, 7, 7],
     unlockNecklaceStarRequirement: 3,
     unlockEarringsStarRequirement: 0,
