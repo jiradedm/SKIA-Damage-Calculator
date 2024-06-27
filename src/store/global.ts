@@ -39,6 +39,7 @@ export const baseGlobalStat = {
   EnemyTypeMelee: 0,
   EnemyTypeRanged: 0,
   EnemyTypeSupport: 0,
+  EnemyTypeGuildBoss: 0,
   EnemyBurned: 0,
   EnemyPoisoned: 0,
   EnemyBleeding: 0,

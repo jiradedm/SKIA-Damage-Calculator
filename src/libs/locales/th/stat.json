@@ -39,6 +39,7 @@
   "EnemyDefense": "พลังป้องกันของเป้าหมาย",
   "EnemyEvasion": "หลบหลีกของเป้าหมาย",
   "EnemyCritResist": "ต้านอัตราคริติคอลของเป้าหมาย",
+  "EnemyTypeGuildBoss": "เป้าหมายเป็นประเภทบอสกิลด์",
   "EnemyTypeDefense": "เป้าหมายเป็นประเภทป้องกัน",
   "EnemyTypeMelee": "เป้าหมายเป็นประเภทระยะใกล้",
   "EnemyTypeRanged": "เป้าหมายเป็นประเภทระยะไกล",

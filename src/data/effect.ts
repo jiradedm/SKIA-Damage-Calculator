@@ -67,7 +67,10 @@ type EffectKey =
   | "MessengeroftheGoddess"
   | "RescueofDestruction"
   | "NestrasBlessing"
-  | "LubuIncreaseAccuracy";
+  | "LubuIncreaseAccuracy"
+  | "DarkOverstrike"
+  | "ScalesofCompensation"
+  | "ClimaxBoost";
 
 export interface EffectStat {
   stat: Stat;
@@ -557,5 +560,35 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Final Accuracy.webp",
     target: "Self",
     stats: [{ stat: stat.FinalAccuracy, value: 20 }],
+  },
+  ClimaxBoost: {
+    key: "ClimaxBoost",
+    name: "Climax Boost",
+    img: "/effect/Climax Boost.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 20 },
+      { stat: stat.FinalCritDamage, value: 20 },
+    ],
+  },
+  ScalesofCompensation: {
+    key: "ScalesofCompensation",
+    name: "Scales of Compensation",
+    img: "/effect/Scales of Compensation.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.WeaknessRate, value: 20 },
+      { stat: stat.FinalWeaknessDamage, value: 20 },
+    ],
+  },
+  DarkOverstrike: {
+    key: "DarkOverstrike",
+    name: "Dark Overstrike",
+    img: "/effect/Dark Overstrike.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 25 },
+      { stat: stat.AttackSpeed, value: 20 },
+    ],
   },
 };

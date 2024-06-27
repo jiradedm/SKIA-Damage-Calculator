@@ -39,6 +39,7 @@
   "EnemyDefense": "Enemy Defense",
   "EnemyEvasion": "Enemy Evasion",
   "EnemyCritResist": "Enemy Critical Hit Resist",
+  "EnemyTypeGuildBoss": "Enemy is Guild Boss",
   "EnemyTypeDefense": "Enemy is Defense Type",
   "EnemyTypeMelee": "Enemy is Melee Type",
   "EnemyTypeRanged": "Enemy is Ranged Type",

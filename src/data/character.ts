@@ -132,6 +132,10 @@ export const characterKeys = [
   "MaySwimsuit",
   "Platin",
   "YuShin",
+  "Sunraku",
+  "ArthurPencilgon",
+  "OiKatzo",
+  "Miho",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -1796,7 +1800,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.MessengeroftheGoddess, effect.RescueofDestruction, effect.NestrasBlessing],
-    new: true,
     attack: {
       BasicAttack: { modifier: 450, speed: 130.38 },
       CritAttack: { modifier: 600, speed: 100 },
@@ -1810,7 +1813,6 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     effects: [effect.Focus5],
     applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 1 }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 200, speed: 142.86 },
       CritAttack: {
@@ -1819,6 +1821,70 @@ export const character: Record<CharacterKey, Character> = {
         attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyCursed" } },
       },
       Skill: { modifier: 700, speed: 100 },
+    },
+  },
+  Sunraku: {
+    key: "Sunraku",
+    img: "/character/Sunraku.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.KeenAttack5, effect.ClimaxBoost],
+    applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 300, speed: 125 },
+      CritAttack: { modifier: 350, speed: 115.34 },
+      Skill: { modifier: 1250, speed: 76.92 },
+      DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  ArthurPencilgon: {
+    key: "ArthurPencilgon",
+    img: "/character/Arthur Pencilgon.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.FierceSpirit5, effect.ScalesofCompensation],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 150, speed: 166.67 },
+      CritAttack: {
+        modifier: 240,
+        speed: 96.71,
+        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyBleeding" } },
+      },
+      Skill: { modifier: 1250, speed: 111.11 },
+    },
+  },
+  OiKatzo: {
+    key: "OiKatzo",
+    img: "/character/OiKatzo.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.Strike5, effect.DarkOverstrike],
+    applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 200, speed: 142.86 },
+      CritAttack: { modifier: 290, speed: 103.41 },
+      Skill: { modifier: 1000, speed: 76.92 },
+      DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  Miho: {
+    key: "Miho",
+    img: "/character/Miho.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.CritRate5, { ...effect.Strike5, characterTypeRestricted: "Melee" }],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 425, speed: 142.86 },
+      CritAttack: {
+        modifier: 500,
+        speed: 119.9,
+        attackModifier: { FinalDamage: { value: 200, applyCondition: "EnemyTypeGuildBoss" } },
+      },
+      Skill: { modifier: 0, speed: 74.96 },
     },
   },
 };
