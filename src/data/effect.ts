@@ -75,6 +75,11 @@ type EffectKey =
 export interface EffectStat {
   stat: Stat;
   value: number;
+  condition?: {
+    value: number;
+    stat: StatKey;
+    maxApply: number;
+  };
   target?: EffectTarget;
 }
 
