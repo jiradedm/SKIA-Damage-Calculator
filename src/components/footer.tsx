@@ -10,12 +10,6 @@ const Footer: FC = () => {
   return (
     <div className="absolute inset-x-0 bottom-0 mx-4 flex w-[calc(100%-32px)] flex-col items-center justify-center gap-1 pb-3 text-center text-xs text-[#f2f1e9] opacity-70">
       <div className="text-xs">{t("footer.unofficial")}</div>
-      <div>
-        {t("footer.report")}:{" "}
-        <a href="mailto:kkatana.dev@gmail.com?subject=Report SKIA Damage Calculator issues" className="hover:underline">
-          kkatana.dev@gmail.com
-        </a>
-      </div>
       <div className="flex gap-1">
         <span>{t("footer.thanks")}</span>
         <a
