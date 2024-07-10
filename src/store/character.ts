@@ -51,6 +51,15 @@ export interface CalulatedCharacter extends Omit<AddedCharacter, "character"> {
   effects: Effect[];
 }
 
+export type TeamCompType = Record<StatKey, number>;
+
+const defaultTeamComp = {
+  TeamDefenseUnit: 1,
+  TeamMeleeUnit: 1,
+  TeamRangedUnit: 1,
+  TeamSupportUnit: 1,
+} as TeamCompType;
+
 interface CharacterStore {
   addedCharacters: AddedCharacter[];
   setAddedCharacters: (addedCharacters: AddedCharacter[]) => void;
@@ -62,6 +71,9 @@ interface CharacterStore {
   // computed character
   characters: CalulatedCharacter[];
   setCharacters: (characters: CalulatedCharacter[]) => void;
+  // comp
+  teamComp: TeamCompType;
+  setTeamComp: (teamComp?: TeamCompType) => void;
   // effect
   teamEffects?: Effect[];
   setTeamEffects: (teamEffects: Effect[]) => void;
@@ -124,6 +136,11 @@ export const useCharacterStore = create<CharacterStore>()(
       characters: [],
       setCharacters: (characters) => {
         set(() => ({ characters }));
+      },
+      // comp
+      teamComp: defaultTeamComp,
+      setTeamComp: (teamComp) => {
+        set(() => ({ teamComp: teamComp ?? defaultTeamComp }));
       },
       // effect
       teamEffects: undefined,

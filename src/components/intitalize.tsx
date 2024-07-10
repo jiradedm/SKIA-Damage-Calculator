@@ -10,7 +10,7 @@ import { characterStat } from "@/data/characterStat";
 import type { Effect, EffectStat } from "@/data/effect";
 import type { StatKey } from "@/data/stat";
 import { foodBuff, stat } from "@/data/stat";
-import type { AddedCharacter, CharacterStatDataGroup, GlobalStat } from "@/store";
+import type { AddedCharacter, CharacterStatDataGroup, GlobalStat, TeamCompType } from "@/store";
 import { useCharacterStore, useStatStore } from "@/store";
 
 const sum = (total: number, current: number) => total + current;
@@ -489,7 +489,12 @@ export const getTeamEffects = (addedCharacters: AddedCharacter[]) => {
   return effects;
 };
 
-const getEffect = (addedCharacter: AddedCharacter, teamEffects: Effect[], gloabalStat: GlobalStat) => {
+const getEffect = (
+  addedCharacter: AddedCharacter,
+  teamEffects: Effect[],
+  gloabalStat: GlobalStat,
+  teamComp: TeamCompType,
+) => {
   const character = char[addedCharacter.character];
 
   const baseEffects: Effect[] = [];
@@ -499,6 +504,18 @@ const getEffect = (addedCharacter: AddedCharacter, teamEffects: Effect[], gloaba
     const invalidType = effect.characterTypeRestricted && effect.characterTypeRestricted !== character.type.key;
     const invalidCondition = effect.applyCondition && !gloabalStat[effect.applyCondition];
     if (invalidType || invalidCondition) return;
+    const teamCondition = effect.stats.some((_stat) => _stat.condition?.stat.startsWith("Team"));
+
+    if (teamCondition) {
+      effect.stats.forEach((_stat) => {
+        if (_stat.condition?.stat.startsWith("Team")) {
+          const amount = teamComp[_stat.condition.stat];
+          const { maxApply } = _stat.condition;
+          _stat.value = _stat.condition.value * (amount > maxApply ? maxApply : amount);
+        }
+        return stat;
+      });
+    }
     baseEffects.push(effect);
   });
 
@@ -558,21 +575,21 @@ export const getStatusAilments = (addedCharacters: AddedCharacter[]) => {
 
 // TODO: CHANGE CALCULATE TO COMPONENT LEVEL
 const Intitalize = () => {
-  const { teamEffects, addedCharacters, setCharacters, statusAilments } = useCharacterStore();
+  const { teamEffects, addedCharacters, setCharacters, statusAilments, teamComp } = useCharacterStore();
   const { globalStat } = useStatStore();
 
   useEffect(() => {
     if (!teamEffects) return;
 
     const characters = addedCharacters.map((addedCharacter) => {
-      const effects = getEffect(addedCharacter, teamEffects, globalStat);
+      const effects = getEffect(addedCharacter, teamEffects, globalStat, teamComp);
       const effectStats = getTotalEffectStats(effects);
 
       const damage = calculateDamage(addedCharacter, globalStat, effectStats, statusAilments);
       return { ...addedCharacter, character: char[addedCharacter.character], effects, effectStats, damage };
     });
     setCharacters(characters);
-  }, [addedCharacters, teamEffects, setCharacters, statusAilments, globalStat]);
+  }, [addedCharacters, teamEffects, setCharacters, statusAilments, globalStat, teamComp]);
 
   return <></>;
 };

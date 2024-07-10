@@ -15,9 +15,10 @@ import Progressbar from "@/components/progressbar";
 import SortButton from "@/components/sortButton";
 import Title from "@/components/title";
 import { sortCharacterByActiveTotalDamage, sortCharacterByTotalDamage } from "@/libs/sort";
-import type { CalulatedCharacter } from "@/store";
+import type { CalulatedCharacter, TeamCompType } from "@/store";
 import { characterMaxActive, useCharacterStore } from "@/store";
 
+import { character as character_ } from "../../data/character";
 import { formatNumber } from "../../libs/format";
 
 interface TeamModalProps {
@@ -134,7 +135,8 @@ export default function TeamPage() {
   const { t } = useTranslation("page/team");
   const { t: tc } = useTranslation("page/character");
 
-  const { characters, addedCharacters, setTeamEffects, statusAilments, setStatusAilments } = useCharacterStore();
+  const { characters, addedCharacters, setTeamEffects, statusAilments, setStatusAilments, setTeamComp } =
+    useCharacterStore();
   const [lockedNumber, setLockedNumber] = useState<number | undefined>(undefined);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -144,6 +146,22 @@ export default function TeamPage() {
     if (addedCharacters.length === 0) return;
     setTeamEffects(getTeamEffects(addedCharacters));
   }, [addedCharacters, setTeamEffects]);
+
+  useEffect(() => {
+    const TeamDefenseUnit = addedCharacters.filter(
+      (char) => !!char.active && character_[char.character].type.key === "Defense",
+    ).length;
+    const TeamMeleeUnit = addedCharacters.filter(
+      (char) => !!char.active && character_[char.character].type.key === "Melee",
+    ).length;
+    const TeamRangedUnit = addedCharacters.filter(
+      (char) => !!char.active && character_[char.character].type.key === "Ranged",
+    ).length;
+    const TeamSupportUnit = addedCharacters.filter(
+      (char) => !!char.active && character_[char.character].type.key === "Support",
+    ).length;
+    setTeamComp({ TeamDefenseUnit, TeamMeleeUnit, TeamRangedUnit, TeamSupportUnit } as TeamCompType);
+  }, [addedCharacters, setTeamComp]);
 
   const teamDamage = useMemo(() => {
     return characters.reduce((total, character) => total + (!character.active ? 0 : character.damage.totalDamage), 0);

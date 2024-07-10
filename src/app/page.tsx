@@ -18,7 +18,8 @@ export default function HomePage() {
 
   const [sortActive, setSortActive] = useState(false);
 
-  const { characters, addedCharacters, moveCharacter, setTeamEffects, setStatusAilments } = useCharacterStore();
+  const { characters, addedCharacters, moveCharacter, setTeamEffects, setStatusAilments, setTeamComp } =
+    useCharacterStore();
 
   const sortedCharacters = useMemo(() => {
     if (!sortActive) return characters;
@@ -28,7 +29,8 @@ export default function HomePage() {
   useEffect(() => {
     if (addedCharacters.length === 0) return;
     setTeamEffects([]);
-  }, [addedCharacters, setTeamEffects]);
+    setTeamComp(undefined);
+  }, [addedCharacters, setTeamComp, setTeamEffects]);
 
   useEffect(() => {
     if (addedCharacters.length === 0) return;

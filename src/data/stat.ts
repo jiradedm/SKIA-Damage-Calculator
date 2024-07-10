@@ -76,6 +76,10 @@ export const statKeys = [
   "attackStat",
   "skillStat",
   "dotStat",
+  "TeamRangedUnit",
+  "TeamMeleeUnit",
+  "TeamDefenseUnit",
+  "TeamSupportUnit",
 ] as const;
 
 export type StatKey = (typeof statKeys)[number];
@@ -184,6 +188,10 @@ export const stat: StatData = {
   attackStat: { key: "attackStat" },
   skillStat: { key: "skillStat" },
   dotStat: { key: "dotStat" },
+  TeamRangedUnit: { key: "TeamRangedUnit" },
+  TeamMeleeUnit: { key: "TeamMeleeUnit" },
+  TeamDefenseUnit: { key: "TeamDefenseUnit" },
+  TeamSupportUnit: { key: "TeamSupportUnit" },
 };
 
 export const baseStats = Object.values(baseStat);
