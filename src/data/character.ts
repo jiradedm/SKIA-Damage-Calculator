@@ -136,6 +136,8 @@ export const characterKeys = [
   "ArthurPencilgon",
   "OiKatzo",
   "Miho",
+  "Reginleif",
+  "Aquila",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -1830,7 +1832,6 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     effects: [effect.KeenAttack5, effect.ClimaxBoost],
     applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 300, speed: 125 },
       CritAttack: { modifier: 350, speed: 115.34 },
@@ -1844,7 +1845,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.FierceSpirit5, effect.ScalesofCompensation],
-    new: true,
     attack: {
       BasicAttack: { modifier: 150, speed: 166.67 },
       CritAttack: {
@@ -1862,7 +1862,6 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     effects: [effect.Strike5, effect.DarkOverstrike],
     applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 200, speed: 142.86 },
       CritAttack: { modifier: 290, speed: 103.41 },
@@ -1876,7 +1875,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.CritRate5, { ...effect.Strike5, characterTypeRestricted: "Melee" }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 425, speed: 142.86 },
       CritAttack: {
@@ -1885,6 +1883,32 @@ export const character: Record<CharacterKey, Character> = {
         attackModifier: { FinalDamage: { value: 200, applyCondition: "EnemyTypeGuildBoss" } },
       },
       Skill: { modifier: 0, speed: 74.96 },
+    },
+  },
+  Reginleif: {
+    key: "Reginleif",
+    img: "/character/Reginleif.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.HarmonysVow, effect.CosmicRift],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 400, speed: 176.37 },
+      CritAttack: { modifier: 400, speed: 176.37 },
+      Skill: { modifier: 3000, speed: 100 },
+    },
+  },
+  Aquila: {
+    key: "Aquila",
+    img: "/character/Aquila.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Defense,
+    effects: [],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 250, speed: 176.37 },
+      CritAttack: { modifier: 400, speed: 115.34, cutCooldown: 2 },
+      Skill: { modifier: 1250, speed: 130.38 },
     },
   },
 };

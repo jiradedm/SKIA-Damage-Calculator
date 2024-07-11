@@ -70,7 +70,9 @@ type EffectKey =
   | "LubuIncreaseAccuracy"
   | "DarkOverstrike"
   | "ScalesofCompensation"
-  | "ClimaxBoost";
+  | "ClimaxBoost"
+  | "HarmonysVow"
+  | "CosmicRift";
 
 export interface EffectStat {
   stat: Stat;
@@ -595,5 +597,22 @@ export const effect: Record<EffectKey, Effect> = {
       { stat: stat.FinalAttack, value: 25 },
       { stat: stat.AttackSpeed, value: 20 },
     ],
+  },
+  HarmonysVow: {
+    key: "HarmonysVow",
+    name: "Harmony's Vow",
+    img: "/effect/Harmony's Vow.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalAttack, value: 15, condition: { value: 15, maxApply: 3, stat: "TeamRangedUnit" } },
+    ],
+  },
+  CosmicRift: {
+    key: "CosmicRift",
+    name: "Cosmic Rift",
+    img: "/effect/Cosmic Rift.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.FinalDefense, value: 50 }],
   },
 };
