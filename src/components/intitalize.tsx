@@ -82,8 +82,6 @@ const getModifier = (
   const charStat =
     characterStat[`${character.rarity.key}${character.type.key}${String(addedCharacter.level) as CharacterLevelKey}`];
 
-  console.log(character.key, charStat);
-
   const equipmentLevel = addedCharacter.equipmentLevel || 0;
 
   const modifier = {
