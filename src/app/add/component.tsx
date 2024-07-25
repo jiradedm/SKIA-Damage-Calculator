@@ -169,6 +169,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       potentials: (potentials.filter((p) => !!p && p !== "limited") as IPotential[]).map(
         (p) => ({ rarity: p.rarity.key, stat: p.stat.key, value: p.value }) as CharacterPotential,
       ),
+      active: character.active ?? false,
       necklaceLevel,
       earringsLevel,
       star: selectedStar,
