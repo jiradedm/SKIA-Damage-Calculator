@@ -8,6 +8,7 @@ interface CharacterIconProps {
   character: Character;
   showName?: boolean;
   isNew?: boolean;
+  isUpdated?: boolean;
 }
 
 const CharacterIcon: FC<ComponentPropsWithoutRef<"div"> & CharacterIconProps> = ({
@@ -15,10 +16,10 @@ const CharacterIcon: FC<ComponentPropsWithoutRef<"div"> & CharacterIconProps> = 
   character,
   showName = true,
   isNew = false,
+  isUpdated = false,
   ...props
 }) => {
   const { t } = useTranslation("character");
-  const { t: ts } = useTranslation("page/summon");
 
   return (
     <div className={twMerge("relative rounded w-fit p-0.5", character.rarity.characterClass, className)} {...props}>
@@ -29,8 +30,9 @@ const CharacterIcon: FC<ComponentPropsWithoutRef<"div"> & CharacterIconProps> = 
           className={twMerge("absolute", showName ? "rounded-t" : "rounded")}
         />
       </div>
-      {isNew && (
-        <div className="absolute right-1 top-1 rounded border border-white bg-unique3 px-0.5 text-xs">{ts("new")}</div>
+      {isNew && <div className="absolute right-1 top-1 rounded border border-white bg-unique3 px-0.5 text-xs">New</div>}
+      {isUpdated && (
+        <div className="absolute right-1 top-1 rounded border border-white bg-unique3 px-0.5 text-xs">Updated</div>
       )}
       <div className="relative pb-[100%]">
         {character.testing && (

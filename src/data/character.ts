@@ -171,6 +171,7 @@ export interface Character {
   maxHit?: number;
   testing?: boolean;
   new?: boolean;
+  updated?: boolean;
   cooldown?: number;
   applyStatusAilments?: CharacterApplyAilment[];
   attack: CharacterAttack;

@@ -77,6 +77,7 @@ const ChooseCharacter: FC<ComponentPropsWithoutRef<"div"> & ChooseCharacterProps
               character={character}
               className="w-full cursor-pointer"
               isNew={character.new}
+              isUpdated={character.updated}
               onClick={() => {
                 setSelectedCharacter(character);
                 setIsOpen(false);
