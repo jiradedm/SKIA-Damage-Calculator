@@ -86,6 +86,9 @@ export const CharacterItem: FC<CharacterItemProps> = ({ character, readonly, onC
     <div className={twMerge("relative w-fit", !readonly && "cursor-pointer")} onClick={onClick}>
       <CharacterIcon character={character.character} showName={false} className="row-span-3 w-[72px]" />
       <StarCompact selectedStar={character.star} readonly className="absolute inset-x-0 -top-2" />
+      <div className="text-stroke absolute inset-x-0 -bottom-1 mx-auto w-fit text-sm font-[500] leading-3">
+        Lv. {character.level}
+      </div>
     </div>
   );
 };
