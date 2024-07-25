@@ -65,6 +65,7 @@ const UnlockIcon: FC<ComponentPropsWithoutRef<"svg">> = ({ className, ...prop })
 
 const TeamModal: FC<TeamModalProps> = ({ characters, isOpen, setIsOpen }) => {
   const { t } = useTranslation("page/team");
+  const { t: tc } = useTranslation("character");
 
   const [showPercentage, setShowPercentage] = useState(true);
 
@@ -90,7 +91,7 @@ const TeamModal: FC<TeamModalProps> = ({ characters, isOpen, setIsOpen }) => {
         {sortedCharacters.map((character) => (
           <div key={character.character.key} className="grid grid-cols-[60px_auto] grid-rows-2 items-center gap-x-2">
             <CharacterIcon character={character.character} className="row-span-2 w-full" showName={false} />
-            <div className="text-stroke text-lg font-[500] leading-5">{character.name}</div>
+            <div className="text-stroke text-lg font-[500] leading-5">{tc(character.character.key)}</div>
             <Progressbar
               percentage={character.chartPercentage}
               text={showPercentage ? `${character.chartPercentage}%` : `${formatNumber(character.damage.totalDamage)}`}

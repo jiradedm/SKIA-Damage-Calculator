@@ -9,7 +9,6 @@ import { v4 } from "uuid";
 import Button from "@/components/button";
 import ChooseCharacter from "@/components/chooseCharacter";
 import Equipment from "@/components/Equipment";
-import Modal from "@/components/modal";
 import AccessoryLevelSelector from "@/components/necklaceSelector";
 import type { IPotential, Potential } from "@/components/potentialAdder";
 import PotentialAdder from "@/components/potentialAdder";
@@ -79,11 +78,9 @@ interface AddPageProps {
 export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited = () => {} }) => {
   const router = useRouter();
   const { t } = useTranslation("page/summon");
-  const { t: tch } = useTranslation("character");
   const { t: tc } = useTranslation("common");
 
   const { addCharacter, editCharacter } = useCharacterStore();
-  const [isOpen, setIsOpen] = useState(false);
 
   const editingCharacter = characters.find((char) => char.key === character?.character.key);
   const editLevel = characterLevelOptions.find((level) => level.value === character?.level);
@@ -113,17 +110,12 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
   const [necklaceLevel, setNecklaceLevel] = useState<number>(character?.necklaceLevel || 0);
   const [bonus, setBonus] = useState<number>(character?.statBonus || 0);
   const [equipmentLevel, setEquipmentLevel] = useState<number>(character?.equipmentLevel || 0);
-  const [name, setName] = useState(character?.name || "");
 
   const levelOptions = useMemo(() => {
     const options = characterLevelOptions.filter((option) => option.value <= selectedCharacter.rarity.maxLevel);
     setSelectedLevel(editLevel || options[0]);
     return options;
   }, [selectedCharacter.rarity.maxLevel, editLevel]);
-
-  useEffect(() => {
-    if (!isEdit) setName(tch(selectedCharacter.key));
-  }, [isEdit, selectedCharacter.key, tch]);
 
   useEffect(() => {
     const newPotent: Potential[] = Array.from<Potential>({ length: 7 }).map((_, index) =>
@@ -155,7 +147,6 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
     addCharacter({
       id: v4(),
       level: Number(selectedLevel.value),
-      name,
       character: selectedCharacter.key,
       potentials: (potentials.filter((p) => !!p && p !== "limited") as IPotential[]).map(
         (p) => ({ rarity: p.rarity.key, stat: p.stat.key, value: p.value }) as CharacterPotential,
@@ -166,17 +157,14 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       statBonus: bonus,
       equipmentLevel,
     });
-    setIsOpen(false);
     router.push("/");
   };
 
   const confirmEditCharacter = () => {
-    setIsOpen(false);
     if (!character) return;
     editCharacter({
       id: character.id,
       level: Number(selectedLevel.value),
-      name,
       character: selectedCharacter.key,
       potentials: (potentials.filter((p) => !!p && p !== "limited") as IPotential[]).map(
         (p) => ({ rarity: p.rarity.key, stat: p.stat.key, value: p.value }) as CharacterPotential,
@@ -237,18 +225,12 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
           <div />
         </>
       )}
-      <Button className="max-w-[540px] self-center" onClick={() => setIsOpen(true)}>
+      <Button
+        className="max-w-[540px] self-center"
+        onClick={() => (isEdit ? confirmEditCharacter : confirmAddCharacter)()}
+      >
         {tc("confirm")}
       </Button>
-      <Modal isOpen={isOpen} setIsOpen={setIsOpen} title={t("title-name")}>
-        <input
-          className="rounded border border-[#afafaf] bg-black p-1 text-center outline-none"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          maxLength={50}
-        />
-        <Button onClick={() => (isEdit ? confirmEditCharacter : confirmAddCharacter)()}>{tc("confirm")}</Button>
-      </Modal>
     </>
   );
 };

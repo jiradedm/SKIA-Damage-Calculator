@@ -122,7 +122,9 @@ const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
         <CharacterItem character={character} readonly={readonly} onClick={() => setIsOpen(true)} />
         <div className="flex w-full flex-col gap-1">
           <div className="flex w-fit cursor-grab touch-none items-center" {...listeners}>
-            <div className="text-stroke w-fit text-center text-lg font-[500] leading-5">{character.name}</div>
+            <div className="text-stroke w-fit text-center text-lg font-[500] leading-5">
+              {tch(character.character.key)}
+            </div>
             {!readonly && <DragIcon />}
           </div>
           <div className="flex h-fit w-full items-center gap-1 bg-gradient-to-r from-[#243a4a] from-40% to-transparent to-100% p-1 text-center font-[500] leading-4">

@@ -20,7 +20,6 @@ export interface CharacterPotential {
 
 export const addedCharacterObject = z.object({
   id: z.string(),
-  name: z.string(),
   level: z.number(),
   character: z.enum(characterKeys),
   star: z.number(),
