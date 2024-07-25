@@ -56,7 +56,6 @@ type EffectKey =
   | "NightStalker"
   | "Ambush5"
   | "SageofDespair"
-  // | "Karma"
   | "AdvancedNanosuit"
   | "DesertMage"
   | "MasteroftheHourglass"
@@ -72,7 +71,9 @@ type EffectKey =
   | "ScalesofCompensation"
   | "ClimaxBoost"
   | "HarmonysVow"
-  | "CosmicRift";
+  | "CosmicRift"
+  | "CritRateResistDecrease5"
+  | "QueensDignity";
 
 export interface EffectStat {
   stat: Stat;
@@ -481,13 +482,6 @@ export const effect: Record<EffectKey, Effect> = {
     target: "Team",
     stats: [{ stat: stat.FinalDamage2, value: 30 }],
   },
-  // Karma: {
-  //   key: "Karma",
-  //   name: "Karma",
-  //   img: "/effect/Karma.webp",
-  //   target: "Enemy",
-  //   stats: [{ stat: stat.FinalWeaknessDamage, value: 20 }],
-  // },
   AdvancedNanosuit: {
     key: "AdvancedNanosuit",
     name: "Advanced Nanosuit",
@@ -614,5 +608,19 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Cosmic Rift.webp",
     target: "Enemy",
     stats: [{ stat: stat.FinalDefense, value: 50 }],
+  },
+  CritRateResistDecrease5: {
+    key: "CritRateResistDecrease5",
+    name: "Critical Hit Rate Resist Decrease Lv. 5",
+    img: "/effect/Critical Hit Rate Resist Decrease.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.CritResist, value: 20 }],
+  },
+  QueensDignity: {
+    key: "QueensDignity",
+    name: "Queen's Dignity",
+    img: "/effect/Queen's Dignity.webp",
+    target: "Self",
+    stats: [{ stat: stat.CritRate, value: 20 }],
   },
 };

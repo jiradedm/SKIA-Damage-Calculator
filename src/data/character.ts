@@ -138,6 +138,7 @@ export const characterKeys = [
   "Miho",
   "Reginleif",
   "Aquila",
+  "Taka",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -822,11 +823,12 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Mirage.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
-    effects: [],
+    effects: [effect.QueensDignity],
+    updated: true,
     attack: {
-      BasicAttack: { modifier: 150, speed: 149.93 },
-      CritAttack: { modifier: 350, speed: 62.5 },
-      Skill: { modifier: 250, speed: 107.07 },
+      BasicAttack: { modifier: 225, speed: 149.93 },
+      CritAttack: { modifier: 525, speed: 62.5 },
+      Skill: { modifier: 700, speed: 107.07 },
     },
   },
   Misha: {
@@ -1892,7 +1894,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [effect.HarmonysVow, effect.CosmicRift],
-    new: true,
     attack: {
       BasicAttack: { modifier: 400, speed: 176.37 },
       CritAttack: { modifier: 400, speed: 176.37 },
@@ -1905,11 +1906,23 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Defense,
     effects: [],
-    new: true,
     attack: {
       BasicAttack: { modifier: 250, speed: 176.37 },
       CritAttack: { modifier: 400, speed: 115.34, cutCooldown: 2 },
       Skill: { modifier: 1250, speed: 130.38 },
+    },
+  },
+  Taka: {
+    key: "Taka",
+    img: "/character/Taka.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.CritRate5, effect.CritRateResistDecrease5],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 300, speed: 166.67 },
+      CritAttack: { modifier: 550, speed: 100 },
+      Skill: { modifier: 1500, speed: 85.69 },
     },
   },
 };
