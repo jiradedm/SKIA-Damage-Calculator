@@ -139,6 +139,9 @@ export const characterKeys = [
   "Reginleif",
   "Aquila",
   "Taka",
+  "Gabimaru",
+  "Sagiri",
+  "Yuzuriha",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -824,7 +827,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Defense,
     effects: [effect.QueensDignity],
-    updated: true,
     attack: {
       BasicAttack: { modifier: 225, speed: 149.93 },
       CritAttack: { modifier: 525, speed: 62.5 },
@@ -1483,7 +1485,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [{ ...effect.Focus5, characterTypeRestricted: "Melee" }],
-    // applyStatusAilments: [{ status: statusAilment.Frostbitten, uptime: 1 }],
+    applyStatusAilments: [{ status: statusAilment.EnemyFrostbitten, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 125, speed: 166.67 },
       CritAttack: { modifier: 250, speed: 115.34 },
@@ -1918,11 +1920,55 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.CritRate5, effect.CritRateResistDecrease5],
-    new: true,
     attack: {
       BasicAttack: { modifier: 300, speed: 166.67 },
       CritAttack: { modifier: 550, speed: 100 },
       Skill: { modifier: 1500, speed: 85.69 },
+    },
+  },
+  Gabimaru: {
+    key: "Gabimaru",
+    img: "/character/Gabimaru.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.Gale5, effect.DefenseDecrease5],
+    applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 350, speed: 176.37 },
+      CritAttack: { modifier: 425, speed: 149.93 },
+      Skill: { modifier: 1250, speed: 100 },
+      DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  Sagiri: {
+    key: "Sagiri",
+    img: "/character/Sagiri.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.PrecisionStrike5],
+    applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 400, speed: 149.93 },
+      CritAttack: { modifier: 475, speed: 125 },
+      Skill: { modifier: 1250, speed: 119.9 },
+      DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  Yuzuriha: {
+    key: "Yuzuriha",
+    img: "/character/Yuzuriha.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.Ambush5, effect.Attack5, effect.CritRate5],
+    applyStatusAilments: [{ status: statusAilment.EnemyPoisoned, uptime: 1 }],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 325, speed: 149.93 },
+      CritAttack: { modifier: 375, speed: 130.38 },
+      Skill: { modifier: 1250, speed: 93.72 },
+      DoT: { modifier: 20, speed: 100 },
     },
   },
 };
