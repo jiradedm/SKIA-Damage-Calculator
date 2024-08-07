@@ -123,7 +123,7 @@ const getModifier = (
   }
 
   if (globalStat.NightmareStage) {
-    const nightmareValue = globalStat.NightmareLevel * 2;
+    const nightmareValue = (globalStat.NightmareLevel || 0) * 2;
 
     modifier.FinalAttack.push(nightmareValue);
     modifier.FinalAccuracy.push(nightmareValue);
@@ -183,7 +183,7 @@ const getEnemyModifer = (totalEffectStats: EffectStat[], globalStat: GlobalStat)
     FinalDefense: [0],
     FinalDamage: [0],
     FinalEvasion: [0],
-    CritResist: [globalStat.EnemyCritResist * -1],
+    CritResist: [(globalStat.EnemyCritResist || 0) * -1],
     ReductionRate: [globalStat.EnemyReductionRate],
   } as Record<StatKey, number[]>;
 
@@ -213,10 +213,10 @@ const getCharacterAttackDamage = (
     characterStat[`${character.rarity.key}${character.type.key}${String(addedCharacter.level) as CharacterLevelKey}`];
 
   const baseAttackValue =
-    (charStat.Attack[addedCharacter.star] * modifier.Attack + globalStat.AttackInfluence) * modifier.FinalAttack;
+    (charStat.Attack[addedCharacter.star] * modifier.Attack + (globalStat.AttackInfluence || 0)) * modifier.FinalAttack;
 
   const enemyDefenseModifier = enemyModifier.FinalDefense < 0 ? 0 : enemyModifier.FinalDefense;
-  const enemyDefense = globalStat.EnemyDefense * enemyDefenseModifier;
+  const enemyDefense = (globalStat.EnemyDefense || 0) * enemyDefenseModifier;
 
   const getCritRate = (rate: number): number => {
     if (rate > 1) return 1;
@@ -246,7 +246,7 @@ const getCharacterAttackDamage = (
     modifier.FinalDamage2;
 
   const enemyEvasionModifier = enemyModifier.FinalEvasion < 0 ? 0 : enemyModifier.FinalEvasion;
-  const enemyEvasion = globalStat.EnemyEvasion * enemyEvasionModifier;
+  const enemyEvasion = (globalStat.EnemyEvasion || 0) * enemyEvasionModifier;
 
   const baseAccuracy = charStat.Accuracy[addedCharacter.star] * modifier.Accuracy * modifier.FinalAccuracy;
 
