@@ -3,6 +3,7 @@
 import { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
+import PortButton from "@/components/portButtonStat";
 import Title from "@/components/title";
 import type { StatKey } from "@/data/stat";
 import type { GlobalStatData } from "@/store";
@@ -28,8 +29,9 @@ export default function GlobalStatPage() {
   }, [globalStat]);
 
   return (
-    <div className="flex w-full max-w-[400px] flex-col self-center">
+    <div className="flex w-full max-w-[400px] flex-col gap-3 self-center">
       <Title className="self-center text-3xl">{t("title")}</Title>
+      <PortButton data={JSON.stringify({ globalStat })} />
       <Title>{t("character")}</Title>
       <div className="flex flex-col gap-2">
         {stats.map((stat, index) => {

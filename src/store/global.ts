@@ -1,13 +1,16 @@
 "use client";
 
+import { z } from "zod";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import { type Stat, type StatKey } from "@/data/stat";
+import { type Stat, type StatKey, statKeys } from "@/data/stat";
 
-export type GlobalStat = Record<StatKey, number>;
+export const globalStatObject = z.record(z.enum(statKeys), z.number());
 
-export const baseGlobalStat = {
+export type GlobalStat = z.infer<typeof globalStatObject>;
+
+const baseGlobalStat = {
   AttackInfluence: 0,
   Attack: 0,
   Accuracy: 0,
@@ -57,10 +60,11 @@ export interface GlobalStatData extends Stat {
 
 interface StatStore {
   globalStat: GlobalStat;
+  setGlobalStat: (globalStat: GlobalStat) => void;
   setGlobalStatValue: (key: StatKey, value: number) => void;
 }
 
-const getGlobalStat = (globalStat: GlobalStat) => {
+export const getGlobalStat = (globalStat: GlobalStat) => {
   const base = {} as GlobalStat;
   const keys = Object.keys(baseGlobalStat) as StatKey[];
   keys.forEach((key) => {
@@ -73,6 +77,9 @@ export const useStatStore = create<StatStore>()(
   persist(
     (set) => ({
       globalStat: baseGlobalStat,
+      setGlobalStat: (globalStat) => {
+        set(() => ({ globalStat }));
+      },
       setGlobalStatValue: (key, value) => {
         set((state) => {
           if (!state.globalStat) return {};

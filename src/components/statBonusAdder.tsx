@@ -71,7 +71,7 @@ const StatBonusAdder: FC<StatBonusAdderProps> = ({ readonly, bonus, setBonus = (
       <div className="flex flex-col gap-2">
         {bonusStats.map((stat, index) => {
           const value = stat.value * bonus;
-          return <StatItem key={index} stat={{ ...stat, value }} noEdit />;
+          return <StatItem key={index} stat={{ ...stat, value }} noEdit green />;
         })}
       </div>
     </div>

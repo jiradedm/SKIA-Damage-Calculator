@@ -96,7 +96,7 @@ const Equipment: FC<StatBonusAdderProps> = ({
         {bonusStats.map((stat, index) => {
           const locked = selectedStar < stat.unlock;
           const value = locked ? 0 : stat.value * equipmentLevel;
-          return <StatItem key={index} stat={{ ...stat, value }} noEdit disabled={locked} />;
+          return <StatItem key={index} stat={{ ...stat, value }} noEdit green disabled={locked} />;
         })}
       </div>
     </div>

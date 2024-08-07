@@ -50,10 +50,11 @@ const CheckIcon = () => {
 export interface StatProps {
   stat: GlobalStatData;
   noEdit?: boolean;
+  green?: boolean;
   disabled?: boolean;
 }
 
-export const StatItem: FC<StatProps> = ({ stat: statProps, noEdit = false, disabled = false }) => {
+export const StatItem: FC<StatProps> = ({ stat: statProps, noEdit = false, green = false, disabled = false }) => {
   const { t } = useTranslation("stat");
 
   const { setGlobalStatValue } = useStatStore();
@@ -99,7 +100,7 @@ export const StatItem: FC<StatProps> = ({ stat: statProps, noEdit = false, disab
             {!!statProps.value && <CheckIcon />}
           </div>
         ) : (
-          <div className={twMerge("flex", noEdit ? "text-[#d2fd7d]" : "text-[#eccd80]")}>
+          <div className={twMerge("flex", green ? "text-[#d2fd7d]" : "text-[#eccd80]")}>
             {!stat.isNotAdd && <div>+</div>}
             {!noEdit && editing ? (
               <Input intialValue={String(statProps.value)} setEditing={setEditing} handleInput={handleInput} />
