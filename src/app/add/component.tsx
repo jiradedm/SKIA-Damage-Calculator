@@ -125,7 +125,14 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
     const newLimited = newPotent.filter((p) => p === "limited").length;
     const oldLimited = [...potentials].filter((p) => p === "limited").length;
 
-    if (newLimited !== oldLimited) setPotentials(newPotent);
+    if (newLimited !== oldLimited)
+      setPotentials(
+        newPotent.map((p, index) => {
+          if (p === "limited") return "limited";
+          if (potentials[index] && potentials[index] !== "limited") return potentials[index];
+          return null;
+        }),
+      );
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCharacter, selectedStar]);
 
