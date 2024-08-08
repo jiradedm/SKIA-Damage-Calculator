@@ -142,6 +142,8 @@ export const characterKeys = [
   "Gabimaru",
   "Sagiri",
   "Yuzuriha",
+  "BranzeBransel",
+  "LiBai",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -1933,7 +1935,6 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     effects: [effect.Gale5, effect.DefenseDecrease5],
     applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 350, speed: 176.37 },
       CritAttack: { modifier: 425, speed: 149.93 },
@@ -1948,7 +1949,6 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     effects: [effect.PrecisionStrike5],
     applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 400, speed: 149.93 },
       CritAttack: { modifier: 475, speed: 125 },
@@ -1963,12 +1963,41 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     effects: [effect.Ambush5, effect.Attack5, effect.CritRate5],
     applyStatusAilments: [{ status: statusAilment.EnemyPoisoned, uptime: 1 }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 325, speed: 149.93 },
       CritAttack: { modifier: 375, speed: 130.38 },
       Skill: { modifier: 1250, speed: 93.72 },
       DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  BranzeBransel: {
+    key: "BranzeBransel",
+    img: "/character/Branze & Bransel.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.TempleSaviors, effect.PowersofGoodandEvil, effect.AbyssalBrand],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 450, speed: 166.67 },
+      CritAttack: { modifier: 600, speed: 120 },
+      Skill: { modifier: 3000, speed: 75 },
+    },
+  },
+  LiBai: {
+    key: "LiBai",
+    img: "/character/Li Bai.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [{ ...effect.Gale5, characterTypeRestricted: "Melee" }],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 500, speed: 115.34 },
+      CritAttack: {
+        modifier: 750,
+        speed: 73.15,
+        attackModifier: { FinalDamage: { value: 200, applyCondition: "EnemyTypeGuildBoss" } },
+      },
+      Skill: { modifier: 1250, speed: 100 },
     },
   },
 };

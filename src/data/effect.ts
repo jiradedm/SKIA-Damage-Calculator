@@ -73,7 +73,10 @@ type EffectKey =
   | "HarmonysVow"
   | "CosmicRift"
   | "CritRateResistDecrease5"
-  | "QueensDignity";
+  | "QueensDignity"
+  | "TempleSaviors"
+  | "PowersofGoodandEvil"
+  | "AbyssalBrand";
 
 export interface EffectStat {
   stat: Stat;
@@ -622,5 +625,29 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Queen's Dignity.webp",
     target: "Self",
     stats: [{ stat: stat.CritRate, value: 20 }],
+  },
+  TempleSaviors: {
+    key: "TempleSaviors",
+    name: "Temple Saviors",
+    img: "/effect/Temple Saviors.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.FinalAttack, value: 25 },
+      { stat: stat.FinalCritDamage, value: 20 },
+    ],
+  },
+  PowersofGoodandEvil: {
+    key: "PowersofGoodandEvil",
+    name: "Powers of Good and Evil",
+    img: "/effect/Powers of Good and Evil.webp",
+    target: "Self",
+    stats: [{ stat: stat.FinalAttack, value: 15, condition: { value: 15, maxApply: 3, stat: "TeamMeleeUnit" } }],
+  },
+  AbyssalBrand: {
+    key: "AbyssalBrand",
+    name: "Abyssal Brand",
+    img: "/effect/Abyssal Brand.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.ReductionRate, value: 24 }],
   },
 };
