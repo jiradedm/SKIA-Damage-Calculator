@@ -3,7 +3,7 @@
 import type { DragEndEvent } from "@dnd-kit/core";
 import { closestCenter, DndContext, PointerSensor, useSensor, useSensors } from "@dnd-kit/core";
 import { SortableContext, verticalListSortingStrategy } from "@dnd-kit/sortable";
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo } from "react";
 import { useTranslation } from "react-i18next";
 
 import CharacterDamage from "@/components/characterDamage";
@@ -11,20 +11,20 @@ import PortButton from "@/components/portButton";
 import SortButton from "@/components/sortButton";
 import Title from "@/components/title";
 import { sortCharacterByTotalDamage } from "@/libs/sort";
-import { useCharacterStore } from "@/store";
+import { useCharacterStore, useGeneralStore } from "@/store";
 
 export default function HomePage() {
   const { t } = useTranslation("page/character");
 
-  const [sortActive, setSortActive] = useState(false);
+  const { sort } = useGeneralStore();
 
   const { characters, addedCharacters, moveCharacter, setTeamEffects, setStatusAilments, setTeamComp } =
     useCharacterStore();
 
   const sortedCharacters = useMemo(() => {
-    if (!sortActive) return characters;
+    if (!sort) return characters;
     return [...characters].sort(sortCharacterByTotalDamage);
-  }, [characters, sortActive]);
+  }, [characters, sort]);
 
   useEffect(() => {
     if (addedCharacters.length === 0) return;
@@ -53,7 +53,7 @@ export default function HomePage() {
     <>
       <Title className="self-center text-3xl">{t("title")}</Title>
       <PortButton data={JSON.stringify(addedCharacters)} exportDisabled={addedCharacters.length === 0} />
-      <SortButton active={sortActive} setActive={setSortActive} />
+      <SortButton />
       <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
         <SortableContext items={addedCharacters} strategy={verticalListSortingStrategy}>
           {characters.length === 0 ? (

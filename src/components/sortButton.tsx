@@ -1,6 +1,8 @@
-import type { Dispatch, FC, SetStateAction } from "react";
+import type { FC } from "react";
 import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
+
+import { useGeneralStore } from "@/store";
 
 const CheckIcon = () => {
   return (
@@ -10,26 +12,23 @@ const CheckIcon = () => {
   );
 };
 
-interface SortButtonProps {
-  active: boolean;
-  setActive: Dispatch<SetStateAction<boolean>>;
-}
-
-const SortButton: FC<SortButtonProps> = ({ active, setActive }) => {
+const SortButton: FC = () => {
   const { t } = useTranslation("page/character");
+
+  const { sort, setSort } = useGeneralStore();
 
   return (
     <div
       className="flex w-fit cursor-pointer select-none items-center gap-1 self-end pr-[5%]"
-      onClick={() => setActive((prev) => !prev)}
+      onClick={() => setSort(!sort)}
     >
       <div
         className={twMerge(
           "flex justify-center size-4 items-center rounded-sm border mt-0.5",
-          active ? "bg-[#53545b] border-[#8d8788] text-[#fdfdfb]" : "border-[#8d8788] bg-[#53545b]",
+          sort ? "bg-[#53545b] border-[#8d8788] text-[#fdfdfb]" : "border-[#8d8788] bg-[#53545b]",
         )}
       >
-        {!!active && <CheckIcon />}
+        {!!sort && <CheckIcon />}
       </div>
       <div className="align-text-top">{t("sort")}</div>
     </div>

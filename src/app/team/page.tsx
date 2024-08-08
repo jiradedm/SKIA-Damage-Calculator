@@ -16,7 +16,7 @@ import SortButton from "@/components/sortButton";
 import Title from "@/components/title";
 import { sortCharacterByActiveTotalDamage, sortCharacterByTotalDamage } from "@/libs/sort";
 import type { CalulatedCharacter, TeamCompType } from "@/store";
-import { characterMaxActive, useCharacterStore } from "@/store";
+import { characterMaxActive, useCharacterStore, useGeneralStore } from "@/store";
 
 import { character as character_ } from "../../data/character";
 import { formatNumber } from "../../libs/format";
@@ -138,10 +138,12 @@ export default function TeamPage() {
 
   const { characters, addedCharacters, setTeamEffects, statusAilments, setStatusAilments, setTeamComp } =
     useCharacterStore();
+
+  const { sort } = useGeneralStore();
+
   const [lockedNumber, setLockedNumber] = useState<number | undefined>(undefined);
 
   const [isOpen, setIsOpen] = useState(false);
-  const [sortActive, setSortActive] = useState(false);
 
   useEffect(() => {
     if (addedCharacters.length === 0) return;
@@ -169,9 +171,9 @@ export default function TeamPage() {
   }, [characters]);
 
   const sortedCharacters = useMemo(() => {
-    if (!sortActive) return characters;
+    if (!sort) return characters;
     return [...characters].sort(sortCharacterByActiveTotalDamage);
-  }, [characters, sortActive]);
+  }, [characters, sort]);
 
   const activeCharacters = useMemo(() => characters.filter((character) => !!character.active), [characters]);
 
@@ -226,7 +228,7 @@ export default function TeamPage() {
               ))}
         </div>
       )}
-      <SortButton active={sortActive} setActive={setSortActive} />
+      <SortButton />
       {characters.length === 0 ? (
         <div className="py-[20%] text-center opacity-50">{tc("empty")}</div>
       ) : (
