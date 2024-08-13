@@ -2,10 +2,10 @@ import type { CharacterTypeKey } from "./characterType";
 import type { RarityKey } from "./rarity";
 
 interface CharacterStatData {
-  Attack: number[];
-  Accuracy: number[];
+  Attack: [number, number, number, number, number, number, number, number, number, number, number];
+  Accuracy: [number, number, number, number, number, number, number, number, number, number, number];
   CritRate: number;
-  CritDamage: number[];
+  CritDamage: [number, number, number, number, number, number, number, number, number, number, number];
 }
 
 export interface LevelOption {
@@ -13,12 +13,14 @@ export interface LevelOption {
   value: number;
 }
 
-const characterLevels = ["50", "55", "60", "65", "70", "75", "80"] as const;
+const characterLevels = ["50", "55", "60", "65", "70", "75", "80", "85", "90"] as const;
 
-export const characterLevelOptions: LevelOption[] = characterLevels.map((value) => ({
-  name: `Lv. ${value}`,
-  value: Number(value),
-}));
+export const characterLevelOptions: LevelOption[] = characterLevels
+  .map((value) => ({
+    name: `Lv. ${value}`,
+    value: Number(value),
+  }))
+  .sort((first, second) => second.value - first.value);
 
 export type CharacterLevelKey = (typeof characterLevels)[number];
 
@@ -270,6 +272,56 @@ export const characterStat = {
     Attack: [54898, 65878, 77955, 91680, 106502, 122423, 139441, 157557, 176772, 197633, 219592],
     Accuracy: [1148, 1263, 1378, 1504, 1642, 1791, 1952, 2135, 2342, 2583, 2870],
     CritRate: 26.09,
+    CritDamage: [150, 158, 165, 173, 180, 188, 202.5, 217.5, 232.5, 247.5, 262.5],
+  },
+
+  LegendaryDefense85: {
+    Attack: [30306, 36367, 43035, 50611, 58794, 67582, 76977, 86978, 97585, 109102, 121224],
+    Accuracy: [965, 1062, 1158, 1264, 1380, 1505, 1641, 1795, 1969, 2171, 2413],
+    CritRate: 16.45,
+    CritDamage: [125, 131.25, 137.5, 143.75, 150.0, 156.25, 168.75, 181.25, 193.75, 206.25, 218.75],
+  },
+  LegendaryMelee85: {
+    Attack: [66673, 80008, 94676, 111344, 129346, 148681, 169349, 191352, 214687, 240023, 266692],
+    Accuracy: [965, 1062, 1158, 1264, 1380, 1505, 1641, 1795, 1969, 2171, 2413],
+    CritRate: 21.94,
+    CritDamage: [125, 131.25, 137.5, 143.75, 150.0, 156.25, 168.75, 181.25, 193.75, 206.25, 218.75],
+  },
+  LegendaryRanged85: {
+    Attack: [75007, 90008, 106510, 125262, 145514, 167266, 190518, 215270, 241523, 270025, 300028],
+    Accuracy: [965, 1062, 1158, 1264, 1380, 1505, 1641, 1795, 1969, 2171, 2413],
+    CritRate: 27.42,
+    CritDamage: [150, 158, 165, 173, 180, 188, 202.5, 217.5, 232.5, 247.5, 262.5],
+  },
+  LegendarySupport85: {
+    Attack: [60612, 72734, 86069, 101222, 117587, 135165, 153954, 173956, 195171, 218203, 242448],
+    Accuracy: [1206, 1327, 1447, 1580, 1725, 1881, 2050, 2243, 2460, 2714, 3015],
+    CritRate: 27.42,
+    CritDamage: [150, 158, 165, 173, 180, 188, 202.5, 217.5, 232.5, 247.5, 262.5],
+  },
+
+  LegendaryDefense90: {
+    Attack: [33460, 40152, 47513, 55878, 64912, 74616, 84988, 96030, 107741, 120456, 133840],
+    Accuracy: [1014, 1115, 1217, 1328, 1450, 1582, 1724, 1886, 2069, 2282, 2535],
+    CritRate: 17.29,
+    CritDamage: [125, 131.25, 137.5, 143.75, 150.0, 156.25, 168.75, 181.25, 193.75, 206.25, 218.75],
+  },
+  LegendaryMelee90: {
+    Attack: [73612, 88334, 104529, 122932, 142807, 164155, 186974, 211266, 237031, 265003, 294448],
+    Accuracy: [1014, 1115, 1217, 1328, 1450, 1582, 1724, 1886, 2069, 2282, 2535],
+    CritRate: 23.06,
+    CritDamage: [125, 131.25, 137.5, 143.75, 150.0, 156.25, 168.75, 181.25, 193.75, 206.25, 218.75],
+  },
+  LegendaryRanged90: {
+    Attack: [82814, 99377, 117596, 138299, 160659, 184675, 210348, 237676, 266661, 298130, 331256],
+    Accuracy: [1014, 1115, 1217, 1328, 1450, 1582, 1724, 1886, 2069, 2282, 2535],
+    CritRate: 28.82,
+    CritDamage: [150, 158, 165, 173, 180, 188, 202.5, 217.5, 232.5, 247.5, 262.5],
+  },
+  LegendarySupport90: {
+    Attack: [66920, 80304, 95026, 111756, 129825, 149232, 169977, 192060, 215482, 240912, 267680],
+    Accuracy: [1268, 1395, 1522, 1661, 1813, 1978, 2156, 2358, 2587, 2853, 3170],
+    CritRate: 28.82,
     CritDamage: [150, 158, 165, 173, 180, 188, 202.5, 217.5, 232.5, 247.5, 262.5],
   },
 } as Record<`${RarityKey}${CharacterTypeKey}${CharacterLevelKey}`, CharacterStatData>;
