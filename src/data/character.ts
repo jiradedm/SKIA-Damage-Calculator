@@ -148,12 +148,12 @@ export const characterKeys = [
 
 export type CharacterKey = (typeof characterKeys)[number];
 
-interface Attack {
+export interface Attack {
   modifier: number;
   speed: number;
   fixedSpeed?: boolean;
   cutCooldown?: number;
-  attackModifier?: Partial<Record<StatKey, { applyCondition?: StatKey; value: number }>>;
+  attackModifier?: Partial<Record<StatKey, { applyCondition?: StatKey[]; value: number }>>;
 }
 
 export type CharacterAttack = {
@@ -289,12 +289,12 @@ export const character: Record<CharacterKey, Character> = {
       BasicAttack: {
         modifier: 100,
         speed: 187.27,
-        attackModifier: { FinalDamage: { applyCondition: "EnemyTypeDefense", value: 50 } },
+        attackModifier: { FinalDamage: { applyCondition: ["EnemyTypeDefense"], value: 50 } },
       },
       CritAttack: {
         modifier: 175,
         speed: 130.38,
-        attackModifier: { FinalDamage: { applyCondition: "EnemyTypeDefense", value: 50 } },
+        attackModifier: { FinalDamage: { applyCondition: ["EnemyTypeDefense"], value: 50 } },
       },
     },
   },
@@ -333,7 +333,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 350,
         speed: 66.67,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyBurned" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyBurned"] } },
       },
       Skill: { modifier: 0, speed: 74.96 },
       DoT: { modifier: 20, speed: 100 },
@@ -455,12 +455,12 @@ export const character: Record<CharacterKey, Character> = {
       BasicAttack: {
         modifier: 150,
         speed: 149.93,
-        attackModifier: { FinalDamage: { applyCondition: "EnemyTypeDefense", value: 40 } },
+        attackModifier: { FinalDamage: { applyCondition: ["EnemyTypeDefense"], value: 40 } },
       },
       CritAttack: {
         modifier: 175,
         speed: 119.9,
-        attackModifier: { FinalDamage: { applyCondition: "EnemyTypeDefense", value: 40 } },
+        attackModifier: { FinalDamage: { applyCondition: ["EnemyTypeDefense"], value: 40 } },
       },
     },
   },
@@ -487,7 +487,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 300,
         speed: 85.69,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyBurned" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyBurned"] } },
       },
       Skill: { modifier: 1250, speed: 59.99 },
     },
@@ -628,7 +628,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 300,
         speed: 71.43,
-        attackModifier: { FinalDamage: { value: 20, applyCondition: "EnemyTypeDefense" } },
+        attackModifier: { FinalDamage: { value: 20, applyCondition: ["EnemyTypeDefense"] } },
       },
       Skill: { modifier: 230, speed: 52.63 },
     },
@@ -657,7 +657,7 @@ export const character: Record<CharacterKey, Character> = {
       Skill: {
         modifier: 250,
         speed: 93.72,
-        attackModifier: { FinalDamage: { applyCondition: "EnemyTypeDefense", value: 50 } },
+        attackModifier: { FinalDamage: { applyCondition: ["EnemyTypeDefense"], value: 50 } },
       },
     },
   },
@@ -684,7 +684,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 275,
         speed: 103.41,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemySilenced" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemySilenced"] } },
       },
       Skill: { modifier: 400, speed: 96.71 },
     },
@@ -899,7 +899,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 250,
         speed: 85.69,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyFrostbitten" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyFrostbitten"] } },
       },
       Skill: { modifier: 1250, speed: 74.96 },
       DoT: { modifier: 20, speed: 100 },
@@ -1050,7 +1050,7 @@ export const character: Record<CharacterKey, Character> = {
       Skill: {
         modifier: 650,
         speed: 78.93,
-        attackModifier: { FinalDamage: { value: 40, applyCondition: "EnemyTypeDefense" } },
+        attackModifier: { FinalDamage: { value: 40, applyCondition: ["EnemyTypeDefense"] } },
       },
     },
   },
@@ -1183,7 +1183,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 225,
         speed: 100,
-        attackModifier: { FinalDamage: { applyCondition: "EnemyBurned", value: 50 } },
+        attackModifier: { FinalDamage: { applyCondition: ["EnemyBurned"], value: 50 } },
       },
       Skill: { modifier: 250, speed: 56.59 },
     },
@@ -1300,7 +1300,7 @@ export const character: Record<CharacterKey, Character> = {
       Skill: {
         modifier: 1250,
         speed: 93.72,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyTypeRanged" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyTypeRanged"] } },
       },
     },
   },
@@ -1366,7 +1366,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 225,
         speed: 119.9,
-        attackModifier: { FinalDamage: { applyCondition: "EnemyBleeding", value: 50 } },
+        attackModifier: { FinalDamage: { applyCondition: ["EnemyBleeding"], value: 50 } },
       },
       Skill: { modifier: 250, speed: 83.33 },
       DoT: { modifier: 20, speed: 100 },
@@ -1383,7 +1383,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 225,
         speed: 115.34,
-        attackModifier: { FinalDamage: { applyCondition: "EnemyPoisoned", value: 50 } },
+        attackModifier: { FinalDamage: { applyCondition: ["EnemyPoisoned"], value: 50 } },
       },
       Skill: { modifier: 400, speed: 76.92 },
     },
@@ -1532,7 +1532,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 250,
         speed: 93.72,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyCursed" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyCursed"] } },
       },
       Skill: { modifier: 1250, speed: 96.71 },
     },
@@ -1585,12 +1585,12 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 225,
         speed: 119.9,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyTypeMelee" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyTypeMelee"] } },
       },
       Skill: {
         modifier: 600,
         speed: 100,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyTypeMelee" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyTypeMelee"] } },
       },
     },
   },
@@ -1605,7 +1605,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 175,
         speed: 130.38,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyBleeding" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyBleeding"] } },
       },
       Skill: { modifier: 900, speed: 88.18 },
     },
@@ -1641,7 +1641,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Karma.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
-    effects: [effect.SageofDespair /* effect.Karma */],
+    effects: [effect.SageofDespair],
     attack: {
       BasicAttack: { modifier: 300, speed: 176.37 },
       CritAttack: { modifier: 350, speed: 176.37 },
@@ -1672,7 +1672,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 255,
         speed: 130.38,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyBurned" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyBurned"] } },
       },
       Skill: { modifier: 800, speed: 88.18 },
     },
@@ -1702,7 +1702,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 225,
         speed: 107.07,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyTypeMelee" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyTypeMelee"] } },
       },
       Skill: { modifier: 600, speed: 96.71 },
     },
@@ -1748,7 +1748,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 150,
         speed: 130.38,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyStunned" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyStunned"] } },
       },
       Skill: { modifier: 1250, speed: 83.33 },
     },
@@ -1827,7 +1827,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 300,
         speed: 111.11,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyCursed" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyCursed"] } },
       },
       Skill: { modifier: 700, speed: 100 },
     },
@@ -1857,7 +1857,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 240,
         speed: 96.71,
-        attackModifier: { FinalDamage: { value: 50, applyCondition: "EnemyBleeding" } },
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyBleeding"] } },
       },
       Skill: { modifier: 1250, speed: 111.11 },
     },
@@ -1887,7 +1887,7 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: {
         modifier: 500,
         speed: 119.9,
-        attackModifier: { FinalDamage: { value: 200, applyCondition: "EnemyTypeGuildBoss" } },
+        attackModifier: { FinalDamage: { value: 200, applyCondition: ["EnemyTypeGuildBoss"] } },
       },
       Skill: { modifier: 0, speed: 74.96 },
     },
@@ -1976,7 +1976,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.TempleSaviors, effect.PowersofGoodandEvil, effect.AbyssalBrand],
-    new: true,
     attack: {
       BasicAttack: { modifier: 450, speed: 166.67 },
       CritAttack: { modifier: 600, speed: 120 },
@@ -1989,13 +1988,12 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [{ ...effect.Gale5, characterTypeRestricted: "Melee" }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 500, speed: 115.34 },
       CritAttack: {
         modifier: 750,
         speed: 73.15,
-        attackModifier: { FinalDamage: { value: 200, applyCondition: "EnemyTypeGuildBoss" } },
+        attackModifier: { FinalDamage: { value: 200, applyCondition: ["EnemyTypeGuildBoss"] } },
       },
       Skill: { modifier: 1250, speed: 100 },
     },

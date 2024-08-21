@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 import { accessory } from "@/data/accessory";
-import type { Character, CharacterApplyAilment } from "@/data/character";
+import type { Attack, Character, CharacterApplyAilment } from "@/data/character";
 import { character as char } from "@/data/character";
 import type { CharacterLevelKey } from "@/data/characterStat";
 import { characterStat } from "@/data/characterStat";
@@ -259,38 +259,38 @@ const getCharacterAttackDamage = (
   const getApplyConditionUptime = (condition?: StatKey) => {
     if (!condition) return undefined;
     if (!statusAilments) return globalStat[condition];
+
     // TODO: [TEMP FIX] ADD ENEMY TYPE TO FORMATION
     if (condition.startsWith("EnemyType")) return globalStat[condition];
+
     const statusAilment = statusAilments.find((alignment) => alignment.status.key === condition);
     if (statusAilment) return statusAilment.uptime;
     return 0;
   };
 
-  // BASIC ATTACK FINAL DAMAGE MODIFIER
-  const basicAttackFinalDamageModifierPercent = character.attack.BasicAttack.attackModifier
-    ? character.attack.BasicAttack.attackModifier.FinalDamage?.value || 0
-    : 0;
-  const basicAttackConditionUptime = getApplyConditionUptime(
-    character.attack.CritAttack?.attackModifier?.FinalDamage?.applyCondition,
-  );
-  const basicAttackFinalDamageModifier =
-    (100 + (!basicAttackConditionUptime ? 0 : basicAttackFinalDamageModifierPercent * basicAttackConditionUptime)) /
-    100;
+  const getApplyConditionMultiplier = (attack?: Attack) => {
+    if (!attack) return 1;
+    if (!attack.attackModifier?.FinalDamage?.applyCondition) return 1;
+    const mutipliers = attack.attackModifier.FinalDamage.applyCondition.map((applyCondition) => {
+      const attackFinalDamageModifierPercent = attack.attackModifier
+        ? attack.attackModifier.FinalDamage?.value || 0
+        : 0;
+      const attackConditionUptime = getApplyConditionUptime(applyCondition);
+      const attackFinalDamageModifier =
+        (100 + (!attackConditionUptime ? 0 : attackFinalDamageModifierPercent * attackConditionUptime)) / 100;
+      return attackFinalDamageModifier;
+    });
+    return mutipliers?.reduce((acc, cur) => acc * cur, 1);
+  };
+
+  const basicAttackFinalDamageModifier = getApplyConditionMultiplier(character.attack.BasicAttack);
 
   // *** BASIC ATTACK DAMAGE ***
   const basicAttackDamage = baseAttack * (character.attack.BasicAttack.modifier / 100) * basicAttackFinalDamageModifier;
 
-  // CRITICAL HIT ATTACK FINAL ATTACK
-  const critAttackFinalDamageModifierPercent = character.attack.CritAttack.attackModifier
-    ? character.attack.CritAttack.attackModifier.FinalDamage?.value || 0
-    : 0;
-  const critAttackConditionUptime = getApplyConditionUptime(
-    character.attack.CritAttack?.attackModifier?.FinalDamage?.applyCondition,
-  );
-  const critAttackFinalDamageModifier =
-    (100 + (!critAttackConditionUptime ? 0 : critAttackFinalDamageModifierPercent * critAttackConditionUptime)) / 100;
-
+  const critAttackFinalDamageModifier = getApplyConditionMultiplier(character.attack.CritAttack);
   // *** CRITICAL HIT ATTACK DAMAGE ***
+
   const critAttackDamage =
     baseAttack *
     (character.attack.CritAttack.modifier / 100) *
@@ -306,17 +306,7 @@ const getCharacterAttackDamage = (
     bonusDamageModifier *
     hitRate;
 
-  // SKILL FINAL ATTACK MODIFIER
-  const SkillFinalDamageModifierPercent = character.attack.Skill?.attackModifier
-    ? character.attack.Skill?.attackModifier.FinalDamage?.value || 0
-    : 0;
-
-  const skillConditionUptime = getApplyConditionUptime(
-    character.attack.Skill?.attackModifier?.FinalDamage?.applyCondition,
-  );
-
-  const skillFinalDamageModifier =
-    (100 + (!skillConditionUptime ? 0 : SkillFinalDamageModifierPercent * skillConditionUptime)) / 100;
+  const skillFinalDamageModifier = getApplyConditionMultiplier(character.attack.Skill);
 
   // SKILL EXTRA CRITICAL MODIFIER
   const skillCritModifierPercent = character.attack.Skill?.attackModifier
