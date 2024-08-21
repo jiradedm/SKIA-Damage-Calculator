@@ -3,6 +3,7 @@
   "Accuracy": "Accuracy",
   "CritRate": "Critical Hit Rate",
   "CritDamage": "Critical Hit Damage",
+  "CritModifier": "Critical Hit Modifier",
   "FinalAttack": "Final Attack",
   "AttackSpeed": "Attack Speed",
   "FinalAccuracy": "Final Accuracy",

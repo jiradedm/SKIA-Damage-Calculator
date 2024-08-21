@@ -104,6 +104,7 @@ const getModifier = (
       charStat.CritDamage[addedCharacter.star],
       globalStat.CritDamage,
     ],
+    CritModifier: [0],
     FinalCritDamage: [0],
     WeaknessRate: [globalStat.WeaknessRate, globalStat[character.type.typeRestrictStat.WeaknessRate]],
     FinalWeaknessDamage: [0],
@@ -146,6 +147,7 @@ const getModifier = (
   const AttackSpeed = modifier.AttackSpeed.reduce(sum, 100) / 100;
   const CritRate = character.maxHit ? 1 : modifier.CritRate.reduce(sum, 0) / 100;
   const CritDamage = modifier.CritDamage.reduce(sum, 0) / 100;
+  const CritModifier = modifier.CritModifier.reduce(sum, 100) / 100;
   const FinalCritDamage = modifier.FinalCritDamage.reduce(sum, 100) / 100;
   const WeaknessRate = modifier.WeaknessRate.reduce(sum, 0) / 100;
   const weaknessDamageMultiplier = modifier.FinalWeaknessDamage.reduce(sum, 0);
@@ -167,6 +169,7 @@ const getModifier = (
     AttackSpeed,
     CritRate,
     CritDamage,
+    CritModifier,
     FinalCritDamage,
     WeaknessRate,
     FinalWeaknessDamage,
@@ -293,6 +296,7 @@ const getCharacterAttackDamage = (
     (character.attack.CritAttack.modifier / 100) *
     modifier.CritDamage *
     modifier.FinalCritDamage *
+    modifier.CritModifier *
     critAttackFinalDamageModifier;
 
   // *** AVERAGE ATTACK DAMAGE ***
@@ -425,6 +429,7 @@ const calculateDamage = (
         { ...stat.CritRate, value: modifier.CritRate, isMaxHitFlag: !!character.maxHit },
         { ...stat.CritDamage, value: modifier.CritDamage },
         { ...stat.FinalCritDamage, value: modifier.FinalCritDamage },
+        { ...stat.CritModifier, value: modifier.CritModifier },
         { ...stat.WeaknessRate, value: modifier.WeaknessRate },
         { ...stat.FinalWeaknessDamage, value: modifier.FinalWeaknessDamage },
         { ...stat.BonusDamageRate, value: modifier.BonusDamageRate },

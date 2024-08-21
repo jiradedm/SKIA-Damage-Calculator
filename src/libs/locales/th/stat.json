@@ -3,6 +3,7 @@
   "Accuracy": "แม่นยำ",
   "CritRate": "อัตราคริติคอล",
   "CritDamage": "ความเสียหายคริติคอล",
+  "CritModifier": "ตัวคูณพลังโจมตีคริติคอล",
   "FinalAttack": "พลังโจมตีสุดท้าย",
   "AttackSpeed": "ความเร็วโจมตี",
   "FinalAccuracy": "แม่นยำสุดท้าย",
