@@ -51,6 +51,7 @@ export const statKeys = [
   "EnemyFrostbitten",
   "EnemySilenced",
   "EnemyStunned",
+  "EnemyDisintegrated",
   "NightmareStage",
   "NightmareLevel",
   "FoodBuff",
