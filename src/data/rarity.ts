@@ -1,4 +1,4 @@
-export const rarityKeys = ["Legendary", "Unique", "Epic", "Rare", "Normal"] as const;
+export const rarityKeys = ["HighLord", "Legendary", "Unique", "Epic", "Rare", "Normal"] as const;
 export type RarityKey = (typeof rarityKeys)[number];
 
 export interface Rarity {
@@ -12,6 +12,15 @@ export interface Rarity {
 }
 
 export const rarity: Record<RarityKey, Rarity> = {
+  HighLord: {
+    key: "HighLord",
+    selectClass: ``,
+    characterClass: ``,
+    maxLevel: 1000,
+    potentialLimit: [0, 3, 3, 3, 3, 5, 5, 7, 7, 7, 7],
+    unlockNecklaceStarRequirement: 3,
+    unlockEarringsStarRequirement: 0,
+  },
   Legendary: {
     key: "Legendary",
     selectClass: `bg-legendary1 border-legendary2`,
@@ -59,4 +68,10 @@ export const rarity: Record<RarityKey, Rarity> = {
   },
 };
 
-export const rarities = Object.values(rarity).reverse();
+const rarities = Object.values(rarity).reverse();
+
+export const characterRarities = rarities.filter(({ key }) => ["HighLord", "Legendary", "Unique"].includes(key));
+
+export const potentialRarities = rarities.filter(({ key }) =>
+  ["Legendary", "Unique", "Epic", "Rare", "Normal"].includes(key),
+);

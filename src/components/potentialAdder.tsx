@@ -7,7 +7,7 @@ import { twMerge } from "tailwind-merge";
 
 import { potentialValues } from "@/data/potential";
 import type { Rarity } from "@/data/rarity";
-import { rarities, rarity } from "@/data/rarity";
+import { potentialRarities, rarity } from "@/data/rarity";
 import type { Stat } from "@/data/stat";
 import { baseStats } from "@/data/stat";
 
@@ -108,7 +108,12 @@ const PotentialAdder: FC<ComponentPropsWithoutRef<"div"> & PotentialAdderProps> 
     <div className={twMerge("flex flex-col gap-2 text-sm text-white md:text-base", className)} {...props}>
       {!readonly && (
         <div className="grid w-full grid-cols-[33%_45%_22%] gap-y-1.5 md:grid-cols-[25%_35%_20%_20%]">
-          <Select selected={selectedRarity} setSelected={setSelectedRarity} options={rarities} namespace="rarity" />
+          <Select
+            selected={selectedRarity}
+            setSelected={setSelectedRarity}
+            options={potentialRarities}
+            namespace="rarity"
+          />
           <Select selected={selectedStat} setSelected={setSelectedStat} options={baseStats} namespace="stat" />
           <Select selected={selectedValue} setSelected={setSelectedValue} options={values} />
           <div className="col-span-3 md:col-span-1 md:pl-1.5">

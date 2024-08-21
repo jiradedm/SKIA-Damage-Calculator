@@ -5,7 +5,7 @@ import { twMerge } from "tailwind-merge";
 
 import { type Character, characters } from "@/data/character";
 import { characterTypes } from "@/data/characterType";
-import { rarities } from "@/data/rarity";
+import { characterRarities } from "@/data/rarity";
 
 import CharacterIcon from "./characterIcon";
 import Modal from "./modal";
@@ -19,7 +19,7 @@ interface ChooseCharacterProps {
 
 const allOption = { key: "All", name: "All" };
 
-const raritieOpions = [allOption, ...rarities.filter(({ key }) => ["Legendary", "Unique"].includes(key))];
+const raritieOpions = [allOption, ...characterRarities];
 
 const characterTypeOptions = [allOption, ...characterTypes];
 
