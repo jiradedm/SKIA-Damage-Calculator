@@ -10,7 +10,7 @@ import type { Effect } from "@/data/effect";
 import { type RarityKey, rarityKeys } from "@/data/rarity";
 import { type Stat, type StatKey, statKeys } from "@/data/stat";
 
-export const characterMaxActive = 12;
+export const characterMaxActive = 15;
 
 export interface CharacterPotential {
   rarity: RarityKey;
