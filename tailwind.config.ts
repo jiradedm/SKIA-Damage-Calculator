@@ -25,6 +25,8 @@ const config: Config = {
         normal1: "#728b46",
         normal2: "#91a86f",
         normal3: "#91b36d",
+        highlordfrom: "#e8b8e9",
+        highlordto: "#d1f8ff",
       },
       maxWidth: { maxw: "768px" },
       boxShadow: {

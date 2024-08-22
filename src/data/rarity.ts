@@ -6,7 +6,7 @@ export interface Rarity {
   selectClass: string;
   characterClass: string;
   maxLevel: number;
-  potentialLimit: number[];
+  potentialLimit: [number, number, number, number, number, number, number, number, number, number, number];
   unlockNecklaceStarRequirement: number;
   unlockEarringsStarRequirement: number;
 }
@@ -15,9 +15,9 @@ export const rarity: Record<RarityKey, Rarity> = {
   HighLord: {
     key: "HighLord",
     selectClass: ``,
-    characterClass: ``,
+    characterClass: `bg-gradient-to-r from-highlordfrom  to-highlordto`,
     maxLevel: 1000,
-    potentialLimit: [0, 3, 3, 3, 3, 5, 5, 7, 7, 7, 7],
+    potentialLimit: [0, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
     unlockNecklaceStarRequirement: 3,
     unlockEarringsStarRequirement: 0,
   },
