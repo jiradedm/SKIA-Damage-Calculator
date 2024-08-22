@@ -144,6 +144,10 @@ export const characterKeys = [
   "Yuzuriha",
   "BranzeBransel",
   "LiBai",
+  "HighLordRudy",
+  "MagicSocietyElke",
+  "Alcyion",
+  "Trude",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -1205,12 +1209,13 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Velika.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
-    effects: [],
-    applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 0.5 }],
+    effects: [effect.WitchsShadow, effect.BlessingoftheDarkMoon, effect.WitchoftheDarkMoon],
+    updated: true,
+    applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 1 }],
     attack: {
-      BasicAttack: { modifier: 125, speed: 166.67 },
-      CritAttack: { modifier: 275, speed: 78.93 },
-      Skill: { modifier: 250, speed: 85.69 },
+      BasicAttack: { modifier: 300, speed: 166.67 },
+      CritAttack: { modifier: 650, speed: 78.93 },
+      Skill: { modifier: 2000, speed: 85.69 },
     },
   },
   Victoria: {
@@ -1996,6 +2001,66 @@ export const character: Record<CharacterKey, Character> = {
         attackModifier: { FinalDamage: { value: 200, applyCondition: ["EnemyTypeGuildBoss"] } },
       },
       Skill: { modifier: 1250, speed: 100 },
+    },
+  },
+  HighLordRudy: {
+    key: "HighLordRudy",
+    img: "/character/High Lord Rudy.webp",
+    rarity: rarity.HighLord,
+    type: characterType.Melee,
+    effects: [effect.PilgrimsoftheDawn, effect.CastleGuardsConviction],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 250, speed: 176.37 },
+      CritAttack: { modifier: 250, speed: 176.37 },
+      Skill: { modifier: 0, speed: 176.37 },
+    },
+  },
+  MagicSocietyElke: {
+    key: "MagicSocietyElke",
+    img: "/character/Magic Society Elke.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.Celebrity, effect.RevelationofFate, effect.Scatter],
+    applyStatusAilments: [{ status: statusAilment.EnemyDisintegrated, uptime: 1 }],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 450, speed: 176.37 },
+      CritAttack: { modifier: 450, speed: 176.37 },
+      Skill: { modifier: 3000, speed: 136.24 },
+      DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  Alcyion: {
+    key: "Alcyion",
+    img: "/character/Alcyion.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.WarQuellingSword, effect.WarriorsSpirit, effect.SymbolofVictory, effect.HerooftheEmpire],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 375, speed: 166.67 },
+      CritAttack: { modifier: 600, speed: 103.41 },
+      Skill: { modifier: 2000, speed: 115.34 },
+    },
+  },
+  Trude: {
+    key: "Trude",
+    img: "/character/Trude.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.ILoveFighting, effect.TheJoyofBattle],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 300, speed: 149.93 },
+      CritAttack: { modifier: 300, cutCooldown: 2, speed: 149.93 },
+      Skill: {
+        modifier: 1500,
+        speed: 119.9,
+        attackModifier: {
+          FinalDamage: { value: 30, applyCondition: ["EnemyBleeding", "EnemyBurned", "EnemyDisintegrated"] },
+        },
+      },
     },
   },
 };

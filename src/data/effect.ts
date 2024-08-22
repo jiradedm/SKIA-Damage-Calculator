@@ -4,79 +4,96 @@ import { stat } from "./stat";
 
 type EffectTarget = "Self" | "Team" | "Enemy";
 
-type EffectKey =
-  | "BloodMoon"
-  | "YachaStrength"
-  | "KeenAttack4"
-  | "CritDamage5"
-  | "Strike4"
-  | "CooldownDecrease"
-  | "CritRate5"
-  | "Strike5"
-  | "Focus5"
-  | "FierceSpirit5"
-  | "WhitePureStarEnergy"
-  | "Electrification"
-  | "DefenseDecrease5"
-  | "KeenAttack5"
-  | "TimeOfJudgment"
-  | "Gale5"
-  | "CritRate4"
-  | "AttackSpeed4"
-  | "AttackSpeed5"
-  | "Attack5"
-  | "FierceSpirit4"
-  | "EvasionDecrease4"
-  | "Sharpshooter"
-  | "EvasionDecrease5"
-  | "Attack4"
-  | "EnlightenedWarrior"
-  | "SupremeRuler"
-  | "WeaknessRate5"
-  | "DefenseDecrease4"
-  | "GuardingSpirit"
-  | "SkySplitter"
-  | "PrecisionStrike5"
-  | "Sleepwalking"
-  | "SweetDreams"
-  | "Insight"
-  | "CritRate4"
-  | "WarriorGodMajesty"
-  | "FullMoon"
-  | "CrowVision"
-  | "CrimsonScales"
-  | "PowerOfTheRune"
-  | "CurseOfDestruction"
-  | "PowerOfDestruction"
-  | "RulerOfNightmares"
-  | "BlessedDragonOfMountHua"
-  | "MasterOfTheBlossomingBlade"
-  | "AgileMovement"
-  | "ChainsOfVengeance"
-  | "NightStalker"
-  | "Ambush5"
-  | "SageofDespair"
-  | "AdvancedNanosuit"
-  | "DesertMage"
-  | "MasteroftheHourglass"
-  | "AshenBladeDancer"
-  | "PoweroftheDemon"
-  | "ReductionRateDecrease5"
-  | "BubbleShock"
-  | "MessengeroftheGoddess"
-  | "RescueofDestruction"
-  | "NestrasBlessing"
-  | "LubuIncreaseAccuracy"
-  | "DarkOverstrike"
-  | "ScalesofCompensation"
-  | "ClimaxBoost"
-  | "HarmonysVow"
-  | "CosmicRift"
-  | "CritRateResistDecrease5"
-  | "QueensDignity"
-  | "TempleSaviors"
-  | "PowersofGoodandEvil"
-  | "AbyssalBrand";
+const effectKeys = [
+  "BloodMoon",
+  "YachaStrength",
+  "KeenAttack4",
+  "CritDamage5",
+  "Strike4",
+  "CooldownDecrease",
+  "CritRate5",
+  "Strike5",
+  "Focus5",
+  "FierceSpirit5",
+  "WhitePureStarEnergy",
+  "Electrification",
+  "DefenseDecrease5",
+  "KeenAttack5",
+  "TimeOfJudgment",
+  "Gale5",
+  "CritRate4",
+  "AttackSpeed4",
+  "AttackSpeed5",
+  "Attack5",
+  "FierceSpirit4",
+  "EvasionDecrease4",
+  "Sharpshooter",
+  "EvasionDecrease5",
+  "Attack4",
+  "EnlightenedWarrior",
+  "SupremeRuler",
+  "WeaknessRate5",
+  "DefenseDecrease4",
+  "GuardingSpirit",
+  "SkySplitter",
+  "PrecisionStrike5",
+  "Sleepwalking",
+  "SweetDreams",
+  "Insight",
+  "CritRate4",
+  "WarriorGodMajesty",
+  "FullMoon",
+  "CrowVision",
+  "CrimsonScales",
+  "PowerOfTheRune",
+  "CurseOfDestruction",
+  "PowerOfDestruction",
+  "RulerOfNightmares",
+  "BlessedDragonOfMountHua",
+  "MasterOfTheBlossomingBlade",
+  "AgileMovement",
+  "ChainsOfVengeance",
+  "NightStalker",
+  "Ambush5",
+  "SageofDespair",
+  "AdvancedNanosuit",
+  "DesertMage",
+  "MasteroftheHourglass",
+  "AshenBladeDancer",
+  "PoweroftheDemon",
+  "ReductionRateDecrease5",
+  "BubbleShock",
+  "MessengeroftheGoddess",
+  "RescueofDestruction",
+  "NestrasBlessing",
+  "LubuIncreaseAccuracy",
+  "DarkOverstrike",
+  "ScalesofCompensation",
+  "ClimaxBoost",
+  "HarmonysVow",
+  "CosmicRift",
+  "CritRateResistDecrease5",
+  "QueensDignity",
+  "TempleSaviors",
+  "PowersofGoodandEvil",
+  "AbyssalBrand",
+  "WitchsShadow",
+  "BlessingoftheDarkMoon",
+  "WitchoftheDarkMoon",
+  "PilgrimsoftheDawn",
+  "CastleGuardsConviction",
+  "Celebrity",
+  "RevelationofFate",
+  "Scatter",
+  "WarQuellingSword",
+  "WarriorsSpirit",
+  "SymbolofVictory",
+  "HerooftheEmpire",
+  "ILoveFighting",
+  "TheJoyofBattle",
+] as const;
+
+export type EffectKey = (typeof effectKeys)[number];
 
 export interface EffectStat {
   stat: Stat;
@@ -649,5 +666,126 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Abyssal Brand.webp",
     target: "Enemy",
     stats: [{ stat: stat.ReductionRate, value: 24 }],
+  },
+  WitchsShadow: {
+    key: "WitchsShadow",
+    name: "Witch's Shadow",
+    img: "/effect/Witch's Shadow.webp",
+    target: "Enemy",
+    applyCondition: "NightmareStage",
+    stats: [{ stat: stat.FinalDefense, value: 30 }],
+  },
+  BlessingoftheDarkMoon: {
+    key: "BlessingoftheDarkMoon",
+    name: "Blessing of the DarkMoon",
+    img: "/effect/Blessing of the DarkMoon.webp",
+    target: "Self",
+    applyCondition: "NightmareStage",
+    stats: [
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalAccuracy, value: 60 },
+    ],
+  },
+  WitchoftheDarkMoon: {
+    key: "WitchoftheDarkMoon",
+    name: "Witch of the Dark Moon",
+    img: "/effect/Witch of the Dark Moon.webp",
+    target: "Team",
+    applyCondition: "NightmareStage",
+    stats: [{ stat: stat.FinalDamage, value: 50 }],
+  },
+  PilgrimsoftheDawn: {
+    key: "PilgrimsoftheDawn",
+    name: "Pilgrims of the Dawn",
+    img: "/effect/Pilgrims of the Dawn.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.FinalCritDamage, value: 24 },
+      { stat: stat.FinalWeaknessDamage, value: 24 },
+    ],
+  },
+  CastleGuardsConviction: {
+    key: "CastleGuardsConviction",
+    name: "Castle Guard's Conviction",
+    img: "/effect/Castle Guard's Conviction.webp",
+    target: "Team",
+    stats: [{ stat: stat.CritModifier, value: 30 }],
+  },
+  Celebrity: {
+    key: "Celebrity",
+    name: "Celebrity",
+    img: "/effect/Celebrity.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.WeaknessRate, value: 24 },
+      { stat: stat.BonusDamageRate, value: 24 },
+    ],
+  },
+  RevelationofFate: {
+    key: "RevelationofFate",
+    name: "Revelation of Fate",
+    img: "/effect/Revelation of Fate.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalAccuracy, value: 24 }],
+  },
+  Scatter: {
+    key: "Scatter",
+    name: "Scatter",
+    img: "/effect/Scatter.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.FinalDamage, value: 30 }],
+  },
+  WarQuellingSword: {
+    key: "WarQuellingSword",
+    name: "War-Quelling Sword",
+    img: "/effect/War-Quelling Sword.webp",
+    target: "Self",
+    stats: [{ stat: stat.FinalAttack, value: 30 }],
+  },
+  WarriorsSpirit: {
+    key: "WarriorsSpirit",
+    name: "Warrior's Spirit",
+    img: "/effect/Warrior's Spirit.webp",
+    target: "Enemy",
+    applyCondition: "NightmareStage",
+    stats: [{ stat: stat.FinalDefense, value: 30 }],
+  },
+  SymbolofVictory: {
+    key: "SymbolofVictory",
+    name: "Symbol of Victory",
+    img: "/effect/Symbol of Victory.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalAccuracy, value: 60 },
+    ],
+  },
+  HerooftheEmpire: {
+    key: "HerooftheEmpire",
+    name: "Hero of the Empire",
+    img: "/effect/Hero of the Empire.webp",
+    target: "Team",
+    applyCondition: "NightmareStage",
+    stats: [{ stat: stat.FinalDamage, value: 50 }],
+  },
+  ILoveFighting: {
+    key: "ILoveFighting",
+    name: "I Love Fighting!",
+    img: "/effect/I Love Fighting!.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalDamage2, value: 30 }],
+  },
+  TheJoyofBattle: {
+    key: "TheJoyofBattle",
+    name: "The Joy of Battle",
+    img: "/effect/The Joy of Battle.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.WeaknessRate, value: 24 },
+    ],
   },
 };
