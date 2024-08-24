@@ -713,7 +713,7 @@ export const character: Record<CharacterKey, Character> = {
     attack: {
       BasicAttack: { modifier: 225, speed: 100 },
       CritAttack: { modifier: 300, speed: 74.96 },
-      Skill: { modifier: 300, speed: 50, fixedSpeed: true },
+      Skill: { modifier: 300, speed: 50 },
     },
   },
   Kyrielle: {
