@@ -493,7 +493,7 @@ export const getTeamEffects = (addedCharacters: AddedCharacter[]) => {
       if (effect.isHighLordPower) {
         if (!addedCharacter.power) return;
         const characterTypeRestricted = addedCharacter.power.type;
-        const stats = [...effect.stats, { stat: stat[addedCharacter.power.stat], value: addedCharacter.power.value }];
+        const stats = [{ stat: stat[addedCharacter.power.stat], value: addedCharacter.power.value }];
         effects.push({ ...effect, characterTypeRestricted, stats });
         return;
       }
@@ -520,7 +520,7 @@ const getEffect = (
     if (effect.isHighLordPower) {
       if (!addedCharacter.power) return;
       effect.characterTypeRestricted = addedCharacter.power.type;
-      effect.stats = [...effect.stats, { stat: stat[addedCharacter.power.stat], value: addedCharacter.power.value }];
+      effect.stats = [{ stat: stat[addedCharacter.power.stat], value: addedCharacter.power.value }];
     }
 
     const invalidType = effect.characterTypeRestricted && effect.characterTypeRestricted !== character.type.key;
@@ -561,7 +561,15 @@ const getEffect = (
 
 const getTotalEffectStats = (effects: Effect[]) => {
   const effectStats: EffectStat[] = [];
+
   effects.forEach((effect) => {
+    if (effect.isHighLordPower) {
+      effect.stats.forEach((effectStat) => {
+        effectStats.push({ ...effectStat, target: effect.target });
+      });
+      return;
+    }
+
     effect.stats.forEach((effectStat) => {
       const index = effectStats.findIndex(
         (stat_) => stat_.stat.key === effectStat.stat.key && effect.target === stat_.target,
@@ -574,6 +582,7 @@ const getTotalEffectStats = (effects: Effect[]) => {
       } else effectStats.push({ ...effectStat, target: effect.target });
     });
   });
+
   return effectStats;
 };
 
@@ -614,6 +623,7 @@ const Intitalize = () => {
       const damage = calculateDamage(addedCharacter, globalStat, effectStats, statusAilments);
       return { ...addedCharacter, character: char[addedCharacter.character], effects, effectStats, damage };
     });
+    console.log("-------");
     setCharacters(characters);
   }, [addedCharacters, teamEffects, setCharacters, statusAilments, globalStat, teamComp]);
 
