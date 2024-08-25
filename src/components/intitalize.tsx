@@ -84,9 +84,15 @@ const getModifier = (
 
   const equipmentLevel = addedCharacter.equipmentLevel || 0;
 
+  const statBonusLocked = char[addedCharacter.character].rarity.lockedStatBonus;
+  const equipmentUnlocked = char[addedCharacter.character].rarity.unlockedEquipment;
+
   const modifier = {
     Attack: [globalStat.Attack, globalStat[character.type.typeRestrictStat.Attack]],
-    FinalAttack: [addedCharacter.statBonus * 0.25, equipmentLevel * 0.2],
+    FinalAttack: [
+      (statBonusLocked ? addedCharacter.statBonus : 0) * 0.25,
+      !equipmentUnlocked ? 0 : equipmentLevel * 0.2,
+    ],
     Accuracy: [
       accessory.EarringsOfAccuracy.value[addedCharacter.earringsLevel],
       globalStat.Accuracy,
@@ -97,7 +103,7 @@ const getModifier = (
       charStat.CritRate,
       globalStat.CritRate,
       globalStat[character.type.typeRestrictStat.CritRate],
-      (addedCharacter.star < 4 ? 0 : equipmentLevel) * 0.1,
+      (addedCharacter.star < 4 ? 0 : equipmentLevel) * (!equipmentUnlocked ? 0 : 0.1),
     ],
     CritDamage: [
       accessory.NecklaceOfCriticalHitDamage.value[addedCharacter.necklaceLevel],
@@ -108,9 +114,12 @@ const getModifier = (
     FinalCritDamage: [0],
     WeaknessRate: [globalStat.WeaknessRate, globalStat[character.type.typeRestrictStat.WeaknessRate]],
     FinalWeaknessDamage: [0],
-    BonusDamageRate: [(addedCharacter.star < 6 ? 0 : equipmentLevel) * 0.6, addedCharacter.resonanceLevel ?? 0],
+    BonusDamageRate: [
+      (addedCharacter.star < 6 ? 0 : equipmentLevel) * (!equipmentUnlocked ? 0 : 0.6),
+      addedCharacter.resonanceLevel ?? 0,
+    ],
     FinalBonusDamage: [0],
-    FinalAccuracy: [0],
+    FinalAccuracy: [0, (statBonusLocked ? addedCharacter.statBonus : 0) * 0.25],
     CooldownDecrease: [0],
     FinalDamage: [0],
     FinalDamage2: [0],
