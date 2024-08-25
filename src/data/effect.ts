@@ -91,6 +91,7 @@ const effectKeys = [
   "HerooftheEmpire",
   "ILoveFighting",
   "TheJoyofBattle",
+  "HighLordPower",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -110,6 +111,7 @@ export interface Effect {
   key: EffectKey;
   name: string;
   img: string;
+  isHighLordPower?: boolean;
   stats: EffectStat[];
   target: EffectTarget;
   applyCondition?: StatKey;
@@ -786,5 +788,13 @@ export const effect: Record<EffectKey, Effect> = {
       { stat: stat.CritRate, value: 24 },
       { stat: stat.WeaknessRate, value: 24 },
     ],
+  },
+  HighLordPower: {
+    key: "HighLordPower",
+    name: "High Lord's Power",
+    img: "/effect/High Lord's Power.webp",
+    target: "Team",
+    isHighLordPower: true,
+    stats: [],
   },
 };

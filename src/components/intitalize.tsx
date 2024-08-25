@@ -484,12 +484,15 @@ const calculateDamage = (
 export const getTeamEffects = (addedCharacters: AddedCharacter[]) => {
   const effects: Effect[] = [];
   const activeCharacters = addedCharacters.filter((character) => !!character.active);
+
   activeCharacters.forEach((addedCharacter) => {
     const character = char[addedCharacter.character];
+
     character.effects?.forEach((effect) => {
       if (effect.target !== "Self") effects.push(effect);
     });
   });
+
   return effects;
 };
 
@@ -505,11 +508,17 @@ const getEffect = (
 
   // ADD CHARACTER EFFECT
   character.effects?.forEach((effect) => {
+    if (effect.isHighLordPower) {
+      if (!addedCharacter.power) return;
+      effect.characterTypeRestricted = addedCharacter.power.type;
+      effect.stats = [...effect.stats, { stat: stat[addedCharacter.power.stat], value: addedCharacter.power.value }];
+    }
+
     const invalidType = effect.characterTypeRestricted && effect.characterTypeRestricted !== character.type.key;
     const invalidCondition = effect.applyCondition && !gloabalStat[effect.applyCondition];
     if (invalidType || invalidCondition) return;
-    const teamCondition = effect.stats.some((_stat) => _stat.condition?.stat.startsWith("Team"));
 
+    const teamCondition = effect.stats.some((_stat) => _stat.condition?.stat.startsWith("Team"));
     if (teamCondition) {
       effect.stats.forEach((_stat) => {
         if (_stat.condition?.stat.startsWith("Team")) {
@@ -520,6 +529,7 @@ const getEffect = (
         return stat;
       });
     }
+
     baseEffects.push(effect);
   });
 
@@ -529,8 +539,10 @@ const getEffect = (
       const invalidType = effect.characterTypeRestricted && effect.characterTypeRestricted !== character.type.key;
       const invalidCondition = effect.applyCondition && !gloabalStat[effect.applyCondition];
       if (invalidType || invalidCondition) return;
+
       const index = baseEffects.findIndex((baseEffect) => baseEffect.key === effect.key);
       if (index !== -1) return;
+
       baseEffects.push(effect);
     });
   }
@@ -587,6 +599,7 @@ const Intitalize = () => {
 
     const characters = addedCharacters.map((addedCharacter) => {
       const effects = getEffect(addedCharacter, teamEffects, globalStat, teamComp);
+
       const effectStats = getTotalEffectStats(effects);
 
       const damage = calculateDamage(addedCharacter, globalStat, effectStats, statusAilments);

@@ -2008,7 +2008,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/High Lord Rudy.webp",
     rarity: rarity.HighLord,
     type: characterType.Melee,
-    effects: [effect.PilgrimsoftheDawn, effect.CastleGuardsConviction],
+    effects: [effect.PilgrimsoftheDawn, effect.CastleGuardsConviction, effect.HighLordPower],
     new: true,
     attack: {
       BasicAttack: { modifier: 250, speed: 176.37 },
