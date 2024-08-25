@@ -7,6 +7,9 @@ export interface Rarity {
   characterClass: string;
   maxLevel: number;
   potentialLimit: [number, number, number, number, number, number, number, number, number, number, number];
+  havePower?: boolean;
+  lockedStatBonus?: boolean;
+  unlockedEquipment?: boolean;
   unlockNecklaceStarRequirement: number;
   unlockEarringsStarRequirement: number;
 }
@@ -17,7 +20,10 @@ export const rarity: Record<RarityKey, Rarity> = {
     selectClass: ``,
     characterClass: `bg-gradient-to-r from-highlordfrom  to-highlordto`,
     maxLevel: 1000,
+    havePower: true,
     potentialLimit: [0, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
+    lockedStatBonus: true,
+    unlockedEquipment: true,
     unlockNecklaceStarRequirement: 3,
     unlockEarringsStarRequirement: 0,
   },
@@ -27,6 +33,7 @@ export const rarity: Record<RarityKey, Rarity> = {
     characterClass: `bg-legendary3`,
     maxLevel: 1000,
     potentialLimit: [0, 3, 3, 3, 3, 5, 5, 7, 7, 7, 7],
+    unlockedEquipment: true,
     unlockNecklaceStarRequirement: 3,
     unlockEarringsStarRequirement: 0,
   },

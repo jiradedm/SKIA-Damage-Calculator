@@ -7,5 +7,7 @@
   "empty": "No potential granted.",
   "stat": "Stat",
   "bonus": "Bonus",
-  "equipment": "Equipment"
+  "equipment": "Equipment",
+  "for": " for ",
+  "hero": "{{type}} Heroes"
 }

@@ -13,6 +13,7 @@ import ChooseCharacter from "@/components/chooseCharacter";
 import Equipment from "@/components/Equipment";
 import type { IPotential, Potential } from "@/components/potentialAdder";
 import PotentialAdder from "@/components/potentialAdder";
+import PowerAdder from "@/components/powerAdder";
 import Select from "@/components/select";
 import StarSelector from "@/components/starSelector";
 import StatBonusAdder from "@/components/statBonusAdder";
@@ -22,9 +23,10 @@ import type { Character } from "@/data/character";
 import { characters } from "@/data/character";
 import type { LevelOption } from "@/data/characterStat";
 import { characterLevelOptions } from "@/data/characterStat";
+import { powerValues } from "@/data/power";
 import { rarity } from "@/data/rarity";
 import { stat } from "@/data/stat";
-import type { CalulatedCharacter, CharacterPotential } from "@/store";
+import type { AddedCharacter, CalulatedCharacter, CharacterPotential } from "@/store";
 import { useCharacterStore } from "@/store";
 
 interface CharacterComponentProps {
@@ -106,6 +108,14 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
   const [selectedCharacter, setSelectedCharacter] = useState<Character>(editingCharacter || characters[initCharIndex]);
   const [selectedStar, setSelectedStar] = useState<number>(character === undefined ? initStar : character.star);
   const [selectedLevel, setSelectedLevel] = useState<LevelOption>(editLevel || characterLevelOptions[0]);
+  const [power, setPower] = useState<AddedCharacter["power"]>(
+    character?.power ?? {
+      rarity: "Legendary",
+      stat: "FinalAttack",
+      type: "Defense",
+      value: powerValues.LegendaryFinalAttackDefense[2],
+    },
+  );
   const [potentials, setPotentials] = useState<Potential[]>(initPotentials);
   const [earringsLevel, setEarringsLevel] = useState<number>(character?.earringsLevel || 0);
   const [necklaceLevel, setNecklaceLevel] = useState<number>(character?.necklaceLevel || 0);
@@ -163,6 +173,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       necklaceLevel,
       earringsLevel,
       resonanceLevel,
+      power: selectedCharacter.rarity.havePower ? power : undefined,
       star: selectedStar,
       statBonus: bonus,
       equipmentLevel,
@@ -183,6 +194,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       necklaceLevel,
       earringsLevel,
       resonanceLevel,
+      power: selectedCharacter.rarity.havePower ? power : undefined,
       star: selectedStar,
       statBonus: bonus,
       equipmentLevel,
@@ -210,6 +222,10 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
         className="w-full max-w-[540px] self-center"
       />
       <div />
+      {selectedCharacter.rarity.havePower && (
+        <PowerAdder power={power} setPower={setPower} className="w-full max-w-[540px] self-center" />
+      )}
+      <div />
       <AccessoryLevelSelector
         accessory={accessory.EarringsOfAccuracy}
         disabled={accessoryDisabled.earrings}
@@ -232,9 +248,9 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
         className="w-full max-w-[540px] self-center"
       />
       <div />
-      <StatBonusAdder bonus={bonus} setBonus={setBonus} />
+      {!selectedCharacter.rarity.lockedStatBonus && <StatBonusAdder bonus={bonus} setBonus={setBonus} />}
       <div />
-      {selectedCharacter.rarity.key === "Legendary" && (
+      {selectedCharacter.rarity.unlockedEquipment && (
         <>
           <Equipment
             equipmentLevel={equipmentLevel}

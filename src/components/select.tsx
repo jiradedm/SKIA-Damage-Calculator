@@ -34,7 +34,7 @@ const Select: FC<SelectProps> = ({ options, selected, setSelected, className, na
           <ListBoxButton>{!namespace ? selected.name : t(selected.key)}</ListBoxButton>
           {options.map((option, index) => (
             <Listbox.Option
-              className="w-full cursor-pointer rounded-full border-2 border-[#a47a68] bg-[#455868] p-1 text-white"
+              className="w-full cursor-pointer truncate rounded-full border-2 border-[#a47a68] bg-[#455868] p-1 text-white"
               key={index}
               value={option}
               disabled={false}

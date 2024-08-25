@@ -6,6 +6,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 import { type Character, type CharacterApplyAilment, characterKeys } from "@/data/character";
+import { characterTypeKeys } from "@/data/characterType";
 import type { Effect } from "@/data/effect";
 import { type RarityKey, rarityKeys } from "@/data/rarity";
 import { type Stat, type StatKey, statKeys } from "@/data/stat";
@@ -27,6 +28,14 @@ export const addedCharacterObject = z.object({
   necklaceLevel: z.number(),
   earringsLevel: z.number(),
   resonanceLevel: z.number(),
+  power: z
+    .object({
+      rarity: z.enum(rarityKeys),
+      stat: z.enum(statKeys),
+      type: z.enum(characterTypeKeys),
+      value: z.number(),
+    })
+    .optional(),
   statBonus: z.number(),
   equipmentLevel: z.number(),
   active: z.boolean().optional(),

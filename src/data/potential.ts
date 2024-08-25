@@ -22,4 +22,4 @@ export const potentialValues = {
   NormalAccuracy: [13.33, 12, 10.67],
   NormalCritDamage: [13.33, 12, 10.67],
   NormalCritRate: [1.33, 1.2, 1.07],
-} as Record<`${RarityKey}${StatKey}`, number[]>;
+} as Record<`${RarityKey}${StatKey}`, [number, number, number]>;

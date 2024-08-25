@@ -1,7 +1,9 @@
 import type { StatKey } from "./stat";
 import { stat } from "./stat";
 
-export type CharacterTypeKey = "Defense" | "Melee" | "Ranged" | "Support";
+export const characterTypeKeys = ["Defense", "Melee", "Ranged", "Support"] as const;
+
+export type CharacterTypeKey = (typeof characterTypeKeys)[number];
 
 export interface CharacterType {
   key: CharacterTypeKey;
@@ -47,5 +49,4 @@ export const characterType: Record<CharacterTypeKey, CharacterType> = {
   },
 };
 
-export const characterTypeKeys = Object.keys(characterType) as CharacterTypeKey[];
 export const characterTypes = Object.values(characterType);
