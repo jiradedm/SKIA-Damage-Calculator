@@ -1,7 +1,7 @@
 "use client";
 
 import type { ComponentPropsWithoutRef, FC } from "react";
-import React, { useEffect, useMemo } from "react";
+import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
@@ -50,24 +50,24 @@ const PowerAdder: FC<ComponentPropsWithoutRef<"div"> & PowerAdderProps> = ({
     }));
   }, [tc]);
 
-  useEffect(() => {
-    setPower(
-      (prev) =>
-        prev && {
-          ...prev,
-          value: powerValues[`${power?.rarity}${power?.stat}${power?.type}` as PowerValueKey][0] as number,
-        },
-    );
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [power?.rarity]);
-
   return (
     <div className={twMerge("flex flex-col gap-2 text-sm text-white md:text-base", className)} {...props}>
       {!readonly && (
         <div className="grid w-full grid-cols-[20%_35%_29%_16%] gap-y-1.5 md:grid-cols-[23%_35%_26%_16%]">
           <Select
             selected={{ key: power?.rarity, name: tr(power?.rarity ?? "Legendary") }}
-            setSelected={(rar) => setPower((prev) => prev && { ...prev, rarity: rar.key as RarityKey })}
+            setSelected={(rar) =>
+              setPower((prev) => {
+                if (rar.key === prev?.rarity) return prev;
+                return (
+                  prev && {
+                    ...prev,
+                    rarity: rar.key as RarityKey,
+                    value: powerValues[`${rar.key}${power?.stat}${power?.type}` as PowerValueKey][0],
+                  }
+                );
+              })
+            }
             options={potentialRarities}
             namespace="rarity"
           />

@@ -113,7 +113,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       rarity: "Legendary",
       stat: "FinalAttack",
       type: "Defense",
-      value: powerValues.LegendaryFinalAttackDefense[2],
+      value: powerValues.LegendaryFinalAttackDefense[0],
     },
   );
   const [potentials, setPotentials] = useState<Potential[]>(initPotentials);
