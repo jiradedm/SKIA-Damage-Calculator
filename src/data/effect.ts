@@ -677,10 +677,9 @@ export const effect: Record<EffectKey, Effect> = {
   },
   BlessingoftheDarkMoon: {
     key: "BlessingoftheDarkMoon",
-    name: "Blessing of the DarkMoon",
-    img: "/effect/Blessing of the DarkMoon.webp",
+    name: "Blessing of the Dark Moon",
+    img: "/effect/Blessing of the Dark Moon.webp",
     target: "Self",
-    applyCondition: "NightmareStage",
     stats: [
       { stat: stat.CritRate, value: 24 },
       { stat: stat.FinalAccuracy, value: 60 },
