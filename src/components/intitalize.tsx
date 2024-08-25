@@ -489,7 +489,16 @@ export const getTeamEffects = (addedCharacters: AddedCharacter[]) => {
     const character = char[addedCharacter.character];
 
     character.effects?.forEach((effect) => {
-      if (effect.target !== "Self") effects.push(effect);
+      if (effect.target === "Self") return;
+      if (effect.isHighLordPower) {
+        if (!addedCharacter.power) return;
+        const characterTypeRestricted = addedCharacter.power.type;
+        const stats = [...effect.stats, { stat: stat[addedCharacter.power.stat], value: addedCharacter.power.value }];
+        effects.push({ ...effect, characterTypeRestricted, stats });
+        return;
+      }
+
+      effects.push(effect);
     });
   });
 
@@ -536,7 +545,6 @@ const getEffect = (
   // ADD TEAM EFFECT
   if (addedCharacter.active) {
     teamEffects.forEach((effect) => {
-      if (effect.isHighLordPower && !addedCharacter.power) return;
       const invalidType = effect.characterTypeRestricted && effect.characterTypeRestricted !== character.type.key;
       const invalidCondition = effect.applyCondition && !gloabalStat[effect.applyCondition];
       if (invalidType || invalidCondition) return;
