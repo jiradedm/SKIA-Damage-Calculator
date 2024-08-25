@@ -109,7 +109,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
   const [potentials, setPotentials] = useState<Potential[]>(initPotentials);
   const [earringsLevel, setEarringsLevel] = useState<number>(character?.earringsLevel || 0);
   const [necklaceLevel, setNecklaceLevel] = useState<number>(character?.necklaceLevel || 0);
-  const [resonanceLevel, setResonanceLevel] = useState<number>(character?.necklaceLevel || 0);
+  const [resonanceLevel, setResonanceLevel] = useState<number>(character?.resonanceLevel || 0);
   const [bonus, setBonus] = useState<number>(character?.statBonus || 0);
   const [equipmentLevel, setEquipmentLevel] = useState<number>(character?.equipmentLevel || 0);
 
