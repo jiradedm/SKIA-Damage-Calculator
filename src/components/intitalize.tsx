@@ -536,6 +536,7 @@ const getEffect = (
   // ADD TEAM EFFECT
   if (addedCharacter.active) {
     teamEffects.forEach((effect) => {
+      if (effect.isHighLordPower && !addedCharacter.power) return;
       const invalidType = effect.characterTypeRestricted && effect.characterTypeRestricted !== character.type.key;
       const invalidCondition = effect.applyCondition && !gloabalStat[effect.applyCondition];
       if (invalidType || invalidCondition) return;
