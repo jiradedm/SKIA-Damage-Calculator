@@ -13,11 +13,11 @@ export const accessory: Record<AccessoryKey, Accessory> = {
   EarringsOfAccuracy: {
     key: "EarringsOfAccuracy",
     stat: stat.Accuracy,
-    value: [0, 47, 98, 155, 220, 300],
+    value: [0, 47, 98, 155, 220, 300, 420, 600],
   },
   NecklaceOfCriticalHitDamage: {
     key: "NecklaceOfCriticalHitDamage",
     stat: stat.CritDamage,
-    value: [0, 31.25, 65.5, 103, 146.76, 200],
+    value: [0, 31.25, 65.5, 103, 146.76, 200, 280, 400],
   },
 };

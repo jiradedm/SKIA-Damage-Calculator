@@ -6,10 +6,11 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { v4 } from "uuid";
 
+import AccessoryLevelSelector from "@/components/accessoryLevelSelector";
+import AccessoryResonanceLevelSelector from "@/components/accessoryResonanceLevelSelector";
 import Button from "@/components/button";
 import ChooseCharacter from "@/components/chooseCharacter";
 import Equipment from "@/components/Equipment";
-import AccessoryLevelSelector from "@/components/necklaceSelector";
 import type { IPotential, Potential } from "@/components/potentialAdder";
 import PotentialAdder from "@/components/potentialAdder";
 import Select from "@/components/select";
@@ -108,6 +109,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
   const [potentials, setPotentials] = useState<Potential[]>(initPotentials);
   const [earringsLevel, setEarringsLevel] = useState<number>(character?.earringsLevel || 0);
   const [necklaceLevel, setNecklaceLevel] = useState<number>(character?.necklaceLevel || 0);
+  const [resonanceLevel, setResonanceLevel] = useState<number>(character?.necklaceLevel || 0);
   const [bonus, setBonus] = useState<number>(character?.statBonus || 0);
   const [equipmentLevel, setEquipmentLevel] = useState<number>(character?.equipmentLevel || 0);
 
@@ -160,6 +162,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       ),
       necklaceLevel,
       earringsLevel,
+      resonanceLevel,
       star: selectedStar,
       statBonus: bonus,
       equipmentLevel,
@@ -179,6 +182,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       active: character.active ?? false,
       necklaceLevel,
       earringsLevel,
+      resonanceLevel,
       star: selectedStar,
       statBonus: bonus,
       equipmentLevel,
@@ -209,15 +213,22 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       <AccessoryLevelSelector
         accessory={accessory.EarringsOfAccuracy}
         disabled={accessoryDisabled.earrings}
-        necklaceLevel={earringsLevel}
-        setNecklaceLevel={setEarringsLevel}
+        accessoryLevel={earringsLevel}
+        setAccessoryLevel={setEarringsLevel}
         className="w-full max-w-[540px] self-center"
       />
       <AccessoryLevelSelector
         accessory={accessory.NecklaceOfCriticalHitDamage}
         disabled={accessoryDisabled.necklace}
-        necklaceLevel={necklaceLevel}
-        setNecklaceLevel={setNecklaceLevel}
+        accessoryLevel={necklaceLevel}
+        setAccessoryLevel={setNecklaceLevel}
+        className="w-full max-w-[540px] self-center"
+      />
+      <div />
+      <AccessoryResonanceLevelSelector
+        resonanceLevel={resonanceLevel}
+        setResonanceLevel={setResonanceLevel}
+        limit={Math.min(earringsLevel, necklaceLevel)}
         className="w-full max-w-[540px] self-center"
       />
       <div />

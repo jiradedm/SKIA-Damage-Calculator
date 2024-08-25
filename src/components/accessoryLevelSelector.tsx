@@ -1,11 +1,11 @@
 "use client";
 
 import type { ComponentPropsWithoutRef, Dispatch, FC, SetStateAction } from "react";
-import React from "react";
+import React, { useMemo } from "react";
 import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
-import { type Accessory } from "@/data/accessory";
+import type { Accessory } from "@/data/accessory";
 
 export const MinusIcon = () => {
   return (
@@ -38,35 +38,36 @@ export const IconWrap: FC<ComponentPropsWithoutRef<"div">> = ({ children, classN
 };
 
 const minLevel = 0;
-const maxLevel = 5;
 
 interface AccessoryLevelSelectorProps {
   accessory: Accessory;
   disabled?: boolean;
-  necklaceLevel: number;
-  setNecklaceLevel?: Dispatch<SetStateAction<number>>;
+  accessoryLevel: number;
+  setAccessoryLevel?: Dispatch<SetStateAction<number>>;
 }
 
 const AccessoryLevelSelector: FC<ComponentPropsWithoutRef<"div"> & AccessoryLevelSelectorProps> = ({
   accessory,
   disabled,
   className,
-  necklaceLevel,
-  setNecklaceLevel = () => {},
+  accessoryLevel,
+  setAccessoryLevel = () => {},
   ...props
 }) => {
   const { t } = useTranslation("accessory");
   const { t: ts } = useTranslation("stat");
 
+  const maxLevel = useMemo(() => accessory.value.length - 1, [accessory.value]);
+
   const increaseLevel = () => {
-    setNecklaceLevel((prev) => {
+    setAccessoryLevel((prev) => {
       if (prev >= maxLevel) return prev;
       return prev + 1;
     });
   };
 
   const decreaseLevel = () => {
-    setNecklaceLevel((prev) => {
+    setAccessoryLevel((prev) => {
       if (prev <= minLevel) return prev;
       return prev - 1;
     });
@@ -88,7 +89,7 @@ const AccessoryLevelSelector: FC<ComponentPropsWithoutRef<"div"> & AccessoryLeve
           </IconWrap>
           <div className="flex text-lg font-[500] leading-[26px] text-[#344557]">
             <div>{`Lv. `}</div>
-            <div className="block w-3">{necklaceLevel}</div>
+            <div className="block w-3">{accessoryLevel}</div>
             <div>/{maxLevel}</div>
           </div>
           <IconWrap onClick={increaseLevel}>
@@ -99,7 +100,7 @@ const AccessoryLevelSelector: FC<ComponentPropsWithoutRef<"div"> & AccessoryLeve
       </div>
       <div className="flex justify-between rounded-b bg-[#344557] p-2 text-white">
         <div>{ts(accessory.stat.key)}</div>
-        <div className="text-[#d2fd7d]">+{accessory.value[necklaceLevel]}%</div>
+        <div className="text-[#d2fd7d]">+{accessory.value[accessoryLevel]}%</div>
       </div>
     </div>
   );

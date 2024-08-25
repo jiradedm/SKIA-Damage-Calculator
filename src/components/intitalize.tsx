@@ -108,7 +108,7 @@ const getModifier = (
     FinalCritDamage: [0],
     WeaknessRate: [globalStat.WeaknessRate, globalStat[character.type.typeRestrictStat.WeaknessRate]],
     FinalWeaknessDamage: [0],
-    BonusDamageRate: [(addedCharacter.star < 6 ? 0 : equipmentLevel) * 0.6],
+    BonusDamageRate: [(addedCharacter.star < 6 ? 0 : equipmentLevel) * 0.6, addedCharacter.resonanceLevel ?? 0],
     FinalBonusDamage: [0],
     FinalAccuracy: [0],
     CooldownDecrease: [0],

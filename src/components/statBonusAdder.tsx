@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import { StatItem } from "@/app/global/component";
 import type { StatKey } from "@/data/stat";
 
-import { IconWrap, MinusIcon, PlusIcon } from "./necklaceSelector";
+import { IconWrap, MinusIcon, PlusIcon } from "./accessoryLevelSelector";
 
 const minLevel = 0;
 const maxLevel = 100;
