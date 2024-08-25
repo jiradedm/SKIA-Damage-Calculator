@@ -15,7 +15,6 @@ import { powerStats } from "@/data/stat";
 import type { AddedCharacter } from "@/store";
 
 import Select from "./select";
-import Title from "@/components/title";
 
 interface PowerAdderProps {
   readonly?: boolean;
