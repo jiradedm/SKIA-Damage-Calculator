@@ -623,7 +623,6 @@ const Intitalize = () => {
       const damage = calculateDamage(addedCharacter, globalStat, effectStats, statusAilments);
       return { ...addedCharacter, character: char[addedCharacter.character], effects, effectStats, damage };
     });
-    console.log("-------");
     setCharacters(characters);
   }, [addedCharacters, teamEffects, setCharacters, statusAilments, globalStat, teamComp]);
 
