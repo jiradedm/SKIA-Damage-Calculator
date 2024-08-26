@@ -196,7 +196,7 @@ const getEnemyModifer = (totalEffectStats: EffectStat[], globalStat: GlobalStat)
     FinalDamage: [0],
     FinalEvasion: [0],
     CritResist: [(globalStat.EnemyCritResist || 0) * -1],
-    ReductionRate: [globalStat.EnemyReductionRate],
+    ReductionRate: [(globalStat.EnemyReductionRate || 0) * -1],
   } as Record<StatKey, number[]>;
 
   totalEffectStats.forEach((effectStat) => {
@@ -247,7 +247,8 @@ const getCharacterAttackDamage = (
   const weaknessRate = modifier.WeaknessRate > 1 ? 1 : modifier.WeaknessRate;
   const weaknessModifier = 1 + (modifier.FinalWeaknessDamage - 1) * weaknessRate;
 
-  const enemyReduction = 1 - enemyModifier.ReductionRate * 0.3;
+  const reductionRate = getCritRate(enemyModifier.ReductionRate * -1) * 0.3;
+  const enemyReduction = 1 - reductionRate;
 
   const baseAttack =
     baseAttackValue *
@@ -445,7 +446,7 @@ const calculateDamage = (
         { ...stat.EnemyFinalEvasion, value: enemyEvasionModifier },
         { ...stat.EnemyFinalDefense, value: enemyDefenseModifier },
         { ...stat.EnemyDamageReduction, value: 1 - enemyDamageReductionRate },
-        { ...stat.EnemyReductionRate, value: enemyModifier.ReductionRate },
+        { ...stat.EnemyReductionRate, value: enemyModifier.ReductionRate * -1 },
         { ...stat.EnemyReduction, value: enemyReduction },
         { ...stat.EnemyFinalDamageTaken, value: enemyModifier.FinalDamage },
       ],
