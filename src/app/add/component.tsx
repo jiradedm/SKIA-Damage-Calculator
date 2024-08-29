@@ -149,8 +149,8 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
   }, [selectedCharacter, selectedStar]);
 
   useEffect(() => {
-    if (selectedCharacter.rarity.key !== "Legendary") setEquipmentLevel(0);
-  }, [selectedCharacter.rarity.key]);
+    if (!selectedCharacter.rarity.unlockedEquipment) setEquipmentLevel(0);
+  }, [selectedCharacter.rarity.unlockedEquipment]);
 
   const accessoryDisabled = useMemo(() => {
     const necklaceDisabled = selectedStar < selectedCharacter.rarity.unlockNecklaceStarRequirement;
