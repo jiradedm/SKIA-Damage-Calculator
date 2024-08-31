@@ -37,7 +37,7 @@ export const addedCharacterObject = z.object({
     })
     .optional(),
   statBonus: z.number(),
-  equipmentLevel: z.number(),
+  equipmentLevel: z.number().optional(),
   active: z.boolean().optional(),
 });
 
