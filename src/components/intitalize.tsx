@@ -566,7 +566,7 @@ const getTotalEffectStats = (effects: Effect[]) => {
   effects.forEach((effect) => {
     if (effect.isHighLordPower) {
       effect.stats.forEach((effectStat) => {
-        effectStats.push({ ...effectStat, target: effect.target });
+        effectStats.push({ ...effectStat, target: effect.target, isHighLordPower: true });
       });
       return;
     }
@@ -577,7 +577,8 @@ const getTotalEffectStats = (effects: Effect[]) => {
       );
       if (index !== -1) {
         const exist = effectStats[index];
-        if (exist.value < effectStat.value) {
+        if (exist.isHighLordPower) effectStats.push({ ...effectStat, target: effect.target });
+        else if (exist.value < effectStat.value) {
           effectStats[index] = { ...effectStat, target: effect.target };
         }
       } else effectStats.push({ ...effectStat, target: effect.target });

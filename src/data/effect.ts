@@ -105,6 +105,7 @@ export interface EffectStat {
     maxApply: number;
   };
   target?: EffectTarget;
+  isHighLordPower?: boolean;
 }
 
 export interface Effect {
