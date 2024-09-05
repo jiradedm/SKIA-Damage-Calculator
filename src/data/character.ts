@@ -148,6 +148,7 @@ export const characterKeys = [
   "MagicSocietyElke",
   "Alcyion",
   "Trude",
+  "Dia",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -1210,7 +1211,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [effect.WitchsShadow, effect.BlessingoftheDarkMoon, effect.WitchoftheDarkMoon],
-    updated: true,
     applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 300, speed: 166.67 },
@@ -2009,7 +2009,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.HighLord,
     type: characterType.Melee,
     effects: [effect.PilgrimsoftheDawn, effect.CastleGuardsConviction, effect.HighLordPower],
-    new: true,
     attack: {
       BasicAttack: { modifier: 250, speed: 176.37 },
       CritAttack: { modifier: 250, speed: 176.37 },
@@ -2023,7 +2022,6 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Ranged,
     effects: [effect.Celebrity, effect.RevelationofFate, effect.Scatter],
     applyStatusAilments: [{ status: statusAilment.EnemyDisintegrated, uptime: 1 }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 450, speed: 176.37 },
       CritAttack: { modifier: 450, speed: 176.37 },
@@ -2037,7 +2035,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.WarQuellingSword, effect.WarriorsSpirit, effect.SymbolofVictory, effect.HerooftheEmpire],
-    new: true,
     attack: {
       BasicAttack: { modifier: 375, speed: 166.67 },
       CritAttack: { modifier: 600, speed: 103.41 },
@@ -2050,7 +2047,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.ILoveFighting, effect.TheJoyofBattle],
-    new: true,
     attack: {
       BasicAttack: { modifier: 300, speed: 149.93 },
       CritAttack: { modifier: 300, cutCooldown: 2, speed: 149.93 },
@@ -2061,6 +2057,27 @@ export const character: Record<CharacterKey, Character> = {
           FinalDamage: { value: 30, applyCondition: ["EnemyBleeding", "EnemyBurned", "EnemyDisintegrated"] },
         },
       },
+    },
+  },
+  Dia: {
+    key: "Dia",
+    img: "/character/Dia.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.EnchantingPersona],
+    new: true,
+    applyStatusAilments: [{ status: statusAilment.EnemyPoisoned, uptime: 1 }],
+    attack: {
+      BasicAttack: { modifier: 300, speed: 166.67 },
+      CritAttack: {
+        modifier: 350,
+        speed: 149.93,
+        attackModifier: {
+          FinalDamage: { value: 50, applyCondition: ["EnemyDisintegrated"] },
+        },
+      },
+      Skill: { modifier: 3000, speed: 136.24 },
+      DoT: { modifier: 20, speed: 100 },
     },
   },
 };

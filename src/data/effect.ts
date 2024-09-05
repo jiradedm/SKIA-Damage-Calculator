@@ -92,6 +92,7 @@ const effectKeys = [
   "ILoveFighting",
   "TheJoyofBattle",
   "HighLordPower",
+  "EnchantingPersona",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -797,5 +798,15 @@ export const effect: Record<EffectKey, Effect> = {
     target: "Team",
     isHighLordPower: true,
     stats: [],
+  },
+  EnchantingPersona: {
+    key: "EnchantingPersona",
+    name: "Enchanting Persona",
+    img: "/effect/Enchanting Persona.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 20 },
+      { stat: stat.WeaknessRate, value: 20 },
+    ],
   },
 };
