@@ -90,7 +90,7 @@ const getModifier = (
   const modifier = {
     Attack: [globalStat.Attack, globalStat[character.type.typeRestrictStat.Attack]],
     FinalAttack: [
-      (statBonusLocked ? addedCharacter.statBonus : 0) * 0.25,
+      (!statBonusLocked ? addedCharacter.statBonus : 0) * 0.25,
       !equipmentUnlocked ? 0 : equipmentLevel * 0.2,
     ],
     Accuracy: [
@@ -119,7 +119,7 @@ const getModifier = (
       addedCharacter.resonanceLevel ?? 0,
     ],
     FinalBonusDamage: [0],
-    FinalAccuracy: [0, (statBonusLocked ? addedCharacter.statBonus : 0) * 0.25],
+    FinalAccuracy: [0, (!statBonusLocked ? addedCharacter.statBonus : 0) * 0.25],
     CooldownDecrease: [0],
     FinalDamage: [0],
     FinalDamage2: [0],
