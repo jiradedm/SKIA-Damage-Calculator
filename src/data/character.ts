@@ -149,6 +149,10 @@ export const characterKeys = [
   "Alcyion",
   "Trude",
   "Dia",
+  "MakotoYuki",
+  "YukariTakeba",
+  "MitsuruKirijo",
+  "Aigis",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2065,7 +2069,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [effect.EnchantingPersona],
-    new: true,
     applyStatusAilments: [{ status: statusAilment.EnemyPoisoned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 300, speed: 166.67 },
@@ -2078,6 +2081,58 @@ export const character: Record<CharacterKey, Character> = {
       },
       Skill: { modifier: 3000, speed: 136.24 },
       DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  MakotoYuki: {
+    key: "MakotoYuki",
+    img: "/character/Makoto Yuki.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.Advice, effect.DarknessBoost],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 350, speed: 166.67 },
+      CritAttack: { modifier: 700, speed: 107.07 },
+      Skill: { modifier: 3000, speed: 85.69 },
+    },
+  },
+  YukariTakeba: {
+    key: "YukariTakeba",
+    img: "/character/Yukari Takeba.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Support,
+    effects: [effect.PrecisionStrike5, effect.Mahasukunda],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 500, speed: 119.9 },
+      CritAttack: { modifier: 900, speed: 68.17 },
+      Skill: { modifier: 4000, speed: 76.92 },
+    },
+  },
+  MitsuruKirijo: {
+    key: "MitsuruKirijo",
+    img: "/character/Mitsuru Kirijo.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.KeenAttack5, effect.Rakunda, effect.Attack5],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 500, speed: 119.9 },
+      CritAttack: { modifier: 900, speed: 53.56 },
+      Skill: { modifier: 4000, speed: 66.67 },
+    },
+  },
+  Aigis: {
+    key: "Aigis",
+    img: "/character/Aigis.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.Matarukaja, effect.OrgiaMode],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 450, speed: 119.9 },
+      CritAttack: { modifier: 825, speed: 78.93 },
+      Skill: { modifier: 4000, speed: 90.91 },
     },
   },
 };

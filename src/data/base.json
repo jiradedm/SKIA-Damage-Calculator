@@ -1,0 +1,2227 @@
+{
+  "state": {
+    "addedCharacters": [
+      {
+        "id": "30fd48b4-0580-444d-a37e-85dba9fecb75",
+        "level": 90,
+        "character": "Aigis",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10,
+        "active": true
+      },
+      {
+        "id": "0caa9ce3-f14f-47d3-9883-79bcba195a49",
+        "level": 90,
+        "character": "MitsuruKirijo",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10,
+        "active": true
+      },
+      {
+        "id": "3f6a59e6-8544-4669-b8f2-50baf529f0c4",
+        "level": 90,
+        "character": "YukariTakeba",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10,
+        "active": true
+      },
+      {
+        "id": "a35835ce-0be5-461c-b7e5-2f94c4c95b19",
+        "level": 90,
+        "character": "MakotoYuki",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10,
+        "active": true
+      },
+      {
+        "id": "4848f58d-2813-4cc6-a7a1-714130ee824e",
+        "level": 90,
+        "character": "Dia",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10,
+        "active": true
+      },
+      {
+        "id": "c48caef8-3c64-4e42-9131-0131ba2ae6b0",
+        "level": 90,
+        "character": "HighLordRudy",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": true,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "power": { "rarity": "Legendary", "stat": "FinalAttack", "type": "Defense", "value": 35 },
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "c57d4a43-25c0-41dc-853e-697c334a779e",
+        "level": 90,
+        "character": "Trude",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": true,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "90d442cc-cae7-4998-bd76-5545720a6410",
+        "level": 90,
+        "character": "DokjaKim",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "0c7a44fd-d406-4d4a-9fe3-65262b328a56",
+        "level": 90,
+        "character": "BranzeBransel",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "f225252b-2613-4487-9866-4d6eafc9bebb",
+        "level": 90,
+        "character": "Cheongmyeong",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 50,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "bd0c3929-c2c5-4a47-a12f-548d8213c951",
+        "level": 90,
+        "character": "MagicSocietyElke",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": true,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "a6546f76-d5f1-495f-9169-f59a3906ab5d",
+        "level": 90,
+        "character": "Reginleif",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": true,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "5401e928-4f42-4566-8ff1-d421775930a6",
+        "level": 90,
+        "character": "Platin",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": true,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "27e173d5-79c2-48d8-b310-97f50fe5370f",
+        "level": 90,
+        "character": "Kyle",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": true,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "d53e4021-1073-4492-9e33-8daf0844237d",
+        "level": 90,
+        "character": "ShaneSwimsuit",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": true,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "5ca11c50-870b-42b6-999e-725808f10599",
+        "level": 90,
+        "character": "Teo",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "6641158b-0ab5-4d2b-94b4-9bb29fff167d",
+        "level": 90,
+        "character": "Vanessa",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "8fd3bfb6-d14e-4bb5-9b0f-3aec0a8d0032",
+        "level": 90,
+        "character": "SunWukong",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": true,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "e965b4ee-9d93-4367-b31c-5c11bca6ab16",
+        "level": 90,
+        "character": "Yeonhee",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "b9f5709a-a605-41bc-a438-a417c35c3766",
+        "level": 90,
+        "character": "Karma",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "873f4bb1-a45f-4817-98e9-d5e88c1f637f",
+        "level": 90,
+        "character": "LuBu",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "77bc2033-0254-4087-988e-8ec1a89d81e5",
+        "level": 90,
+        "character": "Taka",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10,
+        "active": false
+      },
+      {
+        "id": "c1239b03-2a11-40fb-bbec-6d821285cbd2",
+        "level": 90,
+        "character": "OiKatzo",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "a7d1908e-1ac0-4bd7-a966-e4299a3ee7ea",
+        "level": 90,
+        "character": "Ace",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": true,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "f9ebcbad-5bae-4372-9680-95e6ea82c233",
+        "level": 90,
+        "character": "Rin",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "ed3ccf9f-2bfc-4905-8e69-e03aab794131",
+        "level": 90,
+        "character": "Clemyth",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "e6d5cb8b-7906-4bb0-923e-f95c636d6938",
+        "level": 90,
+        "character": "BiDam",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "a9d05679-c4cb-4b61-be70-068c1390b9b4",
+        "level": 90,
+        "character": "Velika",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "d6e8d368-74d4-47e6-bba2-04480be957df",
+        "level": 90,
+        "character": "Medea",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "e33a8c14-22df-4c70-ad3b-48b68f802e61",
+        "level": 90,
+        "character": "MAISHIRANUI",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": true,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "6523e133-e4a8-4b8c-a5c1-d5a8fe5a6e5f",
+        "level": 90,
+        "character": "Gabimaru",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 10,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "f8124520-22cc-403a-bd50-4c763a0e8fd3",
+        "level": 90,
+        "character": "YuShin",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "18fb7515-ac33-4c14-99ed-749bedda860e",
+        "level": 90,
+        "character": "Miho",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "a072a42e-39d7-482b-896c-a24b6c08c2f7",
+        "level": 90,
+        "character": "LiBai",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10,
+        "active": false
+      },
+      {
+        "id": "7f5049cb-653f-4883-b5a6-58b36fa09ced",
+        "level": 90,
+        "character": "MaySwimsuit",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "176e7ced-7397-4520-a1a2-738b15d986a1",
+        "level": 90,
+        "character": "Sagiri",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "4549d901-0653-44b6-921d-eef63097ab82",
+        "level": 90,
+        "name": "อาเธอร์ เพนซิลกอน",
+        "character": "ArthurPencilgon",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10,
+        "active": false
+      },
+      {
+        "id": "83b7e6e8-433b-41ab-8f8a-4b0339c10bd9",
+        "level": 90,
+        "name": "Ingrid",
+        "character": "Ingrid",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "cb027ae3-f774-4569-ab03-caebbbd1597d",
+        "level": 90,
+        "character": "Lene",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "211f1f53-10ea-4262-97db-a6594397c281",
+        "level": 90,
+        "character": "Yuzuriha",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "85c61a57-9343-48b3-add5-03aed413625a",
+        "level": 90,
+        "name": "เสี่ยวเฉียว",
+        "character": "XiaoQiao",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "c50cfa44-f2c4-4985-8c50-9515dcaec8d7",
+        "level": 90,
+        "character": "Sunraku",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "active": false,
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "resonanceLevel": 0,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10
+      },
+      {
+        "id": "0e7e24c7-c150-4937-8717-330a81ac182a",
+        "level": 90,
+        "name": "คุซานางิ เคียว",
+        "character": "KYOKUSANAGI",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "1029ba49-6111-424a-8432-c62f488e2d4b",
+        "level": 90,
+        "name": "Biya",
+        "character": "Biya",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "equipmentLevel": 10,
+        "active": false
+      },
+      {
+        "id": "9cdb89d0-46d1-4602-94c8-167de6bb6779",
+        "level": 90,
+        "name": "กีพารัง",
+        "character": "Giparang",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "1466a27d-7b15-44c6-b244-d920b17066ad",
+        "level": 90,
+        "name": "โอม๊ก",
+        "character": "Iris",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "8b6d2018-5c25-4f63-b2ca-fe4abed899a8",
+        "level": 90,
+        "name": "มิราจ",
+        "character": "Mirage",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "03098b25-cde3-4d4b-8826-221ad4357c96",
+        "level": 90,
+        "name": "ขงเบ้ง",
+        "character": "ZhugeLiang",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "0dc8d174-b328-4007-9958-d441aff5c46b",
+        "level": 90,
+        "name": "จูล่ง",
+        "character": "ZhaoYun",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "38c63c27-1a2a-45db-8123-e30c71e9e20a",
+        "level": 90,
+        "name": "ยุนจง",
+        "character": "Yunjong",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "75bb14ac-60d1-457b-b50f-a4c7efbb4bbf",
+        "level": 90,
+        "name": "เสี่ยว",
+        "character": "Xiao",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "c74c7172-b55b-4d49-9a71-c51741334b74",
+        "level": 90,
+        "name": "ไวเซอร์",
+        "character": "Weiser",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "1a01e134-dbbc-4b45-a10e-522d14200a93",
+        "level": 90,
+        "name": "ซิลเวีย",
+        "character": "Sylvia",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "09d31eac-486b-4089-8285-c890a43d787e",
+        "level": 90,
+        "name": "สไปค์",
+        "character": "Spike",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "d5c4f1ff-c834-4a99-a91d-e92e407bdfa9",
+        "level": 90,
+        "name": "สโนลเลด",
+        "character": "Snolled",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "b66d42b8-94bd-44a3-b9a1-3551a157c09c",
+        "level": 90,
+        "name": "ซีซาร์",
+        "character": "Sizar",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "63794079-3bcc-49ad-bcf7-f99ef20cafdb",
+        "level": 90,
+        "name": "เชย์",
+        "character": "Shey",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "015e0a02-d3f4-4484-82ac-fef66b8e6029",
+        "level": 90,
+        "name": "ซีตัน",
+        "character": "Seaton",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "fae2290a-9882-4b7f-98fc-3903be8c5bb6",
+        "level": 90,
+        "name": "ยูซังอา",
+        "character": "SangahYu",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "09aab347-2a08-400f-be92-f207bcb8766f",
+        "level": 90,
+        "name": "ซาเลม",
+        "character": "Salem",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "e8d596de-2a6c-466a-9502-d29721f6d56a",
+        "level": 90,
+        "name": "ไรอัน",
+        "character": "Ryan",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "741fc61e-7f37-4e57-9c08-9491d675e6b7",
+        "level": 90,
+        "name": "ลูดี้",
+        "character": "Rudy",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "3c9b06af-8e54-4683-ab77-fd6ef72e8559",
+        "level": 90,
+        "name": "โรโร",
+        "character": "Roro",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "f9735dbd-c41a-4873-a3db-b2af1275a256",
+        "level": 90,
+        "name": "หลัวชา",
+        "character": "Rakshasa",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "399acbe7-05b1-4796-8a09-7674d092fa9c",
+        "level": 90,
+        "name": "ออร์ลี่",
+        "character": "Orly",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "e93c76c7-a7ac-4955-950f-343cb2666fc5",
+        "level": 90,
+        "name": "ออร์ก้า",
+        "character": "Orkah",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "4dafed4a-c478-4402-8ba2-770d31437c67",
+        "level": 90,
+        "name": "โนอา",
+        "character": "Noa",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "da8abc1c-3a44-428a-84f4-0b4b89301ad6",
+        "level": 90,
+        "name": "นาจา",
+        "character": "Nezha",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "65fecdf8-bd5e-4a35-b5ed-b1850938eb31",
+        "level": 90,
+        "name": "มู่หลัน",
+        "character": "Mulan",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "51da8788-3849-44c3-810b-16c488c29a05",
+        "level": 90,
+        "name": "มิชา",
+        "character": "Misha",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "c56297d7-4cbd-49c0-9082-89d19ac973ab",
+        "level": 90,
+        "name": "เม็ก",
+        "character": "Meg",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "fc271188-93c7-4e61-afe5-ed84969691af",
+        "level": 90,
+        "name": "ลูเครเซีย",
+        "character": "Lucrezia",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "681a1c0f-d130-4265-b0e9-058333a0bdd9",
+        "level": 90,
+        "name": "หลี่จิ้ง",
+        "character": "LeeJung",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "1522ed29-0b30-4d85-ba3d-982f3aa128f0",
+        "level": 90,
+        "name": "ลาเนีย",
+        "character": "Lania",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "c5474ffd-1073-4a5e-a5cb-d9ad461e483c",
+        "level": 90,
+        "name": "คริส",
+        "character": "Kris",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "1fa86b5a-0c0e-4afa-bcf1-1d3b4b671017",
+        "level": 90,
+        "name": "พยัคฆ์เมฆา",
+        "character": "Klahan",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "a121b1e2-75ae-4009-9c20-3682eb730ad4",
+        "level": 90,
+        "name": "คาร์ล เฮรอน",
+        "character": "KarlHeron",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "cba60032-c033-400e-bf00-74f456d4a9e7",
+        "level": 90,
+        "name": "คางุระ",
+        "character": "Kagura",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "2efae72e-ebc1-4a0f-92ee-083759f3805a",
+        "level": 90,
+        "name": "จองฮีวอน",
+        "character": "HuiwonJeong",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "4d931154-b705-4c33-bb69-cb923d7d948e",
+        "level": 90,
+        "name": "โจกอล",
+        "character": "Jogeol",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "cd436b85-8150-4013-873d-25e3d4d82f70",
+        "level": 90,
+        "name": "เจฟ",
+        "character": "Jave",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "c35806bc-c8d8-42d7-bfcf-bea4a5ca805a",
+        "level": 90,
+        "name": "เจค",
+        "character": "Jake",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "b2d09f85-6a8c-4d4e-b232-41147197e6af",
+        "level": 90,
+        "name": "ยูอีซอล",
+        "character": "IseolYu",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "2a041bfd-82bd-4109-8dc3-40cdb3269368",
+        "level": 90,
+        "name": "อิซาเบลลา",
+        "character": "Isabella",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "800fc7c6-c1a4-474e-9520-1288aa792315",
+        "level": 90,
+        "name": "ฮาร์มาล",
+        "character": "Harmal",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "afc112d3-0dda-4daf-a9dd-2f1b68b65f71",
+        "level": 90,
+        "name": "ผู้พิทักษ์ ปูกิ",
+        "character": "GuardianPooki",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "3c7ba315-31b3-40a9-8e79-701c5b6ee71e",
+        "level": 90,
+        "name": "กวนอู",
+        "character": "GuanYu",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "8571ceeb-ba9d-4c81-939f-2ff9aa901ba2",
+        "level": 90,
+        "name": "เฟิงเยี่ยน",
+        "character": "FengYan",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "51905d41-9973-42a2-b42e-a50bf5b1c863",
+        "level": 90,
+        "name": "เตียวเสี้ยน",
+        "character": "Diaochan",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "c458b838-d02f-49df-acc8-005aefb4c0c8",
+        "level": 90,
+        "name": "เดลโลนส์",
+        "character": "Dellons",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "ca195ea3-7814-4a47-8190-b50a0429d913",
+        "level": 90,
+        "name": "ซาฮาระ",
+        "character": "Zahara",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "53c4c8f9-224e-4c7a-94ca-61e64c89c2df",
+        "level": 90,
+        "name": "แบล็คโรส",
+        "character": "BlackRose",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "f55c6842-b8be-4722-8623-b644c6d3e661",
+        "level": 90,
+        "name": "บาโธรี",
+        "character": "Bathory",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "261d7ffa-0a4b-41f6-a4ae-46498173164f",
+        "level": 90,
+        "name": "เบน",
+        "character": "Bane",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "19d2a4a7-1c73-43a4-8747-e2eeb7c4b8cc",
+        "level": 90,
+        "name": "บาลิสต้า",
+        "character": "Ballista",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "2593f276-8798-4592-9d44-563ad6612049",
+        "level": 90,
+        "name": "ไป๋เจียว",
+        "character": "BaiJiao",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "5f22f2e7-9358-4af3-86c2-da918c018a3a",
+        "level": 90,
+        "name": "แพ็กชอน",
+        "character": "Baekcheon",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "3bf586bc-a594-4d89-a86d-0c45f4f25931",
+        "level": 90,
+        "name": "อสุรา",
+        "character": "Asura",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "46bfd75f-c0c5-4460-b03f-449405d6800c",
+        "level": 90,
+        "name": "อาริส",
+        "character": "Aris",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "3bbc24c9-f0b6-4af4-ae76-5fb8b0fae074",
+        "level": 90,
+        "name": "เอมิเลีย",
+        "character": "Amelia",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "84c81343-bc11-4710-9f51-c87b21c44ac8",
+        "level": 90,
+        "name": "อาลิม",
+        "character": "Aleem",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "e3772e3b-7093-4325-9115-1a444c886c28",
+        "level": 90,
+        "name": "เซบาสเตียน",
+        "character": "Sebastian",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "f19cfc1f-413d-49af-9b89-62d51e882e33",
+        "level": 90,
+        "name": "คิริเอล",
+        "character": "Kyrielle",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "a71cac85-043a-4c36-81be-31bbbe376c14",
+        "level": 90,
+        "name": "ยูจุงฮยอก",
+        "character": "JunghyeokYu",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "7eddcc98-5265-43ef-8fed-d0b2fa9bef9c",
+        "level": 90,
+        "name": "โซอี",
+        "character": "Soi",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "4207db13-56da-4da1-ac79-4cc45031a6a9",
+        "level": 90,
+        "name": "Xiang Yu",
+        "character": "XiangYu",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "76f278d9-6672-4a26-8f1f-cf4aeabef13c",
+        "level": 90,
+        "name": "ธารา",
+        "character": "Tara",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "a3be23e3-6713-48e7-baf6-e38ef41d24e7",
+        "level": 90,
+        "name": "ไอลีน",
+        "character": "Eileene",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "ee03b46c-6fe0-4ec0-9fed-7b9b620f9142",
+        "level": 90,
+        "name": "ควอนโฮ",
+        "character": "Kwonho",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      },
+      {
+        "id": "ea8b5334-be67-47a0-a2aa-ec1da8a4cde7",
+        "level": 90,
+        "name": "ราเชล",
+        "character": "Rachel",
+        "potentials": [
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 },
+          { "rarity": "Legendary", "stat": "CritRate", "value": 4 }
+        ],
+        "necklaceLevel": 5,
+        "earringsLevel": 5,
+        "star": 7,
+        "statBonus": 0,
+        "active": false
+      }
+    ]
+  },
+  "version": 0
+}

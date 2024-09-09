@@ -93,6 +93,12 @@ const effectKeys = [
   "TheJoyofBattle",
   "HighLordPower",
   "EnchantingPersona",
+  "Advice",
+  "DarknessBoost",
+  "Mahasukunda",
+  "Rakunda",
+  "Matarukaja",
+  "OrgiaMode",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -807,6 +813,60 @@ export const effect: Record<EffectKey, Effect> = {
     stats: [
       { stat: stat.CritRate, value: 20 },
       { stat: stat.WeaknessRate, value: 20 },
+    ],
+  },
+  Advice: {
+    key: "Advice",
+    name: "Advice",
+    img: "/effect/Attack Speed.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.AttackSpeed, value: 20 },
+      { stat: stat.FinalCritDamage, value: 20 },
+    ],
+  },
+  DarknessBoost: {
+    key: "DarknessBoost",
+    name: "Darkness Boost",
+    img: "/effect/Final Attack.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 25 },
+      { stat: stat.FinalCritDamage, value: 20 },
+    ],
+  },
+  Mahasukunda: {
+    key: "Mahasukunda",
+    name: "Mahasukunda",
+    img: "/effect/Evasion Decrease.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.FinalEvasion, value: 50 }],
+  },
+  Rakunda: {
+    key: "Rakunda",
+    name: "Rakunda",
+    img: "/effect/Defense Decrease.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.FinalDefense, value: 25 }],
+  },
+  Matarukaja: {
+    key: "Matarukaja",
+    name: "Matarukaja",
+    img: "/effect/Weakness Attack Damage.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.FinalAttack, value: 25 },
+      { stat: stat.FinalWeaknessDamage, value: 20 },
+    ],
+  },
+  OrgiaMode: {
+    key: "OrgiaMode",
+    name: "OrgiaMode",
+    img: "/effect/Critical Hit Rate.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 20 },
+      { stat: stat.FinalCritDamage, value: 20 },
     ],
   },
 };
