@@ -99,6 +99,8 @@ const effectKeys = [
   "Rakunda",
   "Matarukaja",
   "OrgiaMode",
+  "MadScientist",
+  "FellMagics",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -867,6 +869,26 @@ export const effect: Record<EffectKey, Effect> = {
     stats: [
       { stat: stat.CritRate, value: 20 },
       { stat: stat.FinalCritDamage, value: 20 },
+    ],
+  },
+  MadScientist: {
+    key: "MadScientist",
+    name: "Mad Scientist",
+    img: "/effect/Mad Scientist.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.BonusDamageRate, value: 24 },
+      { stat: stat.FinalWeaknessDamage, value: 24 },
+    ],
+  },
+  FellMagics: {
+    key: "FellMagics",
+    name: "Fell Magics",
+    img: "/effect/Fell Magics.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalWeaknessDamage, value: 24 },
+      { stat: stat.FinalAttack, value: 15, condition: { value: 15, maxApply: 3, stat: "TeamMeleeUnit" } },
     ],
   },
 };

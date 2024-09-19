@@ -153,6 +153,8 @@ export const characterKeys = [
   "YukariTakeba",
   "MitsuruKirijo",
   "Aigis",
+  "Mercure",
+  "Arang",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2089,7 +2091,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.Advice, effect.DarknessBoost],
-    new: true,
     attack: {
       BasicAttack: { modifier: 350, speed: 166.67 },
       CritAttack: { modifier: 700, speed: 107.07 },
@@ -2102,7 +2103,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Support,
     effects: [effect.PrecisionStrike5, effect.Mahasukunda],
-    new: true,
     attack: {
       BasicAttack: { modifier: 500, speed: 119.9 },
       CritAttack: { modifier: 900, speed: 68.17 },
@@ -2115,7 +2115,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.KeenAttack5, effect.Rakunda, effect.Attack5],
-    new: true,
     attack: {
       BasicAttack: { modifier: 500, speed: 119.9 },
       CritAttack: { modifier: 900, speed: 53.56 },
@@ -2128,11 +2127,36 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [effect.Matarukaja, effect.OrgiaMode],
-    new: true,
     attack: {
       BasicAttack: { modifier: 450, speed: 119.9 },
       CritAttack: { modifier: 825, speed: 78.93 },
       Skill: { modifier: 4000, speed: 90.91 },
+    },
+  },
+  Mercure: {
+    key: "Mercure",
+    img: "/character/Mercure.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.MadScientist, effect.FellMagics],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 375, speed: 176.37 },
+      CritAttack: { modifier: 425, speed: 149.93 },
+      Skill: { modifier: 3000, speed: 119.9 },
+    },
+  },
+  Arang: {
+    key: "Arang",
+    img: "/character/Arang.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Support,
+    effects: [],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 600, speed: 149.93 },
+      CritAttack: { modifier: 825, cutCooldown: 2, speed: 107.07 },
+      Skill: { modifier: 0, speed: 96.71 },
     },
   },
 };
