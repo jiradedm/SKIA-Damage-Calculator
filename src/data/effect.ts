@@ -101,6 +101,9 @@ const effectKeys = [
   "OrgiaMode",
   "MadScientist",
   "FellMagics",
+  "GratefulWanderer",
+  "WanderingHunter",
+  "SpiderQueensCurse",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -889,6 +892,36 @@ export const effect: Record<EffectKey, Effect> = {
     stats: [
       { stat: stat.FinalWeaknessDamage, value: 24 },
       { stat: stat.FinalAttack, value: 15, condition: { value: 15, maxApply: 3, stat: "TeamMeleeUnit" } },
+    ],
+  },
+  GratefulWanderer: {
+    key: "GratefulWanderer",
+    name: "Grateful Wanderer",
+    img: "/effect/Grateful Wanderer.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.AttackSpeed, value: 24 },
+      { stat: stat.WeaknessRate, value: 24 },
+    ],
+  },
+  WanderingHunter: {
+    key: "WanderingHunter",
+    name: "Wandering Hunter",
+    img: "/effect/Wandering Hunter.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.BonusDamageRate, value: 24 },
+    ],
+  },
+  SpiderQueensCurse: {
+    key: "SpiderQueensCurse",
+    name: "Spider Queen's Curse",
+    img: "/effect/Spider Queen's Curse.webp",
+    target: "Enemy",
+    stats: [
+      { stat: stat.ReductionRate, value: 20 },
+      { stat: stat.CritResist, value: 20 },
     ],
   },
 };

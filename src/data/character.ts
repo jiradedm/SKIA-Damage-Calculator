@@ -155,6 +155,8 @@ export const characterKeys = [
   "Aigis",
   "Mercure",
   "Arang",
+  "Colt",
+  "Bael",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2139,7 +2141,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.MadScientist, effect.FellMagics],
-    new: true,
     attack: {
       BasicAttack: { modifier: 375, speed: 176.37 },
       CritAttack: { modifier: 425, speed: 149.93 },
@@ -2152,11 +2153,38 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Support,
     effects: [],
-    new: true,
     attack: {
       BasicAttack: { modifier: 600, speed: 149.93 },
       CritAttack: { modifier: 825, cutCooldown: 2, speed: 107.07 },
       Skill: { modifier: 0, speed: 96.71 },
+    },
+  },
+  Colt: {
+    key: "Colt",
+    img: "/character/Colt.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.GratefulWanderer, effect.WanderingHunter],
+    new: true,
+    applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
+    attack: {
+      BasicAttack: { modifier: 400, speed: 176.37 },
+      CritAttack: { modifier: 400, speed: 176.37 },
+      Skill: { modifier: 3000, speed: 71.43 },
+      DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  Bael: {
+    key: "Bael",
+    img: "/character/Bael.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.SpiderQueensCurse],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 400, speed: 166.67 },
+      CritAttack: { modifier: 350, speed: 149.93 },
+      Skill: { modifier: 3000, speed: 100 },
     },
   },
 };
