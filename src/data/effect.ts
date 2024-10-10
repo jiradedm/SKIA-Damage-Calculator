@@ -104,6 +104,8 @@ const effectKeys = [
   "GratefulWanderer",
   "WanderingHunter",
   "SpiderQueensCurse",
+  "IronWill5",
+  "DamageTakenIncrease5",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -923,5 +925,19 @@ export const effect: Record<EffectKey, Effect> = {
       { stat: stat.ReductionRate, value: 20 },
       { stat: stat.CritResist, value: 20 },
     ],
+  },
+  IronWill5: {
+    key: "IronWill5",
+    name: "Iron Will Lv.5",
+    img: "/effect/Iron Will.webp",
+    target: "Team",
+    stats: [{ stat: stat.BonusDamageRate, value: 20 }],
+  },
+  DamageTakenIncrease5: {
+    key: "DamageTakenIncrease5",
+    name: "Damage Taken Increase Lv.5",
+    img: "/effect/Damage Taken Increase.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.FinalDamage, value: 25 }],
   },
 };

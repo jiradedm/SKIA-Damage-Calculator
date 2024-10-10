@@ -157,6 +157,10 @@ export const characterKeys = [
   "Arang",
   "Colt",
   "Bael",
+  "Laios",
+  "Marcille",
+  "Chilchuck",
+  "Senshi",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2165,7 +2169,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [effect.GratefulWanderer, effect.WanderingHunter],
-    new: true,
     applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 400, speed: 176.37 },
@@ -2180,11 +2183,62 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.SpiderQueensCurse],
-    new: true,
     attack: {
       BasicAttack: { modifier: 400, speed: 166.67 },
       CritAttack: { modifier: 350, speed: 149.93 },
       Skill: { modifier: 3000, speed: 100 },
+    },
+  },
+  Laios: {
+    key: "Laios",
+    img: "/character/Laios.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    new: true,
+    effects: [effect.AttackSpeed5, effect.CritRateResistDecrease5, effect.CritRate5, effect.Gale5],
+    attack: {
+      BasicAttack: { modifier: 650, speed: 149.93 },
+      CritAttack: { modifier: 750, speed: 130.38 },
+      Skill: { modifier: 0, speed: 93.72 },
+    },
+  },
+  Marcille: {
+    key: "Marcille",
+    img: "/character/Marcille.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    new: true,
+    effects: [effect.WeaknessRate5, effect.PrecisionStrike5, effect.IronWill5],
+    attack: {
+      BasicAttack: { modifier: 600, speed: 119.9 },
+      CritAttack: { modifier: 800, speed: 100 },
+      Skill: { modifier: 3000, speed: 103.41 },
+    },
+  },
+  Chilchuck: {
+    key: "Chilchuck",
+    img: "/character/Chilchuck.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    new: true,
+    effects: [effect.Attack5, effect.KeenAttack5, effect.Focus5],
+    applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 1 }],
+    attack: {
+      BasicAttack: { modifier: 550, speed: 142.86 },
+      CritAttack: { modifier: 550, speed: 142.86 },
+    },
+  },
+  Senshi: {
+    key: "Senshi",
+    img: "/character/Senshi.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Defense,
+    new: true,
+    effects: [effect.DamageTakenIncrease5, effect.Strike5],
+    attack: {
+      BasicAttack: { modifier: 800, speed: 119.9 },
+      CritAttack: { modifier: 800, cutCooldown: 2, speed: 119.9 },
+      Skill: { modifier: 0, speed: 74.96 },
     },
   },
 };
