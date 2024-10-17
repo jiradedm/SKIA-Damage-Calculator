@@ -106,6 +106,9 @@ const effectKeys = [
   "SpiderQueensCurse",
   "IronWill5",
   "DamageTakenIncrease5",
+  "CrescentMoonProphet",
+  "Prophecy",
+  "BrilliantLuck",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -939,5 +942,26 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Damage Taken Increase.webp",
     target: "Enemy",
     stats: [{ stat: stat.FinalDamage, value: 25 }],
+  },
+  CrescentMoonProphet: {
+    key: "CrescentMoonProphet",
+    name: "Crescent Moon Prophet",
+    img: "/effect/Crescent Moon Prophet.webp",
+    target: "Self",
+    stats: [{ stat: stat.CritRate, value: 24 }],
+  },
+  Prophecy: {
+    key: "Prophecy",
+    name: "Prophecy",
+    img: "/effect/Prophecy.webp",
+    target: "Team",
+    stats: [{ stat: stat.CritRate, value: 24 }],
+  },
+  BrilliantLuck: {
+    key: "BrilliantLuck",
+    name: "Brilliant Luck",
+    img: "/effect/Brilliant Luck.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.CritResist, value: 24 }],
   },
 };

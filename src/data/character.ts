@@ -161,6 +161,8 @@ export const characterKeys = [
   "Marcille",
   "Chilchuck",
   "Senshi",
+  "Skuld",
+  "Raise",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2194,7 +2196,6 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Laios.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
-    new: true,
     effects: [effect.AttackSpeed5, effect.CritRateResistDecrease5, effect.CritRate5, effect.Gale5],
     attack: {
       BasicAttack: { modifier: 650, speed: 149.93 },
@@ -2207,7 +2208,6 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Marcille.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
-    new: true,
     effects: [effect.WeaknessRate5, effect.PrecisionStrike5, effect.IronWill5],
     attack: {
       BasicAttack: { modifier: 600, speed: 119.9 },
@@ -2220,7 +2220,6 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Chilchuck.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
-    new: true,
     effects: [effect.Attack5, effect.KeenAttack5, effect.Focus5],
     applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 1 }],
     attack: {
@@ -2233,12 +2232,41 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Senshi.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
-    new: true,
     effects: [effect.DamageTakenIncrease5, effect.Strike5],
     attack: {
       BasicAttack: { modifier: 800, speed: 119.9 },
       CritAttack: { modifier: 800, cutCooldown: 2, speed: 119.9 },
       Skill: { modifier: 0, speed: 74.96 },
+    },
+  },
+  Skuld: {
+    key: "Skuld",
+    img: "/character/Skuld.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Support,
+    new: true,
+    effects: [effect.CrescentMoonProphet, effect.Prophecy, effect.BrilliantLuck],
+    attack: {
+      BasicAttack: { modifier: 750, speed: 200 },
+      CritAttack: { modifier: 750, speed: 200 },
+      Skill: { modifier: 0, speed: 119.9 },
+    },
+  },
+  Raise: {
+    key: "Raise",
+    img: "/character/Raise.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    new: true,
+    effects: [effect.ReductionRateDecrease5],
+    attack: {
+      BasicAttack: { modifier: 425, speed: 149.93 },
+      CritAttack: {
+        modifier: 425,
+        speed: 149.93,
+        attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyTypeMelee"] } },
+      },
+      Skill: { modifier: 4000, speed: 130.38 },
     },
   },
 };
