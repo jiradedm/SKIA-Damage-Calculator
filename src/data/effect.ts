@@ -109,6 +109,10 @@ const effectKeys = [
   "CrescentMoonProphet",
   "Prophecy",
   "BrilliantLuck",
+  "CommandersStrength",
+  "CommanderofOpportunity",
+  "EnergeiasFire",
+  "DivineAuthority",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -963,5 +967,41 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Brilliant Luck.webp",
     target: "Enemy",
     stats: [{ stat: stat.CritResist, value: 24 }],
+  },
+  CommandersStrength: {
+    key: "CommandersStrength",
+    name: "Commander's Strength",
+    img: "/effect/Commander's Strength.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.BonusDamageRate, value: 24 },
+    ],
+  },
+  CommanderofOpportunity: {
+    key: "CommanderofOpportunity",
+    name: "Commander of Opportunity",
+    img: "/effect/Commander of Opportunity.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalAccuracy, value: 24 }],
+  },
+  EnergeiasFire: {
+    key: "EnergeiasFire",
+    name: "Energeia's Fire",
+    img: "/effect/Energeia's Fire.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.FinalDefense, value: 50 }],
+  },
+  DivineAuthority: {
+    key: "DivineAuthority",
+    name: "Divine Authority",
+    img: "/effect/Divine Authority.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 25 },
+      { stat: stat.CritRate, value: 20 },
+      { stat: stat.WeaknessRate, value: 20 },
+    ],
   },
 };

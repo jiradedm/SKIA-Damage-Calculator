@@ -163,6 +163,8 @@ export const characterKeys = [
   "Senshi",
   "Skuld",
   "Raise",
+  "Pallanus",
+  "Pascal",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2244,7 +2246,6 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Skuld.webp",
     rarity: rarity.Legendary,
     type: characterType.Support,
-    new: true,
     effects: [effect.CrescentMoonProphet, effect.Prophecy, effect.BrilliantLuck],
     attack: {
       BasicAttack: { modifier: 750, speed: 200 },
@@ -2257,7 +2258,6 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Raise.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
-    new: true,
     effects: [effect.ReductionRateDecrease5],
     attack: {
       BasicAttack: { modifier: 425, speed: 149.93 },
@@ -2267,6 +2267,34 @@ export const character: Record<CharacterKey, Character> = {
         attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyTypeMelee"] } },
       },
       Skill: { modifier: 4000, speed: 130.38 },
+    },
+  },
+  Pallanus: {
+    key: "Pallanus",
+    img: "/character/Pallanus.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    new: true,
+    effects: [effect.CommandersStrength, effect.CommanderofOpportunity, effect.EnergeiasFire],
+    applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
+    attack: {
+      BasicAttack: { modifier: 475, speed: 157.73 },
+      CritAttack: { modifier: 575, speed: 130.38 },
+      Skill: { modifier: 3000, speed: 107.07 },
+      DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  Pascal: {
+    key: "Pascal",
+    img: "/character/Pascal.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    new: true,
+    effects: [effect.DivineAuthority],
+    attack: {
+      BasicAttack: { modifier: 100, speed: 142.86 },
+      CritAttack: { modifier: 100, cutCooldown: 5, speed: 100 },
+      Skill: { modifier: 3000, speed: 100 },
     },
   },
 };
