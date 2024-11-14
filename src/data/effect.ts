@@ -677,8 +677,8 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Temple Saviors.webp",
     target: "Team",
     stats: [
-      { stat: stat.FinalAttack, value: 25 },
-      { stat: stat.FinalCritDamage, value: 20 },
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.FinalCritDamage, value: 24 },
     ],
   },
   PowersofGoodandEvil: {
