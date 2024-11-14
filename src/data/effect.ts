@@ -113,6 +113,10 @@ const effectKeys = [
   "CommanderofOpportunity",
   "EnergeiasFire",
   "DivineAuthority",
+  "DeathbringeroftheAbyss",
+  "AbyssEye",
+  "HeavenlyResolve",
+  "TargetAcquired",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1002,6 +1006,41 @@ export const effect: Record<EffectKey, Effect> = {
       { stat: stat.FinalAttack, value: 25 },
       { stat: stat.CritRate, value: 20 },
       { stat: stat.WeaknessRate, value: 20 },
+    ],
+  },
+  DeathbringeroftheAbyss: {
+    key: "DeathbringeroftheAbyss",
+    name: "Deathbringer of the Abyss",
+    img: "/effect/Deathbringer of the Abyss.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.CritDamage, value: 24 },
+      { stat: stat.FinalWeaknessDamage, value: 24 },
+    ],
+  },
+  AbyssEye: {
+    key: "AbyssEye",
+    name: "Abyss Eye",
+    img: "/effect/Abyss Eye.webp",
+    target: "Team",
+    stats: [{ stat: stat.SkillModifier, value: 50 }],
+  },
+  HeavenlyResolve: {
+    key: "HeavenlyResolve",
+    name: "Heavenly Resolve",
+    img: "/effect/Heavenly Resolve.webp",
+    target: "Self",
+    stats: [{ stat: stat.CritRate, value: 24 }],
+  },
+  TargetAcquired: {
+    key: "TargetAcquired",
+    name: "Target Acquired",
+    img: "/effect/Target Acquired.webp",
+    target: "Enemy",
+    stats: [
+      { stat: stat.FinalEvasion, value: 60 },
+      { stat: stat.FinalDamage, value: 30 },
     ],
   },
 };

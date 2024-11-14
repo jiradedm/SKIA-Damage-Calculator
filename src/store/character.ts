@@ -5,7 +5,12 @@ import { z } from "zod";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-import { type Character, type CharacterApplyAilment, characterKeys } from "@/data/character";
+import {
+  type Character,
+  character as characterData,
+  type CharacterApplyAilment,
+  characterKeys,
+} from "@/data/character";
 import { characterTypeKeys } from "@/data/characterType";
 import type { Effect } from "@/data/effect";
 import { type RarityKey, rarityKeys } from "@/data/rarity";
@@ -135,7 +140,13 @@ export const useCharacterStore = create<CharacterStore>()(
           const { length } = state.addedCharacters.filter((char) => !!char.active);
           const isRemove = !!addedCharacters[index].active;
 
-          if (!isRemove && length >= characterMaxActive) return {};
+          if (!isRemove) {
+            const character = characterData[addedCharacters[index].character];
+
+            const highLorded = state.characters.find((c) => c.active && c.character.rarity.key === "HighLord");
+            if (character.rarity.key === "HighLord" && highLorded) return {};
+            if (length >= characterMaxActive) return {};
+          }
 
           addedCharacters[index] = { ...addedCharacters[index], active: !addedCharacters[index].active };
           return { addedCharacters };

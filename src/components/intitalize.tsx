@@ -111,6 +111,7 @@ const getModifier = (
       globalStat.CritDamage,
     ],
     CritModifier: [0],
+    SkillModifier: [0],
     FinalCritDamage: [0],
     WeaknessRate: [globalStat.WeaknessRate, globalStat[character.type.typeRestrictStat.WeaknessRate]],
     FinalWeaknessDamage: [0],
@@ -157,6 +158,7 @@ const getModifier = (
   const CritRate = character.maxHit ? 1 : modifier.CritRate.reduce(sum, 0) / 100;
   const CritDamage = modifier.CritDamage.reduce(sum, 0) / 100;
   const CritModifier = modifier.CritModifier.reduce(sum, 100) / 100;
+  const SkillModifier = modifier.SkillModifier.reduce(sum, 100) / 100;
   const FinalCritDamage = modifier.FinalCritDamage.reduce(sum, 100) / 100;
   const WeaknessRate = modifier.WeaknessRate.reduce(sum, 0) / 100;
   const weaknessDamageMultiplier = modifier.FinalWeaknessDamage.reduce(sum, 0);
@@ -179,6 +181,7 @@ const getModifier = (
     CritRate,
     CritDamage,
     CritModifier,
+    SkillModifier,
     FinalCritDamage,
     WeaknessRate,
     FinalWeaknessDamage,
@@ -270,7 +273,7 @@ const getCharacterAttackDamage = (
     if (!condition) return undefined;
     if (!statusAilments) return globalStat[condition];
 
-    // TODO: [TEMP FIX] ADD ENEMY TYPE TO FORMATION
+    // TODO: [TEMP] ADD ENEMY TYPE TO FORMATION ?
     if (condition.startsWith("EnemyType")) return globalStat[condition];
 
     const statusAilment = statusAilments.find((alignment) => alignment.status.key === condition);
@@ -333,6 +336,7 @@ const getCharacterAttackDamage = (
     skillCritModifier *
     modifier.CritDamage *
     modifier.FinalCritDamage *
+    modifier.SkillModifier *
     skillFinalDamageModifier *
     weaknessModifier *
     bonusDamageModifier *
