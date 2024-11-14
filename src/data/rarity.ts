@@ -22,7 +22,7 @@ export const rarity: Record<RarityKey, Rarity> = {
     maxLevel: 1000,
     havePower: true,
     potentialLimit: [0, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
-    lockedStatBonus: true,
+    lockedStatBonus: false,
     unlockedEquipment: true,
     unlockNecklaceStarRequirement: 3,
     unlockEarringsStarRequirement: 0,
