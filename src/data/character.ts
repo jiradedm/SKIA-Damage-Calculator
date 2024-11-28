@@ -170,6 +170,8 @@ export const characterKeys = [
   "LeeJoohee",
   "HighLordDellons",
   "Radgrid",
+  "Silvesta",
+  "Eve",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2305,7 +2307,6 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Sung Jinwoo.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
-    new: true,
     effects: [effect.IronWill5, effect.DefenseDecrease5],
     applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
     attack: {
@@ -2320,7 +2321,6 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Cha Hae-in.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
-    new: true,
     effects: [effect.KeenAttack5, effect.EvasionDecrease5, effect.WeaknessRate5],
     applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
     attack: {
@@ -2335,7 +2335,6 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Lee Joohee.webp",
     rarity: rarity.Legendary,
     type: characterType.Support,
-    new: true,
     effects: [effect.FierceSpirit5, effect.PrecisionStrike5],
     attack: {
       BasicAttack: { modifier: 600, speed: 136.24 },
@@ -2348,7 +2347,6 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/High Lord Dellons.webp",
     rarity: rarity.HighLord,
     type: characterType.Ranged,
-    new: true,
     effects: [effect.DeathbringeroftheAbyss, effect.AbyssEye, effect.HighLordPower],
     attack: {
       BasicAttack: { modifier: 100, speed: 200 },
@@ -2361,7 +2359,6 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Radgrid.webp",
     rarity: rarity.Legendary,
     type: characterType.Defense,
-    new: true,
     applyStatusAilments: [{ status: statusAilment.EnemyDisintegrated, uptime: 1 }],
     effects: [effect.HeavenlyResolve, effect.TargetAcquired],
     attack: {
@@ -2369,6 +2366,45 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: { modifier: 900, speed: 200 },
       Skill: { modifier: 3000, speed: 176.37 },
       DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  Silvesta: {
+    key: "Silvesta",
+    img: "/character/Silvesta.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    new: true,
+    effects: [effect.AgonyofCondemnation, effect.KnightsWill],
+    attack: {
+      BasicAttack: { modifier: 500, speed: 166.67 },
+      CritAttack: { modifier: 600, speed: 149.93 },
+      Skill: {
+        modifier: 3200,
+        speed: 149.93,
+        attackModifier: {
+          FinalDamage: { value: 50, applyCondition: ["EnemyTypeSupport"] },
+          CritRate: { value: 100 },
+        },
+      },
+    },
+  },
+  Eve: {
+    key: "Eve",
+    img: "/character/Eve.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    new: true,
+    effects: [effect.HeavenForTwo],
+    attack: {
+      BasicAttack: { modifier: 100, speed: 166.67 },
+      CritAttack: { modifier: 100, cutCooldown: 5, speed: 100 },
+      Skill: {
+        modifier: 2000,
+        speed: 119.9,
+        attackModifier: {
+          FinalDamage: { value: 50, applyCondition: ["EnemyDisintegrated"] },
+        },
+      },
     },
   },
 };

@@ -117,6 +117,9 @@ const effectKeys = [
   "AbyssEye",
   "HeavenlyResolve",
   "TargetAcquired",
+  "AgonyofCondemnation",
+  "KnightsWill",
+  "HeavenForTwo",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1041,6 +1044,39 @@ export const effect: Record<EffectKey, Effect> = {
     stats: [
       { stat: stat.FinalEvasion, value: 60 },
       { stat: stat.FinalDamage, value: 30 },
+    ],
+  },
+  AgonyofCondemnation: {
+    key: "AgonyofCondemnation",
+    name: "Agony of Condemnation",
+    img: "/effect/Agony of Condemnation.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.WeaknessRate, value: 24 },
+      { stat: stat.FinalWeaknessDamage, value: 24 },
+    ],
+  },
+  KnightsWill: {
+    key: "KnightsWill",
+    name: "Knight's Will",
+    img: "/effect/Knight's Will.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.BonusDamageRate, value: 24 },
+      { stat: stat.AttackSpeed, value: 24 },
+    ],
+  },
+  HeavenForTwo: {
+    key: "HeavenForTwo",
+    name: "Heaven For Two",
+    img: "/effect/Heaven For Two.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 20 },
+      { stat: stat.WeaknessRate, value: 20 },
+      { stat: stat.BonusDamageRate, value: 20 },
+      { stat: stat.FinalAccuracy, value: 50 },
     ],
   },
 };
