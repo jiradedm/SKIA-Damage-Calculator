@@ -120,6 +120,12 @@ const effectKeys = [
   "AgonyofCondemnation",
   "KnightsWill",
   "HeavenForTwo",
+  "Accuracy",
+  "BonusDamageRate5",
+  "SilverBlueAria",
+  "AbsoluteSpear",
+  "PromisedBattlefield",
+  "SilverBlueDemon",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -205,7 +211,7 @@ export const effect: Record<EffectKey, Effect> = {
   },
   CritRate5: {
     key: "CritRate5",
-    name: "Critical Hit Rate Increase Lv. 5",
+    name: "Accuracy Increase Lv. 5",
     img: "/effect/Critical Hit Rate.webp",
     target: "Self",
     stats: [{ stat: stat.CritRate, value: 20 }],
@@ -1078,5 +1084,50 @@ export const effect: Record<EffectKey, Effect> = {
       { stat: stat.BonusDamageRate, value: 20 },
       { stat: stat.FinalAccuracy, value: 50 },
     ],
+  },
+  Accuracy: {
+    key: "Accuracy",
+    name: "Accuracy Increase",
+    img: "/effect/Final Accuracy.webp",
+    target: "Self",
+    stats: [{ stat: stat.FinalAccuracy, value: 100 }],
+  },
+  BonusDamageRate5: {
+    key: "BonusDamageRate5",
+    name: "Bonus Damage Rate Increase Lv.5",
+    img: "/effect/Weakness Attack Rate.webp",
+    target: "Team",
+    stats: [{ stat: stat.BonusDamageRate, value: 20 }],
+  },
+  SilverBlueAria: {
+    key: "SilverBlueAria",
+    name: "Silver Blue Aria",
+    img: "/effect/Silver Blue Aria.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalBonusDamage, value: 24 }],
+  },
+  AbsoluteSpear: {
+    key: "AbsoluteSpear",
+    name: "Absolute Spear",
+    img: "/effect/Absolute Spear.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalCritDamage, value: 24 },
+    ],
+  },
+  PromisedBattlefield: {
+    key: "PromisedBattlefield",
+    name: "Promised Battlefield",
+    img: "/effect/Promised Battlefield.webp",
+    target: "Team",
+    stats: [{ stat: stat.AttackSpeed, value: 24 }],
+  },
+  SilverBlueDemon: {
+    key: "SilverBlueDemon",
+    name: "Silver Blue Demon",
+    img: "/effect/Silver Blue Demon.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.ReductionRate, value: 24 }],
   },
 };
