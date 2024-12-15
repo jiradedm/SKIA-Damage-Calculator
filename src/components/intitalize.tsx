@@ -524,12 +524,11 @@ const getEffect = (
   // ADD CHARACTER EFFECT
   character.effects?.forEach((effect) => {
     if (effect.isHighLordPower) {
-      if (addedCharacter.power) {
-        effect.characterTypeRestricted = addedCharacter.power.type;
-        effect.stats = [{ stat: stat[addedCharacter.power.stat], value: addedCharacter.power.value }];
-        highLordEffect = effect;
-        return;
-      }
+      if (!addedCharacter.power) return;
+      const characterTypeRestricted = addedCharacter.power.type;
+      const stats = [{ stat: stat[addedCharacter.power.stat], value: addedCharacter.power.value }];
+      highLordEffect = { ...effect, characterTypeRestricted, stats };
+      return;
     }
 
     const invalidType = effect.characterTypeRestricted && effect.characterTypeRestricted !== character.type.key;
@@ -554,18 +553,14 @@ const getEffect = (
   // ADD TEAM EFFECT
   if (addedCharacter.active) {
     teamEffects.forEach((effect) => {
-      if (effect.isHighLordPower) {
-        if (addedCharacter.power) {
-          effect.characterTypeRestricted = addedCharacter.power.type;
-          effect.stats = [{ stat: stat[addedCharacter.power.stat], value: addedCharacter.power.value }];
-          highLordEffect = effect;
-          return;
-        }
-      }
-
       const invalidType = effect.characterTypeRestricted && effect.characterTypeRestricted !== character.type.key;
       const invalidCondition = effect.applyCondition && !gloabalStat[effect.applyCondition];
       if (invalidType || invalidCondition) return;
+
+      if (effect.isHighLordPower) {
+        highLordEffect = effect;
+        return;
+      }
 
       const index = baseEffects.findIndex((baseEffect) => baseEffect.key === effect.key);
       if (index !== -1) return;
