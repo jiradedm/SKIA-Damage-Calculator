@@ -518,14 +518,18 @@ const getEffect = (
 ) => {
   const character = char[addedCharacter.character];
 
+  let highLordEffect: Effect | undefined;
   const baseEffects: Effect[] = [];
 
   // ADD CHARACTER EFFECT
   character.effects?.forEach((effect) => {
     if (effect.isHighLordPower) {
-      if (!addedCharacter.power) return;
-      effect.characterTypeRestricted = addedCharacter.power.type;
-      effect.stats = [{ stat: stat[addedCharacter.power.stat], value: addedCharacter.power.value }];
+      if (addedCharacter.power) {
+        effect.characterTypeRestricted = addedCharacter.power.type;
+        effect.stats = [{ stat: stat[addedCharacter.power.stat], value: addedCharacter.power.value }];
+        highLordEffect = effect;
+        return;
+      }
     }
 
     const invalidType = effect.characterTypeRestricted && effect.characterTypeRestricted !== character.type.key;
@@ -550,6 +554,15 @@ const getEffect = (
   // ADD TEAM EFFECT
   if (addedCharacter.active) {
     teamEffects.forEach((effect) => {
+      if (effect.isHighLordPower) {
+        if (addedCharacter.power) {
+          effect.characterTypeRestricted = addedCharacter.power.type;
+          effect.stats = [{ stat: stat[addedCharacter.power.stat], value: addedCharacter.power.value }];
+          highLordEffect = effect;
+          return;
+        }
+      }
+
       const invalidType = effect.characterTypeRestricted && effect.characterTypeRestricted !== character.type.key;
       const invalidCondition = effect.applyCondition && !gloabalStat[effect.applyCondition];
       if (invalidType || invalidCondition) return;
@@ -561,28 +574,19 @@ const getEffect = (
     });
   }
 
-  return baseEffects;
+  return { highLordEffect, effects: baseEffects };
 };
 
 const getTotalEffectStats = (effects: Effect[]) => {
   const effectStats: EffectStat[] = [];
-
   effects.forEach((effect) => {
-    if (effect.isHighLordPower) {
-      effect.stats.forEach((effectStat) => {
-        effectStats.push({ ...effectStat, target: effect.target, isHighLordPower: true });
-      });
-      return;
-    }
-
     effect.stats.forEach((effectStat) => {
       const index = effectStats.findIndex(
         (stat_) => stat_.stat.key === effectStat.stat.key && effect.target === stat_.target,
       );
       if (index !== -1) {
         const exist = effectStats[index];
-        if (exist.isHighLordPower) effectStats.push({ ...effectStat, target: effect.target });
-        else if (exist.value < effectStat.value) {
+        if (exist.value < effectStat.value) {
           effectStats[index] = { ...effectStat, target: effect.target };
         }
       } else effectStats.push({ ...effectStat, target: effect.target });
@@ -622,12 +626,27 @@ const Intitalize = () => {
     if (!teamEffects) return;
 
     const characters = addedCharacters.map((addedCharacter) => {
-      const effects = getEffect(addedCharacter, teamEffects, globalStat, teamComp);
+      const { highLordEffect, effects } = getEffect(addedCharacter, teamEffects, globalStat, teamComp);
 
       const effectStats = getTotalEffectStats(effects);
 
+      if (highLordEffect) effectStats.push(...highLordEffect.stats);
+
       const damage = calculateDamage(addedCharacter, globalStat, effectStats, statusAilments);
-      return { ...addedCharacter, character: char[addedCharacter.character], effects, effectStats, damage };
+
+      const getDisplayEffects = (_effects: Effect[]) => {
+        if (!highLordEffect) return _effects;
+        if (_effects.some((effect) => effect.isHighLordPower)) return _effects;
+        return [..._effects, highLordEffect];
+      };
+
+      return {
+        ...addedCharacter,
+        character: char[addedCharacter.character],
+        effects: getDisplayEffects(effects),
+        effectStats,
+        damage,
+      };
     });
     setCharacters(characters);
   }, [addedCharacters, teamEffects, setCharacters, statusAilments, globalStat, teamComp]);
