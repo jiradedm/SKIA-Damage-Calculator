@@ -1155,6 +1155,6 @@ export const effect: Record<EffectKey, Effect> = {
     name: "Hopeless Romantic",
     img: "/effect/Hopeless Romantic.webp",
     target: "Team",
-    stats: [{ stat: stat.FinalDamage, value: 30 }],
+    stats: [{ stat: stat.FinalDamage2, value: 30 }],
   },
 };
