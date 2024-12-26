@@ -2483,18 +2483,12 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/Celine.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
-    effects: [effect.HeartAflutter, effect.RomanceNovel],
+    effects: [effect.HeartAflutter, effect.HopelessRomantic, effect.RomanceNovel],
     applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
     new: true,
     attack: {
       BasicAttack: { modifier: 495, speed: 130.38 },
-      CritAttack: {
-        modifier: 540,
-        speed: 149.93,
-        attackModifier: {
-          FinalDamage: { value: 30 },
-        },
-      },
+      CritAttack: { modifier: 540, speed: 149.93 },
       Skill: { modifier: 3000, speed: 149.93 },
       DoT: { modifier: 20, speed: 100 },
     },

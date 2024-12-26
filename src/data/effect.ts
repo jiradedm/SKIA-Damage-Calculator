@@ -128,6 +128,7 @@ const effectKeys = [
   "SilverBlueDemon",
   "HeartAflutter",
   "RomanceNovel",
+  "HopelessRomantic",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1148,5 +1149,12 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Romance Novel.webp",
     target: "Team",
     stats: [{ stat: stat.CritRate, value: 24 }],
+  },
+  HopelessRomantic: {
+    key: "HopelessRomantic",
+    name: "Hopeless Romantic",
+    img: "/effect/Hopeless Romantic.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalDamage, value: 30 }],
   },
 };
