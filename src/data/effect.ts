@@ -126,6 +126,8 @@ const effectKeys = [
   "AbsoluteSpear",
   "PromisedBattlefield",
   "SilverBlueDemon",
+  "HeartAflutter",
+  "RomanceNovel",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1129,5 +1131,22 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Silver Blue Demon.webp",
     target: "Enemy",
     stats: [{ stat: stat.ReductionRate, value: 24 }],
+  },
+  HeartAflutter: {
+    key: "HeartAflutter",
+    name: "Heart Aflutter",
+    img: "/effect/Heart Aflutter.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalWeaknessDamage, value: 24 },
+    ],
+  },
+  RomanceNovel: {
+    key: "RomanceNovel",
+    name: "Romance Novel",
+    img: "/effect/Romance Novel.webp",
+    target: "Team",
+    stats: [{ stat: stat.CritRate, value: 24 }],
   },
 };

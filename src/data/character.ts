@@ -177,6 +177,7 @@ export const characterKeys = [
   "Shalltear",
   "Randgrid",
   "Jack",
+  "Celine",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2416,7 +2417,6 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [effect.FierceSpirit5, effect.Accuracy, effect.KeenAttack5],
-    new: true,
     attack: {
       BasicAttack: { modifier: 775, speed: 149.93 },
       CritAttack: { modifier: 775, speed: 149.93 },
@@ -2430,7 +2430,6 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     applyStatusAilments: [{ status: statusAilment.EnemyPoisoned, uptime: 1 }],
     effects: [effect.Focus5, effect.Strike5, effect.BonusDamageRate5],
-    new: true,
     attack: {
       BasicAttack: { modifier: 700, speed: 142.86 },
       CritAttack: { modifier: 700, speed: 149.93 },
@@ -2445,7 +2444,6 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Ranged,
     applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
     effects: [effect.Gale5, effect.DefenseDecrease5, effect.WeaknessRate5],
-    new: true,
     attack: {
       BasicAttack: { modifier: 675, speed: 149.93 },
       CritAttack: { modifier: 675, speed: 149.93 },
@@ -2460,7 +2458,6 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     applyStatusAilments: [{ status: statusAilment.EnemyPoisoned, uptime: 1 }],
     effects: [effect.SilverBlueAria, effect.AbsoluteSpear, effect.PromisedBattlefield, effect.SilverBlueDemon],
-    new: true,
     attack: {
       BasicAttack: { modifier: 750, speed: 166.67 },
       CritAttack: { modifier: 900, speed: 149.93 },
@@ -2475,11 +2472,31 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Melee,
     effects: [],
     applyStatusAilments: [{ status: statusAilment.EnemySilenced, uptime: 1 }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 625, speed: 176.37 },
       CritAttack: { modifier: 750, speed: 149.93 },
       Skill: { modifier: 3000, speed: 100 },
+    },
+  },
+  Celine: {
+    key: "Celine",
+    img: "/character/Celine.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.HeartAflutter, effect.RomanceNovel],
+    applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 495, speed: 130.38 },
+      CritAttack: {
+        modifier: 540,
+        speed: 149.93,
+        attackModifier: {
+          FinalDamage: { value: 30 },
+        },
+      },
+      Skill: { modifier: 3000, speed: 149.93 },
+      DoT: { modifier: 20, speed: 100 },
     },
   },
 };
