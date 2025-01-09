@@ -129,6 +129,12 @@ const effectKeys = [
   "HeartAflutter",
   "RomanceNovel",
   "HopelessRomantic",
+  "RadiantStorm",
+  "MagnificentDomination",
+  "MistofDestruction",
+  "AwakenedBeast",
+  "Homunculus",
+  "Rampage",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1156,5 +1162,57 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Hopeless Romantic.webp",
     target: "Team",
     stats: [{ stat: stat.FinalDamage2, value: 30 }],
+  },
+  RadiantStorm: {
+    key: "RadiantStorm",
+    name: "Radiant Storm",
+    img: "/effect/Radiant Storm.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.FinalCritDamage, value: 24 },
+      { stat: stat.FinalWeaknessDamage, value: 24 },
+    ],
+  },
+  MagnificentDomination: {
+    key: "MagnificentDomination",
+    name: "Magnificent Domination",
+    img: "/effect/Magnificent Domination.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.CritModifier, value: 20 },
+      { stat: stat.SkillModifier, value: 20 },
+    ],
+  },
+  MistofDestruction: {
+    key: "MistofDestruction",
+    name: "Mist of Destruction",
+    img: "/effect/Mist of Destruction.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.CritRate, value: 24 },
+    ],
+  },
+  AwakenedBeast: {
+    key: "AwakenedBeast",
+    name: "Awakened Beast",
+    img: "/effect/Awakened Beast.webp",
+    target: "Team",
+    stats: [{ stat: stat.WeaknessRate, value: 24 }],
+  },
+  Homunculus: {
+    key: "Homunculus",
+    name: "Homunculus",
+    img: "/effect/Homunculus.webp",
+    target: "Self",
+    stats: [{ stat: stat.BonusDamageRate, value: 24 }],
+  },
+  Rampage: {
+    key: "Rampage",
+    name: "Rampage",
+    img: "/effect/Rampage.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalCritDamage, value: 24 }],
   },
 };

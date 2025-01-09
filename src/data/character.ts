@@ -178,6 +178,8 @@ export const characterKeys = [
   "Randgrid",
   "Jack",
   "Celine",
+  "HighLordFreyja",
+  "Mist",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2485,12 +2487,38 @@ export const character: Record<CharacterKey, Character> = {
     type: characterType.Ranged,
     effects: [effect.HeartAflutter, effect.HopelessRomantic, effect.RomanceNovel],
     applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 495, speed: 130.38 },
       CritAttack: { modifier: 540, speed: 149.93 },
       Skill: { modifier: 3000, speed: 149.93 },
       DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  HighLordFreyja: {
+    key: "HighLordFreyja",
+    img: "/character/High Lord Freyja.webp",
+    rarity: rarity.HighLord,
+    type: characterType.Ranged,
+    effects: [effect.RadiantStorm, effect.MagnificentDomination, effect.HighLordPower],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 100, speed: 157.73 },
+      CritAttack: { modifier: 250, speed: 200 },
+      Skill: { modifier: 2000, speed: 100 },
+    },
+  },
+  Mist: {
+    key: "Mist",
+    img: "/character/Mist.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.MistofDestruction, effect.AwakenedBeast, effect.Homunculus, effect.Rampage],
+    applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 1 }],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 600, speed: 157.73 },
+      CritAttack: { modifier: 500, speed: 200 },
+      Skill: { modifier: 3000, speed: 149.93 },
     },
   },
 };
