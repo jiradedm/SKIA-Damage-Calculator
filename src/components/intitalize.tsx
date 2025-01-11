@@ -524,7 +524,7 @@ const getEffect = (
   // ADD CHARACTER EFFECT
   character.effects?.forEach((effect) => {
     if (effect.isHighLordPower) {
-      if (!addedCharacter.power) return;
+      if (!addedCharacter.power || teamEffects.length !== 0) return;
       const characterTypeRestricted = addedCharacter.power.type;
       const stats = [{ stat: stat[addedCharacter.power.stat], value: addedCharacter.power.value }];
       highLordEffect = { ...effect, characterTypeRestricted, stats };
