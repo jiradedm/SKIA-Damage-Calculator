@@ -146,11 +146,12 @@ export type EffectKey = (typeof effectKeys)[number];
 export interface EffectStat {
   stat: Stat;
   value: number;
+  conditionType?: "Team" | "Enemy";
   condition?: {
     value: number;
     stat: StatKey;
     maxApply?: number;
-  };
+  }[];
   target?: EffectTarget;
   isHighLordPower?: boolean;
 }
@@ -669,7 +670,12 @@ export const effect: Record<EffectKey, Effect> = {
     target: "Self",
     stats: [
       { stat: stat.CritRate, value: 24 },
-      { stat: stat.FinalAttack, value: 15, condition: { value: 15, maxApply: 3, stat: "TeamRangedUnit" } },
+      {
+        stat: stat.FinalAttack,
+        value: 15,
+        conditionType: "Team",
+        condition: [{ value: 15, maxApply: 3, stat: "TeamRangedUnit" }],
+      },
     ],
   },
   CosmicRift: {
@@ -708,7 +714,14 @@ export const effect: Record<EffectKey, Effect> = {
     name: "Powers of Good and Evil",
     img: "/effect/Powers of Good and Evil.webp",
     target: "Self",
-    stats: [{ stat: stat.FinalAttack, value: 15, condition: { value: 15, maxApply: 3, stat: "TeamMeleeUnit" } }],
+    stats: [
+      {
+        stat: stat.FinalAttack,
+        value: 15,
+        conditionType: "Team",
+        condition: [{ value: 15, maxApply: 3, stat: "TeamMeleeUnit" }],
+      },
+    ],
   },
   AbyssalBrand: {
     key: "AbyssalBrand",
@@ -926,7 +939,12 @@ export const effect: Record<EffectKey, Effect> = {
     target: "Self",
     stats: [
       { stat: stat.FinalWeaknessDamage, value: 24 },
-      { stat: stat.FinalAttack, value: 15, condition: { value: 15, maxApply: 3, stat: "TeamMeleeUnit" } },
+      {
+        stat: stat.FinalAttack,
+        value: 15,
+        conditionType: "Team",
+        condition: [{ value: 15, maxApply: 3, stat: "TeamMeleeUnit" }],
+      },
     ],
   },
   GratefulWanderer: {
@@ -1225,8 +1243,15 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Snowstorm.webp",
     target: "Self",
     stats: [
-      { stat: stat.FinalDamage, value: 30, condition: { value: 30, stat: "EnemyFrostbitten" } },
-      { stat: stat.FinalDamage, value: 50, condition: { value: 50, stat: "EnemyChilled" } },
+      {
+        stat: stat.FinalDamage,
+        value: 0,
+        conditionType: "Enemy",
+        condition: [
+          { value: 30, stat: "EnemyFrostbitten" },
+          { value: 50, stat: "EnemyChilled" },
+        ],
+      },
     ],
   },
   ElfsBlessing: {

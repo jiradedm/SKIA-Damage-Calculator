@@ -92,8 +92,8 @@ interface CharacterStore {
   teamEffects?: Effect[];
   setTeamEffects: (teamEffects: Effect[]) => void;
   // status
-  statusAilments?: CharacterApplyAilment[];
-  setStatusAilments: (statusAilments: CharacterApplyAilment[] | undefined) => void;
+  statusAliments?: CharacterApplyAilment[];
+  setStatusAliments: (statusAilments: CharacterApplyAilment[] | undefined) => void;
 }
 
 export const useCharacterStore = create<CharacterStore>()(
@@ -171,9 +171,9 @@ export const useCharacterStore = create<CharacterStore>()(
         });
       },
       // status
-      statusAilments: undefined,
-      setStatusAilments: (statusAilments) => {
-        set(() => ({ statusAilments }));
+      statusAliments: undefined,
+      setStatusAliments: (statusAliments) => {
+        set(() => ({ statusAliments }));
       },
     }),
     {

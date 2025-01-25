@@ -18,7 +18,7 @@ export default function HomePage() {
 
   const { sort } = useGeneralStore();
 
-  const { characters, addedCharacters, moveCharacter, setTeamEffects, setStatusAilments, setTeamComp } =
+  const { characters, addedCharacters, moveCharacter, setTeamEffects, setStatusAliments: setStatusAilments, setTeamComp } =
     useCharacterStore();
 
   const sortedCharacters = useMemo(() => {

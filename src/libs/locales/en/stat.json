@@ -61,6 +61,7 @@
   "EnemyFinalDefense": "Enemy Final Defense",
   "EnemyDamageReduction": "Enemy Reduced Damage Taken (Defense)",
   "EnemyFinalDamageTaken": "Enemy Final Damage Taken",
+  "EnemyFinalDamageTaken2": "Enemy Final Damage Taken 2",
   "BasicAttackDamage": "Basic Attack Damage",
   "CriticalHitAttackDamage": "Critical Hit Attack Damage",
   "AverageAttackDamage": "Average Attack Damage",

@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 
 import { accessory } from "@/data/accessory";
-import type { Attack, Character, CharacterApplyAilment } from "@/data/character";
+import type { Attack, Character, CharacterApplyAilment as CharacterApplyAliment } from "@/data/character";
 import { character as char } from "@/data/character";
 import type { CharacterLevelKey } from "@/data/characterStat";
 import { characterStat } from "@/data/characterStat";
@@ -193,10 +193,15 @@ const getModifier = (
   } as StatKeyWithValue;
 };
 
-const getEnemyModifer = (totalEffectStats: EffectStat[], globalStat: GlobalStat): StatKeyWithValue => {
+const getEnemyModifer = (
+  totalEffectStats: EffectStat[],
+  globalStat: GlobalStat,
+  appliedAilments?: CharacterApplyAliment[],
+): StatKeyWithValue => {
   const enemyModifier = {
     FinalDefense: [0],
     FinalDamage: [0],
+    FinalDamage2: [0],
     FinalEvasion: [0],
     CritResist: [(globalStat.EnemyCritResist || 0) * -1],
     ReductionRate: [(globalStat.EnemyReductionRate || 0) * -1],
@@ -207,13 +212,20 @@ const getEnemyModifer = (totalEffectStats: EffectStat[], globalStat: GlobalStat)
     enemyModifier[effectStat.stat.key].push(effectStat.value);
   });
 
+  appliedAilments?.forEach((appliedAilment) => {
+    if (!appliedAilment.status.effect) return;
+    const modifier = appliedAilment.uptime > 1 ? 1 : appliedAilment.uptime;
+    enemyModifier[appliedAilment.status.effect.stat].push(appliedAilment.status.effect.value * modifier);
+  });
+
   const FinalDefense = enemyModifier.FinalDefense.reduce(minus, 100) / 100;
   const FinalEvasion = enemyModifier.FinalEvasion.reduce(minus, 100) / 100;
   const FinalDamage = enemyModifier.FinalDamage.reduce(sum, 100) / 100;
+  const FinalDamage2 = enemyModifier.FinalDamage2.reduce(sum, 100) / 100;
   const CritResist = enemyModifier.CritResist.reduce(sum, 0) / 100;
   const ReductionRate = enemyModifier.ReductionRate.reduce(sum, 0) / 100;
 
-  return { FinalDefense, FinalEvasion, FinalDamage, CritResist, ReductionRate } as StatKeyWithValue;
+  return { FinalDefense, FinalEvasion, FinalDamage, FinalDamage2, CritResist, ReductionRate } as StatKeyWithValue;
 };
 
 const getCharacterAttackDamage = (
@@ -222,7 +234,7 @@ const getCharacterAttackDamage = (
   globalStat: GlobalStat,
   modifier: StatKeyWithValue,
   enemyModifier: StatKeyWithValue,
-  statusAilments?: CharacterApplyAilment[],
+  statusAilments?: CharacterApplyAliment[],
 ) => {
   const charStat =
     characterStat[`${character.rarity.key}${character.type.key}${String(addedCharacter.level) as CharacterLevelKey}`];
@@ -258,6 +270,7 @@ const getCharacterAttackDamage = (
     enemyDamageReduction *
     enemyReduction *
     enemyModifier.FinalDamage *
+    enemyModifier.FinalDamage2 *
     modifier.FinalDamage *
     modifier.FinalDamage2;
 
@@ -375,12 +388,12 @@ const calculateDamage = (
   addedCharacter: AddedCharacter,
   globalStat: GlobalStat,
   totalEffectStats: EffectStat[],
-  statusAilments?: CharacterApplyAilment[],
+  statusAilments?: CharacterApplyAliment[],
 ) => {
   const character = char[addedCharacter.character];
 
   const modifier = getModifier(addedCharacter, globalStat, totalEffectStats);
-  const enemyModifier = getEnemyModifer(totalEffectStats, globalStat);
+  const enemyModifier = getEnemyModifer(totalEffectStats, globalStat, statusAilments);
 
   // TODO REMOVE DUPS
   const getCritRate = (rate: number): number => {
@@ -453,6 +466,7 @@ const calculateDamage = (
         { ...stat.EnemyReductionRate, value: enemyModifier.ReductionRate * -1 },
         { ...stat.EnemyReduction, value: enemyReduction },
         { ...stat.EnemyFinalDamageTaken, value: enemyModifier.FinalDamage },
+        { ...stat.EnemyFinalDamageTaken2, value: enemyModifier.FinalDamage2 },
       ],
     },
     {
@@ -515,6 +529,7 @@ const getEffect = (
   teamEffects: Effect[],
   gloabalStat: GlobalStat,
   teamComp: TeamCompType,
+  statusAliments?: CharacterApplyAliment[],
 ) => {
   const character = char[addedCharacter.character];
 
@@ -535,17 +550,39 @@ const getEffect = (
     const invalidCondition = effect.applyCondition && !gloabalStat[effect.applyCondition];
     if (invalidType || invalidCondition) return;
 
-    const teamCondition = effect.stats.some((_stat) => _stat.condition?.stat.startsWith("Team"));
-    if (teamCondition) {
-      effect.stats.forEach((_stat) => {
-        if (_stat.condition?.stat.startsWith("Team")) {
-          const amount = teamComp[_stat.condition.stat];
-          const maxApply = _stat.condition.maxApply ?? 1;
-          _stat.value = _stat.condition.value * (amount > maxApply ? maxApply : amount);
-        }
-        return stat;
-      });
-    }
+    effect.stats.forEach((_stat) => {
+      if (_stat.conditionType === "Team") {
+        let conditionedValue = 0;
+
+        _stat.condition?.forEach((condition) => {
+          const amount = teamComp[condition.stat];
+          const maxApply = condition.maxApply ?? 1;
+          const value = condition.value * (amount > maxApply ? maxApply : amount);
+          conditionedValue += value;
+        });
+
+        _stat.value = conditionedValue;
+        return _stat;
+      }
+      if (_stat.conditionType === "Enemy") {
+        let conditionedValue = 0;
+
+        _stat.condition?.forEach((condition) => {
+          const appliedAlignment = statusAliments?.find((statusAilment) => condition.stat === statusAilment.status.key);
+
+          if (appliedAlignment) {
+            const amount = appliedAlignment.uptime;
+            const maxApply = condition.maxApply ?? 1;
+            const value = condition.value * (amount > maxApply ? maxApply : amount);
+            conditionedValue += value;
+          }
+        });
+
+        _stat.value = conditionedValue;
+        return _stat;
+      }
+      return stat;
+    });
 
     baseEffects.push(effect);
   });
@@ -592,7 +629,7 @@ const getTotalEffectStats = (effects: Effect[]) => {
 };
 
 export const getStatusAilments = (addedCharacters: AddedCharacter[]) => {
-  const statusAilmentArray: CharacterApplyAilment[] = [];
+  const statusAilmentArray: CharacterApplyAliment[] = [];
   addedCharacters.forEach((addedCharacter) => {
     if (!addedCharacter.active) return;
 
@@ -614,14 +651,14 @@ export const getStatusAilments = (addedCharacters: AddedCharacter[]) => {
 
 // TODO: CHANGE CALCULATE TO COMPONENT LEVEL
 const Intitalize = () => {
-  const { teamEffects, addedCharacters, setCharacters, statusAilments, teamComp } = useCharacterStore();
+  const { teamEffects, addedCharacters, setCharacters, statusAliments: statusAilments, teamComp } = useCharacterStore();
   const { globalStat } = useStatStore();
 
   useEffect(() => {
     if (!teamEffects) return;
 
     const characters = addedCharacters.map((addedCharacter) => {
-      const { highLordEffect, effects } = getEffect(addedCharacter, teamEffects, globalStat, teamComp);
+      const { highLordEffect, effects } = getEffect(addedCharacter, teamEffects, globalStat, teamComp, statusAilments);
 
       const effectStats = getTotalEffectStats(effects);
 

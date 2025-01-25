@@ -136,8 +136,14 @@ export default function TeamPage() {
   const { t } = useTranslation("page/team");
   const { t: tc } = useTranslation("page/character");
 
-  const { characters, addedCharacters, setTeamEffects, statusAilments, setStatusAilments, setTeamComp } =
-    useCharacterStore();
+  const {
+    characters,
+    addedCharacters,
+    setTeamEffects,
+    statusAliments: statusAilments,
+    setStatusAliments: setStatusAilments,
+    setTeamComp,
+  } = useCharacterStore();
 
   const { sort } = useGeneralStore();
 
