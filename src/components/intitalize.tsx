@@ -540,7 +540,7 @@ const getEffect = (
       effect.stats.forEach((_stat) => {
         if (_stat.condition?.stat.startsWith("Team")) {
           const amount = teamComp[_stat.condition.stat];
-          const { maxApply } = _stat.condition;
+          const maxApply = _stat.condition.maxApply ?? 1;
           _stat.value = _stat.condition.value * (amount > maxApply ? maxApply : amount);
         }
         return stat;

@@ -4,6 +4,10 @@ export interface StatusAilment {
   key: StatKey;
   img: string;
   name: string;
+  effect?: {
+    value: number;
+    stat: StatKey;
+  };
 }
 
 export const statusAilment = {
@@ -46,5 +50,11 @@ export const statusAilment = {
     key: "EnemyDisintegrated",
     img: "/status/EnemyDisintegrated.webp",
     name: "Disintegrated",
+  },
+  EnemyChilled: {
+    key: "EnemyChilled",
+    img: "/status/EnemyChilled.webp",
+    name: "Chilled",
+    effect: { stat: "FinalDamage2", value: 50 },
   },
 } as Record<StatKey, StatusAilment>;

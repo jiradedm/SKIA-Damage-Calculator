@@ -135,6 +135,10 @@ const effectKeys = [
   "AwakenedBeast",
   "Homunculus",
   "Rampage",
+  "Snowstorm",
+  "ElfsBlessing",
+  "Heartless",
+  "VariableControl",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -145,7 +149,7 @@ export interface EffectStat {
   condition?: {
     value: number;
     stat: StatKey;
-    maxApply: number;
+    maxApply?: number;
   };
   target?: EffectTarget;
   isHighLordPower?: boolean;
@@ -1214,5 +1218,36 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Rampage.webp",
     target: "Team",
     stats: [{ stat: stat.FinalCritDamage, value: 24 }],
+  },
+  Snowstorm: {
+    key: "Snowstorm",
+    name: "Snowstorm",
+    img: "/effect/Snowstorm.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalDamage, value: 30, condition: { value: 30, stat: "EnemyFrostbitten" } },
+      { stat: stat.FinalDamage, value: 50, condition: { value: 50, stat: "EnemyChilled" } },
+    ],
+  },
+  ElfsBlessing: {
+    key: "ElfsBlessing",
+    name: "Elf's Blessing",
+    img: "/effect/Elf's Blessing.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalAttack, value: 30 }],
+  },
+  Heartless: {
+    key: "Heartless",
+    name: "Heartless",
+    img: "/effect/Heartless.webp",
+    target: "Self",
+    stats: [{ stat: stat.FinalCritDamage, value: 24 }],
+  },
+  VariableControl: {
+    key: "VariableControl",
+    name: "Variable Control",
+    img: "/effect/Variable Control.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.CritResist, value: 24 }],
   },
 };

@@ -53,6 +53,7 @@ export const statKeys = [
   "EnemySilenced",
   "EnemyStunned",
   "EnemyDisintegrated",
+  "EnemyChilled",
   "NightmareStage",
   "NightmareLevel",
   "FoodBuff",
@@ -167,6 +168,7 @@ export const stat: StatData = {
   EnemySilenced: { key: "EnemySilenced", isToggle: true },
   EnemyStunned: { key: "EnemyStunned", isToggle: true },
   EnemyDisintegrated: { key: "EnemyDisintegrated", isToggle: true },
+  EnemyChilled: { key: "EnemyChilled", isToggle: true },
   // STAGE
   NightmareStage: { key: "NightmareStage", isToggle: true },
   FoodBuff: { key: "FoodBuff", isToggle: true },
