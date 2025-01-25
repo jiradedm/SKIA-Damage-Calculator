@@ -136,14 +136,8 @@ export default function TeamPage() {
   const { t } = useTranslation("page/team");
   const { t: tc } = useTranslation("page/character");
 
-  const {
-    characters,
-    addedCharacters,
-    setTeamEffects,
-    statusAliments: statusAilments,
-    setStatusAliments: setStatusAilments,
-    setTeamComp,
-  } = useCharacterStore();
+  const { characters, addedCharacters, setTeamEffects, statusAliments, setStatusAliments, setTeamComp } =
+    useCharacterStore();
 
   const { sort } = useGeneralStore();
 
@@ -187,8 +181,8 @@ export default function TeamPage() {
 
   useEffect(() => {
     if (addedCharacters.length === 0) return;
-    setStatusAilments(getStatusAilments(addedCharacters));
-  }, [addedCharacters, setStatusAilments]);
+    setStatusAliments(getStatusAilments(addedCharacters));
+  }, [addedCharacters, setStatusAliments]);
 
   return (
     <>
@@ -219,12 +213,12 @@ export default function TeamPage() {
       <div className="text-center text-xl font-[500] leading-5">
         {t("slot")} [ {characterActiveAmount}/{characterMaxActive} ]
       </div>
-      {statusAilments && (
+      {statusAliments && (
         <div className="flex items-center gap-1">
           <div>{t("ailment")} :</div>
-          {statusAilments.length === 0
+          {statusAliments.length === 0
             ? t("none")
-            : statusAilments.map((statusAilment) => (
+            : statusAliments.map((statusAilment) => (
                 <EffectIcon
                   key={statusAilment.status.key}
                   name={statusAilment.status.name}

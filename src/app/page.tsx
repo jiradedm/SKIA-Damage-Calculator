@@ -18,7 +18,7 @@ export default function HomePage() {
 
   const { sort } = useGeneralStore();
 
-  const { characters, addedCharacters, moveCharacter, setTeamEffects, setStatusAliments: setStatusAilments, setTeamComp } =
+  const { characters, addedCharacters, moveCharacter, setTeamEffects, setStatusAliments, setTeamComp } =
     useCharacterStore();
 
   const sortedCharacters = useMemo(() => {
@@ -34,8 +34,8 @@ export default function HomePage() {
 
   useEffect(() => {
     if (addedCharacters.length === 0) return;
-    setStatusAilments(undefined);
-  }, [addedCharacters, setStatusAilments]);
+    setStatusAliments(undefined);
+  }, [addedCharacters, setStatusAliments]);
 
   const sensors = useSensors(useSensor(PointerSensor));
 
