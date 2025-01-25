@@ -50,6 +50,7 @@ const baseGlobalStat = {
   EnemySilenced: 0,
   EnemyFrostbitten: 0,
   EnemyDisintegrated: 0,
+  EnemyChilled: 0,
   FoodBuff: 0,
   NightmareStage: 0,
   NightmareLevel: 0,

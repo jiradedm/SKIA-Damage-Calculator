@@ -61,6 +61,7 @@
   "EnemyFinalDefense": "พลังป้องกันสุดท้ายของเป้าหมาย",
   "EnemyDamageReduction": "ลดปริมาณความเสียหายจากพลังป้องกันของเป้าหมาย",
   "EnemyFinalDamageTaken": "ปริมาณความเสียหายที่ได้รับของเป้าหมาย",
+  "EnemyFinalDamageTaken2": "ปริมาณความเสียหายที่ได้รับของเป้าหมาย 2",
   "BasicAttackDamage": "ความเสียหายจากการโจมตีปกติ",
   "CriticalHitAttackDamage": "ความเสียหายจากการโจมตีคริติคอล",
   "AverageAttackDamage": "ความเสียหายเฉลี่ยจากการโจมตี",
