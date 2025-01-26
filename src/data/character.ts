@@ -2526,7 +2526,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [effect.Snowstorm, effect.ElfsBlessing, effect.Heartless, effect.VariableControl],
-    applyStatusAilments: [{ status: statusAilment.EnemyChilled, uptime: 0.5 }],
+    // applyStatusAilments: [{ status: statusAilment.EnemyChilled, uptime: 0.5 }],
     new: true,
     attack: {
       BasicAttack: { modifier: 600, speed: 149.93 },
