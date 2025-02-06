@@ -139,6 +139,11 @@ const effectKeys = [
   "ElfsBlessing",
   "Heartless",
   "VariableControl",
+  "ShinyCrystalScale",
+  "CrystalDragonsMirror",
+  "CrystalDragonsCurse",
+  "RadiantGuardianDragon",
+  "CrystalDragonsMajesty",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1274,5 +1279,44 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Variable Control.webp",
     target: "Enemy",
     stats: [{ stat: stat.CritResist, value: 24 }],
+  },
+  ShinyCrystalScale: {
+    key: "ShinyCrystalScale",
+    name: "Shiny Crystal Scale",
+    img: "/effect/Shiny Crystal Scale.webp",
+    target: "Self",
+    stats: [{ stat: stat.FinalAttack, value: 30 }],
+  },
+  CrystalDragonsMirror: {
+    key: "CrystalDragonsMirror",
+    name: "Crystal Dragon's Mirror",
+    img: "/effect/Crystal Dragon's Mirror.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalBonusDamage, value: 24 }],
+  },
+  CrystalDragonsCurse: {
+    key: "CrystalDragonsCurse",
+    name: "Crystal Dragon's Curse",
+    img: "/effect/Crystal Dragon's Curse.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.ReductionRate, value: 24 }],
+  },
+  RadiantGuardianDragon: {
+    key: "RadiantGuardianDragon",
+    name: "Radiant Guardian Dragon",
+    img: "/effect/Radiant Guardian Dragon.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.AttackSpeed, value: 24 },
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalCritDamage, value: 24 },
+    ],
+  },
+  CrystalDragonsMajesty: {
+    key: "CrystalDragonsMajesty",
+    name: "Crystal Dragon's Majesty",
+    img: "/effect/Crystal Dragon's Majesty.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalWeaknessDamage, value: 24 }],
   },
 };

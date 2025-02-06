@@ -181,6 +181,7 @@ export const characterKeys = [
   "HighLordFreyja",
   "Mist",
   "Michaela",
+  "Melia",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2526,12 +2527,30 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [effect.Snowstorm, effect.ElfsBlessing, effect.Heartless, effect.VariableControl],
-    // applyStatusAilments: [{ status: statusAilment.EnemyChilled, uptime: 0.5 }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 600, speed: 149.93 },
       CritAttack: { modifier: 450, speed: 200 },
       Skill: { modifier: 3850, speed: 149.93 },
+    },
+  },
+  Melia: {
+    key: "Melia",
+    img: "/character/Melia.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [
+      effect.ShinyCrystalScale,
+      effect.CrystalDragonsMirror,
+      effect.CrystalDragonsCurse,
+      effect.RadiantGuardianDragon,
+      effect.CrystalDragonsMajesty,
+    ],
+    applyStatusAilments: [{ status: statusAilment.EnemyFrostbitten, uptime: 1 }],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 600, speed: 200 },
+      CritAttack: { modifier: 600, speed: 200 },
+      Skill: { modifier: 4000, speed: 149.93 },
     },
   },
 };
