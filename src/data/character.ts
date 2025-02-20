@@ -182,6 +182,7 @@ export const characterKeys = [
   "Mist",
   "Michaela",
   "Melia",
+  "Ante",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2546,11 +2547,23 @@ export const character: Record<CharacterKey, Character> = {
       effect.CrystalDragonsMajesty,
     ],
     applyStatusAilments: [{ status: statusAilment.EnemyFrostbitten, uptime: 1 }],
-    new: true,
     attack: {
       BasicAttack: { modifier: 600, speed: 200 },
       CritAttack: { modifier: 600, speed: 200 },
       Skill: { modifier: 4000, speed: 149.93 },
+    },
+  },
+  Ante: {
+    key: "Ante",
+    img: "/character/Ante.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.ToAnotherWorld],
+    new: true,
+    attack: {
+      BasicAttack: { modifier: 100, speed: 166.67 },
+      CritAttack: { modifier: 450, speed: 200, cutCooldown: 2 },
+      Skill: { modifier: 2000, speed: 149.93 },
     },
   },
 };

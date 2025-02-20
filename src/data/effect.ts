@@ -144,6 +144,7 @@ const effectKeys = [
   "CrystalDragonsCurse",
   "RadiantGuardianDragon",
   "CrystalDragonsMajesty",
+  "ToAnotherWorld",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1318,5 +1319,17 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Crystal Dragon's Majesty.webp",
     target: "Team",
     stats: [{ stat: stat.FinalWeaknessDamage, value: 24 }],
+  },
+  ToAnotherWorld: {
+    key: "ToAnotherWorld",
+    name: "To Another World",
+    img: "/effect/To Another World.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalCritDamage, value: 24 },
+      { stat: stat.WeaknessRate, value: 24 },
+    ],
   },
 };
