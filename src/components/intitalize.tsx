@@ -122,6 +122,7 @@ const getModifier = (
     FinalBonusDamage: [0],
     FinalAccuracy: [0, (!statBonusLocked ? addedCharacter.statBonus : 0) * 0.25],
     CooldownDecrease: [0],
+    CooldownDecrease2: [0],
     FinalDamage: [0],
     FinalDamage2: [0],
   } as Record<StatKey, number[]>;
@@ -167,6 +168,7 @@ const getModifier = (
   const FinalBonusDamageMultiplier = modifier.FinalBonusDamage.reduce(sum, 0);
   const FinalBonusDamage = (150 + (150 * FinalBonusDamageMultiplier) / 100) / 100;
   const CooldownDecrease = modifier.CooldownDecrease.reduce(sum, 0) / 100;
+  const CooldownDecrease2 = modifier.CooldownDecrease2.reduce(sum, 0) / 100;
   const FinalDamage = modifier.FinalDamage.reduce(sum, 100) / 100;
   const FinalDamage2 = modifier.FinalDamage2.reduce(sum, 100) / 100;
   const Accuracy = modifier.Accuracy.reduce(sum, 100) / 100;
@@ -188,6 +190,7 @@ const getModifier = (
     BonusDamageRate,
     FinalBonusDamage,
     CooldownDecrease,
+    CooldownDecrease2,
     FinalDamage,
     FinalDamage2,
   } as StatKeyWithValue;
@@ -204,6 +207,8 @@ const getEnemyModifer = (
     FinalDamage2: [0],
     FinalEvasion: [0],
     CritResist: [(globalStat.EnemyCritResist || 0) * -1],
+    WeaknessResist: [0],
+    BonusDamageResist: [0],
     ReductionRate: [(globalStat.EnemyReductionRate || 0) * -1],
   } as Record<StatKey, number[]>;
 
@@ -223,9 +228,20 @@ const getEnemyModifer = (
   const FinalDamage = enemyModifier.FinalDamage.reduce(sum, 100) / 100;
   const FinalDamage2 = enemyModifier.FinalDamage2.reduce(sum, 100) / 100;
   const CritResist = enemyModifier.CritResist.reduce(sum, 0) / 100;
+  const WeaknessResist = enemyModifier.WeaknessResist.reduce(sum, 0) / 100;
+  const BonusDamageResist = enemyModifier.BonusDamageResist.reduce(sum, 0) / 100;
   const ReductionRate = enemyModifier.ReductionRate.reduce(sum, 0) / 100;
 
-  return { FinalDefense, FinalEvasion, FinalDamage, FinalDamage2, CritResist, ReductionRate } as StatKeyWithValue;
+  return {
+    FinalDefense,
+    FinalEvasion,
+    FinalDamage,
+    FinalDamage2,
+    CritResist,
+    WeaknessResist,
+    BonusDamageResist,
+    ReductionRate,
+  } as StatKeyWithValue;
 };
 
 const getCharacterAttackDamage = (
@@ -251,16 +267,18 @@ const getCharacterAttackDamage = (
     return rate;
   };
 
-  const bonusDamageRate = modifier.BonusDamageRate > 1 ? 1 : modifier.BonusDamageRate;
-  const bonusDamageModifier = 1 + (modifier.FinalBonusDamage - 1) * bonusDamageRate;
-
   const critRate = getCritRate(modifier.CritRate - enemyModifier.CritResist * -1);
 
   const enemyDamageReductionRate = 1 - enemyDefense / (enemyDefense + 2 * baseAttackValue);
   const enemyDamageReduction = enemyDamageReductionRate < 0.3 ? 0.3 : enemyDamageReductionRate;
 
-  const weaknessRate = modifier.WeaknessRate > 1 ? 1 : modifier.WeaknessRate;
+  const weaknessRateModifier = modifier.WeaknessRate - enemyModifier.WeaknessResist * -1;
+  const weaknessRate = weaknessRateModifier > 1 ? 1 : weaknessRateModifier;
   const weaknessModifier = 1 + (modifier.FinalWeaknessDamage - 1) * weaknessRate;
+
+  const bonusDamageRateModifier = modifier.BonusDamageRate - enemyModifier.BonusDamageResist * -1;
+  const bonusDamageRate = bonusDamageRateModifier > 1 ? 1 : bonusDamageRateModifier;
+  const bonusDamageModifier = 1 + (modifier.FinalBonusDamage - 1) * bonusDamageRate;
 
   const reductionRate = getCritRate(enemyModifier.ReductionRate * -1) * 0.3;
   const enemyReduction = 1 - reductionRate;
@@ -381,6 +399,8 @@ const getCharacterAttackDamage = (
     enemyEvasionModifier,
     enemyReduction: 1 - enemyReduction,
     enemyCritResistModifier: enemyModifier.CritResist * -1,
+    WeaknessResistModifier: enemyModifier.WeaknessResist * -1,
+    BonusDamageResistModifier: enemyModifier.BonusDamageResist * -1,
   };
 };
 
@@ -406,7 +426,7 @@ const calculateDamage = (
     character,
     modifier.AttackSpeed,
     getCritRate(modifier.CritRate - enemyModifier.CritResist * -1),
-    modifier.CooldownDecrease,
+    modifier.CooldownDecrease + modifier.CooldownDecrease2,
   );
 
   const {
@@ -423,6 +443,8 @@ const calculateDamage = (
     enemyDefenseModifier,
     enemyEvasionModifier,
     enemyCritResistModifier,
+    WeaknessResistModifier,
+    BonusDamageResistModifier,
   } = getCharacterAttackDamage(character, addedCharacter, globalStat, modifier, enemyModifier, statusAilments);
 
   const totalAttackDamage = attackDamage * attack.atkAmount;
@@ -454,12 +476,15 @@ const calculateDamage = (
         { ...stat.FinalDamage, value: modifier.FinalDamage },
         { ...stat.FinalDamage2, value: modifier.FinalDamage2 },
         { ...stat.CooldownDecrease, value: modifier.CooldownDecrease },
+        { ...stat.CooldownDecrease2, value: modifier.CooldownDecrease2 },
       ],
     },
     {
       key: "enemyStat",
       stats: [
         { ...stat.EnemyCritResist, value: enemyCritResistModifier },
+        { ...stat.EnemyWeaknessResist, value: WeaknessResistModifier },
+        { ...stat.EnemyBonusDamageResist, value: BonusDamageResistModifier },
         { ...stat.EnemyFinalEvasion, value: enemyEvasionModifier },
         { ...stat.EnemyFinalDefense, value: enemyDefenseModifier },
         { ...stat.EnemyDamageReduction, value: 1 - enemyDamageReductionRate },

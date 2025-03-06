@@ -183,6 +183,9 @@ export const characterKeys = [
   "Michaela",
   "Melia",
   "Ante",
+  "MasteroftheBlossomingBlade",
+  "HighLordRin",
+  "Fai",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2559,11 +2562,57 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.ToAnotherWorld],
-    new: true,
     attack: {
       BasicAttack: { modifier: 100, speed: 166.67 },
       CritAttack: { modifier: 450, speed: 200, cutCooldown: 2 },
       Skill: { modifier: 2000, speed: 149.93 },
+    },
+  },
+  MasteroftheBlossomingBlade: {
+    new: true,
+    key: "MasteroftheBlossomingBlade",
+    img: "/character/Master of the Blossoming Blade.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [
+      effect.MasteroftheBlossomingBlade2,
+      effect.ElderofMountHua,
+      effect.MyBladeIsMountHua,
+      effect.MountHuaIsMyBlade,
+      effect.WitheredForce,
+    ],
+    attack: {
+      BasicAttack: { modifier: 500, speed: 200 },
+      CritAttack: { modifier: 650, speed: 149.93 },
+      Skill: { modifier: 3200, speed: 103.41 },
+    },
+  },
+  HighLordRin: {
+    new: true,
+    key: "HighLordRin",
+    img: "/character/High Lord Rin.webp",
+    rarity: rarity.HighLord,
+    type: characterType.Ranged,
+    effects: [effect.ImperialVisage, effect.ImperialDraconicWrath],
+    attack: {
+      BasicAttack: { modifier: 150, speed: 149.93 },
+      CritAttack: { modifier: 500, speed: 200 },
+      Skill: { modifier: 1500, speed: 149.93 },
+    },
+  },
+  Fai: {
+    new: true,
+    key: "Fai",
+    img: "/character/Fai.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.UndyingFlame, effect.AgniasSpear, effect.BlazingVictory, effect.FlagofVictory],
+    applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
+    attack: {
+      BasicAttack: { modifier: 500, speed: 166.67 },
+      CritAttack: { modifier: 800, speed: 200 },
+      Skill: { modifier: 3000, speed: 1 },
+      DoT: { modifier: 20, speed: 100 },
     },
   },
 };
