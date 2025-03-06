@@ -2593,7 +2593,7 @@ export const character: Record<CharacterKey, Character> = {
     img: "/character/High Lord Rin.webp",
     rarity: rarity.HighLord,
     type: characterType.Ranged,
-    effects: [effect.ImperialVisage, effect.ImperialDraconicWrath],
+    effects: [effect.ImperialVisage, effect.ImperialDraconicWrath, effect.HighLordPower],
     attack: {
       BasicAttack: { modifier: 150, speed: 149.93 },
       CritAttack: { modifier: 500, speed: 200 },
