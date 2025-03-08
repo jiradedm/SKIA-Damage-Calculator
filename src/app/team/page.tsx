@@ -210,7 +210,12 @@ export default function TeamPage() {
         </div>
         <DiffNumberComponent lockedNumber={lockedNumber} teamDamage={teamDamage} />
       </div>
-      <div className="text-center text-xl font-[500] leading-5">
+      <div
+        className={twMerge(
+          "text-center text-xl font-[500] leading-5",
+          characterActiveAmount > characterMaxActive && "text-unique3",
+        )}
+      >
         {t("slot")} [ {characterActiveAmount}/{characterMaxActive} ]
       </div>
       {statusAliments && (

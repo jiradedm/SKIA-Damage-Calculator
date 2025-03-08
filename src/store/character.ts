@@ -140,7 +140,7 @@ export const useCharacterStore = create<CharacterStore>()(
           const index = addedCharacters.findIndex((char) => char.id === id);
           if (index === -1) return {};
 
-          const { length } = state.addedCharacters.filter((char) => !!char.active);
+          // const { length } = state.addedCharacters.filter((char) => !!char.active);
           const isRemove = !!addedCharacters[index].active;
 
           if (!isRemove) {
@@ -148,7 +148,7 @@ export const useCharacterStore = create<CharacterStore>()(
 
             const highLorded = state.characters.find((c) => c.active && c.character.rarity.key === "HighLord");
             if (character.rarity.key === "HighLord" && highLorded) return {};
-            if (length >= characterMaxActive) return {};
+            // if (length >= characterMaxActive/) return {};
           }
 
           addedCharacters[index] = { ...addedCharacters[index], active: !addedCharacters[index].active };
