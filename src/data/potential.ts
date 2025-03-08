@@ -23,3 +23,15 @@ export const potentialValues = {
   NormalCritDamage: [13.33, 12, 10.67],
   NormalCritRate: [1.33, 1.2, 1.07],
 } as Record<`${RarityKey}${StatKey}`, [number, number, number]>;
+
+export const advancedPotentialValues = {
+  LegendaryFinalAttack: [24, 21.6, 19.2],
+  LegendaryFinalAccuracy: [45, 40.5, 36],
+  LegendaryFinalBonusDamage: [30, 27, 24],
+  UniqueFinalAttack: [16, 14.4, 12.8],
+  UniqueFinalAccuracy: [30, 27, 24],
+  UniqueFinalBonusDamage: [20, 18, 16],
+  EpicFinalAttack: [9.6, 8.64, 7.68],
+  EpicFinalAccuracy: [18, 16.2, 14.4],
+  EpicFinalBonusDamage: [12, 10.8, 9.6],
+} as Record<`${RarityKey}${StatKey}`, [number, number, number]>;

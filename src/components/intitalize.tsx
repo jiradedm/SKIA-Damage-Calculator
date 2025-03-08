@@ -148,6 +148,10 @@ const getModifier = (
     modifier[potential.stat].push(potential.value);
   });
 
+  addedCharacter.advancedPotentials?.forEach((potential) => {
+    modifier[potential.stat].push(potential.value);
+  });
+
   totalEffectStats.forEach((effectStat) => {
     if (effectStat.target === "Enemy") return;
     modifier[effectStat.stat.key].push(effectStat.value);

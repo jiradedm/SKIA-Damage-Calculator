@@ -8,6 +8,7 @@ import { v4 } from "uuid";
 
 import AccessoryLevelSelector from "@/components/accessoryLevelSelector";
 import AccessoryResonanceLevelSelector from "@/components/accessoryResonanceLevelSelector";
+import AdvancedPotentialAdder from "@/components/advancedPotentialAdder";
 import Button from "@/components/button";
 import ChooseCharacter from "@/components/chooseCharacter";
 import Equipment from "@/components/Equipment";
@@ -105,6 +106,19 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
     return editPotential;
   });
 
+  const initAdvancedPotentials = Array.from<Potential>({ length: 3 }).map((_, index) => {
+    if (!character?.advancedPotentials?.[index]) return (character?.star || initStar) < 8 ? "limited" : null;
+
+    const charPotential = character.advancedPotentials[index];
+
+    const editadvancedPotential: IPotential = {
+      rarity: rarity[charPotential.rarity],
+      stat: stat[charPotential.stat],
+      value: charPotential.value,
+    };
+    return editadvancedPotential;
+  });
+
   const [selectedCharacter, setSelectedCharacter] = useState<Character>(editingCharacter || characters[initCharIndex]);
   const [selectedStar, setSelectedStar] = useState<number>(character === undefined ? initStar : character.star);
   const [selectedLevel, setSelectedLevel] = useState<LevelOption>(editLevel || characterLevelOptions[0]);
@@ -117,6 +131,7 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
     },
   );
   const [potentials, setPotentials] = useState<Potential[]>(initPotentials);
+  const [advancedPotentials, setAdvancedPotentials] = useState<Potential[]>(initAdvancedPotentials);
   const [earringsLevel, setEarringsLevel] = useState<number>(character?.earringsLevel || 0);
   const [necklaceLevel, setNecklaceLevel] = useState<number>(character?.necklaceLevel || 0);
   const [resonanceLevel, setResonanceLevel] = useState<number>(character?.resonanceLevel || 0);
@@ -145,6 +160,12 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
           return null;
         }),
       );
+
+    if (selectedStar < 8) {
+      setAdvancedPotentials(Array.from<Potential>({ length: 3 }).map(() => "limited"));
+    } else {
+      setAdvancedPotentials(advancedPotentials.map((p) => (p === "limited" ? null : p)));
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedCharacter, selectedStar]);
 
@@ -170,6 +191,9 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       potentials: (potentials.filter((p) => !!p && p !== "limited") as IPotential[]).map(
         (p) => ({ rarity: p.rarity.key, stat: p.stat.key, value: p.value }) as CharacterPotential,
       ),
+      advancedPotentials: (advancedPotentials.filter((p) => !!p && p !== "limited") as IPotential[]).map(
+        (p) => ({ rarity: p.rarity.key, stat: p.stat.key, value: p.value }) as CharacterPotential,
+      ),
       necklaceLevel,
       earringsLevel,
       resonanceLevel,
@@ -188,6 +212,9 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
       level: Number(selectedLevel.value),
       character: selectedCharacter.key,
       potentials: (potentials.filter((p) => !!p && p !== "limited") as IPotential[]).map(
+        (p) => ({ rarity: p.rarity.key, stat: p.stat.key, value: p.value }) as CharacterPotential,
+      ),
+      advancedPotentials: (advancedPotentials.filter((p) => !!p && p !== "limited") as IPotential[]).map(
         (p) => ({ rarity: p.rarity.key, stat: p.stat.key, value: p.value }) as CharacterPotential,
       ),
       active: character.active ?? false,
@@ -220,6 +247,13 @@ export const AddPage: FC<AddPageProps> = ({ isEdit = false, character, onEdited 
         potentials={potentials}
         setPotentials={setPotentials}
         className="w-full max-w-[540px] self-center"
+      />
+      <div />
+      <AdvancedPotentialAdder
+        potentials={advancedPotentials}
+        setPotentials={setAdvancedPotentials}
+        className="w-full max-w-[540px] self-center"
+        disabled={selectedStar < 8}
       />
       <div />
       {selectedCharacter.rarity.havePower && (

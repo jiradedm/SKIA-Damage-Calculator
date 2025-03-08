@@ -216,4 +216,6 @@ export const stat: StatData = {
 
 export const baseStats = Object.values(baseStat);
 
+export const advancedStats = [stat.FinalAttack, stat.FinalAccuracy, stat.FinalBonusDamage];
+
 export const powerStats = [stat.FinalAttack, stat.FinalAccuracy, stat.FinalCritDamage];

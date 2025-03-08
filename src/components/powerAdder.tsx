@@ -92,7 +92,7 @@ const PowerAdder: FC<ComponentPropsWithoutRef<"div"> & PowerAdderProps> = ({
       )}
       <div
         className={twMerge(
-          "flex h-[42px] items-center justify-between rounded-full border-2 border-[#7c7c7c] bg-[#3b3c40] p-1",
+          "flex h-[42px] items-center justify-between rounded-full border-2 border-[##eddfce] bg-[#3b3c40] p-1",
         )}
       >
         <>

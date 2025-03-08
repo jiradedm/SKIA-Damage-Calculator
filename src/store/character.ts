@@ -30,6 +30,9 @@ export const addedCharacterObject = z.object({
   character: z.enum(characterKeys),
   star: z.number(),
   potentials: z.array(z.object({ rarity: z.enum(rarityKeys), stat: z.enum(statKeys), value: z.number() })),
+  advancedPotentials: z
+    .array(z.object({ rarity: z.enum(rarityKeys), stat: z.enum(statKeys), value: z.number() }))
+    .optional(),
   necklaceLevel: z.number(),
   earringsLevel: z.number(),
   resonanceLevel: z.number().optional(),
