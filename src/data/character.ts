@@ -186,6 +186,8 @@ export const characterKeys = [
   "MasteroftheBlossomingBlade",
   "HighLordRin",
   "Fai",
+  "ShadowMasterBoTang",
+  "UndercoverRuri",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -1498,7 +1500,6 @@ export const character: Record<CharacterKey, Character> = {
     },
   },
   Cheongmyeong: {
-    updated: true,
     key: "Cheongmyeong",
     img: "/character/Cheongmyeong.webp",
     rarity: rarity.Legendary,
@@ -1516,7 +1517,6 @@ export const character: Record<CharacterKey, Character> = {
     },
   },
   Baekcheon: {
-    updated: true,
     key: "Baekcheon",
     img: "/character/Baekcheon.webp",
     rarity: rarity.Legendary,
@@ -1529,7 +1529,6 @@ export const character: Record<CharacterKey, Character> = {
     },
   },
   IseolYu: {
-    updated: true,
     key: "IseolYu",
     img: "/character/Iseol Yu.webp",
     rarity: rarity.Legendary,
@@ -1542,7 +1541,6 @@ export const character: Record<CharacterKey, Character> = {
     },
   },
   Yunjong: {
-    updated: true,
     key: "Yunjong",
     img: "/character/Yunjong.webp",
     rarity: rarity.Legendary,
@@ -1555,7 +1553,6 @@ export const character: Record<CharacterKey, Character> = {
     },
   },
   Jogeol: {
-    updated: true,
     key: "Jogeol",
     img: "/character/Jogeol.webp",
     rarity: rarity.Legendary,
@@ -2573,7 +2570,6 @@ export const character: Record<CharacterKey, Character> = {
     },
   },
   MasteroftheBlossomingBlade: {
-    new: true,
     key: "MasteroftheBlossomingBlade",
     img: "/character/Master of the Blossoming Blade.webp",
     rarity: rarity.Legendary,
@@ -2592,7 +2588,6 @@ export const character: Record<CharacterKey, Character> = {
     },
   },
   HighLordRin: {
-    new: true,
     key: "HighLordRin",
     img: "/character/High Lord Rin.webp",
     rarity: rarity.HighLord,
@@ -2605,7 +2600,6 @@ export const character: Record<CharacterKey, Character> = {
     },
   },
   Fai: {
-    new: true,
     key: "Fai",
     img: "/character/Fai.webp",
     rarity: rarity.Legendary,
@@ -2617,6 +2611,33 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: { modifier: 800, speed: 200 },
       Skill: { modifier: 3000, speed: 100 },
       DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  ShadowMasterBoTang: {
+    new: true,
+    key: "ShadowMasterBoTang",
+    img: "/character/Shadow Master Bo Tang.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.DarkSaint, effect.PrimeElder, effect.TwelveFlyingDaggers, effect.DivineVenomPanacea],
+    applyStatusAilments: [{ status: statusAilment.EnemyDisintegrated, uptime: 1 }],
+    attack: {
+      BasicAttack: { modifier: 400, speed: 200 },
+      CritAttack: { modifier: 800, speed: 149.93 },
+      Skill: { modifier: 3000, speed: 103.41 },
+    },
+  },
+  UndercoverRuri: {
+    new: true,
+    key: "UndercoverRuri",
+    img: "/character/Undercover Ruri.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Support,
+    effects: [effect.IllFire],
+    attack: {
+      BasicAttack: { modifier: 300, speed: 136.24 },
+      CritAttack: { modifier: 600, speed: 200 },
+      Skill: { modifier: 4500, speed: 119.9 },
     },
   },
 };

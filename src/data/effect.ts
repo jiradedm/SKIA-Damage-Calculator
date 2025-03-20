@@ -162,6 +162,11 @@ const effectKeys = [
   "AgniasSpear",
   "BlazingVictory",
   "FlagofVictory",
+  "DarkSaint",
+  "PrimeElder",
+  "TwelveFlyingDaggers",
+  "DivineVenomPanacea",
+  "IllFire",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1496,5 +1501,46 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Flag of Victory.webp",
     target: "Team",
     stats: [{ stat: stat.AttackSpeed, value: 24 }],
+  },
+  DarkSaint: {
+    key: "DarkSaint",
+    name: "Dark Saint",
+    img: "/effect/Dark Saint.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.FinalEvasion, value: 60 }],
+  },
+  PrimeElder: {
+    key: "PrimeElder",
+    name: "Prime Elder",
+    img: "/effect/Prime Elder.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalWeaknessDamage, value: 24 },
+    ],
+  },
+  TwelveFlyingDaggers: {
+    key: "TwelveFlyingDaggers",
+    name: "Twelve Flying Daggers",
+    img: "/effect/Twelve Flying Daggers.webp",
+    target: "Self",
+    stats: [{ stat: stat.WeaknessRate, value: 24 }],
+  },
+  DivineVenomPanacea: {
+    key: "DivineVenomPanacea",
+    name: "Divine Venom Panacea",
+    img: "/effect/Divine Venom Panacea.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalAccuracy, value: 24 }],
+  },
+  IllFire: {
+    key: "IllFire",
+    name: "I'll Fire!",
+    img: "/effect/I'll Fire!.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.BonusDamageRate, value: 24 },
+      { stat: stat.FinalDamage2, value: 30 },
+    ],
   },
 };
