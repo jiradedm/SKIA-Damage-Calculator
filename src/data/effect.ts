@@ -167,6 +167,10 @@ const effectKeys = [
   "TwelveFlyingDaggers",
   "DivineVenomPanacea",
   "IllFire",
+  "IceQueensBlessing",
+  "MonarchsMemories",
+  "EtherealMonarch",
+  "DeadlyDescent",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1542,5 +1546,37 @@ export const effect: Record<EffectKey, Effect> = {
       { stat: stat.BonusDamageRate, value: 24 },
       { stat: stat.FinalDamage2, value: 30 },
     ],
+  },
+  IceQueensBlessing: {
+    key: "IceQueensBlessing",
+    name: "Ice Queen's Blessing",
+    img: "/effect/Ice Queen's Blessing.webp",
+    target: "Self",
+    stats: [{ stat: stat.BonusDamageRate, value: 24 }],
+  },
+  MonarchsMemories: {
+    key: "MonarchsMemories",
+    name: "Monarch's Memories",
+    img: "/effect/Monarch's Memories.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalBonusDamage, value: 24 }],
+  },
+  EtherealMonarch: {
+    key: "EtherealMonarch",
+    name: "Ethereal Monarch",
+
+    img: "/effect/Ethereal Monarch.webp",
+    target: "Enemy",
+    stats: [
+      { stat: stat.ReductionRate, value: 24 },
+      { stat: stat.CritResist, value: 24 },
+    ],
+  },
+  DeadlyDescent: {
+    key: "DeadlyDescent",
+    name: "Deadly Descent",
+    img: "/effect/Deadly Descent.webp",
+    target: "Self",
+    stats: [{ stat: stat.CritRate, value: 24 }],
   },
 };

@@ -188,6 +188,7 @@ export const characterKeys = [
   "Fai",
   "ShadowMasterBoTang",
   "UndercoverRuri",
+  "Gelidus",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2614,7 +2615,6 @@ export const character: Record<CharacterKey, Character> = {
     },
   },
   ShadowMasterBoTang: {
-    new: true,
     key: "ShadowMasterBoTang",
     img: "/character/Shadow Master Bo Tang.webp",
     rarity: rarity.Legendary,
@@ -2628,7 +2628,6 @@ export const character: Record<CharacterKey, Character> = {
     },
   },
   UndercoverRuri: {
-    new: true,
     key: "UndercoverRuri",
     img: "/character/Undercover Ruri.webp",
     rarity: rarity.Legendary,
@@ -2638,6 +2637,20 @@ export const character: Record<CharacterKey, Character> = {
       BasicAttack: { modifier: 300, speed: 136.24 },
       CritAttack: { modifier: 600, speed: 200 },
       Skill: { modifier: 4500, speed: 119.9 },
+    },
+  },
+  Gelidus: {
+    new: true,
+    key: "Gelidus",
+    img: "/character/Gelidus.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.IceQueensBlessing, effect.MonarchsMemories, effect.EtherealMonarch, effect.DeadlyDescent],
+    applyStatusAilments: [{ status: statusAilment.EnemyChilled, uptime: 0.5 }],
+    attack: {
+      BasicAttack: { modifier: 500, speed: 200 },
+      CritAttack: { modifier: 680, speed: 200 },
+      Skill: { modifier: 3000, speed: 149.93 },
     },
   },
 };
