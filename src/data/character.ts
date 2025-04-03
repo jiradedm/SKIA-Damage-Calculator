@@ -2646,7 +2646,7 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.IceQueensBlessing, effect.MonarchsMemories, effect.EtherealMonarch, effect.DeadlyDescent],
-    applyStatusAilments: [{ status: statusAilment.EnemyChilled, uptime: 0.5 }],
+    applyStatusAilments: [{ status: statusAilment.EnemyFrostbitten, uptime: 0.5 }],
     attack: {
       BasicAttack: { modifier: 500, speed: 200 },
       CritAttack: { modifier: 680, speed: 200 },
