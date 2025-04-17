@@ -2650,7 +2650,13 @@ export const character: Record<CharacterKey, Character> = {
     applyStatusAilments: [{ status: statusAilment.EnemyFrostbitten, uptime: 0.5 }],
     attack: {
       BasicAttack: { modifier: 500, speed: 200 },
-      CritAttack: { modifier: 680, speed: 200 },
+      CritAttack: {
+        modifier: 680,
+        speed: 200,
+        attackModifier: {
+          FinalDamage: { value: 50, applyCondition: ["EnemyFrostbitten"] },
+        },
+      },
       Skill: { modifier: 3000, speed: 149.93 },
     },
   },
