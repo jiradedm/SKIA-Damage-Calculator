@@ -30,9 +30,9 @@ const CharacterIcon: FC<ComponentPropsWithoutRef<"div"> & CharacterIconProps> = 
           className={twMerge("absolute", showName ? "rounded-t" : "rounded")}
         />
       </div>
-      {isNew && <div className="absolute right-1 top-1 rounded border border-white bg-unique3 px-0.5 text-xs">New</div>}
+      {isNew && <div className="absolute right-1 top-1 rounded border border-white bg-unique3 px-1 text-sm">New</div>}
       {isUpdated && (
-        <div className="absolute right-1 top-1 rounded border border-white bg-unique3 px-0.5 text-xs">Updated</div>
+        <div className="absolute right-1 top-1 rounded border border-white bg-unique3 px-1 text-sm">Updated</div>
       )}
       <div className="relative pb-[100%]">
         {character.testing && (

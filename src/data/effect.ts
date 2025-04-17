@@ -171,6 +171,9 @@ const effectKeys = [
   "MonarchsMemories",
   "EtherealMonarch",
   "DeadlyDescent",
+  "Masterpiece",
+  "GoldenOpportunity",
+  "LuckyVicky",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1578,5 +1581,38 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Deadly Descent.webp",
     target: "Self",
     stats: [{ stat: stat.CritRate, value: 24 }],
+  },
+  Masterpiece: {
+    key: "Masterpiece",
+    name: "Masterpiece",
+    img: "/effect/Masterpiece.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalCritDamage, value: 24 },
+      { stat: stat.FinalWeaknessDamage, value: 24 },
+    ],
+  },
+  GoldenOpportunity: {
+    key: "GoldenOpportunity",
+    name: "Golden Opportunity",
+    img: "/effect/Golden Opportunity.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.FinalCritDamage, value: 24 },
+      { stat: stat.FinalWeaknessDamage, value: 24 },
+    ],
+  },
+  LuckyVicky: {
+    key: "LuckyVicky",
+    name: "Lucky Vicky",
+    img: "/effect/Lucky Vicky.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalAccuracy, value: 24 },
+    ],
   },
 };

@@ -189,6 +189,8 @@ export const characterKeys = [
   "ShadowMasterBoTang",
   "UndercoverRuri",
   "Gelidus",
+  "Chip",
+  "Vicky",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2640,7 +2642,6 @@ export const character: Record<CharacterKey, Character> = {
     },
   },
   Gelidus: {
-    new: true,
     key: "Gelidus",
     img: "/character/Gelidus.webp",
     rarity: rarity.Legendary,
@@ -2650,6 +2651,37 @@ export const character: Record<CharacterKey, Character> = {
     attack: {
       BasicAttack: { modifier: 500, speed: 200 },
       CritAttack: { modifier: 680, speed: 200 },
+      Skill: { modifier: 3000, speed: 149.93 },
+    },
+  },
+  Chip: {
+    key: "Chip",
+    new: true,
+    img: "/character/Chip.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.Masterpiece],
+    applyStatusAilments: [
+      { status: statusAilment.EnemyBleeding, uptime: 1 },
+      { status: statusAilment.EnemyPoisoned, uptime: 1 },
+    ],
+    attack: {
+      BasicAttack: { modifier: 125, speed: 166.67 },
+      CritAttack: { modifier: 450, speed: 200, cutCooldown: 2 },
+      Skill: { modifier: 1200, speed: 149.93 },
+    },
+  },
+  Vicky: {
+    key: "Vicky",
+    new: true,
+    img: "/character/Vicky.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.GoldenOpportunity, effect.LuckyVicky],
+    applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 1 }],
+    attack: {
+      BasicAttack: { modifier: 600, speed: 149.93 },
+      CritAttack: { modifier: 450, speed: 200 },
       Skill: { modifier: 3000, speed: 149.93 },
     },
   },
