@@ -6,13 +6,13 @@ import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
 import { AddPage } from "@/app/add/component";
+import EffectIcon from "@/components/effectIcon";
 import { formatNumber } from "@/libs/format";
 import type { CalulatedCharacter } from "@/store";
 import { useCharacterStore } from "@/store";
 
 import Button from "./button";
 import CharacterIcon from "./characterIcon";
-import EffectIcon from "./effectIcon";
 import type { ModalProps } from "./modal";
 import Modal from "./modal";
 import { StarCompact } from "./starSelector";
@@ -83,7 +83,7 @@ interface CharacterItemProps {
 
 export const CharacterItem: FC<CharacterItemProps> = ({ character, readonly, onClick = () => {} }) => {
   return (
-    <div className={twMerge("relative w-fit", !readonly && "cursor-pointer")} onClick={onClick}>
+    <div className={twMerge("relative h-fit w-fit", !readonly && "cursor-pointer")} onClick={onClick}>
       <CharacterIcon character={character.character} showName={false} className="row-span-3 w-[72px]" />
       <StarCompact selectedStar={character.star} readonly className="absolute inset-x-0 -top-2" />
       <div className="text-stroke absolute inset-x-0 -bottom-1 mx-auto w-fit text-sm font-[500] leading-3">
@@ -114,11 +114,7 @@ const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
       {readonly && (
         <div className="absolute z-[1] size-full cursor-pointer" onClick={() => toggleActiveCharacter(character.id)} />
       )}
-      <div
-        className={twMerge("flex select-none items-center gap-2", !readonly && "bg-[#39465a]")}
-        ref={setNodeRef}
-        style={style}
-      >
+      <div className={twMerge("flex select-none gap-2", !readonly && "bg-[#39465a]")} ref={setNodeRef} style={style}>
         <CharacterItem character={character} readonly={readonly} onClick={() => setIsOpen(true)} />
         <div className="flex w-full flex-col gap-1">
           <div className="flex w-fit cursor-grab touch-none items-center" {...listeners}>
@@ -143,9 +139,9 @@ const CharacterDamage: FC<CharacterDamageProps> = ({ readonly, character }) => {
             </div>
           </div>
           <StatModal isOpen={isOpen3} setIsOpen={setIsOpen3} character={character} />
-          <div className="flex gap-1">
+          <div className="flex flex-wrap gap-1">
             {character.effects.map((effect) => (
-              <EffectIcon key={effect.key} name={effect.name} img={effect.img} active />
+              <EffectIcon key={effect.key} name={effect.name} img={effect.img} />
             ))}
           </div>
         </div>

@@ -1,8 +1,9 @@
 "use client";
 
 import { Popover } from "@headlessui/react";
+import { useWindowVirtualizer } from "@tanstack/react-virtual";
 import type { ComponentPropsWithoutRef, Dispatch, FC, SetStateAction } from "react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { twMerge } from "tailwind-merge";
 
@@ -184,6 +185,17 @@ export default function TeamPage() {
     setStatusAliments(getStatusAilments(addedCharacters));
   }, [addedCharacters, setStatusAliments]);
 
+  const parentRef = useRef<HTMLDivElement>(null);
+
+  const virtualizer = useWindowVirtualizer({
+    count: characters.length,
+    scrollMargin: parentRef.current?.offsetTop ?? 0,
+    estimateSize: () => 72 + 16,
+    overscan: 8,
+  });
+
+  const items = virtualizer.getVirtualItems();
+
   return (
     <>
       <Title className="self-center text-3xl">{t("title")}</Title>
@@ -228,7 +240,6 @@ export default function TeamPage() {
                   key={statusAilment.status.key}
                   name={statusAilment.status.name}
                   img={statusAilment.status.img}
-                  active
                 />
               ))}
         </div>
@@ -237,7 +248,32 @@ export default function TeamPage() {
       {characters.length === 0 ? (
         <div className="py-[20%] text-center opacity-50">{tc("empty")}</div>
       ) : (
-        sortedCharacters.map((character, index) => <CharacterDamage key={index} character={character} readonly />)
+        <div
+          style={{
+            height: `${virtualizer.getTotalSize()}px`,
+            width: "100%",
+            position: "relative",
+          }}
+        >
+          <div
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              transform: `translateY(${items[0]?.start ?? 0}px)`,
+            }}
+          >
+            {items.map((item) => {
+              const character = sortedCharacters[item.index];
+              return (
+                <div key={item.key} data-index={item.index} ref={virtualizer.measureElement} className="pb-4">
+                  <CharacterDamage key={item.key} character={character} readonly />
+                </div>
+              );
+            })}
+          </div>
+        </div>
       )}
       <TeamModal characters={activeCharacters} isOpen={isOpen} setIsOpen={setIsOpen} />
     </>
