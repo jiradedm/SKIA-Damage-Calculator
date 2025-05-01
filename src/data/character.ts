@@ -191,6 +191,8 @@ export const characterKeys = [
   "Gelidus",
   "Chip",
   "Vicky",
+  "HighLordTeo",
+  "Rosie",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2662,7 +2664,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Chip: {
     key: "Chip",
-    new: true,
     img: "/character/Chip.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -2679,7 +2680,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Vicky: {
     key: "Vicky",
-    new: true,
     img: "/character/Vicky.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -2689,6 +2689,32 @@ export const character: Record<CharacterKey, Character> = {
       BasicAttack: { modifier: 600, speed: 149.93 },
       CritAttack: { modifier: 450, speed: 200 },
       Skill: { modifier: 3000, speed: 149.93 },
+    },
+  },
+  HighLordTeo: {
+    key: "HighLordTeo",
+    new: true,
+    img: "/character/High Lord Teo.webp",
+    rarity: rarity.HighLord,
+    type: characterType.Melee,
+    effects: [effect.Great太, effect.HalfElf, effect.HighLordPower],
+    attack: {
+      BasicAttack: { modifier: 200, speed: 200 },
+      CritAttack: { modifier: 300, speed: 200 },
+      Skill: { modifier: 1500, speed: 119.9, attackModifier: { CritRate: { value: 100 } } },
+    },
+  },
+  Rosie: {
+    key: "Rosie",
+    new: true,
+    img: "/character/Rosie.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.BlessingoftheDead, effect.HolyPrayer, effect.JudgmentofMoonlight],
+    attack: {
+      BasicAttack: { modifier: 400, speed: 200 },
+      CritAttack: { modifier: 700, speed: 200 },
+      Skill: { modifier: 2800, speed: 119.9 },
     },
   },
 };

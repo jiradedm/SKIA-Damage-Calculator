@@ -174,6 +174,11 @@ const effectKeys = [
   "Masterpiece",
   "GoldenOpportunity",
   "LuckyVicky",
+  "Great太",
+  "HalfElf",
+  "BlessingoftheDead",
+  "HolyPrayer",
+  "JudgmentofMoonlight",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1614,5 +1619,51 @@ export const effect: Record<EffectKey, Effect> = {
       { stat: stat.CritRate, value: 24 },
       { stat: stat.FinalAccuracy, value: 24 },
     ],
+  },
+  Great太: {
+    key: "Great太",
+    name: "Great (太)",
+    img: "/effect/Great (太).webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalWeaknessDamage, value: 24 },
+    ],
+  },
+  HalfElf: {
+    key: "HalfElf",
+    name: "Half-Elf",
+    img: "/effect/Half-Elf.webp",
+    target: "Team",
+    stats: [{ stat: stat.CritModifier, value: 50 }],
+  },
+  BlessingoftheDead: {
+    key: "BlessingoftheDead",
+    name: "Blessing of the Dead",
+    img: "/effect/Blessing of the Dead.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalCritDamage, value: 24 },
+      { stat: stat.FinalBonusDamage, value: 24 },
+    ],
+  },
+  HolyPrayer: {
+    key: "HolyPrayer",
+    name: "Holy Prayer",
+    img: "/effect/Holy Prayer.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.CritRate, value: 24 },
+    ],
+  },
+  JudgmentofMoonlight: {
+    key: "JudgmentofMoonlight",
+    name: "Judgment of Moonlight",
+    img: "/effect/Judgment of Moonlight.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.ReductionRate, value: 24 }],
   },
 };
