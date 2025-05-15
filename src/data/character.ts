@@ -193,6 +193,8 @@ export const characterKeys = [
   "Vicky",
   "HighLordTeo",
   "Rosie",
+  "Restia",
+  "UndercoverEspada",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2693,7 +2695,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   HighLordTeo: {
     key: "HighLordTeo",
-    new: true,
     img: "/character/High Lord Teo.webp",
     rarity: rarity.HighLord,
     type: characterType.Melee,
@@ -2706,7 +2707,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Rosie: {
     key: "Rosie",
-    new: true,
     img: "/character/Rosie.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -2715,6 +2715,32 @@ export const character: Record<CharacterKey, Character> = {
       BasicAttack: { modifier: 400, speed: 200 },
       CritAttack: { modifier: 700, speed: 200 },
       Skill: { modifier: 2800, speed: 119.9 },
+    },
+  },
+  Restia: {
+    key: "Restia",
+    new: true,
+    img: "/character/Restia.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.ShelteredFlower],
+    attack: {
+      BasicAttack: { modifier: 300, speed: 149.93 },
+      CritAttack: { modifier: 950, speed: 200, cutCooldown: 2 },
+      Skill: { modifier: 0, speed: 200 },
+    },
+  },
+  UndercoverEspada: {
+    key: "UndercoverEspada",
+    new: true,
+    img: "/character/Undercover Espada.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.PurifyingShot, effect.MagicNeutralizer],
+    attack: {
+      BasicAttack: { modifier: 300, speed: 149.93 },
+      CritAttack: { modifier: 850, speed: 200 },
+      Skill: { modifier: 3000, speed: 119.9 },
     },
   },
 };

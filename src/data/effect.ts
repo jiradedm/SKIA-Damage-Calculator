@@ -179,6 +179,9 @@ const effectKeys = [
   "BlessingoftheDead",
   "HolyPrayer",
   "JudgmentofMoonlight",
+  "ShelteredFlower",
+  "PurifyingShot",
+  "MagicNeutralizer",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1665,5 +1668,32 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Judgment of Moonlight.webp",
     target: "Enemy",
     stats: [{ stat: stat.ReductionRate, value: 24 }],
+  },
+  ShelteredFlower: {
+    key: "ShelteredFlower",
+    name: "Sheltered Flower",
+    img: "/effect/Sheltered Flower.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.FinalWeaknessDamage, value: 24 },
+      { stat: stat.BonusDamageRate, value: 24 },
+    ],
+  },
+  PurifyingShot: {
+    key: "PurifyingShot",
+    name: "Purifying Shot",
+    img: "/effect/Purifying Shot.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.FinalAccuracy, value: 24 },
+      { stat: stat.FinalDamage, value: 30 },
+    ],
+  },
+  MagicNeutralizer: {
+    key: "MagicNeutralizer",
+    name: "Magic Neutralizer",
+    img: "/effect/Magic Neutralizer.webp",
+    target: "Self",
+    stats: [{ stat: stat.CritRate, value: 24 }],
   },
 };
