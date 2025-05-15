@@ -2737,10 +2737,12 @@ export const character: Record<CharacterKey, Character> = {
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.PurifyingShot, effect.MagicNeutralizer],
+    applyStatusAilments: [{ status: statusAilment.EnemyDisintegrated, uptime: 1 }],
     attack: {
       BasicAttack: { modifier: 300, speed: 149.93 },
       CritAttack: { modifier: 850, speed: 200 },
       Skill: { modifier: 3000, speed: 119.9 },
+      DoT: { modifier: 20, speed: 100 },
     },
   },
 };
