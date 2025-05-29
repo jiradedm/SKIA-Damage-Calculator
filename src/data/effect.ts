@@ -182,6 +182,9 @@ const effectKeys = [
   "ShelteredFlower",
   "PurifyingShot",
   "MagicNeutralizer",
+  "MagicFlow",
+  "CrystalofMagicStudies",
+  "ListofForbiddenBooks",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1695,5 +1698,29 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Magic Neutralizer.webp",
     target: "Self",
     stats: [{ stat: stat.CritRate, value: 24 }],
+  },
+  MagicFlow: {
+    key: "MagicFlow",
+    name: "Magic Flow",
+    img: "/effect/Magic Flow.webp",
+    target: "Self",
+    stats: [{ stat: stat.CritRate, value: 24 }],
+  },
+  CrystalofMagicStudies: {
+    key: "CrystalofMagicStudies",
+    name: "Crystal of Magic Studies",
+    img: "/effect/Crystal of Magic Studies.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.FinalCritDamage, value: 24 },
+      { stat: stat.FinalWeaknessDamage, value: 24 },
+    ],
+  },
+  ListofForbiddenBooks: {
+    key: "ListofForbiddenBooks",
+    name: "List of Forbidden Books",
+    img: "/effect/List of Forbidden Books.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.FinalEvasion, value: 60 }],
   },
 };

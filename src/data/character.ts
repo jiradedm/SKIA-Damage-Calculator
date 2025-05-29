@@ -195,6 +195,7 @@ export const characterKeys = [
   "Rosie",
   "Restia",
   "UndercoverEspada",
+  "Alph",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2719,7 +2720,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Restia: {
     key: "Restia",
-    new: true,
     img: "/character/Restia.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -2732,7 +2732,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   UndercoverEspada: {
     key: "UndercoverEspada",
-    new: true,
     img: "/character/Undercover Espada.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -2743,6 +2742,19 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: { modifier: 850, speed: 200 },
       Skill: { modifier: 3000, speed: 119.9 },
       DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  Alph: {
+    key: "Alph",
+    new: true,
+    img: "/character/Alph.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Support,
+    effects: [effect.MagicFlow, effect.CrystalofMagicStudies, effect.ListofForbiddenBooks],
+    attack: {
+      BasicAttack: { modifier: 600, speed: 200 },
+      CritAttack: { modifier: 850, speed: 200 },
+      Skill: { modifier: 4000, speed: 149.93, attackModifier: { CritRate: { value: 100 } } },
     },
   },
 };
