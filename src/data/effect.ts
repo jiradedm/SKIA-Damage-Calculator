@@ -185,6 +185,14 @@ const effectKeys = [
   "MagicFlow",
   "CrystalofMagicStudies",
   "ListofForbiddenBooks",
+  "Mariner",
+  "AnchorofJudgment",
+  "BlueButterfly",
+  "Cosplay",
+  "ValkyriesPotential",
+  "CelestialLight",
+  "CrimsonComet",
+  "GloriousValkyrie",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1722,5 +1730,71 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/List of Forbidden Books.webp",
     target: "Enemy",
     stats: [{ stat: stat.FinalEvasion, value: 60 }],
+  },
+  Mariner: {
+    key: "Mariner",
+    name: "Mariner",
+    img: "/effect/Mariner.webp",
+    target: "Self",
+    stats: [{ stat: stat.FinalCritDamage, value: 24 }],
+  },
+  AnchorofJudgment: {
+    key: "AnchorofJudgment",
+    name: "Anchor of Judgment",
+    img: "/effect/Anchor of Judgment.webp",
+    target: "Enemy",
+    stats: [
+      { stat: stat.FinalDefense, value: 30 },
+      { stat: stat.FinalDamage, value: 30 },
+    ],
+  },
+  BlueButterfly: {
+    key: "BlueButterfly",
+    name: "Blue Butterfly",
+    img: "/effect/Blue Butterfly.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.BonusDamageRate, value: 24 },
+      { stat: stat.FinalBonusDamage, value: 24 },
+    ],
+  },
+  Cosplay: {
+    key: "Cosplay",
+    name: "Cosplay",
+    img: "/effect/Cosplay.webp",
+    target: "Team",
+    characterTypeRestricted: "Ranged",
+    stats: [{ stat: stat.CooldownDecrease, value: 10 }],
+  },
+  ValkyriesPotential: {
+    key: "ValkyriesPotential",
+    name: "Valkyrie's Potential",
+    img: "/effect/Valkyrie's Potential.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAccuracy, value: 100 },
+      { stat: stat.AttackSpeed, value: 24 },
+    ],
+  },
+  CelestialLight: {
+    key: "CelestialLight",
+    name: "Celestial Light",
+    img: "/effect/Celestial Light.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalBonusDamage, value: 24 }],
+  },
+  CrimsonComet: {
+    key: "CrimsonComet",
+    name: "Crimson Comet",
+    img: "/effect/Crimson Comet.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.CritResist, value: 24 }],
+  },
+  GloriousValkyrie: {
+    key: "GloriousValkyrie",
+    name: "Glorious Valkyrie",
+    img: "/effect/Glorious Valkyrie.webp",
+    target: "Team",
+    stats: [{ stat: stat.CritRate, value: 24 }],
   },
 };

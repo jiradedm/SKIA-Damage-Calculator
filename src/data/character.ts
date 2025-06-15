@@ -196,6 +196,8 @@ export const characterKeys = [
   "Restia",
   "UndercoverEspada",
   "Alph",
+  "HelleniaSwimsuit",
+  "MarinerBiya",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2746,7 +2748,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Alph: {
     key: "Alph",
-    new: true,
     img: "/character/Alph.webp",
     rarity: rarity.Legendary,
     type: characterType.Support,
@@ -2755,6 +2756,32 @@ export const character: Record<CharacterKey, Character> = {
       BasicAttack: { modifier: 600, speed: 200 },
       CritAttack: { modifier: 850, speed: 200 },
       Skill: { modifier: 4000, speed: 149.93, attackModifier: { CritRate: { value: 100 } } },
+    },
+  },
+  MarinerBiya: {
+    key: "MarinerBiya",
+    new: true,
+    img: "/character/Mariner Biya.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.Mariner, effect.AnchorofJudgment, effect.BlueButterfly, effect.Cosplay],
+    attack: {
+      BasicAttack: { modifier: 500, speed: 200 },
+      CritAttack: { modifier: 500, speed: 200 },
+      Skill: { modifier: 4000, speed: 149.93 },
+    },
+  },
+  HelleniaSwimsuit: {
+    key: "HelleniaSwimsuit",
+    new: true,
+    img: "/character/Hellenia (Swimsuit).webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [effect.ValkyriesPotential, effect.CelestialLight, effect.CrimsonComet, effect.GloriousValkyrie],
+    attack: {
+      BasicAttack: { modifier: 400, speed: 200 },
+      CritAttack: { modifier: 700, speed: 200 },
+      Skill: { modifier: 3500, speed: 149.93 },
     },
   },
 };
