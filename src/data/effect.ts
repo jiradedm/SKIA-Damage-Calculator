@@ -1490,7 +1490,7 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Imperial Draconic Wrath.webp",
     target: "Team",
     stats: [
-      { stat: stat.CooldownDecrease2, value: 20 },
+      { stat: stat.CooldownDecrease, value: 20 },
       { stat: stat.SkillModifier, value: 30 },
     ],
   },

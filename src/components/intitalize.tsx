@@ -495,7 +495,7 @@ const calculateDamage = (
         { ...stat.FinalDamage, value: modifier.FinalDamage },
         { ...stat.FinalDamage2, value: modifier.FinalDamage2 },
         { ...stat.CooldownDecrease, value: modifier.CooldownDecrease },
-        { ...stat.CooldownDecrease2, value: modifier.CooldownDecrease2 },
+        // { ...stat.CooldownDecrease2, value: modifier.CooldownDecrease2 },
       ],
     },
     {
@@ -661,12 +661,15 @@ const getTotalEffectStats = (effects: Effect[]) => {
       const index = effectStats.findIndex(
         (stat_) => stat_.stat.key === effectStat.stat.key && effect.target === stat_.target,
       );
-      if (index !== -1) {
+
+      if (index === -1 || effectStat.stat.isStacked) {
+        effectStats.push({ ...effectStat, target: effect.target });
+      } else {
         const exist = effectStats[index];
         if (exist.value < effectStat.value) {
           effectStats[index] = { ...effectStat, target: effect.target };
         }
-      } else effectStats.push({ ...effectStat, target: effect.target });
+      }
     });
   });
 

@@ -114,6 +114,7 @@ export interface Stat {
   noFormat?: boolean;
   isToggle?: boolean;
   isNotAdd?: boolean;
+  isStacked?: boolean;
 }
 
 export const foodBuff = {
@@ -175,7 +176,7 @@ export const stat: StatData = {
   SupportTypeAccuracy: { key: "SupportTypeAccuracy" },
   SupportTypeCritRate: { key: "SupportTypeCritRate" },
   SupportTypeWeaknessRate: { key: "SupportTypeWeaknessRate" },
-  CooldownDecrease: { key: "CooldownDecrease" },
+  CooldownDecrease: { key: "CooldownDecrease", isStacked: true },
   CooldownDecrease2: { key: "CooldownDecrease2" },
   // ENEMY
   EnemyDefense: { key: "EnemyDefense", isFlat: true },
