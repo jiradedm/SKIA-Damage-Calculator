@@ -198,6 +198,8 @@ export const characterKeys = [
   "Alph",
   "HelleniaSwimsuit",
   "MarinerBiya",
+  "HighLordArianrhod",
+  "Radius",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -2760,7 +2762,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   MarinerBiya: {
     key: "MarinerBiya",
-    new: true,
     img: "/character/Mariner Biya.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -2773,7 +2774,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   HelleniaSwimsuit: {
     key: "HelleniaSwimsuit",
-    new: true,
     img: "/character/Hellenia (Swimsuit).webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -2782,6 +2782,39 @@ export const character: Record<CharacterKey, Character> = {
       BasicAttack: { modifier: 400, speed: 200 },
       CritAttack: { modifier: 700, speed: 200 },
       Skill: { modifier: 3500, speed: 149.93 },
+    },
+  },
+  HighLordArianrhod: {
+    key: "HighLordArianrhod",
+    new: true,
+    img: "/character/High Lord Arianrhod.webp",
+    rarity: rarity.HighLord,
+    type: characterType.Melee,
+    effects: [effect.RevelationofElena, effect.DimensionalShackles, effect.HighLordPower],
+    attack: {
+      BasicAttack: { modifier: 100, speed: 200 },
+      CritAttack: { modifier: 300, cutCooldown: 5, speed: 200 },
+      Skill: { modifier: 3500, speed: 149.93 },
+    },
+  },
+  Radius: {
+    key: "Radius",
+    new: true,
+    img: "/character/Radius.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.FodinasStorm, effect.EndlessThunderbolts, effect.BlueThunderstorm],
+    applyStatusAilments: [{ status: statusAilment.EnemyCursed, uptime: 1 }],
+    attack: {
+      BasicAttack: { modifier: 300, speed: 149.93 },
+      CritAttack: { modifier: 800, cutCooldown: 2, speed: 149.93 },
+      Skill: {
+        modifier: 2500,
+        speed: 119.9,
+        attackModifier: {
+          FinalDamage: { value: 40, applyCondition: ["EnemyBurned", "EnemyPoisoned", "EnemyFrostbitten"] },
+        },
+      },
     },
   },
 };

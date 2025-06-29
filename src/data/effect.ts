@@ -193,6 +193,11 @@ const effectKeys = [
   "CelestialLight",
   "CrimsonComet",
   "GloriousValkyrie",
+  "RevelationofElena",
+  "DimensionalShackles",
+  "FodinasStorm",
+  "EndlessThunderbolts",
+  "BlueThunderstorm",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1796,5 +1801,51 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Glorious Valkyrie.webp",
     target: "Team",
     stats: [{ stat: stat.CritRate, value: 24 }],
+  },
+  RevelationofElena: {
+    key: "RevelationofElena",
+    name: "Revelation of Elena",
+    img: "/effect/Revelation of Elena.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalBonusDamage, value: 24 },
+    ],
+  },
+  DimensionalShackles: {
+    key: "DimensionalShackles",
+    name: "Dimensional Shackles",
+    img: "/effect/Dimensional Shackles.webp",
+    target: "Team",
+    stats: [{ stat: stat.SkillModifier, value: 50 }],
+  },
+  FodinasStorm: {
+    key: "FodinasStorm",
+    name: "Fodina's Storm",
+    img: "/effect/Fodina's Storm.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.AttackSpeed, value: 24 },
+      { stat: stat.CritRate, value: 24 },
+    ],
+  },
+  EndlessThunderbolts: {
+    key: "EndlessThunderbolts",
+    name: "Endless Thunderbolts",
+    img: "/effect/Endless Thunderbolts.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalBonusDamage, value: 24 },
+    ],
+  },
+  BlueThunderstorm: {
+    key: "BlueThunderstorm",
+    name: "Blue Thunderstorm",
+    img: "/effect/Blue Thunderstorm.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.ReductionRate, value: 24 }],
   },
 };
