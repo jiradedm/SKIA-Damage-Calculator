@@ -198,6 +198,7 @@ const effectKeys = [
   "FodinasStorm",
   "EndlessThunderbolts",
   "BlueThunderstorm",
+  "Swimsuit",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1847,5 +1848,15 @@ export const effect: Record<EffectKey, Effect> = {
     img: "/effect/Blue Thunderstorm.webp",
     target: "Enemy",
     stats: [{ stat: stat.ReductionRate, value: 24 }],
+  },
+  Swimsuit: {
+    key: "Swimsuit",
+    name: "Swimsuit",
+    img: "/effect/Swimsuit.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.CritRate, value: 20 },
+      { stat: stat.FinalAttack, value: 25 },
+    ],
   },
 };

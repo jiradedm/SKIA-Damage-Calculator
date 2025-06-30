@@ -1810,14 +1810,15 @@ export const character: Record<CharacterKey, Character> = {
   },
   Biya: {
     key: "Biya",
+    updated: true,
     img: "/character/Biya.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
-    effects: [effect.CritRate5, effect.KeenAttack5],
+    effects: [effect.Swimsuit, effect.KeenAttack5],
     attack: {
-      BasicAttack: { modifier: 275, speed: 149.93 },
-      CritAttack: { modifier: 425, speed: 93.72 },
-      Skill: { modifier: 1250, speed: 119.9 },
+      BasicAttack: { modifier: 300, speed: 149.93 },
+      CritAttack: { modifier: 900, speed: 93.72 },
+      Skill: { modifier: 2500, speed: 119.9 },
     },
   },
   ShaneSwimsuit: {
