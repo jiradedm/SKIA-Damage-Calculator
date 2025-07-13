@@ -200,6 +200,8 @@ export const characterKeys = [
   "MarinerBiya",
   "HighLordArianrhod",
   "Radius",
+  "DemonKingofSalvation",
+  "JupySwimsuit",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -479,14 +481,15 @@ export const character: Record<CharacterKey, Character> = {
   },
   DokjaKim: {
     key: "DokjaKim",
+    updated: true,
     img: "/character/Dokja Kim.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
-    effects: [effect.FierceSpirit5, effect.WhitePureStarEnergy, effect.Electrification],
+    effects: [effect.WhitePureStarEnergy, effect.AttackSpeed5],
     attack: {
-      BasicAttack: { modifier: 250, speed: 136.2 },
-      CritAttack: { modifier: 300, speed: 125 },
-      Skill: { modifier: 1250, speed: 125 },
+      BasicAttack: { modifier: 500, speed: 136.2 },
+      CritAttack: { modifier: 990, speed: 125 },
+      Skill: { modifier: 3200, speed: 125 },
     },
   },
   Eileene: {
@@ -610,14 +613,15 @@ export const character: Record<CharacterKey, Character> = {
   },
   HuiwonJeong: {
     key: "HuiwonJeong",
+    updated: true,
     img: "/character/Huiwon Jeong.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.TimeOfJudgment],
     applyStatusAilments: [{ status: statusAilment.EnemyBurned, uptime: 1 }],
     attack: {
-      BasicAttack: { modifier: 125, speed: 176.37 },
-      CritAttack: { modifier: 100, speed: 136.24 },
+      BasicAttack: { modifier: 500, speed: 176.37 },
+      CritAttack: { modifier: 650, speed: 136.24 },
       Skill: { modifier: 0, speed: 93.72 },
       DoT: { modifier: 40, speed: 500 },
     },
@@ -1345,16 +1349,17 @@ export const character: Record<CharacterKey, Character> = {
   },
   JunghyeokYu: {
     key: "JunghyeokYu",
+    updated: true,
     img: "/character/Junghyeok Yu.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
     effects: [effect.SkySplitter],
-    applyStatusAilments: [{ status: statusAilment.EnemyStunned, uptime: 1 }],
+    applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
     attack: {
-      BasicAttack: { modifier: 200, speed: 176 },
-      CritAttack: { modifier: 250, speed: 157.98 },
+      BasicAttack: { modifier: 500, speed: 176 },
+      CritAttack: { modifier: 990, speed: 157.98 },
       Skill: {
-        modifier: 1250,
+        modifier: 3200,
         speed: 93.72,
         attackModifier: { FinalDamage: { value: 50, applyCondition: ["EnemyTypeRanged"] } },
       },
@@ -1362,14 +1367,15 @@ export const character: Record<CharacterKey, Character> = {
   },
   SangahYu: {
     key: "SangahYu",
+    updated: true,
     img: "/character/Sangah Yu.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
     effects: [effect.AgileMovement],
     attack: {
-      BasicAttack: { modifier: 200, speed: 115 },
-      CritAttack: { modifier: 200, speed: 107.18 },
-      Skill: { modifier: 700, speed: 85.69 },
+      BasicAttack: { modifier: 500, speed: 115 },
+      CritAttack: { modifier: 800, speed: 107.18 },
+      Skill: { modifier: 2100, speed: 85.69 },
     },
   },
   BaiJiao: {
@@ -1810,7 +1816,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Biya: {
     key: "Biya",
-    updated: true,
     img: "/character/Biya.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -2787,7 +2792,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   HighLordArianrhod: {
     key: "HighLordArianrhod",
-    new: true,
     img: "/character/High Lord Arianrhod.webp",
     rarity: rarity.HighLord,
     type: characterType.Melee,
@@ -2800,7 +2804,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   Radius: {
     key: "Radius",
-    new: true,
     img: "/character/Radius.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -2816,6 +2819,34 @@ export const character: Record<CharacterKey, Character> = {
           FinalDamage: { value: 40, applyCondition: ["EnemyBurned", "EnemyPoisoned", "EnemyFrostbitten"] },
         },
       },
+    },
+  },
+  DemonKingofSalvation: {
+    key: "DemonKingofSalvation",
+    new: true,
+    img: "/character/DemonKingofSalvation.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.UglyKing, effect.Fabled, effect.WillofSacrifice, effect.ProbabilityControl, effect.WitheredForce],
+    attack: {
+      BasicAttack: { modifier: 400, speed: 200 },
+      CritAttack: { modifier: 920, speed: 200 },
+      Skill: { modifier: 3200, speed: 149.93 },
+    },
+  },
+  JupySwimsuit: {
+    key: "JupySwimsuit",
+    new: true,
+    img: "/character/JupySwimsuit.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.SnipingPosition, effect["Focus!"]],
+    applyStatusAilments: [{ status: statusAilment.EnemyDisintegrated, uptime: 1 }],
+    attack: {
+      BasicAttack: { modifier: 800, speed: 200 },
+      CritAttack: { modifier: 900, speed: 200 },
+      Skill: { modifier: 0, speed: 200 },
+      DoT: { modifier: 20, speed: 100 },
     },
   },
 };

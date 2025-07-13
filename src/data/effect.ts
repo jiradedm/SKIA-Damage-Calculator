@@ -16,7 +16,6 @@ const effectKeys = [
   "Focus5",
   "FierceSpirit5",
   "WhitePureStarEnergy",
-  "Electrification",
   "DefenseDecrease5",
   "KeenAttack5",
   "TimeOfJudgment",
@@ -199,6 +198,12 @@ const effectKeys = [
   "EndlessThunderbolts",
   "BlueThunderstorm",
   "Swimsuit",
+  "UglyKing",
+  "Fabled",
+  "WillofSacrifice",
+  "ProbabilityControl",
+  "SnipingPosition",
+  "Focus!",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -315,17 +320,10 @@ export const effect: Record<EffectKey, Effect> = {
     key: "WhitePureStarEnergy",
     name: "White Pure Star Energy",
     img: "/effect/White Pure Star Energy.webp",
-    target: "Self",
-    stats: [{ stat: stat.AttackSpeed, value: 20 }],
-  },
-  Electrification: {
-    key: "Electrification",
-    name: "Electrification",
-    img: "/effect/Electrification.webp",
-    target: "Self",
+    target: "Team",
     stats: [
-      { stat: stat.CritRate, value: 20 },
-      { stat: stat.FinalAccuracy, value: 50 },
+      { stat: stat.BonusDamageRate, value: 24 },
+      { stat: stat.FinalWeaknessDamage, value: 24 },
     ],
   },
   DefenseDecrease5: {
@@ -470,8 +468,11 @@ export const effect: Record<EffectKey, Effect> = {
     key: "SkySplitter",
     name: "Sky Splitter",
     img: "/effect/Sky Splitter.webp",
-    target: "Self",
-    stats: [{ stat: stat.CritRate, value: 20 }],
+    target: "Team",
+    stats: [
+      { stat: stat.CritDamage, value: 24 },
+      { stat: stat.FinalAccuracy, value: 24 },
+    ],
   },
   PrecisionStrike5: {
     key: "PrecisionStrike5",
@@ -1857,6 +1858,57 @@ export const effect: Record<EffectKey, Effect> = {
     stats: [
       { stat: stat.CritRate, value: 20 },
       { stat: stat.FinalAttack, value: 25 },
+    ],
+  },
+  UglyKing: {
+    key: "UglyKing",
+    name: "Ugly King",
+    img: "/effect/UglyKing.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.CritRate, value: 24 },
+    ],
+  },
+  Fabled: {
+    key: "Fabled",
+    name: "Fabled",
+    img: "/effect/Fabled.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalCritDamage, value: 24 }],
+  },
+  WillofSacrifice: {
+    key: "WillofSacrifice",
+    name: "Will of Sacrifice",
+    img: "/effect/WillofSacrifice.webp",
+    target: "Self",
+    stats: [{ stat: stat.FinalCritDamage, value: 24 }],
+  },
+  ProbabilityControl: {
+    key: "ProbabilityControl",
+    name: "Probability Control",
+    img: "/effect/ProbabilityControl.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.FinalDamage, value: 30 }],
+  },
+  SnipingPosition: {
+    key: "SnipingPosition",
+    name: "Sniping Position",
+    img: "/effect/SnipingPosition.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalAccuracy, value: 100 },
+    ],
+  },
+  "Focus!": {
+    key: "Focus!",
+    name: "Focus!",
+    img: "/effect/Focus!.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.CritRate, value: 24 },
     ],
   },
 };
