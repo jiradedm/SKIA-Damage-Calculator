@@ -1704,7 +1704,7 @@ export const effect: Record<EffectKey, Effect> = {
     target: "Team",
     stats: [
       { stat: stat.FinalAccuracy, value: 24 },
-      { stat: stat.FinalDamage, value: 30 },
+      { stat: stat.FinalDamage2, value: 30 },
     ],
   },
   MagicNeutralizer: {
