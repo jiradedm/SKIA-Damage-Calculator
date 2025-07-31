@@ -85,7 +85,7 @@ const Menu = () => {
         </div>
       </div>
       <div className="w-full text-center text-white">
-        {`*i quit : `}
+        {`*i quit* -> `}
         <a className="hover:underline" target="_blank" href="https://github.com/jiradedm/SKIA-Damage-Calculator">
           source_code
         </a>
