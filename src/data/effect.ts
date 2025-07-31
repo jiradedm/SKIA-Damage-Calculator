@@ -204,6 +204,14 @@ const effectKeys = [
   "ProbabilityControl",
   "SnipingPosition",
   "Focus!",
+  "Author",
+  "AbyssalBlackFlameDragon",
+  "Plagiarism",
+  "Prophets",
+  "GuardianoftheSanctuary",
+  "ButterflyoftheBlissfulNight",
+  "DarknessTraversingStarlight",
+  "StarIlluminatingBellRing",
 ] as const;
 
 export type EffectKey = (typeof effectKeys)[number];
@@ -1909,6 +1917,82 @@ export const effect: Record<EffectKey, Effect> = {
     stats: [
       { stat: stat.FinalAttack, value: 30 },
       { stat: stat.CritRate, value: 24 },
+    ],
+  },
+  Author: {
+    key: "Author",
+    name: "Author",
+    img: "/effect/Author.webp",
+    target: "Self",
+    stats: [
+      { stat: stat.FinalAttack, value: 30 },
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.BonusDamageRate, value: 24 },
+    ],
+  },
+  AbyssalBlackFlameDragon: {
+    key: "AbyssalBlackFlameDragon",
+    name: "Abyssal Black Flame Dragon",
+    img: "/effect/AbyssalBlackFlameDragon.webp",
+    target: "Team",
+    stats: [{ stat: stat.FinalBonusDamage, value: 24 }],
+  },
+  Plagiarism: {
+    key: "Plagiarism",
+    name: "Plagiarism",
+    img: "/effect/Plagiarism.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.FinalEvasion, value: 60 }],
+  },
+  Prophets: {
+    key: "Prophets",
+    name: "Prophets",
+    img: "/effect/Prophets.webp",
+    target: "Self",
+    stats: [{ stat: stat.FinalCritDamage, value: 24 }],
+  },
+  GuardianoftheSanctuary: {
+    key: "GuardianoftheSanctuary",
+    name: "Guardian of the Sanctuary",
+    img: "/effect/GuardianoftheSanctuary.webp",
+    target: "Self",
+    stats: [
+      {
+        stat: stat.FinalAttack,
+        value: 25,
+        conditionType: "Team",
+        condition: [{ value: 25, maxApply: 3, stat: "TeamRangedUnit" }],
+      },
+      {
+        stat: stat.CritRate,
+        value: 25,
+        conditionType: "Team",
+        condition: [{ value: 25, maxApply: 3, stat: "TeamRangedUnit" }],
+      },
+    ],
+  },
+  ButterflyoftheBlissfulNight: {
+    key: "ButterflyoftheBlissfulNight",
+    name: "Butterfly of the Blissful Night",
+    img: "/effect/ButterflyoftheBlissfulNight.webp",
+    target: "Enemy",
+    stats: [{ stat: stat.CritResist, value: 24 }],
+  },
+  DarknessTraversingStarlight: {
+    key: "DarknessTraversingStarlight",
+    name: "Darkness-Traversing Starlight",
+    img: "/effect/DarknessTraversingStarlight.webp",
+    target: "Self",
+    stats: [{ stat: stat.AttackSpeed, value: 24 }],
+  },
+  StarIlluminatingBellRing: {
+    key: "StarIlluminatingBellRing",
+    name: "Star-Illuminating Bell Ring",
+    img: "/effect/StarIlluminatingBellRing.webp",
+    target: "Team",
+    stats: [
+      { stat: stat.CritRate, value: 24 },
+      { stat: stat.FinalCritDamage, value: 24 },
     ],
   },
 };

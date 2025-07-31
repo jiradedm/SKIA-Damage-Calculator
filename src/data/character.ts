@@ -202,6 +202,8 @@ export const characterKeys = [
   "Radius",
   "DemonKingofSalvation",
   "JupySwimsuit",
+  "SuyeongHan",
+  "Blanc",
 ] as const;
 
 export type CharacterKey = (typeof characterKeys)[number];
@@ -481,7 +483,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   DokjaKim: {
     key: "DokjaKim",
-    updated: true,
     img: "/character/Dokja Kim.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -613,7 +614,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   HuiwonJeong: {
     key: "HuiwonJeong",
-    updated: true,
     img: "/character/Huiwon Jeong.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1349,7 +1349,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   JunghyeokYu: {
     key: "JunghyeokYu",
-    updated: true,
     img: "/character/Junghyeok Yu.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -1367,7 +1366,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   SangahYu: {
     key: "SangahYu",
-    updated: true,
     img: "/character/Sangah Yu.webp",
     rarity: rarity.Legendary,
     type: characterType.Ranged,
@@ -2823,7 +2821,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   DemonKingofSalvation: {
     key: "DemonKingofSalvation",
-    new: true,
     img: "/character/DemonKingofSalvation.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -2836,7 +2833,6 @@ export const character: Record<CharacterKey, Character> = {
   },
   JupySwimsuit: {
     key: "JupySwimsuit",
-    new: true,
     img: "/character/JupySwimsuit.webp",
     rarity: rarity.Legendary,
     type: characterType.Melee,
@@ -2847,6 +2843,38 @@ export const character: Record<CharacterKey, Character> = {
       CritAttack: { modifier: 900, speed: 200 },
       Skill: { modifier: 0, speed: 200 },
       DoT: { modifier: 20, speed: 100 },
+    },
+  },
+  SuyeongHan: {
+    key: "SuyeongHan",
+    new: true,
+    img: "/character/SuyeongHan.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Melee,
+    effects: [effect.Author, effect.AbyssalBlackFlameDragon, effect.Plagiarism, effect.Prophets],
+    applyStatusAilments: [{ status: statusAilment.EnemyBleeding, uptime: 1 }],
+    attack: {
+      BasicAttack: { modifier: 400, speed: 149.93 },
+      CritAttack: { modifier: 900, speed: 149.93 },
+      Skill: { modifier: 4000, speed: 149.93 },
+    },
+  },
+  Blanc: {
+    key: "Blanc",
+    new: true,
+    img: "/character/Blanc.webp",
+    rarity: rarity.Legendary,
+    type: characterType.Ranged,
+    effects: [
+      effect.GuardianoftheSanctuary,
+      effect.ButterflyoftheBlissfulNight,
+      effect.DarknessTraversingStarlight,
+      effect.StarIlluminatingBellRing,
+    ],
+    attack: {
+      BasicAttack: { modifier: 600, speed: 149.93 },
+      CritAttack: { modifier: 1150, speed: 149.93 },
+      Skill: { modifier: 3500, speed: 119.9 },
     },
   },
 };
